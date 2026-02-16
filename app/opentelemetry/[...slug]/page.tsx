@@ -329,6 +329,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           content={mainContent}
           authorDetails={authorDetails}
           authors={content.authors?.map((author) => author?.key) || []}
+          markdownContent={content.content}
           toc={toc}
           navItems={hubContext.items}
           currentHubPath={hubContext.pathKey}

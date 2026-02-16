@@ -17,9 +17,11 @@ import type { HubPathMeta, LayoutProps } from './open-telemetry-hub/types'
 import { normalizeRoute } from './open-telemetry-hub/navigation'
 import { ExternalLink } from 'lucide-react'
 import { RegionProvider } from '@/components/Region/RegionContext'
+import OpenInAI from '@/components/OpenInAI'
 
 const LANGUAGES_CATEGORY_KEY = 'Language and Frameworks'
 const MAIN_CONTENT_ID = 'opentelemetry-hub-main'
+const ARTICLE_COPY_SOURCE_ID = 'opentelemetry-hub-copy-source'
 const MOBILE_TRIGGER_ID = 'ot-hub-mobile-trigger'
 const MOBILE_OVERLAY_ID = 'ot-hub-mobile-overlay'
 
@@ -99,6 +101,7 @@ export default function OpenTelemetryHubLayout({
   authorDetails,
   authors,
   children,
+  markdownContent,
   toc,
   navItems,
   currentHubPath,
@@ -209,8 +212,20 @@ export default function OpenTelemetryHubLayout({
             <div className="doc-content md:px-0 lg:px-4">
               {(showSidebar || hasToc) && <div id={MOBILE_TRIGGER_ID} className="mb-4 lg:hidden" />}
 
-              <article className="prose prose-slate max-w-none px-3 py-6 dark:prose-invert">
-                <h1 className="text-3xl font-bold">{title}</h1>
+              <article
+                id={ARTICLE_COPY_SOURCE_ID}
+                className="prose prose-slate max-w-none px-3 py-6 dark:prose-invert"
+              >
+                <div className="not-prose mb-4 flex items-start justify-between gap-2">
+                  <h1 className="m-0 text-3xl font-bold leading-tight">{title}</h1>
+                  <OpenInAI
+                    markdownContent={markdownContent}
+                    pageUrl={currentRoute}
+                    docSlug={content.slug}
+                    copyLabel="Copy markdown"
+                    className="shrink-0"
+                  />
+                </div>
                 {(formattedUpdatedDate || readingTimeText) && (
                   <div className="mb-2 mt-3 flex flex-wrap gap-3 text-xs text-gray-400 lg:hidden">
                     {formattedUpdatedDate && <span>Updated {formattedUpdatedDate}</span>}

@@ -52,6 +52,7 @@ export interface LayoutProps {
   authorDetails: CoreContent<Authors | MDXContent>[]
   authors: string[]
   children: ReactNode
+  markdownContent?: string
   toc: TocItemProps[]
   navItems: HubNavItem[]
   currentHubPath: string

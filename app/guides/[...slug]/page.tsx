@@ -135,6 +135,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           content={mainContent}
           authorDetails={authorDetails}
           authors={authorList}
+          markdownContent={post.body?.raw}
           toc={post.toc}
           navItems={hubContext.items}
           currentHubPath={hubContext.pathKey}
