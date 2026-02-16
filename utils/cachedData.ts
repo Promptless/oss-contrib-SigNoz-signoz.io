@@ -1,6 +1,7 @@
 import { unstable_cache } from 'next/cache'
 import { fetchMDXContentByPath } from './strapi'
 import { transformComparison, transformGuide } from './mdxUtils'
+import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
 
 async function getCachedMDXContent<T>(
   cacheKey: string,
@@ -15,7 +16,7 @@ async function getCachedMDXContent<T>(
     [cacheKey, deploymentStatus],
     {
       tags: ['mdx-content-list', ...tags],
-      revalidate: 3600,
+      revalidate: CMS_REVALIDATE_INTERVAL,
     }
   )
 

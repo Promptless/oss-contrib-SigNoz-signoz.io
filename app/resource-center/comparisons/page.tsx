@@ -1,8 +1,9 @@
 import React from 'react'
 import Comparisons from './Comparisons'
 import { fetchAllComparisonsForPage } from '@/utils/cachedData'
+import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
 
-export const revalidate = 3600
+export const revalidate = CMS_REVALIDATE_INTERVAL
 
 export default async function ComparisonsHome() {
   const comparisons = await fetchAllComparisonsForPage()

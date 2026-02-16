@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { allBlogs, allDocs } from 'contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 import { fetchAllCMSContent } from '@/utils/cmsContent'
+import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
 
 const mapChangeFrequency = (
   frequency: string
@@ -21,7 +22,7 @@ const mapChangeFrequency = (
 }
 
 export const dynamic = 'force-dynamic'
-export const revalidate = 60
+export const revalidate = CMS_REVALIDATE_INTERVAL
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = siteMetadata.siteUrl

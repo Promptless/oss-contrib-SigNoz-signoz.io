@@ -1,6 +1,7 @@
 import { unstable_cache } from 'next/cache'
 import hubConfig from '@/constants/opentelemetry_hub.json'
 import { LEARN_CHAPTER_ORDER } from '@/constants/opentelemetryHub'
+import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
 import { allBlogs } from 'contentlayer/generated'
 import type { Comparison, Guide } from '../types/transformedContent'
 import { fetchAllComparisonsForPage, fetchAllGuidesForPage } from './cachedData'
@@ -279,7 +280,7 @@ async function getCachedHubIndex(): Promise<HubIndex> {
 
   const cachedFn = unstable_cache(fetchAndBuildHubIndex, ['hub-index', deploymentStatus], {
     tags: ['mdx-content-list', 'comparisons-list', 'guides-list'],
-    revalidate: 3600,
+    revalidate: CMS_REVALIDATE_INTERVAL,
   })
 
   const serialized = await cachedFn()

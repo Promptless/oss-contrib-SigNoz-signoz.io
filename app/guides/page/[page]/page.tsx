@@ -1,10 +1,11 @@
 import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { fetchAllGuidesForPage } from '@/utils/cachedData'
+import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
 
 const POSTS_PER_PAGE = 5
 
-export const revalidate = 3600
+export const revalidate = CMS_REVALIDATE_INTERVAL
 export const dynamicParams = true
 
 export const generateStaticParams = async () => {

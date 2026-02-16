@@ -1,8 +1,9 @@
 import React from 'react'
 import Guides from './Guides'
 import { fetchAllGuidesForPage } from '@/utils/cachedData'
+import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
 
-export const revalidate = 3600
+export const revalidate = CMS_REVALIDATE_INTERVAL
 
 export default async function GuidesHome() {
   const guides = await fetchAllGuidesForPage()

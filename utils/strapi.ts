@@ -484,7 +484,6 @@ export const fetchAuthorByKey = async (key: string): Promise<MDXContentByIdApiRe
 
     const response = await fetch(`${API_URL}/api/authors${queryParams}`, {
       next: {
-        // revalidate: 3600, // Same as export const revalidate = 3600; in the page - we need no-store, only one should be specified
         tags: [`authors-${key}`],
       },
       headers: {
@@ -548,7 +547,6 @@ export const fetchAllMDXPaths = async (
 
     const response = await fetch(`${API_URL}/api/${collectionName}${queryParams}`, {
       next: {
-        // revalidate: 3600, // Same as export const revalidate = 3600; in the page - we need no-store, only one should be specified
         tags: [`${collectionName}-paths`],
       },
       headers: {

@@ -3,8 +3,9 @@ import { Metadata } from 'next'
 import { fetchMDXContentByPath, MDXContent } from '@/utils/strapi'
 import { fetchAllComparisonsForPage, fetchAllGuidesForPage } from '@/utils/cachedData'
 import type { Comparison, Guide } from '../../../types/transformedContent'
+import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
 
-export const revalidate = 3600
+export const revalidate = CMS_REVALIDATE_INTERVAL
 export const dynamicParams = true
 
 export const metadata: Metadata = {
