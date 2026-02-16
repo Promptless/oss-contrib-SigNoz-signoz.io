@@ -1,12 +1,10 @@
 import ListLayout from '@/layouts/ListLayoutWithTags'
-import { getCachedGuides } from '@/utils/guidesData'
+import { fetchAllGuidesForPage } from '@/utils/cachedData'
 
 const POSTS_PER_PAGE = 5
 
 export const generateStaticParams = async () => {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const deploymentStatus = isProduction ? 'live' : 'staging'
-  const guides = await getCachedGuides(deploymentStatus)
+  const guides = await fetchAllGuidesForPage()
   const totalPages = Math.ceil(guides.length / POSTS_PER_PAGE)
   const paths = Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }))
 
@@ -14,9 +12,7 @@ export const generateStaticParams = async () => {
 }
 
 export default async function Page({ params }: { params: { page: string } }) {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const deploymentStatus = isProduction ? 'live' : 'staging'
-  const guides = await getCachedGuides(deploymentStatus)
+  const guides = await fetchAllGuidesForPage()
 
   const posts = guides.sort((a: any, b: any) => {
     const aDate = new Date(a.date || a.publishedAt || a.updatedAt || 0).getTime()

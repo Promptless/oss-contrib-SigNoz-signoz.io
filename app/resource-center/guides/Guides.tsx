@@ -7,25 +7,7 @@ import { filterData } from 'app/utils/common'
 import SearchInput from '../Shared/Search'
 import { Frown } from 'lucide-react'
 import SideBar, { GUIDES_TOPICS } from '@/components/SideBar'
-import type { MDXContent } from '@/utils/strapi'
-
-interface HeadingProps {
-  tag: string
-  text: string
-  className?: string
-}
-
-const Heading: React.FC<HeadingProps> = ({ tag, text, className = '' }) => {
-  const Tag = tag as keyof JSX.IntrinsicElements
-  return <Tag className={className}>{text}</Tag>
-}
-
-interface GuidesHeaderProps {
-  title: string
-  description: string
-  searchPlaceholder?: string
-  onSearch: (e) => void
-}
+import type { Guide } from '../../../types/transformedContent'
 
 const GuidesHeader = ({ title, description, searchPlaceholder, onSearch }) => {
   return (
@@ -44,7 +26,7 @@ const GuidesHeader = ({ title, description, searchPlaceholder, onSearch }) => {
   )
 }
 
-export default function Guides({ guides }: { guides?: MDXContent[] }) {
+export default function Guides({ guides }: { guides?: Guide[] }) {
   const posts = allCoreContent(sortPosts(guides as any))
 
   const [activeItem, setActiveItem] = useState(GUIDES_TOPICS.ALL)
@@ -88,12 +70,6 @@ export default function Guides({ guides }: { guides?: MDXContent[] }) {
   const handleSearch = (e) => {
     setSearchQuery(e.target.value)
     setActiveItem(GUIDES_TOPICS.ALL)
-  }
-
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POST_PER_PAGE),
-    pageRoute: 'guide',
   }
 
   return (

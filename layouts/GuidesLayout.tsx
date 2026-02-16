@@ -6,16 +6,10 @@ import type { Authors } from 'contentlayer/generated'
 import ArticleLayout, { TocItemProps } from './ArticleLayout'
 import PageFeedback from '@/components/PageFeedback/PageFeedback'
 import { RegionProvider } from '@/components/Region/RegionContext'
-import { MDXContent } from '@/utils/strapi'
-
-// Extend the Guide type to include CTA fields
-interface GuideContent extends MDXContent {
-  cta_title?: string
-  cta_text?: string
-}
+import { type Guide } from '../types/transformedContent'
 
 interface LayoutProps {
-  content: CoreContent<GuideContent>
+  content: CoreContent<Guide>
   authorDetails: CoreContent<Authors>[]
   authors: string[]
   children: ReactNode

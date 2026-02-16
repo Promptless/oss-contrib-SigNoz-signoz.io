@@ -15,10 +15,12 @@ import PageFeedback from '../../../components/PageFeedback/PageFeedback'
 import React from 'react'
 import GrafanaVsSigNozFloatingCard from '@/components/GrafanaVsSigNoz/GrafanaVsSigNozFloatingCard'
 import Button from '@/components/ui/Button'
-import { fetchMDXContentByPath, MDXContent } from '@/utils/strapi'
-import { getCachedGuides } from '@/utils/guidesData'
+import { fetchMDXContentByPath } from '@/utils/strapi'
+import { fetchAllGuidesForPage } from '@/utils/cachedData'
 import { mdxOptions, transformGuide } from '@/utils/mdxUtils'
+import type { Guide } from '../../../types/transformedContent'
 import { compileMDX } from 'next-mdx-remote/rsc'
+import { CACHE_REVALIDATE_SECONDS } from '@/utils/mdxCacheConstants'
 
 const defaultLayout = 'GuidesLayout'
 const layouts = {
@@ -26,7 +28,7 @@ const layouts = {
   GuidesLayout,
 }
 
-export const revalidate = 0
+export const revalidate = CACHE_REVALIDATE_SECONDS
 export const dynamicParams = true
 
 export async function generateMetadata({
@@ -34,12 +36,10 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] }
 }): Promise<Metadata | undefined> {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const deploymentStatus = isProduction ? 'live' : 'staging'
   const slug = decodeURI(params.slug.join('/'))
 
-  const guides = await getCachedGuides(deploymentStatus)
-  const post: MDXContent | undefined = guides.find((p) => p.slug === slug)
+  const guides = await fetchAllGuidesForPage()
+  const post: Guide | undefined = guides.find((p) => p.slug === slug)
 
   if (!post) {
     return notFound()
@@ -52,7 +52,7 @@ export async function generateMetadata({
   })
 
   const publishedAt = new Date(post.date).toISOString()
-  const modifiedAt = new Date(post.lastmod || post.date).toISOString()
+  const modifiedAt = new Date(post.date).toISOString()
   const authors = authorDetails.map((author) => author.name)
   let imageList = [siteMetadata.socialBanner]
   if (post.image) {
@@ -82,7 +82,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.summary,
+      description: post.description,
       images: imageList,
     },
   }
@@ -101,8 +101,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const isGrafanaOrPrometheusArticle =
     slug.toLowerCase().includes('grafana') || slug.toLowerCase().includes('prometheus')
 
-  const [guides, post]: [MDXContent[], any] = await Promise.all([
-    getCachedGuides(deploymentStatus),
+  const [guidesList, post]: [Guide[], Guide | undefined] = await Promise.all([
+    fetchAllGuidesForPage(),
     fetchMDXContentByPath('guides', slug, deploymentStatus)
       .then((response) => {
         if ('data' in response && !Array.isArray(response.data)) {
@@ -128,7 +128,22 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
 
-  const hubContext = await getHubContextForRoute(currentRoute)
+  const hubContext = await getHubContextForRoute(currentRoute, {
+    guides: guidesList,
+  })
+
+  let compiledContent
+  try {
+    const { content: mdxContent } = await compileMDX({
+      source: post?.content,
+      components,
+      options: mdxOptions as any,
+    })
+    compiledContent = mdxContent
+  } catch (error) {
+    console.error('Error compiling MDX:', error)
+    notFound()
+  }
 
   if (hubContext) {
     return (
