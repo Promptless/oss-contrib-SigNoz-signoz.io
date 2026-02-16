@@ -2,6 +2,8 @@ import React from 'react'
 import Comparisons from './Comparisons'
 import { fetchAllComparisonsForPage } from '@/utils/cachedData'
 
+export const revalidate = 3600
+
 export default async function ComparisonsHome() {
   const comparisons = await fetchAllComparisonsForPage()
 

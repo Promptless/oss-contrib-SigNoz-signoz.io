@@ -1,9 +1,10 @@
 import 'css/prism.css'
+import 'katex/dist/katex.css'
+
 import { components } from '@/components/MDXComponents'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allGuides, allAuthors } from 'contentlayer/generated'
-import type { Authors, Guide } from 'contentlayer/generated'
+import { coreContent } from 'pliny/utils/contentlayer'
+import { allAuthors } from 'contentlayer/generated'
+import type { Authors } from 'contentlayer/generated'
 import OpenTelemetryLayout from '@/layouts/OpenTelemetryLayout'
 import OpenTelemetryHubLayout from '@/layouts/OpenTelemetryHubLayout'
 import GuidesLayout from '@/layouts/GuidesLayout'
@@ -16,6 +17,10 @@ import PageFeedback from '../../../components/PageFeedback/PageFeedback'
 import React from 'react'
 import GrafanaVsSigNozFloatingCard from '@/components/GrafanaVsSigNoz/GrafanaVsSigNozFloatingCard'
 import Button from '@/components/ui/Button'
+import { fetchMDXContentByPath } from '@/utils/strapi'
+import { mdxOptions, transformGuide } from '@/utils/mdxUtils'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import type { Guide } from '../../../types/transformedContent'
 
 const defaultLayout = 'GuidesLayout'
 const layouts = {
@@ -23,16 +28,27 @@ const layouts = {
   GuidesLayout,
 }
 
-export const dynamicParams = false
-export const dynamic = 'force-static'
+export const revalidate = 0
+export const dynamicParams = true
 
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string[] }
 }): Promise<Metadata | undefined> {
+  const isProduction = process.env.VERCEL_ENV === 'production'
+  const deploymentStatus = isProduction ? 'live' : 'staging'
   const slug = decodeURI(params.slug.join('/'))
-  const post = allGuides.find((p) => p.slug === slug)
+
+  let post: Guide | undefined
+  try {
+    const response = await fetchMDXContentByPath('guides', slug, deploymentStatus)
+    if ('data' in response && !Array.isArray(response.data)) {
+      post = transformGuide(response.data)
+    }
+  } catch (error) {
+    console.error('Error fetching guide for metadata:', error)
+  }
 
   if (!post) {
     return notFound()
@@ -82,24 +98,32 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  const paths = allGuides.map((p) => ({ slug: p.slug?.split('/') }))
-
-  return paths
+  return []
 }
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
+  const isProduction = process.env.VERCEL_ENV === 'production'
+  const deploymentStatus = isProduction ? 'live' : 'staging'
+
   const slug = decodeURI(params.slug.join('/'))
   const currentRoute = `/guides/${slug}`
   const isGrafanaOrPrometheusArticle =
     slug.toLowerCase().includes('grafana') || slug.toLowerCase().includes('prometheus')
-  // Filter out drafts in production
-  const sortedCoreContents = allCoreContent(sortPosts(allGuides))
-  const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
-  if (postIndex === -1) {
+
+  let post: Guide | undefined
+  try {
+    const response = await fetchMDXContentByPath('guides', slug, deploymentStatus)
+    if ('data' in response && !Array.isArray(response.data)) {
+      post = transformGuide(response.data)
+    }
+  } catch (error) {
+    console.error('Error fetching single guide:', error)
+  }
+
+  if (!post) {
     return notFound()
   }
 
-  const post = allGuides.find((p) => p.slug === slug) as Guide
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
@@ -109,6 +133,19 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const jsonLd = post.structuredData
 
   const hubContext = await getHubContextForRoute(currentRoute)
+
+  let compiledContent
+  try {
+    const { content: mdxContent } = await compileMDX({
+      source: post?.content,
+      components,
+      options: mdxOptions as any,
+    })
+    compiledContent = mdxContent
+  } catch (error) {
+    console.error('Error compiling MDX:', error)
+    notFound()
+  }
 
   if (hubContext) {
     return (
@@ -143,11 +180,10 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           availableLanguages={hubContext.languages}
           currentRoute={currentRoute}
         >
-          <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+          {compiledContent}
           <PageFeedback />
         </OpenTelemetryHubLayout>
 
-        {/* Render GrafanaVsSigNozFloatingCard if the slug contains Grafana or Prometheus */}
         {isGrafanaOrPrometheusArticle && <GrafanaVsSigNozFloatingCard />}
       </>
     )
@@ -190,7 +226,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         authors={authorList}
         toc={post.toc}
       >
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        {compiledContent}
       </Layout>
 
       {/* Render GrafanaVsSigNozFloatingCard if the slug contains Grafana or Prometheus */}

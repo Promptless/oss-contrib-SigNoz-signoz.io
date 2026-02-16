@@ -1,6 +1,5 @@
 'use client'
 
-import { allGuides } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import React, { useState, useEffect, useMemo } from 'react'
 import BlogPostCard from '../Shared/BlogPostCard'
@@ -8,6 +7,7 @@ import { filterData } from 'app/utils/common'
 import SearchInput from '../Shared/Search'
 import { Frown } from 'lucide-react'
 import SideBar, { GUIDES_TOPICS } from '@/components/SideBar'
+import type { Guide } from '../../../types/transformedContent'
 
 interface HeadingProps {
   tag: string
@@ -44,8 +44,8 @@ const GuidesHeader = ({ title, description, searchPlaceholder, onSearch }) => {
   )
 }
 
-export default function Guides() {
-  const posts = allCoreContent(sortPosts(allGuides))
+export default function Guides({ guides = [] }: { guides?: Guide[] }) {
+  const posts = allCoreContent(sortPosts(guides))
   const [activeItem, setActiveItem] = useState(GUIDES_TOPICS.ALL)
   const [searchQuery, setSearchQuery] = useState('')
   const POST_PER_PAGE = 20

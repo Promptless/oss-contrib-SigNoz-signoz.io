@@ -1,18 +1,19 @@
 import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { allGuides } from 'contentlayer/generated'
+import { fetchAllGuidesForPage } from '@/utils/cachedData'
 
 const POSTS_PER_PAGE = 5
 
-export const generateStaticParams = async () => {
-  const totalPages = Math.ceil(allGuides.length / POSTS_PER_PAGE)
-  const paths = Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }))
+export const revalidate = 3600
+export const dynamicParams = true
 
-  return paths
+export const generateStaticParams = async () => {
+  return []
 }
 
-export default function Page({ params }: { params: { page: string } }) {
-  const posts = allCoreContent(sortPosts(allGuides))
+export default async function Page({ params }: { params: { page: string } }) {
+  const guides = await fetchAllGuidesForPage()
+  const posts = allCoreContent(sortPosts(guides))
   const pageNumber = parseInt(params.page as string)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),

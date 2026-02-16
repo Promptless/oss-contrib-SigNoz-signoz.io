@@ -1,12 +1,12 @@
 import siteMetadata from '@/data/siteMetadata'
-import { Blog, Guide } from 'contentlayer/generated'
+import { Blog } from 'contentlayer/generated'
 import Authors from '../../../constants/authors.json'
 import { Clock4 } from 'lucide-react'
 import Link from 'next/link'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { formatDate } from 'pliny/utils/formatDate'
 import { MDXContent } from '@/utils/strapi'
-import type { Comparison } from '../../../types/transformedContent'
+import type { Comparison, Guide } from '../../../types/transformedContent'
 
 export default function BlogPostCard({
   blog,

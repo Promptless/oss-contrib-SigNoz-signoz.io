@@ -2,7 +2,7 @@ import 'css/prism.css'
 import 'katex/dist/katex.css'
 
 import { components } from '@/components/MDXComponents'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
+import { coreContent } from 'pliny/utils/contentlayer'
 import { allAuthors } from 'contentlayer/generated'
 import type { Authors } from 'contentlayer/generated'
 import OpenTelemetryLayout from '@/layouts/OpenTelemetryLayout'
@@ -14,8 +14,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 import PageFeedback from '../../../components/PageFeedback/PageFeedback'
 import React from 'react'
-import { fetchMDXContentByPath, MDXContent } from '@/utils/strapi'
-import { fetchAllComparisonsForPage } from '@/utils/cachedData'
+import { fetchMDXContentByPath } from '@/utils/strapi'
 import { mdxOptions, transformComparison } from '@/utils/mdxUtils'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import type { Comparison } from '../../../types/transformedContent'
@@ -34,10 +33,19 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] }
 }): Promise<Metadata | undefined> {
+  const isProduction = process.env.VERCEL_ENV === 'production'
+  const deploymentStatus = isProduction ? 'live' : 'staging'
   const slug = decodeURI(params.slug.join('/'))
 
-  const comparisons = await fetchAllComparisonsForPage()
-  const post: Comparison | undefined = comparisons.find((p) => p.slug === slug)
+  let post: Comparison | undefined
+  try {
+    const response = await fetchMDXContentByPath('comparisons', slug, deploymentStatus)
+    if ('data' in response && !Array.isArray(response.data)) {
+      post = transformComparison(response.data)
+    }
+  } catch (error) {
+    console.error('Error fetching comparison for metadata:', error)
+  }
 
   if (!post) {
     return notFound()
@@ -96,21 +104,15 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   const slug = decodeURI(params.slug.join('/'))
 
-  // Fetch lightweight list and specific content in parallel
-  const [comparisonsList, post]: [Comparison[], Comparison | undefined] = await Promise.all([
-    fetchAllComparisonsForPage(),
-    fetchMDXContentByPath('comparisons', slug, deploymentStatus)
-      .then((response) => {
-        if ('data' in response && !Array.isArray(response.data)) {
-          return transformComparison(response.data)
-        }
-        return undefined
-      })
-      .catch((error) => {
-        console.error('Error fetching single comparison:', error)
-        return undefined
-      }),
-  ])
+  let post: Comparison | undefined
+  try {
+    const response = await fetchMDXContentByPath('comparisons', slug, deploymentStatus)
+    if ('data' in response && !Array.isArray(response.data)) {
+      post = transformComparison(response.data)
+    }
+  } catch (error) {
+    console.error('Error fetching single comparison:', error)
+  }
 
   if (!post) {
     return notFound()
@@ -126,7 +128,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
 
-  const hubContext = await getHubContextForRoute(currentRoute, comparisonsList)
+  const hubContext = await getHubContextForRoute(currentRoute)
 
   let compiledContent
   try {

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import type { CoreContent } from 'pliny/utils/contentlayer'
-import type { Authors, Blog, Guide } from 'contentlayer/generated'
+import type { Authors, Blog } from 'contentlayer/generated'
+import type { Guide } from '../../types/transformedContent'
 import type { MDXContent } from '@/utils/strapi'
 
 export interface TocItemProps {

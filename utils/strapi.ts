@@ -342,6 +342,7 @@ export const fetchMDXContentByPath = async (
       })
 
       const initialResponse = await fetch(`${API_URL}/api/${collectionName}${initialQueryParams}`, {
+        cache: 'force-cache',
         next: {
           tags: [`${collectionName}-list`, 'mdx-content-list'],
         },
@@ -381,6 +382,7 @@ export const fetchMDXContentByPath = async (
 
           pagePromises.push(
             fetch(`${API_URL}/api/${collectionName}${pageQueryParams}`, {
+              cache: 'force-cache',
               next: {
                 tags: [`${collectionName}-list`, 'mdx-content-list'],
               },
