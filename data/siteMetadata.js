@@ -7,7 +7,10 @@ const siteMetadata = {
     'SigNoz is an open-source observability tool powered by OpenTelemetry. Get APM, logs, traces, metrics, exceptions, & alerts in a single tool.',
   language: 'en-us',
   theme: 'dark', // system, dark or light
-  siteUrl: 'https://signoz.io',
+  // siteUrl: 'https://signoz.io',
+  siteUrl: process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'https://signoz-web-git-feat-comparisons-cms-migration-signoz.vercel.app',
   siteRepo: 'https://github.com/signoz/',
   siteLogo: '/img/logo.svg',
   socialBanner: '/img/signoz-meta-image.webp',
@@ -54,8 +57,7 @@ const siteMetadata = {
       lang: 'en',
     },
   },
-  search: {
-  },
+  search: {},
 }
 
 module.exports = siteMetadata
