@@ -26,9 +26,9 @@ export const revalidate = CMS_REVALIDATE_INTERVAL
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // const siteUrl = siteMetadata.siteUrl
-  const siteUrl =
-    process.env.VERCEL_URL ||
-    'https://signoz-web-git-feat-comparisons-cms-migration-signoz.vercel.app'
+  const siteUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'https://signoz-web-git-feat-comparisons-cms-migration-signoz.vercel.app'
 
   const blogRoutes = allBlogs
     .filter((post) => !post.draft)
