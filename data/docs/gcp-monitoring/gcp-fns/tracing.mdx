@@ -36,12 +36,14 @@ You will add runtime environment variables and code in the next steps.
 
 In **Runtime, build, connections and security settings** -> **Runtime environment variables**, add:
 
-- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://ingest.<region>.signoz.cloud/v1/traces`
-- `OTEL_EXPORTER_OTLP_HEADERS=signoz-ingestion-key=<your-ingestion-key>`
-- `OTEL_SERVICE_NAME=<your-service-name>`
-- `OTEL_SERVICE_NAMESPACE=<your-team-or-system>` (optional)
-- `OTEL_SERVICE_VERSION=<release-version>` (optional)
-- `OTEL_DEPLOYMENT_ENVIRONMENT=production` (deployment tier, for example: `production`, `staging`, `dev`, `local`)
+```bash
+OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://ingest.<region>.signoz.cloud/v1/traces
+OTEL_EXPORTER_OTLP_HEADERS=signoz-ingestion-key=<your-ingestion-key>
+OTEL_SERVICE_NAME=<your-service-name>
+OTEL_SERVICE_NAMESPACE=<your-team-or-system> # optional
+OTEL_SERVICE_VERSION=<release-version> # optional
+OTEL_DEPLOYMENT_ENVIRONMENT=production
+```
 
 Verify these values:
 
@@ -70,11 +72,26 @@ npm install --save \
 
 This creates or updates `package.json` and `package-lock.json` with the dependencies used by the examples in this guide.
 
-<Admonition type="info">
-Version check (verified on February 13, 2026): this guide was tested with Node.js 20 and the package versions currently published on npm at that time, including `@opentelemetry/sdk-node@0.212.0`, `@opentelemetry/core@2.5.1`, `@opentelemetry/resources@2.5.1`, `@opentelemetry/semantic-conventions@1.39.0`, `@google-cloud/functions-framework@5.0.1`, `@google-cloud/opentelemetry-cloud-trace-propagator@0.21.0`, and `@opentelemetry/resource-detector-gcp@0.46.0`.
+<details>
+<ToggleHeading>
+Tested versions
+</ToggleHeading>
 
-OpenTelemetry JS recommends using matching `latest` packages together and provides a compatibility matrix here: https://github.com/open-telemetry/opentelemetry-js#package-version-compatibility
-</Admonition>
+Verified on February 13, 2026:
+
+```text
+Node.js: 20
+@opentelemetry/sdk-node: 0.212.0
+@opentelemetry/core: 2.5.1
+@opentelemetry/resources: 2.5.1
+@opentelemetry/semantic-conventions: 1.39.0
+@google-cloud/functions-framework: 5.0.1
+@google-cloud/opentelemetry-cloud-trace-propagator: 0.21.0
+@opentelemetry/resource-detector-gcp: 0.46.0
+```
+
+OpenTelemetry JS recommends using matching `latest` package lines together. Compatibility matrix: https://github.com/open-telemetry/opentelemetry-js#package-version-compatibility
+</details>
 
 ### Step 4. Create `tracing.js`
 
