@@ -8,8 +8,8 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'dark', // system, dark or light
   // siteUrl: 'https://signoz.io',
-  siteUrl: process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+  siteUrl: process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}`
     : 'https://signoz-web-git-feat-comparisons-cms-migration-signoz.vercel.app',
   siteRepo: 'https://github.com/signoz/',
   siteLogo: '/img/logo.svg',
