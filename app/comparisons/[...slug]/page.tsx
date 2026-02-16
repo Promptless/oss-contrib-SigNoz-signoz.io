@@ -14,8 +14,8 @@ import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 import PageFeedback from '../../../components/PageFeedback/PageFeedback'
 import React from 'react'
-import { fetchMDXContentByPath } from '@/utils/strapi'
-import { mdxOptions, transformComparison } from '@/utils/mdxUtils'
+import { fetchComparisonBySlug } from '@/utils/cachedData'
+import { mdxOptions } from '@/utils/mdxUtils'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import type { Comparison } from '../../../types/transformedContent'
 
@@ -33,19 +33,9 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] }
 }): Promise<Metadata | undefined> {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const deploymentStatus = isProduction ? 'live' : 'staging'
   const slug = decodeURI(params.slug.join('/'))
 
-  let post: Comparison | undefined
-  try {
-    const response = await fetchMDXContentByPath('comparisons', slug, deploymentStatus)
-    if ('data' in response && !Array.isArray(response.data)) {
-      post = transformComparison(response.data)
-    }
-  } catch (error) {
-    console.error('Error fetching comparison for metadata:', error)
-  }
+  const post = await fetchComparisonBySlug(slug)
 
   if (!post) {
     return notFound()
@@ -99,20 +89,9 @@ export const generateStaticParams = async () => {
 }
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const deploymentStatus = isProduction ? 'live' : 'staging'
-
   const slug = decodeURI(params.slug.join('/'))
 
-  let post: Comparison | undefined
-  try {
-    const response = await fetchMDXContentByPath('comparisons', slug, deploymentStatus)
-    if ('data' in response && !Array.isArray(response.data)) {
-      post = transformComparison(response.data)
-    }
-  } catch (error) {
-    console.error('Error fetching single comparison:', error)
-  }
+  const post = await fetchComparisonBySlug(slug)
 
   if (!post) {
     return notFound()

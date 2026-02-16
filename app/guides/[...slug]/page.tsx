@@ -17,8 +17,8 @@ import PageFeedback from '../../../components/PageFeedback/PageFeedback'
 import React from 'react'
 import GrafanaVsSigNozFloatingCard from '@/components/GrafanaVsSigNoz/GrafanaVsSigNozFloatingCard'
 import Button from '@/components/ui/Button'
-import { fetchMDXContentByPath } from '@/utils/strapi'
-import { mdxOptions, transformGuide } from '@/utils/mdxUtils'
+import { fetchGuideBySlug } from '@/utils/cachedData'
+import { mdxOptions } from '@/utils/mdxUtils'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import type { Guide } from '../../../types/transformedContent'
 
@@ -36,19 +36,9 @@ export async function generateMetadata({
 }: {
   params: { slug: string[] }
 }): Promise<Metadata | undefined> {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const deploymentStatus = isProduction ? 'live' : 'staging'
   const slug = decodeURI(params.slug.join('/'))
 
-  let post: Guide | undefined
-  try {
-    const response = await fetchMDXContentByPath('guides', slug, deploymentStatus)
-    if ('data' in response && !Array.isArray(response.data)) {
-      post = transformGuide(response.data)
-    }
-  } catch (error) {
-    console.error('Error fetching guide for metadata:', error)
-  }
+  const post = await fetchGuideBySlug(slug)
 
   if (!post) {
     return notFound()
@@ -102,23 +92,12 @@ export const generateStaticParams = async () => {
 }
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const deploymentStatus = isProduction ? 'live' : 'staging'
-
   const slug = decodeURI(params.slug.join('/'))
   const currentRoute = `/guides/${slug}`
   const isGrafanaOrPrometheusArticle =
     slug.toLowerCase().includes('grafana') || slug.toLowerCase().includes('prometheus')
 
-  let post: Guide | undefined
-  try {
-    const response = await fetchMDXContentByPath('guides', slug, deploymentStatus)
-    if ('data' in response && !Array.isArray(response.data)) {
-      post = transformGuide(response.data)
-    }
-  } catch (error) {
-    console.error('Error fetching single guide:', error)
-  }
+  const post = await fetchGuideBySlug(slug)
 
   if (!post) {
     return notFound()
