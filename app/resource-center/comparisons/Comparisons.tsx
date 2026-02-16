@@ -6,7 +6,7 @@ import SearchInput from '../Shared/Search'
 import React from 'react'
 import { filterData } from 'app/utils/common'
 import { Frown } from 'lucide-react'
-import { MDXContent } from '@/utils/strapi'
+import type { Comparison } from '../../../types/transformedContent'
 
 interface ComparisonsPageHeaderProps {
   onSearch: (e) => void
@@ -31,8 +31,8 @@ const ComparisonsPageHeader: React.FC<ComparisonsPageHeaderProps> = ({ onSearch 
   )
 }
 
-export default function ComparisonsListing({ comparisons }: { comparisons?: MDXContent[] }) {
-  const posts = allCoreContent(sortPosts(comparisons as any))
+export default function ComparisonsListing({ comparisons = [] }: { comparisons?: Comparison[] }) {
+  const posts = allCoreContent(sortPosts(comparisons))
   const primaryFeaturedBlogs = posts.slice(0, 2)
   const secondaryFeaturedBlogs = posts.slice(0)
 

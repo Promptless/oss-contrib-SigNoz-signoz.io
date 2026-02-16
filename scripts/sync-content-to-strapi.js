@@ -241,15 +241,6 @@ function parseMDXFile(filePath) {
 function extractAssetPaths(content, frontmatter) {
   const paths = new Set()
 
-  // Strip code blocks and inline code so we don't treat example code as real assets
-  const contentWithoutCode = content
-    // fenced code blocks ```...```
-    .replace(/```[\s\S]*?```/g, '')
-    // inline code `...`
-    .replace(/`[^`]*`/g, '')
-    // <code>...</code> blocks
-    .replace(/<code[^>]*>[\s\S]*?<\/code>/gi, '')
-
   const mdImageRegex = /!\[.*?\]\((.*?)\)/g
 
   let match
@@ -268,7 +259,7 @@ function extractAssetPaths(content, frontmatter) {
     )
 
     let match
-    while ((match = tagRegex.exec(contentWithoutCode)) !== null) {
+    while ((match = tagRegex.exec(content)) !== null) {
       const srcValue = match[1]
       if (srcValue && !srcValue.startsWith('http') && !srcValue.startsWith('https')) {
         paths.add(srcValue)
@@ -281,7 +272,7 @@ function extractAssetPaths(content, frontmatter) {
       'gi'
     )
 
-    while ((match = tagRegexNoQuotes.exec(contentWithoutCode)) !== null) {
+    while ((match = tagRegexNoQuotes.exec(content)) !== null) {
       const srcValue = match[1]
       if (srcValue && !srcValue.startsWith('http') && !srcValue.startsWith('https')) {
         paths.add(srcValue)

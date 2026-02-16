@@ -5,6 +5,7 @@ import tagData from '../app/tag-data.json' assert { type: 'json' }
 import {
   allBlogs,
   allDocs,
+  allGuides,
 } from '../.contentlayer/generated/index.mjs'
 import { sortPosts } from 'pliny/utils/contentlayer.js'
 import { filterPostsByTag, generateRss } from './rssFeed.mjs';
@@ -41,6 +42,7 @@ function generateRSS(config, allCollections) {
 const rss = () => {
   generateRSS(siteMetadata, [
     ...allBlogs,
+    ...allGuides,
     ...allDocs,
   ])
   console.log('RSS feed generated...')

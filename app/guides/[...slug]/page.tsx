@@ -128,20 +128,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
 
-  const hubContext = await getHubContextForRoute({ route: currentRoute, guides: guides })
-
-  let compiledContent
-  try {
-    const { content: mdxContent } = await compileMDX({
-      source: post?.content,
-      components,
-      options: mdxOptions as any,
-    })
-    compiledContent = mdxContent
-  } catch (error) {
-    console.error('Error compiling MDX:', error)
-    notFound()
-  }
+  const hubContext = await getHubContextForRoute(currentRoute)
 
   if (hubContext) {
     return (

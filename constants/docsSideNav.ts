@@ -1165,6 +1165,11 @@ const docsSideNav = [
           },
         ],
       },
+      {
+        type: 'doc',
+        route: '/docs/traces-management/long-term-storage',
+        label: 'Long Term Storage',
+      },
     ],
   },
   {
@@ -1220,41 +1225,6 @@ const docsSideNav = [
         route: '/docs/logs-management/send-logs-to-signoz',
         items: [
           {
-            type: 'doc',
-            route: '/docs/userguide/collect_kubernetes_pod_logs',
-            label: 'Kubernetes pod logs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/userguide/collect_docker_logs',
-            label: 'Docker logs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/userguide/heroku_logs_to_signoz',
-            label: 'Heroku logs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/userguide/vercel_logs_to_signoz',
-            label: 'Vercel logs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/userguide/send-logs-http',
-            label: 'HTTP logs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/userguide/collecting_syslogs',
-            label: 'Syslogs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/logs-management/send-logs/logrus-to-signoz',
-            label: 'Logrus',
-          },
-          {
             type: 'category',
             isExpanded: false,
             label: 'Application Logs',
@@ -1268,54 +1238,59 @@ const docsSideNav = [
               {
                 type: 'doc',
                 route: '/docs/logs-management/send-logs/python-logs',
-                label: 'Python logs',
+                label: 'Python',
               },
               {
                 type: 'doc',
-                route: '/docs/userguide/collecting_application_logs_otel_sdk_java',
-                label: 'Using OTel Java SDK',
+                route: '/docs/logs-management/send-logs/java-logs',
+                label: 'Java Logs',
               },
               {
                 type: 'doc',
                 route: '/docs/logs-management/send-logs/aws-lambda-nodejs',
-                label: 'AWS Lambda Node.js logs',
+                label: 'AWS Lambda Node.js',
               },
               {
                 type: 'doc',
                 route: '/docs/logs-management/send-logs/nodejs-logs',
-                label: 'Node.js logs',
+                label: 'Node.js',
               },
               {
                 type: 'doc',
                 route: '/docs/logs-management/send-logs/nodejs-pino-logs',
-                label: 'Pino Node.js logs',
+                label: 'Pino Node.js',
               },
               {
                 type: 'doc',
                 route: '/docs/logs-management/send-logs/nodejs-winston-logs',
-                label: 'Winston Node.js logs',
+                label: 'Winston Node.js',
               },
               {
                 type: 'doc',
                 route: '/docs/logs-management/send-logs/opentelemetry-nodejs-bunyan-logs',
-                label: 'Bunyan Node.js logs',
+                label: 'Bunyan Node.js',
+              },
+              {
+                type: 'doc',
+                route: '/docs/logs-management/send-logs/logrus-to-signoz',
+                label: 'Logrus',
+              },
+              {
+                type: 'doc',
+                route: '/docs/logs-management/send-logs/zerolog-to-signoz',
+                label: 'Zerolog',
+              },
+              {
+                type: 'doc',
+                route: '/docs/logs-management/send-logs/zap-to-signoz',
+                label: 'Zap',
               },
             ],
           },
           {
-            type: 'doc',
-            route: '/docs/userguide/send-cloudwatch-logs-to-signoz',
-            label: 'Cloudwatch logs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/logs-management/send-logs/cloudflare-logs',
-            label: 'Cloudflare logs',
-          },
-          {
             type: 'category',
             isExpanded: false,
-            label: 'Existing Collectors to SigNoz',
+            label: 'Existing Collectors',
             items: [
               {
                 type: 'doc',
@@ -1335,6 +1310,68 @@ const docsSideNav = [
             ],
           },
           {
+            type: 'category',
+            isExpanded: false,
+            label: 'Infrastructure Logs',
+            items: [
+              {
+                type: 'doc',
+                route: '/docs/userguide/collect_kubernetes_pod_logs',
+                label: 'Kubernetes Pod',
+              },
+              {
+                type: 'doc',
+                route: '/docs/userguide/collect_docker_logs',
+                label: 'Docker',
+              },
+              {
+                type: 'doc',
+                route: '/docs/userguide/collecting_syslogs',
+                label: 'Syslogs',
+              },
+              {
+                type: 'doc',
+                route: '/docs/userguide/send-cloudwatch-logs-to-signoz',
+                label: 'Cloudwatch',
+              },
+              {
+                type: 'doc',
+                route: '/docs/logs-management/send-logs/windows-events-log',
+                label: 'Windows Event',
+              },
+              {
+                type: 'doc',
+                route: '/docs/logs-management/send-logs/collect-systemd-logs',
+                label: 'Systemd/journald',
+              },
+            ],
+          },
+          {
+            type: 'doc',
+            route: '/docs/logs-management/send-logs/log-export-methods',
+            label: 'Log Export Methods',
+          },
+          {
+            type: 'doc',
+            route: '/docs/userguide/heroku_logs_to_signoz',
+            label: 'Heroku',
+          },
+          {
+            type: 'doc',
+            route: '/docs/userguide/vercel_logs_to_signoz',
+            label: 'Vercel',
+          },
+          {
+            type: 'doc',
+            route: '/docs/userguide/send-logs-http',
+            label: 'Logs via HTTP (JSON)',
+          },
+          {
+            type: 'doc',
+            route: '/docs/logs-management/send-logs/cloudflare-logs',
+            label: 'Cloudflare',
+          },
+          {
             type: 'doc',
             route:
               '/docs/logs-management/send-logs/collect-tomcat-access-and-garbage-collector-logs',
@@ -1344,26 +1381,6 @@ const docsSideNav = [
             type: 'doc',
             route: '/docs/logs-management/send-logs/vector-logs-to-signoz',
             label: 'Vector',
-          },
-          {
-            type: 'doc',
-            route: '/docs/logs-management/send-logs/zap-to-signoz',
-            label: 'Zap',
-          },
-          {
-            type: 'doc',
-            route: '/docs/logs-management/send-logs/windows-events-log',
-            label: 'Windows Event logs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/logs-management/send-logs/collect-systemd-logs',
-            label: 'Systemd/journald logs',
-          },
-          {
-            type: 'doc',
-            route: '/docs/logs-management/send-logs/zerolog-to-signoz',
-            label: 'Zerolog',
           },
         ],
       },
@@ -2034,6 +2051,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/ollama-dashboard',
+            label: 'Ollama',
+          },
+          {
+            type: 'doc',
             route: '/docs/dashboards/dashboard-templates/openai-dashboard',
             label: 'OpenAI',
           },
@@ -2548,6 +2570,11 @@ const docsSideNav = [
         type: 'doc',
       },
       {
+        route: '/docs/ollama-monitoring',
+        label: 'Ollama',
+        type: 'doc',
+      },
+      {
         route: '/docs/openai-monitoring',
         label: 'OpenAI',
         type: 'doc',
@@ -2744,6 +2771,19 @@ const docsSideNav = [
         type: 'doc',
         route: '/docs/aws-monitoring/vpc',
         label: 'VPC',
+      },
+      {
+        type: 'category',
+        isExpanded: false,
+        label: 'Troubleshooting',
+        route: '/docs/aws-monitoring/troubleshooting',
+        items: [
+          {
+            type: 'doc',
+            route: '/docs/aws-monitoring/troubleshooting/faqs',
+            label: 'FAQs',
+          },
+        ],
       },
     ],
   },

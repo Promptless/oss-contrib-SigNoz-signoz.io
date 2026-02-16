@@ -2,7 +2,7 @@ import 'css/prism.css'
 import 'katex/dist/katex.css'
 
 import { components } from '@/components/MDXComponents'
-import { coreContent } from 'pliny/utils/contentlayer'
+import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
 import { allAuthors } from 'contentlayer/generated'
 import type { Authors } from 'contentlayer/generated'
 import OpenTelemetryLayout from '@/layouts/OpenTelemetryLayout'
@@ -14,10 +14,11 @@ import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 import PageFeedback from '../../../components/PageFeedback/PageFeedback'
 import React from 'react'
-import { fetchMDXContentByPath } from '@/utils/strapi'
-import { getCachedComparisons } from '@/utils/cachedData'
+import { fetchMDXContentByPath, MDXContent } from '@/utils/strapi'
+import { fetchAllComparisonsForPage } from '@/utils/cachedData'
 import { mdxOptions, transformComparison } from '@/utils/mdxUtils'
 import { compileMDX } from 'next-mdx-remote/rsc'
+import type { Comparison } from '../../../types/transformedContent'
 
 const defaultLayout = 'ComparisonsLayout'
 const layouts = {
@@ -37,8 +38,8 @@ export async function generateMetadata({
   const deploymentStatus = isProduction ? 'live' : 'staging'
   const slug = decodeURI(params.slug.join('/'))
 
-  const comparisons = await getCachedComparisons(deploymentStatus)
-  const post: any | undefined = comparisons.find((p) => p.slug === slug)
+  const comparisons = await fetchAllComparisonsForPage()
+  const post: Comparison | undefined = comparisons.find((p) => p.slug === slug)
 
   if (!post) {
     return notFound()
@@ -51,11 +52,11 @@ export async function generateMetadata({
   })
 
   const publishedAt = new Date(post.date).toISOString()
-  const modifiedAt = new Date(post.lastmod || post.date).toISOString()
+  const modifiedAt = new Date(post.date).toISOString()
   const authors = authorDetails.map((author) => author.name)
   let imageList = [siteMetadata.socialBanner]
-  if (post.image) {
-    imageList = typeof post.image === 'string' ? [post.image] : post.image
+  if (post?.image) {
+    imageList = typeof post?.image === 'string' ? [post.image] : post.image
   }
   const ogImages = imageList.map((img) => {
     return {
@@ -98,8 +99,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const slug = decodeURI(params.slug.join('/'))
 
   // Fetch lightweight list and specific content in parallel
-  const [comparisonsList, post]: [any[], any] = await Promise.all([
-    getCachedComparisons(deploymentStatus),
+  const [comparisonsList, post]: [Comparison[], Comparison | undefined] = await Promise.all([
+    fetchAllComparisonsForPage(),
     fetchMDXContentByPath('comparisons', slug, deploymentStatus)
       .then((response) => {
         if ('data' in response && !Array.isArray(response.data)) {
@@ -127,10 +128,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
 
-  const hubContext = await getHubContextForRoute({
-    route: currentRoute,
-    comparisons: comparisonsList,
-  })
+  const hubContext = await getHubContextForRoute(currentRoute, comparisonsList)
 
   let compiledContent
   try {
@@ -172,7 +170,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   }
 
   // Choose layout based on slug or post layout
-  let layoutName = post.layout || defaultLayout
+  let layoutName = post?.layout || defaultLayout
   if (slug.includes('opentelemetry')) {
     layoutName = 'OpenTelemetryLayout'
   } else {
