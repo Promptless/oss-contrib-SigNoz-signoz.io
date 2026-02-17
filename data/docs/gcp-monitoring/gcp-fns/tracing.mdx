@@ -115,7 +115,7 @@ const {
   ATTR_SERVICE_NAMESPACE,
   ATTR_SERVICE_VERSION,
 } = require('@opentelemetry/semantic-conventions');
-const { ATTR_DEPLOYMENT_ENVIRONMENT_NAME } = require('@opentelemetry/semantic-conventions/incubating');
+const { ATTR_DEPLOYMENT_ENVIRONMENT_NAME } = require('@opentelemetry/semantic-conventions/incubating'); // incubating: may change in future versions
 
 const functionId = process.env.FUNCTION_ID || 'A';
 const deploymentEnvironment =
@@ -286,7 +286,7 @@ Your ingestion key is incorrect or missing. Recopy it from https://signoz.io/doc
 
 ### Why is my service missing from the Services list?
 
-Set `OTEL_SERVICE_NAME` to a stable value, redeploy, and invoke again. If unset, the fallback name is `gcp-cloud-function`.
+Set `OTEL_SERVICE_NAME` to a stable value, redeploy, and invoke again. If unset, the fallback name is derived from the function ID (for example, `function-a`).
 
 </details>
 
