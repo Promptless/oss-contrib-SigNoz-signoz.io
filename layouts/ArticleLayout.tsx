@@ -22,6 +22,7 @@ import NewsletterSubscription from '@/components/NewsletterSubscription/Newslett
 import authorsDirectory from '@/constants/authors.json'
 import { useScrollToHash } from '@/hooks/useScrollToHash'
 import type { Comparison } from '../types/transformedContent'
+import PageFeedback from '@/components/PageFeedback/PageFeedback'
 
 const MAIN_CONTENT_ID = 'article-main'
 
@@ -204,6 +205,9 @@ export default function ArticleLayout({
               )}
               {children}
             </article>
+            <div className={hasToc ? 'lg:hidden' : ''}>
+              <PageFeedback />
+            </div>
 
             {/* Mobile meta info card */}
             {(renderedAuthors.length > 0 || primaryTags.length > 0) && (
@@ -353,6 +357,7 @@ export default function ArticleLayout({
                         scrollableContainerRef={tocContainerRef}
                       />
                     </div>
+                    <PageFeedback placement="toc" />
                   </div>
                 )}
               </div>

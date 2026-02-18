@@ -5,7 +5,6 @@ import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Authors } from 'contentlayer/generated'
 import type { Guide } from '../types/transformedContent'
 import ArticleLayout, { TocItemProps } from './ArticleLayout'
-import PageFeedback from '@/components/PageFeedback/PageFeedback'
 import { RegionProvider } from '@/components/Region/RegionContext'
 
 // Extend the Guide type to include CTA fields
@@ -41,7 +40,6 @@ export default function GuidesLayout({
         showRelatedArticles={true}
       >
         {children}
-        <PageFeedback />
       </ArticleLayout>
     </RegionProvider>
   )

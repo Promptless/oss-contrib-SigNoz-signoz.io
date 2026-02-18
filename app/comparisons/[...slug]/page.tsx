@@ -12,7 +12,6 @@ import { getHubContextForRoute } from '@/utils/opentelemetryHub'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
-import PageFeedback from '../../../components/PageFeedback/PageFeedback'
 import React from 'react'
 import { fetchComparisonBySlug } from '@/utils/cachedData'
 import { mdxOptions } from '@/utils/mdxUtils'
@@ -142,7 +141,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           currentRoute={currentRoute}
         >
           {compiledContent}
-          <PageFeedback />
         </OpenTelemetryHubLayout>
       </>
     )
