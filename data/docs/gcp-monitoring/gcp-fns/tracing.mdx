@@ -1,5 +1,5 @@
 ---
-date: 2026-02-13
+date: 2026-02-18
 id: tracing
 title: Cloud Functions OpenTelemetry Tracing
 description: Send traces from Google Cloud Functions to SigNoz Cloud using OpenTelemetry with a dedicated tracing.js setup file.
@@ -47,7 +47,7 @@ OTEL_DEPLOYMENT_ENVIRONMENT=production
 
 Verify these values:
 
-- `<region>`: your SigNoz Cloud region (`us`, `eu`, or `in`). See https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint
+- `<region>`: your SigNoz Cloud region (`us`, `eu`, or `in`). See [SigNoz Cloud endpoints](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint)
 - `<your-ingestion-key>`: your SigNoz Cloud ingestion key.
 - `<your-service-name>`: name that will appear in SigNoz Services (for example, `gcp-fn-orders`).
 - `<your-team-or-system>`: optional group for related services (for example, `payments`).
@@ -90,7 +90,7 @@ Node.js: 20
 @opentelemetry/resource-detector-gcp: 0.46.0
 ```
 
-OpenTelemetry JS recommends using matching `latest` package lines together. Compatibility matrix: https://github.com/open-telemetry/opentelemetry-js#package-version-compatibility
+OpenTelemetry JS recommends using matching `latest` package lines together. See the [OpenTelemetry JS compatibility matrix](https://github.com/open-telemetry/opentelemetry-js#package-version-compatibility).
 </details>
 
 ### Step 4. Create `tracing.js`
@@ -282,7 +282,7 @@ See [Switch from direct export to Collector](https://signoz.io/docs/opentelemetr
 
 ### Why do I see 401/403 from the SigNoz endpoint?
 
-Your ingestion key is incorrect or missing. Recopy it from https://signoz.io/docs/ingestion/signoz-cloud/keys/ and redeploy.
+Your ingestion key is incorrect or missing. Recopy it from the [SigNoz ingestion key page](https://signoz.io/docs/ingestion/signoz-cloud/keys/) and redeploy.
 
 ### Why is my service missing from the Services list?
 
@@ -292,6 +292,6 @@ Set `OTEL_SERVICE_NAME` to a stable value, redeploy, and invoke again. If unset,
 
 ## Next steps
 
-- Correlate traces with logs: https://signoz.io/docs/traces-management/guides/correlate-traces-and-logs/
-- Create trace-based alerts: https://signoz.io/docs/alerts-management/
-- Build dashboards for latency and errors: https://signoz.io/docs/userguide/manage-dashboards/
+- [Correlate traces with logs](https://signoz.io/docs/traces-management/guides/correlate-traces-and-logs/) to speed up debugging.
+- [Create trace-based alerts](https://signoz.io/docs/alerts-management/) for latency and error spikes.
+- [Build dashboards](https://signoz.io/docs/userguide/manage-dashboards/) for latency and error trends.
