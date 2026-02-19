@@ -10,21 +10,35 @@ import GetHelp from '@/components/shared/get-help.md'
 
 If you use Logstash to collect logs in your stack, you can forward them to SigNoz via the OpenTelemetry Collector using the TCP protocol.
 
+<KeyPointCallout title="Using self-hosted SigNoz?" defaultCollapsed="true">
+  Most steps are identical. To adapt this guide, update the endpoint and remove the ingestion key header as shown in [Cloud → Self-Hosted](https://signoz.io/docs/ingestion/cloud-vs-self-hosted/#cloud-to-self-hosted).
+</KeyPointCallout>
+
 ## Prerequisites
 
 - A running Logstash instance
 - An instance of SigNoz (either [Cloud](https://signoz.io/teams/) or [Self-Hosted](https://signoz.io/docs/install/self-host/))
 
-<Tabs entityName="plans">
-<TabItem value="signoz-cloud" label="SigNoz Cloud" default>
+## Send Logs to SigNoz
 
-### Send Logs Using Logstash in SigNoz Cloud
+<Tabs>
+<TabItem value="vm" label="VM" default>
 
-#### Step 1: Add OpenTelemetry Collector Binary
+<KeyPointCallout title="What classifies as VM?" defaultCollapsed="true">
+A VM is a virtual computer that runs on physical hardware. This includes:
+- **Cloud VMs**: AWS EC2, Google Compute Engine, Azure VMs, DigitalOcean Droplets
+- **On-premise VMs**: VMware, VirtualBox, Hyper-V, KVM
+- **Bare metal servers**: Physical servers running Linux/Unix directly
+
+Use this section if you're deploying your application directly on a server or VM without containerization.
+
+</KeyPointCallout>
+
+### Step 1: Add OpenTelemetry Collector Binary
 
 Add the OpenTelemetry Collector binary to your VM by following the [OTel binary setup guide](https://signoz.io/docs/tutorial/opentelemetry-binary-usage-in-virtual-machine/).
 
-#### Step 2: Configure the `tcplog` Receiver
+### Step 2: Configure the tcplog Receiver
 
 Add the `tcplog` receiver to your `config.yaml`:
 
@@ -33,30 +47,26 @@ receivers:
   tcplog/logstash:
     max_log_size: 1MiB
     listen_address: '0.0.0.0:2256'
-    attributes: {}
-    resource: {}
-    add_attributes: false
-    operators: []
 ```
 
 - Port `2256` is used here, but you can use any available port.
 - Learn more about the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/tcplogreceiver" target="_blank" rel="noopener noreferrer nofollow">tcplog receiver</a>.
 
-#### Step 3: Enable the Receiver in the Logs Pipeline
+### Step 3: Enable the Receiver in the Logs Pipeline
 
 Update your `config.yaml` service configuration to include the receiver:
 
 ```yaml {4}
 service:
   ...
-
-  logs:
-    receivers: [otlp, tcplog/logstash]
-    processors: [batch]
-    exporters: [otlp]
+  pipelines:
+    logs:
+      receivers: [otlp, tcplog/logstash]
+      processors: [batch]
+      exporters: [otlp]
 ```
 
-#### Step 4: Update Logstash Configuration
+### Step 4: Update Logstash Configuration
 
 Change the Logstash output config to forward logs to the OpenTelemetry Collector:
 
@@ -72,81 +82,87 @@ output {
 
 - This config assumes Logstash is running on the same host as the Collector. Adjust the `host` value if Logstash is running elsewhere.
 
-#### Step 5: Start the Services
+### Step 5: Start the Services
 
 Restart the OpenTelemetry Collector and Logstash.
 
 </TabItem>
 
-<TabItem value='self-host' label='Self-Host'>
+<TabItem value="docker" label="Docker">
 
-### Send Logs Using Logstash in Self-Hosted SigNoz
+### Step 1: Create the OTel Collector Config
 
-#### Step 1: Configure the `tcplog` Receiver
+Create a file named `otel-collector-config.yaml` with the `tcplog` receiver:
 
-Add the receiver to your `otel-collector-config.yaml` located in `deploy/docker`:
-
-```yaml
+```yaml:otel-collector-config.yaml
 receivers:
   tcplog/logstash:
     max_log_size: 1MiB
     listen_address: '0.0.0.0:2256'
-    attributes: {}
-    resource: {}
-    add_attributes: false
-    operators: []
+
+processors:
+  batch:
+
+exporters:
+  otlp:
+    endpoint: "https://ingest.<region>.signoz.cloud:443"
+    headers:
+      signoz-ingestion-key: "<your-ingestion-key>"
+
+service:
+  pipelines:
+    logs:
+      receivers: [tcplog/logstash]
+      processors: [batch]
+      exporters: [otlp]
 ```
 
-- Port `2256` is used here, but you can use any available port.
+Verify these values:
+
+- `<region>`: Your [SigNoz Cloud region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint).
+- `<your-ingestion-key>`: Your SigNoz [ingestion key](https://signoz.io/docs/ingestion/signoz-cloud/keys/).
 - Learn more about the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/tcplogreceiver" target="_blank" rel="noopener noreferrer nofollow">tcplog receiver</a>.
 
-#### Step 2: Enable the Receiver in the Logs Pipeline
+### Step 2: Create the Logstash Config
 
-Update the `otel-collector-config.yaml` to include the receiver in the logs pipeline:
+Create a `logstash.conf` file that forwards logs to the OTel Collector by its Docker service name:
 
-```yaml {4}
-service:
-  ...
-
-  logs:
-    receivers: [otlp, tcplog/logstash]
-    processors: [batch]
-    exporters: [clickhouselogsexporter]
-```
-
-#### Step 3: Expose the Port
-
-Update the `docker-compose.yaml` file in `deploy/docker` to expose the port:
-
-```yaml
-otel-collector:
-  ...
-  ports:
-    - "2256:2256"
-```
-
-#### Step 4: Update Logstash Configuration
-
-Modify the Logstash output config to forward logs to the OpenTelemetry Collector:
-
-```ruby
+```ruby:logstash.conf
 output {
   tcp {
-    codec => json_lines # Ensures logs are sent in JSON format line-by-line
-    host => "<otel-collector-host>"
+    codec => json_lines
+    host => "otel-collector"
     port => 2256
   }
 }
 ```
 
-- `<otel-collector-host>`: The host where the OpenTelemetry Collector is running. Refer to the [troubleshooting guide](https://signoz.io/docs/install/troubleshooting/) for details.
+- `otel-collector` is the Docker service name defined in the next step. Docker networking resolves this to the correct container automatically.
 
-#### Step 5: Start the Services
+### Step 3: Create/Update the Docker Compose file
 
-Restart Logstash and SigNoz.
+```yaml:docker-compose.yaml
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml
+    ports:
+      - "2256:2256"
+
+  logstash:
+    ...
+    depends_on:
+      - otel-collector
+```
+
+### Step 4: Start the Services
+
+```bash
+docker compose up -d
+```
 
 </TabItem>
-
 </Tabs>
 
 ## Validate
