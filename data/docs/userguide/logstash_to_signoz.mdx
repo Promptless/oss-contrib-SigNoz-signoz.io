@@ -48,11 +48,12 @@ Update your `config.yaml` service configuration to include the receiver:
 
 ```yaml {4}
 service:
-    ...
-    logs:
-        receivers: [otlp, tcplog/logstash]
-        processors: [batch]
-        exporters: [otlp]
+  ...
+
+  logs:
+    receivers: [otlp, tcplog/logstash]
+    processors: [batch]
+    exporters: [otlp]
 ```
 
 #### Step 4: Update Logstash Configuration
