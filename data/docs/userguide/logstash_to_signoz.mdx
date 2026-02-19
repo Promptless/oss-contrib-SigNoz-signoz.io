@@ -138,7 +138,7 @@ output {
 }
 ```
 
-- `<otel-collector-host>`: The host where the OpenTelemetry Collector is running.
+- `<otel-collector-host>`: The host where the OpenTelemetry Collector is running. Refer to the [troubleshooting guide](https://signoz.io/docs/install/troubleshooting/#signoz-otel-collector-address-grid) for details.
 
 #### Step 5: Start the Services
 
@@ -150,7 +150,11 @@ Restart Logstash and SigNoz.
 
 ## Validate
 
-Once the services are running, your Logstash logs should appear in the [Logs Explorer](https://signoz.io/docs/logs-management/overview/) section of SigNoz.
+Once the services are running:
+
+1. Open SigNoz and navigate to **Logs** > **Logs Explorer**.
+2. You should see your Logstash logs appearing within a few seconds.
+3. Verify the log entries contain the expected fields from your Logstash pipeline.
 
 ## Transform Logs (Optional)
 
