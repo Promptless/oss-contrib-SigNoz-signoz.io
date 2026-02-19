@@ -1,6 +1,6 @@
 ---
 date: 2026-02-19
-title: Send logs from Logstash to SigNoz
+title: Send logs from Logstash to SigNoz via OpenTelemetry
 description: Send logs from Logstash to SigNoz using OpenTelemetry Collector.
 doc_type: howto
 id: logstash_to_signoz
@@ -197,11 +197,13 @@ Use OpenTelemetry processors to transform your log model into the <a href="https
 #### Port conflict
 
 - If port `2256` is already in use, choose a different port. Update the port in both the Collector `config.yaml` and the Logstash output configuration.
+- After updating, restart both services and verify logs appear in **Logs** > **Logs Explorer**.
 
 #### Logs appear but are not parsed correctly
 
 - Ensure the Logstash `output` block uses `codec => json_lines` so logs are sent in JSON format line-by-line.
 - Use [Log Pipelines](https://signoz.io/docs/logs-pipelines/introduction/) in SigNoz to parse and transform log fields.
+- After updating, check **Logs** > **Logs Explorer** and confirm the log fields are parsed as expected.
 
 </details>
 
