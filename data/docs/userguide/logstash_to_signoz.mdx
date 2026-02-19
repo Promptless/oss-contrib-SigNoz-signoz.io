@@ -139,7 +139,7 @@ output {
 }
 ```
 
-- `<otel-collector-host>`: The host where the OpenTelemetry Collector is running. Refer to the [troubleshooting guide](https://signoz.io/docs/install/troubleshooting/#signoz-otel-collector-address-grid) for details.
+- `<otel-collector-host>`: The host where the OpenTelemetry Collector is running. Refer to the [troubleshooting guide](https://signoz.io/docs/install/troubleshooting/) for details.
 
 #### Step 5: Start the Services
 
@@ -173,6 +173,7 @@ Use OpenTelemetry processors to transform your log model into the <a href="https
 - Verify that the OpenTelemetry Collector is running and the `tcplog/logstash` receiver is enabled in both the `receivers` section and the `service.pipelines.logs` pipeline.
 - Confirm that Logstash is sending logs to the correct host and port (e.g., `localhost:2256`).
 - Check the OpenTelemetry Collector logs for errors related to the `tcplog` receiver.
+- After fixing, restart both services and check **Logs** > **Logs Explorer** in SigNoz to confirm logs appear.
 
 #### Port conflict
 
