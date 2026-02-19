@@ -1,141 +1,191 @@
 ---
-date: 2024-12-18
-title: Logstash to SigNoz
-
+date: 2026-02-19
+title: Send logs from Logstash to SigNoz
+description: Send logs from Logstash to SigNoz using OpenTelemetry Collector.
+doc_type: howto
 id: logstash_to_signoz
-hide_table_of_contents: true
 ---
 
-If you use Logstash to collect logs in your stack, this tutorial will help you send logs from Logstash to SigNoz.
+import GetHelp from '@/components/shared/get-help.md'
 
-At SigNoz, we use the OpenTelemetry collector to receive logs, which supports the TCP protocol. You can forward your logs from your Logstash agent to the 
-OpenTelemetry collector.
+If you use Logstash to collect logs in your stack, you can forward them to SigNoz via the OpenTelemetry Collector using the TCP protocol.
+
+## Prerequisites
+
+- A running Logstash instance
+- An instance of SigNoz (either [Cloud](https://signoz.io/teams/) or [Self-Hosted](https://signoz.io/docs/install/self-host/))
 
 <Tabs entityName="plans">
-
 <TabItem value="signoz-cloud" label="SigNoz Cloud" default>
 
-### Collect Logs Using Logstash in SigNoz Cloud
+### Send Logs Using Logstash in SigNoz Cloud
 
-1. **Add OpenTelemetry Collector Binary**
+#### Step 1: Add OpenTelemetry Collector Binary
 
-   Add the OpenTelemetry collector binary to your VM by following this [guide](https://signoz.io/docs/tutorial/opentelemetry-binary-usage-in-virtual-machine/).
+Add the OpenTelemetry Collector binary to your VM by following the [OTel binary setup guide](https://signoz.io/docs/tutorial/opentelemetry-binary-usage-in-virtual-machine/).
 
-2. **Configure the Receiver**
+#### Step 2: Configure the `tcplog` Receiver
 
-   Add the receiver to your `config.yaml`.
-   ```yaml
-   receivers:
-     tcplog/logstash:
-       max_log_size: 1MiB
-       listen_address: "0.0.0.0:2255"
-       attributes: {}
-       resource: {}
-       add_attributes: false
-       operators: []
-   ```
-   - Port `2255` is used here for listening via the TCP protocol, but you can use a port of your choice.
-   - Learn more about the `tcplog` receiver [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/tcplogreceiver).
+Add the `tcplog` receiver to your `config.yaml`:
 
-3. **Modify the `config.yaml`**
+```yaml
+receivers:
+  tcplog/logstash:
+    max_log_size: 1MiB
+    listen_address: '0.0.0.0:2256'
+    attributes: {}
+    resource: {}
+    add_attributes: false
+    operators: []
+```
 
-   Update your service configuration to include the receiver:
-   ```yaml {4}
-   service:
-       ...
-       logs:
-           receivers: [otlp, tcplog/logstash]
-           processors: [batch]
-           exporters: [otlp]
-   ```
+- Port `2256` is used here, but you can use any available port.
+- Learn more about the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/tcplogreceiver" target="_blank" rel="noopener noreferrer nofollow">tcplog receiver</a>.
 
-4. **Update Logstash Configuration**
+#### Step 3: Enable the Receiver in the Logs Pipeline
 
-   Change the Logstash config to forward logs to the OpenTelemetry collector:
-   ```
-   output {
-     tcp {
-       codec => json_lines # Ensures logs are sent in JSON format line-by-line
-       host => "localhost"
-       port => 2255
-     }
-   }
-   ```
-   - This config assumes the Logstash binary is running on the same host. Adjust the `host` value if Logstash is running elsewhere.
+Update your `config.yaml` service configuration to include the receiver:
 
-5. **Start the Services**
+```yaml {4}
+service:
+    ...
+    logs:
+        receivers: [otlp, tcplog/logstash]
+        processors: [batch]
+        exporters: [otlp]
+```
 
-   Once the changes are made, start the OpenTelemetry binary and Logstash. You should see the logs in SigNoz.
+#### Step 4: Update Logstash Configuration
 
-6. **Transform Logs**
+Change the Logstash output config to forward logs to the OpenTelemetry Collector:
 
-   Use OpenTelemetry processors to transform your log model into the [OpenTelemetry log data model](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md). Learn more about available processors [here](/docs/userguide/logs#processors-available-for-processing-logs).
+```ruby
+output {
+  tcp {
+    codec => json_lines # Ensures logs are sent in JSON format line-by-line
+    host => "localhost"
+    port => 2256
+  }
+}
+```
+
+- This config assumes Logstash is running on the same host as the Collector. Adjust the `host` value if Logstash is running elsewhere.
+
+#### Step 5: Start the Services
+
+Restart the OpenTelemetry Collector and Logstash.
 
 </TabItem>
 
 <TabItem value='self-host' label='Self-Host'>
 
-### Collect Logs Using Logstash in Self-Hosted SigNoz
+### Send Logs Using Logstash in Self-Hosted SigNoz
 
-1. **Configure the Receiver**:
-   Add the receiver to your `otel-collector-config.yaml` located in `deploy/docker`:
-   ```yaml
-   receivers:
-     tcplog/logstash:
-       max_log_size: 1MiB
-       listen_address: "0.0.0.0:2255"
-       attributes: {}
-       resource: {}
-       add_attributes: false
-       operators: []
-   ```
-   - Port `2255` is used here for listening via the TCP protocol, but you can use a port of your choice.
-   - Learn more about the `tcplog` receiver [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/tcplogreceiver).
+#### Step 1: Configure the `tcplog` Receiver
 
-2. **Update the Log Pipeline**
+Add the receiver to your `otel-collector-config.yaml` located in `deploy/docker`:
 
-   Modify the `otel-collector-config.yaml` to include the receiver in the logs pipeline:
-   ```yaml
-   service:
-     ...
+```yaml
+receivers:
+  tcplog/logstash:
+    max_log_size: 1MiB
+    listen_address: '0.0.0.0:2256'
+    attributes: {}
+    resource: {}
+    add_attributes: false
+    operators: []
+```
 
-     logs:
-       receivers: [otlp, tcplog/logstash]
-       processors: [batch]
-       exporters: [clickhouselogsexporter]
-   ```
+- Port `2256` is used here, but you can use any available port.
+- Learn more about the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/tcplogreceiver" target="_blank" rel="noopener noreferrer nofollow">tcplog receiver</a>.
 
-3. **Expose the Port**:
-   Update the `docker-compose.yaml` file in `deploy/docker` to expose the port:
-   ```yaml
-   otel-collector:
-     ...
-     ports:
-       - "2255:2255"
-   ```
+#### Step 2: Enable the Receiver in the Logs Pipeline
 
-4. **Update Logstash Configuration**
+Update the `otel-collector-config.yaml` to include the receiver in the logs pipeline:
 
-   Modify the Logstash config to forward logs to the OpenTelemetry collector:
-   ```
-   output {
-     tcp {
-       codec => json_lines # Ensures logs are sent in JSON format line-by-line
-       host => "<otel-collector-host>"
-       port => 2255
-     }
-   }
-   ```
-   - Replace `<otel-collector-host>` with the actual host where the OpenTelemetry collector is running. Refer to the [troubleshooting guide](/docs/install/troubleshooting#signoz-otel-collector-address-grid) for details.
+```yaml {4}
+service:
+  ...
 
-5. **Start the Services**
+  logs:
+    receivers: [otlp, tcplog/logstash]
+    processors: [batch]
+    exporters: [clickhouselogsexporter]
+```
 
-   Restart Logstash and SigNoz. You should see the logs in SigNoz.
+#### Step 3: Expose the Port
 
-6. **Transform Logs**
+Update the `docker-compose.yaml` file in `deploy/docker` to expose the port:
 
-   Use OpenTelemetry processors to transform your log model into the [OpenTelemetry log data model](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md). Learn more about available processors [here](/docs/userguide/logs#processors-available-for-processing-logs).
+```yaml
+otel-collector:
+  ...
+  ports:
+    - "2256:2256"
+```
+
+#### Step 4: Update Logstash Configuration
+
+Modify the Logstash output config to forward logs to the OpenTelemetry Collector:
+
+```ruby
+output {
+  tcp {
+    codec => json_lines # Ensures logs are sent in JSON format line-by-line
+    host => "<otel-collector-host>"
+    port => 2256
+  }
+}
+```
+
+- `<otel-collector-host>`: The host where the OpenTelemetry Collector is running.
+
+#### Step 5: Start the Services
+
+Restart Logstash and SigNoz.
 
 </TabItem>
 
 </Tabs>
+
+## Validate
+
+Once the services are running, your Logstash logs should appear in the [Logs Explorer](https://signoz.io/docs/logs-management/overview/) section of SigNoz.
+
+## Transform Logs (Optional)
+
+Use OpenTelemetry processors to transform your log model into the <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry log data model</a>. Learn more about [available log processors](https://signoz.io/docs/logs-pipelines/processors/).
+
+<details>
+<ToggleHeading>
+
+## Troubleshooting
+
+</ToggleHeading>
+
+#### Logs are not appearing in SigNoz
+
+- Verify that the OpenTelemetry Collector is running and the `tcplog/logstash` receiver is enabled in both the `receivers` section and the `service.pipelines.logs` pipeline.
+- Confirm that Logstash is sending logs to the correct host and port (e.g., `localhost:2256`).
+- Check the OpenTelemetry Collector logs for errors related to the `tcplog` receiver.
+
+#### Port conflict
+
+- If port `2256` is already in use, choose a different port. Update the port in both the Collector `config.yaml` and the Logstash output configuration.
+
+#### Logs appear but are not parsed correctly
+
+- Ensure the Logstash `output` block uses `codec => json_lines` so logs are sent in JSON format line-by-line.
+- Use [Log Pipelines](https://signoz.io/docs/logs-pipelines/introduction/) in SigNoz to parse and transform log fields.
+
+</details>
+
+## Next Steps
+
+- [Log query and filtering](https://signoz.io/docs/logs-management/overview/)
+- [Set up alerts on logs](https://signoz.io/docs/alerts-management/log-based-alerts/)
+- [Log Pipelines for preprocessing](https://signoz.io/docs/logs-pipelines/introduction/)
+
+## Get Help
+
+<GetHelp />
