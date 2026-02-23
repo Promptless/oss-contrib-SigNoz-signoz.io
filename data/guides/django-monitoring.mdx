@@ -1,7 +1,7 @@
 ---
-title: Django Monitoring with Prometheus and Why it’s not enough?
+title: Django Monitoring with Prometheus and Why it’s Not Enough?
 slug: django-monitoring
-date: 2026-02-16
+date: 2026-02-23
 tags: [python, monitoring]
 authors: [saurabh_patil]
 description: Set up Django monitoring with Prometheus. Step-by-step guide covering metrics, visualization, alerting, and why OpenTelemetry is a better long-term choice.
@@ -841,12 +841,11 @@ Here is a comparison of the two approaches.
 | --- | --- | --- |
 | Telemetry signals | Metrics only | Metrics, traces, and logs |
 | Trace support | None | Full distributed tracing with span waterfalls |
-| Log correlation | Manual timestamp matching | You can correlate logs to traces by injecting trace context into your log format (often via SDK/logging integration). |
+| Log correlation | Needs external tools | You can correlate logs to traces by injecting trace context into your log format (often via SDK/logging integration). |
 | Instrumentation | Library-specific wrappers (swap DB backends, add mixins) | Auto-instrumentation for Django, databases, caches, HTTP clients, and Celery |
 | Multi-service correlation | Separate Prometheus per service, no request-level linking | Single trace follows a request across all services |
 | Exception tracking | Not built in | Stack traces captured as span events |
 | Infrastructure | Prometheus + Alertmanager + Grafana (3 services) | SigNoz (single platform, self-hosted or cloud) |
-| Vendor lock-in | Prometheus ecosystem | Any OTel-compatible backend |
 
 With OTel and SigNoz, you can filter traces by `service.name`, click any trace to see the span waterfall showing exactly which middleware, view, DB query, or external call is slow, and jump directly from a trace to the correlated logs for that request.
 

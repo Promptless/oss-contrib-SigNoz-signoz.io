@@ -1,7 +1,7 @@
 ---
 title: Django Logging - How to Configure, Customize, and Centralize Your Logs
 slug: django-logging
-date: 2026-02-13
+date: 2026-02-23
 tags: [python, opentelemetry]
 authors: [saurabh_patil]
 description: Learn how to set up Django logging with built-in tools, customize formatters and handlers, and send logs to SigNoz using OpenTelemetry.
@@ -18,7 +18,7 @@ You need the following installed on your machine before starting.
 
 ## Setting Up a Sample Django Project
 
-If you already have a Django app running, skip ahead to the [How Django Logging Works](#how-to-use-logging-in-django) section. Otherwise, follow the steps below to create a fresh project that we will use throughout this guide.
+If you already have a Django app running, skip ahead to the [How to use Logging in Django?](#how-to-use-logging-in-django) section. Otherwise, follow the steps below to create a fresh project that we will use throughout this guide.
 
 ### Step 1: Install Django
 
@@ -133,7 +133,7 @@ python manage.py runserver
 
 At this point, you won't see the `logger.info` or `logger.debug` messages anywhere. By default, Django’s logging config primarily emits `WARNING` and `ERROR` messages unless you customize the LOGGING setting.
 
-## How to use Logging in Django
+## How to use Logging in Django?
 
 Django uses Python’s built-in `logging` framework for all its logging needs. This means you get a standardized, flexible logging system that can route log messages to different outputs (console, files, external systems), filter them by severity, and format them consistently.
 
@@ -738,9 +738,3 @@ Gunicorn's default fork model works with OpenTelemetry out of the box. Each work
 ## Conclusion
 
 In this guide, you configured Django logging from the ground up, starting with console output, adding file handlers with rotation, layering in structured JSON formatting, and finally exporting everything to SigNoz through OpenTelemetry. The key takeaway is that Django's `LOGGING` dictionary and Python's `logging` module handle local development well, but production workloads need centralized logging with trace correlation to debug issues across multiple servers.
-
-If you want to go further, here are some useful next steps:
-
-- Set up [Alerts in SigNoz](/docs/alerts/) to be notified when the ERROR log volume exceeds a threshold.
-- Add custom traces and metrics alongside logs using the [OpenTelemetry Django Instrumentation guide](/blog/opentelemetry-django/).
-- Explore [Python logging best practices](/guides/python-logging-best-practices/), including per-module loggers, exception handling, and avoiding common pitfalls.
