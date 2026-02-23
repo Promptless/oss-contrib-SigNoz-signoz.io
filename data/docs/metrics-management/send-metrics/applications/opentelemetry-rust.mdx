@@ -1,7 +1,7 @@
 ---
-date: 2026-02-04
+date: 2026-02-23
 id: opentelemetry-rust
-title: Send Metrics from Rust application
+title: Send Metrics from Rust Application Using OpenTelemetry
 description: Learn how to instrument your Rust application with OpenTelemetry to send metrics to SigNoz
 
 doc_type: howto
@@ -127,6 +127,14 @@ opentelemetry_sdk = { version = "0.31", features = ["metrics", "rt-tokio"] }
 opentelemetry-otlp = { version = "0.31", features = ["metrics", "http-proto", "reqwest-client", "tls-roots"] }
 tokio = { version = "1", features = ["full"] }
 ```
+
+<Admonition type="info">
+If you want to use synchronous `Gauge` (shown in [Custom Metrics Examples](#custom-metrics-examples)), enable the experimental `otel_unstable` feature:
+```toml:Cargo.toml
+opentelemetry = { version = "0.31", features = ["metrics", "otel_unstable"] }
+```
+If you prefer stable APIs only, keep `features = ["metrics"]` and use `ObservableGauge`.
+</Admonition>
 
 <Admonition type="info">
 The `http-proto` and `reqwest-client` features enable HTTP-based OTLP export. For gRPC export, use `grpc-tonic` instead of `http-proto` and `reqwest-client`, and add `tonic` as a dependency.
@@ -257,7 +265,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 This example shows a Counter, which only increases. OpenTelemetry supports other metric types like UpDownCounter, Histogram, and Observable Gauge. See [Custom Metrics Examples](#custom-metrics-examples) for complete examples of each type.
 </Admonition>
 
-Run your application using your usual method (e.g., `cargo run` for development or executing the compiled binary for production).
+### Step 5. Run your application
+
+Run your instrumented application:
+
+```bash
+cargo run
+```
 
 ## Validate
 
@@ -603,7 +617,7 @@ The HTTP server example exports the following metrics:
 - `http_server_active_requests` (UpDownCounter) - Current number of requests being processed
 
 <Admonition type="info">
-When naming your custom metrics, follow the [OpenTelemetry Metrics Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/general/metrics/) for consistency and interoperability.
+When naming your custom metrics, follow the <a href="https://opentelemetry.io/docs/specs/semconv/general/metrics/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Metrics Semantic Conventions</a> for consistency and interoperability.
 </Admonition>
 
 </details>
