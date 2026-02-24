@@ -1,3 +1,4 @@
+import '@signozhq/design-tokens/dist/style.css'
 import 'css/tailwind.css'
 import 'css/global.css'
 import { SpeedInsights } from '@vercel/speed-insights/next'
