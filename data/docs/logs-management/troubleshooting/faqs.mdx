@@ -78,19 +78,25 @@ A. Check your exporter and collector configuration.
 ### Q. How to increase the retention period of logs from x days to y days?  
 A. If you are using SigNoz Cloud, contact SigNoz support via the chatbox. Or if you are self-hosting, you can change the retention period in the SigNoz UI under Settings > Logs Retention.
 
-### Q. In java my mdc attributes are not visible in SigNoz  
-A. Ensure your logging configuration includes MDC pattern and OpenTelemetry is configured to capture MDC attributes.
+### Q. How do I filter logs using the Query Builder?
+A. You can use the Query Builder to filter logs by specific attributes, such as service name or severity.
 
 <details>
-<summary>Show detailed configuration steps</summary>
+<summary>Show detailed steps</summary>
 
-You can get your mdc attributes by using the [appender settings][def] and passing it as `-D<property>=<value>` format.
+1. Navigate to the **Logs** tab in the side navigation bar to open the Logs Explorer.
+2. In the query input area, click inside the text box that says **"Enter your filter query"**.
+3. Type your query using the autocomplete suggestions (e.g., `severity_text = 'ERROR'`).
+4. Alternatively, use the **Filters for** sidebar on the left to select quick filters like **Severity Text** or **Service Name**.
+5. Click the blue **Run Query** button (or press `Cmd+Enter` / `Ctrl+Enter`) at the top right to refresh the results.
 
-For example, for **logback** use:  
-`otel.instrumentation.logback-appender.experimental.capture-mdc-attributes=*`  
-For **log4j** use:  
-`otel.instrumentation.log4j-appender.experimental.capture-mdc-attributes=*`  
-See [this documentation][def] for more system properties.
+</details>
+
+### Q. How do I add or remove columns in the log table view?
+A. You can customize columns in the List or Table view using the Settings menu to focus on relevant attributes.
+
+<details>
+<summary>Show detailed steps</summary>
 
 </details>
 
