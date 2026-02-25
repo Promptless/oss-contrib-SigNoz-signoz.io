@@ -5,11 +5,18 @@ const axios = require('axios')
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3')
 const mime = require('mime-types')
 
-// Configuration
-const CMS_API_URL = process.env.CMS_API_URL
-const CMS_API_TOKEN = process.env.CMS_API_TOKEN
+const DEPLOYMENT_TARGET = process.env.DEPLOYMENT_STATUS || 'staging'
+
+const CMS_API_URL =
+  DEPLOYMENT_TARGET === 'staging'
+    ? process.env.CMS_STAGING_API_URL || process.env.CMS_API_URL
+    : process.env.CMS_API_URL
+const CMS_API_TOKEN =
+  DEPLOYMENT_TARGET === 'staging'
+    ? process.env.CMS_STAGING_API_TOKEN || process.env.CMS_API_TOKEN
+    : process.env.CMS_API_TOKEN
+
 const SYNC_FOLDERS = JSON.parse(process.env.SYNC_FOLDERS)
-const DEPLOYMENT_STATUS = process.env.DEPLOYMENT_STATUS
 
 function getAssetsListFromEnv(envName, pathEnvName) {
   if (process.env[pathEnvName] && fs.existsSync(process.env[pathEnvName])) {
@@ -50,7 +57,7 @@ const COLLECTION_SCHEMAS = {
   faqs: {
     apiPath: 'api::faq.faq',
     endpoint: 'faqs',
-    fields: ['title', 'description', 'date', 'path', 'content', 'deployment_status'],
+    fields: ['title', 'description', 'date', 'path', 'content'],
     relations: {
       authors: {
         endpoint: 'authors',
@@ -74,7 +81,7 @@ const COLLECTION_SCHEMAS = {
   'case-study': {
     apiPath: 'api::case-study.case-study',
     endpoint: 'case-studies',
-    fields: ['title', 'description', 'image', 'path', 'content', 'deployment_status'],
+    fields: ['title', 'description', 'image', 'path', 'content'],
     relations: {
       authors: {
         endpoint: 'authors',
@@ -86,7 +93,7 @@ const COLLECTION_SCHEMAS = {
   comparisons: {
     apiPath: 'api::comparison.comparison',
     endpoint: 'comparisons',
-    fields: ['title', 'description', 'image', 'path', 'content', 'deployment_status'],
+    fields: ['title', 'description', 'image', 'path', 'content'],
     relations: {
       authors: {
         endpoint: 'authors',
@@ -122,7 +129,7 @@ const COLLECTION_SCHEMAS = {
   guides: {
     apiPath: 'api::guide.guide',
     endpoint: 'guides',
-    fields: ['title', 'description', 'image', 'path', 'content', 'deployment_status', 'date'],
+    fields: ['title', 'description', 'image', 'path', 'content', 'date'],
     relations: {
       authors: {
         endpoint: 'authors',
@@ -163,7 +170,7 @@ const COLLECTION_SCHEMAS = {
   opentelemetry: {
     apiPath: 'api::opentelemetry.opentelemetry',
     endpoint: 'opentelemetries',
-    fields: ['title', 'description', 'image', 'path', 'content', 'deployment_status', 'date'],
+    fields: ['title', 'description', 'image', 'path', 'content', 'date'],
     relations: {
       authors: {
         endpoint: 'authors',
@@ -449,36 +456,6 @@ async function fetchAllEntities(endpoint) {
   }
 }
 
-// Helper: Filter entities by deployment_status when available
-function filterEntitiesByDeploymentStatus(entities) {
-  console.log(
-    `  🔍 [DEBUG] Filtering entities by deployment_status: ${DEPLOYMENT_STATUS} ${entities.length} entities`
-  )
-  if (!Array.isArray(entities) || entities.length === 0) {
-    return entities
-  }
-
-  const filteredEntities = entities.filter((entity) => {
-    if (!Object.prototype.hasOwnProperty.call(entity, 'deployment_status')) {
-      return true
-    }
-
-    if (entity.deployment_status === null || entity.deployment_status === undefined) {
-      return true
-    }
-
-    return entity.deployment_status === DEPLOYMENT_STATUS
-  })
-
-  if (filteredEntities.length !== entities.length) {
-    console.log(
-      `  🔒 Filtered ${entities.length - filteredEntities.length} relation candidate(s) by deployment_status=${DEPLOYMENT_STATUS}`
-    )
-  }
-
-  return filteredEntities
-}
-
 // Helper: Create a tag or keyword entry
 async function createTagOrKeyword(endpoint, value, folderName) {
   try {
@@ -541,7 +518,6 @@ async function resolveRelations(folderName, frontmatter) {
 
     // Fetch all entities from the relation endpoint
     let entities = await fetchAllEntities(relationConfig.endpoint)
-    entities = filterEntitiesByDeploymentStatus(entities)
 
     if (entities.length === 0 && !isTagsOrKeywords) {
       console.warn(`  ⚠️ No entities found in ${relationConfig.endpoint}`)
@@ -578,9 +554,7 @@ async function resolveRelations(folderName, frontmatter) {
       // Check if matched and has documentId
       if (matched && matched?.documentId) {
         matchedIds.push(matched.documentId)
-        console.log(
-          `    ✅ Matched "${value}" → ID: ${matched.documentId} with deployment_status: ${matched.deployment_status}`
-        )
+        console.log(`    ✅ Matched "${value}" → ID: ${matched.documentId}`)
       } else if (matched && !matched?.documentId) {
         // Matched entity but no documentId
         unmatchedValues.push(value)
@@ -652,7 +626,6 @@ async function mapToStrapiSchema(folderName, frontmatter, content, pathField) {
   const data = {
     path: pathField,
     content: content,
-    deployment_status: DEPLOYMENT_STATUS,
     ...frontmatter,
   }
 
@@ -685,9 +658,7 @@ async function mapToStrapiSchema(folderName, frontmatter, content, pathField) {
   }
 
   // Check for missing required fields
-  const missingFields = schema.fields.filter(
-    (field) => field !== 'deployment_status' && !(field in data)
-  )
+  const missingFields = schema.fields.filter((field) => !(field in data))
 
   if (missingFields.length > 0) {
     console.warn(`  ⚠️ Missing fields: ${missingFields.join(', ')}`)
@@ -700,13 +671,11 @@ async function mapToStrapiSchema(folderName, frontmatter, content, pathField) {
 async function findEntryByPath(folderName, pathField) {
   const schema = COLLECTION_SCHEMAS[folderName]
   try {
-    console.log(
-      `  🔍 [DEBUG] Searching for entry: endpoint=${schema.endpoint}, path=${pathField}, deployment_status=${DEPLOYMENT_STATUS}`
-    )
+    console.log(`  🔍 [DEBUG] Searching for entry: endpoint=${schema.endpoint}, path=${pathField}`)
 
     const response = await axios.get(`${CMS_API_URL}/api/${schema.endpoint}`, {
       params: {
-        filters: { path: { $eq: pathField }, deployment_status: { $eq: DEPLOYMENT_STATUS } },
+        filters: { path: { $eq: pathField } },
         pagination: { limit: 1 },
       },
       headers: {
@@ -864,7 +833,7 @@ function detectOperationType(filePath, isDeletedFile = false) {
 // Main sync logic
 async function syncToStrapi() {
   console.log('🚀 Starting sync to Strapi CMS...\n')
-  console.log(`📦 Deployment Status: ${DEPLOYMENT_STATUS}`)
+  console.log(`📦 Deployment Target: ${DEPLOYMENT_TARGET}`)
   console.log(`🔗 CMS API URL: ${CMS_API_URL}`)
   console.log(`📁 Sync Folders: ${SYNC_FOLDERS.join(', ')}`)
   console.log(`\n📄 Changed Files (${CHANGED_FILES.length}):`)
@@ -1015,7 +984,7 @@ async function syncToStrapi() {
       })
 
       results.relationTypes = Array.from(allRelationNames)
-      results.deploymentStatus = DEPLOYMENT_STATUS
+      results.deploymentTarget = DEPLOYMENT_TARGET
 
       fs.writeFileSync('sync-results.json', JSON.stringify(results, null, 2))
     } catch (e) {
@@ -1135,7 +1104,7 @@ async function syncToStrapi() {
       })
 
       results.relationTypes = Array.from(allRelationNames)
-      results.deploymentStatus = DEPLOYMENT_STATUS
+      results.deploymentTarget = DEPLOYMENT_TARGET
 
       fs.writeFileSync('sync-results.json', JSON.stringify(results, null, 2))
     } catch (e) {
@@ -1164,7 +1133,7 @@ async function syncToStrapi() {
 
   // Add relation info to results
   results.relationTypes = Array.from(allRelationNames)
-  results.deploymentStatus = DEPLOYMENT_STATUS
+  results.deploymentTarget = DEPLOYMENT_TARGET
 
   // Save results to file for PR comment script
   try {
