@@ -11,6 +11,7 @@ import {
   SiPydantic,
   SiTemporal,
   SiOllama,
+  SiMlflow,
 } from 'react-icons/si'
 
 interface IconCardData {
@@ -202,6 +203,12 @@ const LLMMonitoringData: IconCardData[] = [
     href: '/docs/mastra-observability',
     icon: <img src="/img/docs/llm/mastra/mastra-icon.webp" alt="Mastra Icon" className="h-7 w-7" />,
     clickName: 'Mastra Monitoring',
+  },
+  {
+    name: 'MLflow',
+    href: '/docs/mlflow-monitoring',
+    icon: <SiMlflow className="h-7 w-7" style={{ color: '#00a6ff' }} />,
+    clickName: 'MLflow Monitoring',
   },
   {
     name: 'Ollama',

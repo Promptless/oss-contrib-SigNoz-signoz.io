@@ -2621,6 +2621,11 @@ const docsSideNav = [
         type: 'doc',
       },
       {
+        route: '/docs/mlflow-monitoring',
+        label: 'MLflow',
+        type: 'doc',
+      },
+      {
         route: '/docs/ollama-monitoring',
         label: 'Ollama',
         type: 'doc',
