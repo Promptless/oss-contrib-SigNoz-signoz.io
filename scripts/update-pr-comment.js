@@ -3,7 +3,6 @@ const path = require('path')
 
 module.exports = async ({ github, context, core }) => {
   const status = process.env.JOB_STATUS
-  const deploymentTarget = process.env.DEPLOYMENT_TARGET
   const deploymentStatus = process.env.DEPLOYMENT_STATUS
 
   let body = ''
@@ -22,7 +21,7 @@ module.exports = async ({ github, context, core }) => {
     if (syncResults) {
       // Build comprehensive summary
       body = `✅ **CMS Sync Successful**\n\n`
-      body += `Content has been synced to the \`${deploymentTarget}\` Strapi CMS instance with deployment status: \`${deploymentStatus}\`\n\n`
+      body += `Content has been synced to CMS with deployment status: \`${deploymentStatus}\`\n\n`
 
       // Summary counts
       body += `### 📊 Summary\n\n`
@@ -84,7 +83,7 @@ module.exports = async ({ github, context, core }) => {
     } else {
       // Fallback if results file not found
       body = `✅ **CMS Sync Successful**\n\n`
-      body += `Content has been synced to Strapi CMS with deployment target: \`${deploymentTarget}\` and deployment status: \`${deploymentStatus}\`\n\n`
+      body += `Content has been synced to CMS with deployment status: \`${deploymentStatus}\`\n\n`
       body += `Relations have been automatically resolved.`
     }
   } else {
