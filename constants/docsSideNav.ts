@@ -2072,6 +2072,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/mlflow-dashboard',
+            label: 'MLflow',
+          },
+          {
+            type: 'doc',
             route: '/docs/dashboards/dashboard-templates/mysql',
             label: 'MySQL',
           },

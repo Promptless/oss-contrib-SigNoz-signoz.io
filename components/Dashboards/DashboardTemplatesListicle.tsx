@@ -25,6 +25,7 @@ import {
   SiOpenai,
   SiSupabase,
   SiOllama,
+  SiMlflow,
 } from 'react-icons/si'
 import {
   Monitor,
@@ -384,6 +385,12 @@ const DashboardTemplatesData: IconCardData[] = [
     href: '/docs/dashboards/dashboard-templates/memcached',
     icon: <HardDrive className="h-7 w-7 text-green-600" />,
     clickName: 'Memcached Dashboard Template',
+  },
+  {
+    name: 'MLflow',
+    href: '/docs/dashboards/dashboard-templates/mlflow-dashboard',
+    icon: <SiMlflow className="h-7 w-7" style={{ color: '#00a6ff' }} />,
+    clickName: 'MLflow Dashboard Template',
   },
   {
     name: 'MongoDB',
