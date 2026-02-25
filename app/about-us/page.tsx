@@ -26,15 +26,15 @@ function aboutus() {
             <div className="col col--6">
               <div className="card-demo margin--md">
                 <div className="card-dark bg-signoz_slate-500">
-                  <div className="avatar margin--md">
+                  <div className="m-4 flex gap-x-4">
                     <img
-                      className="avatar__photo avatar__photo--lg"
+                      className="block aspect-square h-16 w-16 overflow-hidden rounded-full object-cover"
                       src="/img/504541.webp"
                       alt="Profile pic of Pranay Prateek"
                     />
-                    <div className="avatar__intro">
-                      <h4 className="avatar__name">Pranay Prateek</h4>
-                      <small className="avatar__subtitle">Co-founder & CEO </small>
+                    <div className="flex flex-1 flex-col justify-center">
+                      <h4 className="text-xl font-bold leading-tight">Pranay Prateek</h4>
+                      <small className="mt-1">Co-founder & CEO </small>
                     </div>
                   </div>
                   <div className="card__body">
@@ -73,15 +73,15 @@ function aboutus() {
             <div className="col col--6">
               <div className="card-demo margin--md">
                 <div className="card-dark bg-signoz_slate-500">
-                  <div className="avatar margin--md">
+                  <div className="m-4 flex gap-x-4">
                     <img
-                      className="avatar__photo avatar__photo--lg"
+                      className="block aspect-square h-16 w-16 overflow-hidden rounded-full object-cover"
                       src="/img/12460410.webp"
                       alt="Profile pic of Ankit Nayan"
                     />
-                    <div className="avatar__intro">
-                      <h4 className="avatar__name">Ankit Nayan</h4>
-                      <small className="avatar__subtitle"> Co-Founder & CTO </small>
+                    <div className="flex flex-1 flex-col justify-center">
+                      <h4 className="text-xl font-bold leading-tight">Ankit Nayan</h4>
+                      <small className="mt-1"> Co-Founder & CTO </small>
                     </div>
                   </div>
                   <div className="card__body">
