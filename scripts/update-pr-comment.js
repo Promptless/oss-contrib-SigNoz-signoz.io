@@ -21,7 +21,7 @@ module.exports = async ({ github, context, core }) => {
     if (syncResults) {
       // Build comprehensive summary
       body = `✅ **CMS Sync Successful**\n\n`
-      body += `Content has been synced to CMS with deployment status: \`${deploymentStatus}\`\n\n`
+      body += `Content has been synced to Strapi CMS with deployment status: \`${deploymentStatus}\`\n\n`
 
       // Summary counts
       body += `### 📊 Summary\n\n`
@@ -83,7 +83,7 @@ module.exports = async ({ github, context, core }) => {
     } else {
       // Fallback if results file not found
       body = `✅ **CMS Sync Successful**\n\n`
-      body += `Content has been synced to CMS with deployment status: \`${deploymentStatus}\`\n\n`
+      body += `Content has been synced to Strapi CMS with deployment status: \`${deploymentStatus}\`\n\n`
       body += `Relations have been automatically resolved.`
     }
   } else {
