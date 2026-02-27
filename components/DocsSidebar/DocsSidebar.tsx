@@ -259,7 +259,7 @@ const DocsSidebar: React.FC<DocsSidebarProps> = ({ onNavItemClick }) => {
   return (
     <nav
       ref={sidebarRef}
-      className="docs-sidebar sticky top-[48px] h-full w-full overflow-y-auto py-4 text-white"
+      className="docs-sidebar sticky top-[48px] h-full w-full overflow-y-auto py-4 text-white max-lg:static max-lg:h-auto max-lg:max-h-none"
     >
       <ul className="list-none space-y-1 p-0">{sideNav.map(renderItem)}</ul>
     </nav>

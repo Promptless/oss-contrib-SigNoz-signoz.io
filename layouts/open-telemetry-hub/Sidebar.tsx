@@ -137,7 +137,7 @@ export function Sidebar({
 
   return (
     <nav
-      className="docs-sidebar sticky top-[80px] h-[calc(100vh-100px)] w-full overflow-y-auto py-4 text-white"
+      className="docs-sidebar sticky top-[80px] h-[calc(100vh-100px)] w-full overflow-y-auto py-4 text-white max-lg:static max-lg:h-auto max-lg:max-h-none"
       ref={containerRef}
     >
       {languageSelector}
