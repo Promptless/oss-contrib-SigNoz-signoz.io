@@ -37,7 +37,7 @@ The `Traces` tab comes with many advanced useful filters now. Some key filters i
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="The new Traces tab in our latest release"
    
    src="/img/blog/2022/03/trace_filter_page.webp"
@@ -49,7 +49,7 @@ The `Traces` tab comes with many advanced useful filters now. Some key filters i
 You can then run aggregates on the traces data to figure out bottlenecks.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Running aggregates like sum, avg, percentiles on your tracing data"
    
    src="/img/blog/2022/03/run_aggregates.webp"
@@ -61,7 +61,7 @@ You can then run aggregates on the traces data to figure out bottlenecks.
 You can also see these aggregates in more granular detail by grouping them by service name, operation, HTTP URL, HTTP method, etc.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Group aggregates by service name, operation, HTTP URL, HTTP method etc."
    
    src="/img/blog/2022/03/group_by_chart_filters.webp"
@@ -73,7 +73,7 @@ You can also see these aggregates in more granular detail by grouping them by se
 The events table lists out all the events that occurred during a given duration. If you want to drill down and see how a specific event performed as part of an entire request, you can click on it and it will take you to our new `Traces Detail` page.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="List of events that occurred during a given duration"
    
    src="/img/blog/2022/03/list_of_events.webp"
@@ -87,7 +87,7 @@ We are most excited about the new `Trace Detail` page. Using this page, our user
 The Flamegraph and the Gantt chart make it easy to deconstruct a trace into its components. Moreover, you can also see contextual data for an event with tags and events in the rightmost panel.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="The new Trace Detail page with a much improved Flamegraph and Gantt Chart"
    
    src="/img/blog/2022/03/trace_detail.webp"
@@ -122,7 +122,7 @@ This feature has been requested by a lot of our users and it will enable teams t
 A sneak peek into the design of our org management 👇
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Design of upcoming org settings on SigNoz dashboard"
    src="/img/blog/2022/03/upcoming_login_feature.webp"
    />
@@ -137,7 +137,7 @@ A sneak peek into the design of our org management 👇
 SigNoz contributor tribe has now more than 50 developers. Devs from all across the world - India, Israel, France, Philippines, Sweden, Germany, and many other countries have made commits to our GitHub repo to make SigNoz better than it was when they found it.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="50+ contributors for SigNoz"
    src="/img/blog/2022/03/50_contributors.webp"/>
 </figure>
@@ -161,41 +161,40 @@ Community is core to open-source products, and Swyx shared some amazing insights
 
 A string of new contributors joined us over our last few releases. We want to thank these amazing contributors who made SigNoz better with their contributions. 🤗
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/pranshuchittora"
-      >
+         href="https://github.com/pranshuchittora" className="block">
          <img
             alt="Pranshu Chittora profile"
             src="https://avatars.githubusercontent.com/u/32242596?v=4"
+            className="h-12 w-12 rounded-full"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Pranshu Chittora</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Pranshu Chittora</div>
+         <small className="text-sm text-signoz_vanilla-400">
             SigNoz, ex-Razorpay
          </small>
       </div>
       </div>
    </div>
        
- <div class="col col--6">
-      <div class="avatar">
+ <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/axaysagathiya"
-      >
+         href="https://github.com/axaysagathiya" className="block">
          <img
             alt="Axay sagathiya Profile"
             src="https://avatars.githubusercontent.com/u/40173579?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Axay sagathiya</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Axay sagathiya</div>
+         <small className="text-sm text-signoz_vanilla-400">
             India
          </small>
       </div>
@@ -207,40 +206,38 @@ A string of new contributors joined us over our last few releases. We want to th
 
 <p></p>
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/siddhantparekh"
-      >
+         href="https://github.com/siddhantparekh" className="block">
          <img
             alt="Siddhant Parekh profile"
             src="https://avatars.githubusercontent.com/u/24934757?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Siddhant Parekh</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Siddhant Parekh</div>
+         <small className="text-sm text-signoz_vanilla-400">
          India
          </small>
       </div>
       </div>
    </div>
-    <div class="col col--6">
-      <div class="avatar">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/SoniaisMad"
-      >
+         href="https://github.com/SoniaisMad" className="block">
          <img
             alt="Sonia Manoubi Profile"
             src="https://avatars.githubusercontent.com/u/25304945?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Sonia Manoubi</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Sonia Manoubi</div>
+         <small className="text-sm text-signoz_vanilla-400">
             Nice, France
          </small>
       </div>
@@ -250,40 +247,38 @@ A string of new contributors joined us over our last few releases. We want to th
 
 <p></p>
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/Tazer"
-      >
+         href="https://github.com/Tazer" className="block">
          <img
             alt="Patrik profile"
             src="https://avatars.githubusercontent.com/u/132698?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Patrik</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Patrik</div>
+         <small className="text-sm text-signoz_vanilla-400">
          Sweden
          </small>
       </div>
       </div>
    </div>
-    <div class="col col--6">
-      <div class="avatar">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/Siddhant-K-code"
-      >
+         href="https://github.com/Siddhant-K-code" className="block">
          <img
             alt="Siddhant Khare Profile"
             src="https://avatars.githubusercontent.com/u/55068936?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Siddhant Khare</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Siddhant Khare</div>
+         <small className="text-sm text-signoz_vanilla-400">
             India
          </small>
       </div>
@@ -293,40 +288,38 @@ A string of new contributors joined us over our last few releases. We want to th
 
 <p></p>
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/amustaque97"
-      >
+         href="https://github.com/amustaque97" className="block">
          <img
             alt="Mustaque Ahmed profile"
             src="https://avatars.githubusercontent.com/u/21127788?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Mustaque Ahmed</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Mustaque Ahmed</div>
+         <small className="text-sm text-signoz_vanilla-400">
          India
          </small>
       </div>
       </div>
    </div>
-    <div class="col col--6">
-      <div class="avatar">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/Devesh21700Kumar"
-      >
+         href="https://github.com/Devesh21700Kumar" className="block">
          <img
             alt="Devesh Kumar Profile"
             src="https://avatars.githubusercontent.com/u/59202075?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Devesh Kumar</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Devesh Kumar</div>
+         <small className="text-sm text-signoz_vanilla-400">
             India
          </small>
       </div>
@@ -336,21 +329,20 @@ A string of new contributors joined us over our last few releases. We want to th
 
 <p></p>
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/sadn1ck"
-      >
+         href="https://github.com/sadn1ck" className="block">
          <img
             alt="Anik Das profile"
             src="https://avatars.githubusercontent.com/u/16396161?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Anik Das</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Anik Das</div>
+         <small className="text-sm text-signoz_vanilla-400">
          India
          </small>
       </div>

@@ -146,8 +146,8 @@ Click the **"Apply Now"** button below and complete the form. If your profile al
 
 export default function Page() {
   return (
-    <div className="container mx-auto my-24 px-16 lg:px-28">
-      <div className="container mx-auto my-16">
+    <div className="mx-auto my-24 w-full max-w-[1140px] px-16 lg:px-28">
+      <div className="mx-auto my-16 w-full max-w-[1140px] px-4">
         <ReactMarkdown>{markdownContent}</ReactMarkdown>
       </div>
     </div>

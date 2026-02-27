@@ -12,7 +12,7 @@ const comparisons = [
         For 20 APM and 50 infra hosts, SigNoz can save up to 90% of your Datadog bill - check{' '}
         <Link
           href="/blog/pricing-comparison-signoz-vs-datadog-vs-newrelic-vs-grafana/"
-          className="highlight"
+          className="text-signoz_robin-500"
         >
           comparison with detailed spreadsheet
         </Link>
@@ -54,7 +54,7 @@ const comparisons = [
         for user seats can be a significant portion of your monthly bill - check{' '}
         <Link
           href="/blog/pricing-comparison-signoz-vs-datadog-vs-newrelic-vs-grafana/"
-          className="highlight"
+          className="text-signoz_robin-500"
         >
           comparison with detailed spreadsheet
         </Link>
@@ -66,28 +66,26 @@ const comparisons = [
 
 export default function ProductComparisons() {
   return (
-    <div className="container mx-auto">
-      <h2 className="font-heading text-gradient mt-8 px-8 text-center text-4xl font-bold tracking-normal ">
+    <div className="mx-auto w-full max-w-[1140px] px-4">
+      <h2 className="font-heading mt-8 bg-[linear-gradient(99deg,#ead8fd_22.85%,#7a97fa_64.34%,#fd5ab2_96.6%)] bg-clip-text p-0 px-8 text-center text-4xl font-bold tracking-normal text-transparent">
         Product Comparisons
       </h2>
 
       <div className="my-8 flex flex-wrap">
         {comparisons.map((comparison) => {
           return (
-            <div className="col col--6" key={comparison.id}>
-              <div className="card-demo margin--md">
+            <div className="w-1/2 px-4" key={comparison.id}>
+              <div className="m-4">
                 <Link href={comparison.url}>
-                  <div className="card-dark min-h-[240px] rounded-sm border p-4">
-                    <div className="card__header">
-                      <div className="avatar">
-                        <div className="avatar__intro">
-                          <h2 className="avatar__name mb-0 text-2xl">{comparison.title}</h2>
-                          {/* <small className="avatar__subtitle">{comparison.designation}</small> */}
-                        </div>
+                  <div className="min-h-[240px] rounded-sm border border-signoz_slate-400 bg-signoz_slate-500 p-4">
+                    <div className="flex items-center gap-4">
+                      <div>
+                        <h2 className="mb-0 text-2xl font-bold">{comparison.title}</h2>
+                        {/* <small className="avatar__subtitle">{comparison.designation}</small> */}
                       </div>
                     </div>
 
-                    <div className="card__body">{comparison?.desc}</div>
+                    <div className="p-4 pt-0">{comparison?.desc}</div>
                   </div>
                 </Link>
               </div>

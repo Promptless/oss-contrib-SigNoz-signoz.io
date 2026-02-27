@@ -41,9 +41,9 @@ function Enterprise() {
       <section className={styles.enterprise}>
         <DiscussYourProject title={ENTERPRISE_DATA.TITLE} desc={ENTERPRISE_DATA.DESC} />
         <div className={styles.enterpriseSection}>
-          <div className={`container ${styles.enterpriseContainer}`}>
-            <div className={`row ${styles.enterpriseRow}`}>
-              <div className={'col col--6 margin-vert--md'}>
+          <div className={`mx-auto w-full max-w-[1140px] px-4 ${styles.enterpriseContainer}`}>
+            <div className={`flex flex-wrap ${styles.enterpriseRow}`}>
+              <div className="my-4 max-w-[50%] flex-[0_0_50%] px-4">
                 <div className={styles.featuresContainer}>
                   {ENTERPRISE_DATA.FEATURE_POINTS.map((feature, idx) => (
                     <div key={idx} className={styles.featureWrapper}>
@@ -60,9 +60,11 @@ function Enterprise() {
                   ))}
                 </div>
               </div>
-              <div className={'col col--6 margin-vert--md'}>
-                <div className={`card ${styles.enterpriseCard}`}>
-                  <div className="card__body">
+              <div className="my-4 max-w-[50%] flex-[0_0_50%] px-4">
+                <div
+                  className={`flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm ${styles.enterpriseCard}`}
+                >
+                  <div className="p-4">
                     <HubspotProvider>
                       <PricingForm
                         portalId={ENTERPRISE_DATA.PORTAL_ID}

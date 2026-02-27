@@ -82,7 +82,7 @@ export default function FAQLayout({
     <main ref={mainRef}>
       <RegionProvider>
         <ProgressBar target={mainRef} />
-        <div className="container mx-auto">
+        <div className="mx-auto w-full max-w-[1140px] px-4">
           <SectionContainer>
             <ScrollTopAndComment />
 
@@ -94,7 +94,7 @@ export default function FAQLayout({
               readingTime={readingTime.text}
               key={slug}
             />
-            <div className="post container flex flex-row-reverse overflow-clip">
+            <div className="post mx-auto flex w-full max-w-[1140px] flex-row-reverse overflow-clip px-4">
               <div
                 className={`post-toc ml-4 w-1/4 transition-opacity duration-1000 ${
                   isTocVisible ? 'opacity-100' : 'opacity-30'
@@ -102,8 +102,15 @@ export default function FAQLayout({
               >
                 {toc.map((tocItem: tocItemProps) => {
                   return (
-                    <div className="post-toc-item" key={tocItem.url}>
-                      <a data-level={tocItem.depth} href={tocItem.url} className="line-clamp-2">
+                    <div
+                      className="min-h-6 w-full text-[13px] font-medium leading-normal"
+                      key={tocItem.url}
+                    >
+                      <a
+                        data-level={tocItem.depth}
+                        href={tocItem.url}
+                        className={`line-clamp-2 inline-block w-full ${tocItem.depth === 3 ? 'pl-4' : tocItem.depth === 4 ? 'pl-8' : ''}`}
+                      >
                         {tocItem.value}
                       </a>
                     </div>

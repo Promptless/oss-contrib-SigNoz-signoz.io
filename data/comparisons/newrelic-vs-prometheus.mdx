@@ -15,7 +15,7 @@ In this post, I have compared New Relic and Prometheus on important features lik
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/new-relic-vs-prometheus-cover.webp" alt=""/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/new-relic-vs-prometheus-cover.webp" alt=""/>
 </figure>
 
 
@@ -59,7 +59,7 @@ New Relic provides a total of 1083 data sources for data collection without the 
 New Relic also provides the flexibility to collect custom data in cases where New Relic does not automatically support a given data source. This could include custom trace data, custom infrastructure data, and custom attributes and events.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-data-collection-nr.webp" alt="Data collection in New Relic"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-data-collection-nr.webp" alt="Data collection in New Relic"/>
     <figcaption><i>Data collection in New Relic</i></figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ New Relic also provides the flexibility to collect custom data in cases where Ne
 Prometheus also supports data collection from different data sources. It collects data through a pull-based model, where it actively scrapes metrics from configured targets at regular intervals. These targets can be servers, applications, or services that expose metrics in a format that Prometheus can understand, typically over HTTP. It uses a configuration file to define the targets it should scrape, including the URL, the scrape interval, and any specific metrics to collect. From the below image, you can see I was able to scrape metrics from several target endpoints.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-http-metrics.webp" alt="Prometheus scraping metrics from HTTP endpoints"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-http-metrics.webp" alt="Prometheus scraping metrics from HTTP endpoints"/>
     <figcaption><i>Prometheus scraping metrics from HTTP endpoints</i></figcaption>
 </figure>
 
@@ -87,7 +87,7 @@ New Relic has impressive visualization capabilities. It provides pre-built dashb
 Users also have the flexibility to create and customize dashboards from scratch or by using custom queries to monitor the exact application metrics needed. 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-dashboard-nr.webp" alt="Dashboard creation in New Relic"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-dashboard-nr.webp" alt="Dashboard creation in New Relic"/>
     <figcaption><i>Dashboard creation in New Relic</i></figcaption>
 </figure>
 
@@ -99,7 +99,7 @@ For users who may require more customization options beyond what the standard ch
 Prometheus, on the other hand, has limited visualization capabilities. It has a very basic built-in expression browser for visualizing metrics, but this doesn’t provide much information about your metrics data. Prometheus provides only table and graph visualization options. I couldn't make sense of my application metrics using them, so I had to send my application data to Grafana for visualization, which required setting up Grafana separately.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-graph.webp" alt="Graph visualization in Prometheus"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-graph.webp" alt="Graph visualization in Prometheus"/>
     <figcaption><i>Graph visualization in Prometheus</i></figcaption>
 </figure>
 
@@ -115,7 +115,7 @@ New Relic's APM feature offers extensive monitoring capabilities for all your ap
 Additionally, it extends its functionality with features like service maps, offering visualization of inter-service relationships and dependencies within an application, SLA reports, vulnerability management, and much more. New Relic’s APM feature is comprehensive, and I was particularly impressed by the depth of information it provided about my application.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-apm-nr.webp" alt="APM in New Relic"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-apm-nr.webp" alt="APM in New Relic"/>
     <figcaption><i>APM in New Relic</i></figcaption>
 </figure>
 
@@ -149,7 +149,7 @@ New Relic uses the New Relic Query Language (NRQL) for data queries. NRQL allows
 Additionally, NRQL integrates with New Relic's APIs, such as <a href = "https://docs.newrelic.com/docs/apis/graphql-api/tutorials/nerdgraph-graphiql-nrql-tutorial" rel="noopener noreferrer nofollow" target="_blank" >NerdGraph</a>, for more complex data retrieval needs. It can be used to create simple queries, such as fetching rows of data in a raw tabular form to give insight into individual events and run powerful calculations on the data before it's presented to you, such as crafting funnels based on how end users are using your site or application.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-nrql.webp" alt="Data query in New Relic using NRQL"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-nrql.webp" alt="Data query in New Relic using NRQL"/>
     <figcaption><i>Data query in New Relic using NRQL</i></figcaption>
 </figure>
 
@@ -159,7 +159,7 @@ Additionally, NRQL integrates with New Relic's APIs, such as <a href = "https://
 Prometheus provides a powerful and flexible querying language known as PromQL ([Prometheus Query Language](https://signoz.io/guides/promql-cheat-sheet/)) for querying and analyzing time-series data. PromQL allows users to perform a wide range of operations, including filtering, aggregation, and mathematical transformations, on the collected metrics data. Users can write expressive queries to extract valuable insights and monitor system performance effectively. With support for functions like rate, sum, and histogram_quantile, PromQL enables advanced analysis and visualization of metrics data. 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-promql.webp" alt="Query in Prometheus using PromQL"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-promql.webp" alt="Query in Prometheus using PromQL"/>
     <figcaption><i>Query in Prometheus using PromQL</i></figcaption>
 </figure>
 
@@ -175,7 +175,7 @@ New Relic's alerting feature, in collaboration with its AI capabilities, provide
 The alerting system is equipped with extensive capabilities, including the configuration of signals for evaluation at specific thresholds, root cause analysis, alert organization through tagging, the identification of anomalies, and the routing of issues to systems via notifications. The AI feature enhances the alerting system by enriching issue notifications with additional New Relic data, providing deeper insights into each alert. It correlates incoming incidents to identify patterns and suppresses noise, ensuring that you receive notifications only when necessary.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-alert-nr.webp" alt="Alerting in New Relic"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-alert-nr.webp" alt="Alerting in New Relic"/>
     <figcaption><i>Alerting in New Relic</i></figcaption>
 </figure>
 
@@ -185,7 +185,7 @@ The alerting system is equipped with extensive capabilities, including the confi
 In contrast, Prometheus lacks a built-in mechanism for explicitly configuring alert rules. Instead, alerting is handled by a component known as Alertmanager. Alertmanager handles alerts, including silence, inhibition, aggregation, and notification transmission. It can be set up to send alerts through a variety of channels, including email, on-call notification systems, and chat platforms, through the definition of alert rules. Once the conditions in the alert rules are met, Prometheus creates the alert instances and sends them to Alertmanager.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-alertmanager.webp" alt="Received alert from Prometheus in Alertmanager"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-alertmanager.webp" alt="Received alert from Prometheus in Alertmanager"/>
     <figcaption><i>Received alert from Prometheus in Alertmanager</i></figcaption>
 </figure>
 
@@ -199,7 +199,7 @@ The integration of AI with New Relic's Alerting feature enhances its alerting ca
 New Relic's user interface is designed to be straightforward and accessible, making it very beginner-friendly. As a new user, I find it incredibly easy to navigate. The UI provides all the necessary information, with minimal need to refer to the documentation for navigation, significantly enhancing the user experience.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-ui-nr.webp" alt="New Relic’s UI"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-ui-nr.webp" alt="New Relic’s UI"/>
     <figcaption><i>New Relic’s UI</i></figcaption>
 </figure>
 
@@ -209,7 +209,7 @@ New Relic's user interface is designed to be straightforward and accessible, mak
 Prometheus provides a basic web interface, primarily focused on querying and visualizing time series data. The UI is functional but relatively minimalistic, with options for executing PromQL queries, viewing graphs, and exploring metrics. The user experience in Prometheus is straightforward and efficient.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-ui-prom.webp" alt="Prometheus UI"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-ui-prom.webp" alt="Prometheus UI"/>
     <figcaption><i>Prometheus UI</i></figcaption>
 </figure>
 
@@ -223,7 +223,7 @@ Overall, New Relic has a better user experience and user interface.
 <a href = "https://newrelic.com/pricing" rel="noopener noreferrer nofollow" target="_blank" >New Relic’s pricing</a> is usage-based. Pricing is calculated by the volume of data ingested per month and the number of users.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-pricing-nr.webp" alt="New Relic pricing"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-pricing-nr.webp" alt="New Relic pricing"/>
     <figcaption><i>New Relic pricing</i></figcaption>
 </figure>
 
@@ -231,7 +231,7 @@ Overall, New Relic has a better user experience and user interface.
 It has 4 different pricing tiers, with a free forever tier offering access to all 30+ New Relic platform capabilities and 100 GB of free data ingestion per month.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/02/newrelic-vs-prometheus-pricing-nr-2.webp" alt="Pricing tiers"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/02/newrelic-vs-prometheus-pricing-nr-2.webp" alt="Pricing tiers"/>
     <figcaption><i>Pricing tiers</i></figcaption>
 </figure>
 

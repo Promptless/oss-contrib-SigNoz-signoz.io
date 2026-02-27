@@ -5,9 +5,11 @@ import Link from 'next/link'
 const TopReasons = (props) => {
   if (props?.points) {
     return (
-      <section className={`container`}>
+      <section className="mx-auto w-full max-w-[1140px] px-4">
         <div className={`${styles.reasonsPoints}`}>
-          <h3 className={`${styles.reasonsPointTitle} highlight`}>Key Points: SigNoz vs Grafana</h3>
+          <h3 className={`${styles.reasonsPointTitle} text-signoz_robin-500`}>
+            Key Points: SigNoz vs Grafana
+          </h3>
           <h4 className={styles.reasonMainPointTitle}>Why do devs choose SigNoz over Grafana?</h4>
           <p className={styles.reasonMainPointDesc}>
             SigNoz is loved by developers. With over 14k+ Github stars, 100+ contributors, and 20k+
@@ -37,29 +39,29 @@ const TopReasons = (props) => {
     <>
       <div className={styles.svsdReasonContainer}>
         {props.title && <h3 className={styles.reasonHeaderTitle}>{props.title}</h3>}
-        <div className="container">
+        <div className="mx-auto w-full max-w-[1140px] px-4">
           {props.withElonMuskReason && <OpenSourceReason />}
           {(props.reasons || []).map(({ TITLE, DESC, FIGURE }, index) => {
             return (
               <div
-                className={`row ${styles.reasonRow} ${!(index % 2) ? styles.shouldImageFirst : ''}`}
+                className={`flex flex-wrap ${styles.reasonRow} ${!(index % 2) ? styles.shouldImageFirst : ''}`}
                 key={index}
               >
                 {index % 2 ? (
-                  <div className={`col col--6 margin-vert--md ${styles.reasonImageCol}`}>
+                  <div className={`my-4 max-w-[50%] flex-[0_0_50%] px-4 ${styles.reasonImageCol}`}>
                     <div className={styles.reasonImageContainer}>
                       <img src={FIGURE} alt="reason" />
                     </div>
                   </div>
                 ) : null}
-                <div className={`col col--6 margin-vert--md`}>
+                <div className="my-4 max-w-[50%] flex-[0_0_50%] px-4">
                   <div className={styles.reasonDetailContainer}>
                     <h4 className={styles.reasonTitle}>{TITLE}</h4>
                     <p className={styles.reasonDesc}>{DESC}</p>
                   </div>
                 </div>
                 {!(index % 2) ? (
-                  <div className={`col col--6 margin-vert--md ${styles.reasonImageCol}`}>
+                  <div className={`my-4 max-w-[50%] flex-[0_0_50%] px-4 ${styles.reasonImageCol}`}>
                     <div className={styles.reasonImageContainer}>
                       <img src={FIGURE} alt="reason" />
                     </div>
@@ -76,8 +78,8 @@ const TopReasons = (props) => {
 
 const OpenSourceReason = () => {
   return (
-    <div className={`row ${styles.reasonRow} ${styles.reasonElonMusk}`}>
-      <div className={`col col--6 margin-vert--md ${styles.reasonImageCol}`}>
+    <div className={`flex flex-wrap ${styles.reasonRow} ${styles.reasonElonMusk}`}>
+      <div className={`my-4 max-w-[50%] flex-[0_0_50%] px-4 ${styles.reasonImageCol}`}>
         <div className={styles.reasonImageContainer}>
           <img src="/img/reasons/elon-musk.webp" alt="reason" />
           <div className={styles.reasonReviewContainer}>
@@ -88,7 +90,7 @@ const OpenSourceReason = () => {
           </div>
         </div>
       </div>
-      <div className={`col col--6 margin-vert--md`}>
+      <div className="my-4 max-w-[50%] flex-[0_0_50%] px-4">
         <div className={styles.reasonDetailContainer}>
           <h4 className={styles.reasonTitle}>SigNoz is open source</h4>
           <p className={styles.reasonDesc}>
@@ -98,7 +100,10 @@ const OpenSourceReason = () => {
             source, so you can take a look at our code, test it out, and then make an informed
             decision.
           </p>
-          <Link href="https://github.com/SigNoz/signoz" className="button button--primary">
+          <Link
+            href="https://github.com/SigNoz/signoz"
+            className="inline-flex items-center justify-center rounded-md border border-signoz_robin-500 bg-signoz_robin-500 px-6 py-1.5 font-bold text-white hover:opacity-90"
+          >
             Check out our GitHub repo
           </Link>
         </div>

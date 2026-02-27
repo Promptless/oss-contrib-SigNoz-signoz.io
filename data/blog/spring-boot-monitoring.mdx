@@ -63,7 +63,7 @@ Signals are the data sources that we can use to observe applications and service
 Metrics are typically point-in-time values we can gather from systems that give us utilization and saturation data. Metrics are typically numerical values or status that would be collected via an agent, SNMP, WMI, or APIs. You can download the dashboard below <a href = "https://github.com/SigNoz/dashboards/blob/main/JVM%20Metrics.json" rel="noopener noreferrer nofollow" target="_blank">here</a>.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/jvm_metrics.webp" alt="JVM Metrics dashboard in SigNoz"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/jvm_metrics.webp" alt="JVM Metrics dashboard in SigNoz"/>
     <figcaption><i>JVM Metrics dashboard in SigNoz</i></figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ Metrics are typically point-in-time values we can gather from systems that give 
 Traces provide a contextual stream of events that have a defined beginning and end. Examples of traces include APM (Application Performance Management) traces (like below) that show an individual end-user transaction with the call stack and contextual attributes such as SQL query text and exception details.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/jvm_trace_explorer.webp" alt="Trace Explorer"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/jvm_trace_explorer.webp" alt="Trace Explorer"/>
     <figcaption><i>Trace Explorer</i></figcaption>
 </figure>
 
@@ -83,7 +83,7 @@ Traces provide a contextual stream of events that have a defined beginning and e
 Logs provide a stream of text, typically in an unstructured format, that contains events at a point in time. The logs below have added SPAN and Trace attributes to allow us to associate traces and logs together. See the [Logback configuration file](#configuring-for-traces-and-logs) in this article on how to achieve this.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/jvm_logs.webp" alt="Logs Relating to a trace"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/jvm_logs.webp" alt="Logs Relating to a trace"/>
     <figcaption><i>Logs Relating to a trace</i></figcaption>
 </figure>
 
@@ -273,7 +273,7 @@ Maven is a build system for Spring Boot (Gradle can also be used) and handles th
 We need to create a new Logback configuration file to tell Logback to add the Trace and SPAN attributes to log lines so that SigNoz can correlate logs and traces.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/jvm_trace_details.webp" alt="Trace Details with *Go to Related logs*"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/jvm_trace_details.webp" alt="Trace Details with *Go to Related logs*"/>
     <figcaption><i>Trace Details with *Go to Related logs*</i></figcaption>
 </figure>
 
@@ -365,7 +365,7 @@ OTEL_LOGS_EXPORTER=otlp OTEL_RESOURCE_ATTRIBUTES=service.name=spring-boot-petcli
 Traces are created when the application is accessed. Therefore, we need to generate some load on the application using either automated tools like <a href = "https://en.wikipedia.org/wiki/ApacheBench" rel="noopener noreferrer nofollow" target="_blank">Apache Bench</a>, or by using a browser to access the application. The default port for Spring Boot is TCP/8080.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/jvm_petclinic_app.webp" alt="Pet-clinic test application"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/jvm_petclinic_app.webp" alt="Pet-clinic test application"/>
     <figcaption><i>Pet-clinic test application</i></figcaption>
 </figure>
 
@@ -375,31 +375,31 @@ Traces are created when the application is accessed. Therefore, we need to gener
 This section showcases some of the key views in SigNoz for monitoring Spring Boot Applications.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/petclinic_services.webp" alt="All Services"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/petclinic_services.webp" alt="All Services"/>
     <figcaption><i>All Services</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/petclinic_service_overview.webp" alt="Service Overview"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/petclinic_service_overview.webp" alt="Service Overview"/>
     <figcaption><i>Service Overview</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/petclinic_database_services.webp" alt="Database Metrics"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/petclinic_database_services.webp" alt="Database Metrics"/>
     <figcaption><i>Database Metrics</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/petclinic_sample_trace.webp" alt="Sample Trace"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/petclinic_sample_trace.webp" alt="Sample Trace"/>
     <figcaption><i>Sample Trace</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/petclinic_sample_exception.webp" alt="Sample Exception"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/petclinic_sample_exception.webp" alt="Sample Exception"/>
     <figcaption><i>Sample Exception</i></figcaption>
 </figure>
 

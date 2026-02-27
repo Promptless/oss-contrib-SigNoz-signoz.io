@@ -1,13 +1,11 @@
 import MarkdownRenderer from '@/components/ReactMarkdown'
 import React from 'react'
 
-
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Technical Writer Program',
 }
-
 
 const markdownContent = `
 
@@ -143,7 +141,7 @@ We will give you access to a Notion page for writing the article. We will get ba
 
 export default function page() {
   return (
-    <div className="container mx-auto my-16">
+    <div className="mx-auto my-16 w-full max-w-[1140px] px-4">
       <MarkdownRenderer markdownContent={markdownContent} />
     </div>
   )

@@ -26,7 +26,7 @@ const UnifiedObservability = () => {
       <div className="absolute left-0 right-0 top-0 mx-auto h-[300px] w-full flex-shrink-0 rounded-[956px] bg-gradient-to-b from-[rgba(190,107,241,1)] to-[rgba(69,104,220,0)] bg-[length:110%] bg-no-repeat opacity-30 blur-[300px] sm:h-[450px] sm:bg-[center_-500px] md:h-[956px]" />
       <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:pt-32">
         {/* Hero Section */}
-        <section className="container mx-auto mb-10 flex flex-col items-center justify-between lg:flex-row">
+        <section className="mx-auto mb-10 flex w-full max-w-[1140px] flex-col items-center justify-between px-4 lg:flex-row">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ const UnifiedObservability = () => {
         </section>
 
         {/* Introduction */}
-        <section className="container mx-auto py-16">
+        <section className="mx-auto w-full max-w-[1140px] px-4 py-16">
           <div className="flex flex-col items-center">
             <div className="mx-auto mb-4 max-w-4xl text-lg leading-relaxed text-gray-300">
               <p>
@@ -176,7 +176,7 @@ const UnifiedObservability = () => {
         </section>
 
         {/* Current State Section */}
-        <section className="container mx-auto py-16 ">
+        <section className="mx-auto w-full max-w-[1140px] px-4 py-16 ">
           <h2 className="mb-8 text-left text-2xl font-bold lg:text-3xl">
             Traditional Approach: Fragmented Tools & Complex Environments
           </h2>
@@ -227,7 +227,7 @@ const UnifiedObservability = () => {
         </section>
 
         {/* SigNoz Platform Section */}
-        <section className="container mx-auto py-16">
+        <section className="mx-auto w-full max-w-[1140px] px-4 py-16">
           <h2 className="mb-8 text-left text-2xl font-bold lg:text-3xl">
             SigNoz: Unified Observability Platform Powered by OpenTelemetry
           </h2>
@@ -278,7 +278,7 @@ const UnifiedObservability = () => {
           </div>
 
           {/* OpenTelemetry Section */}
-          <section className="container mx-auto rounded-xl bg-gradient-to-r from-blue-900/20 to-purple-900/20 py-12">
+          <section className="mx-auto w-full max-w-[1140px] rounded-xl bg-gradient-to-r from-blue-900/20 to-purple-900/20 px-4 py-12">
             <h3 className="mb-8 text-left text-xl font-bold lg:text-2xl">Why OpenTelemetry?</h3>
             <div className="text-gray-300">
               <p className="mb-6 text-lg">
@@ -355,7 +355,7 @@ const UnifiedObservability = () => {
         </section>
 
         {/* Need for Unified Observability */}
-        <section className="container mx-auto py-16">
+        <section className="mx-auto w-full max-w-[1140px] px-4 py-16">
           <h2 className="mb-8 text-left text-2xl font-bold lg:text-3xl">
             Need for Unified Observability
           </h2>
@@ -410,7 +410,7 @@ const UnifiedObservability = () => {
           </div>
 
           {/* How SigNoz Transforms */}
-          <section className="container mx-auto my-8 rounded-xl bg-gradient-to-r from-blue-900/20 to-purple-900/20 px-12 py-12">
+          <section className="mx-auto my-8 w-full max-w-[1140px] rounded-xl bg-gradient-to-r from-blue-900/20 to-purple-900/20 px-12 px-4 py-12">
             <h3 className="mb-8 text-left text-xl font-bold lg:text-2xl">
               How SigNoz transforms this chaos into clarity
             </h3>
@@ -477,7 +477,7 @@ const UnifiedObservability = () => {
         </section>
 
         {/* Best Practices */}
-        <section className="container mx-auto py-16">
+        <section className="mx-auto w-full max-w-[1140px] px-4 py-16">
           <h2 className="mb-12 text-left text-2xl font-bold lg:text-3xl">
             Best Practices for Unified Observability
           </h2>
@@ -614,7 +614,7 @@ const UnifiedObservability = () => {
         </section>
 
         {/* Role of AI in Unified Observability */}
-        <section className="container mx-auto py-16">
+        <section className="mx-auto w-full max-w-[1140px] px-4 py-16">
           <h2 className="mb-12 text-left text-2xl font-bold lg:text-3xl">
             Role of AI in Unified Observability
           </h2>
@@ -672,7 +672,7 @@ const UnifiedObservability = () => {
         </section>
 
         {/* Get Started Section */}
-        <section className="container mx-auto py-16">
+        <section className="mx-auto w-full max-w-[1140px] px-4 py-16">
           <h2 className="mb-12 text-left text-2xl font-bold lg:text-3xl">
             Get started with Unified Observability
           </h2>
@@ -912,7 +912,7 @@ const UnifiedObservability = () => {
         </section>
 
         {/* Resources Section */}
-        <section className="container mx-auto rounded-xl bg-gradient-to-r from-blue-900/20 to-purple-900/20 py-12">
+        <section className="mx-auto w-full max-w-[1140px] rounded-xl bg-gradient-to-r from-blue-900/20 to-purple-900/20 px-4 py-12">
           <h3 className="mb-8 text-left text-xl font-bold lg:text-2xl">
             Resources to Help You Succeed
           </h3>

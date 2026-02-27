@@ -193,13 +193,13 @@ export const Testimonials = ({ page }) => {
           </div>
         </div>
 
-        <div className="row max-w-screen-md">
+        <div className="flex max-w-screen-md flex-wrap">
           {TESTIMONIALS_LIST.map((column, idx) => (
-            <div key={idx} className="col col--6">
+            <div key={idx} className="w-1/2 px-4">
               {column.map((testimonial, i) => (
-                <div className="row" key={`${idx}-${i}`}>
+                <div className="flex flex-wrap" key={`${idx}-${i}`}>
                   <TrackingLink
-                    className="card-demo m-2 w-full"
+                    className="bg-signoz_slate-900 m-2 flex w-full flex-col overflow-hidden rounded-lg border shadow-sm"
                     href={testimonial.href}
                     clickType="External Click"
                     clickName="Testimonial Link"
@@ -208,28 +208,26 @@ export const Testimonials = ({ page }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <div className="card-dark rounded-md bg-signoz_ink-400 p-2 hover:bg-signoz_ink-300">
-                      <div className="card__header">
-                        <div className="avatar">
-                          <img
-                            className="avatar__photo"
-                            src={testimonial.avatar}
-                            alt={`Profile of ${testimonial.name}`}
-                          />
-                          <div className="flex flex-col gap-1">
-                            <div className="avatar__intro">
-                              <p className="mb-0 text-base font-medium text-signoz_vanilla-100">
-                                {testimonial.name}
-                              </p>
-                              <small className="text-sm font-normal text-signoz_vanilla-400">
-                                {testimonial.designation}
-                              </small>
-                            </div>
+                    <div className="rounded-md bg-signoz_ink-400 p-2 hover:bg-signoz_ink-300">
+                      <div className="flex items-center gap-4">
+                        <img
+                          className="h-12 w-12 rounded-full"
+                          src={testimonial.avatar}
+                          alt={`Profile of ${testimonial.name}`}
+                        />
+                        <div className="flex flex-col gap-1">
+                          <div>
+                            <p className="mb-0 text-base font-medium text-signoz_vanilla-100">
+                              {testimonial.name}
+                            </p>
+                            <small className="text-sm font-normal text-signoz_vanilla-400">
+                              {testimonial.designation}
+                            </small>
                           </div>
                         </div>
                       </div>
 
-                      <div className="card__body padding--md">{testimonial.review}</div>
+                      <div className="p-4">{testimonial.review}</div>
                     </div>
                   </TrackingLink>
                 </div>

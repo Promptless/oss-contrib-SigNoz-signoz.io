@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   title: 'Technical Writing Guidelines',
 }
 
-
 const markdownContent = `
 # SigNoz's Technical Writing Guidelines
 
@@ -123,7 +122,7 @@ The previous step will give you the list of tasks and processes involved. The ne
 
 export default function page() {
   return (
-    <div className="container mx-auto my-16">
+    <div className="mx-auto my-16 w-full max-w-[1140px] px-4">
       <MarkdownRenderer markdownContent={markdownContent} />
     </div>
   )

@@ -4,13 +4,17 @@ const Heading = ({ type, className = '', children }) => {
   switch (type) {
     case 1:
       return (
-        <h1 className={`font-heading text-gradient text-4xl font-bold md:text-3xl ${className}`}>
+        <h1
+          className={`font-heading bg-[linear-gradient(99deg,#ead8fd_22.85%,#7a97fa_64.34%,#fd5ab2_96.6%)] bg-clip-text p-0 text-4xl font-bold text-transparent md:text-3xl ${className}`}
+        >
           {children}
         </h1>
       )
     case 2:
       return (
-        <h2 className={`font-heading text-gradient font-bold md:text-2xl lg:text-3xl ${className}`}>
+        <h2
+          className={`font-heading bg-[linear-gradient(99deg,#ead8fd_22.85%,#7a97fa_64.34%,#fd5ab2_96.6%)] bg-clip-text p-0 font-bold text-transparent md:text-2xl lg:text-3xl ${className}`}
+        >
           {children}
         </h2>
       )

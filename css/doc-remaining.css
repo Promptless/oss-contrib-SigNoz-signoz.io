@@ -1,0 +1,65 @@
+/* Vendor/structural styles that cannot be expressed in Tailwind */
+
+/* Theme toggles */
+html.light[data-theme='dark'] {
+  display: none;
+}
+
+html.dark[data-theme='light'] {
+  display: none;
+}
+
+/* Hide content-header-link when inside a toggle summary */
+.toggle-summary .content-header-link {
+  display: none !important;
+}
+
+/* ToggleHeading .content-header-link positioning */
+.toggle-heading .content-header-link {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.toggle-heading:hover .content-header-link {
+  opacity: 1;
+}
+
+/* Style for auto-linked headings (from mdxUtils/contentlayer) */
+.auto-linked-heading {
+  position: relative;
+}
+
+.auto-linked-heading a {
+  text-decoration: none;
+}
+
+.auto-linked-heading a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: theme('colors.signoz_robin.500');
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.auto-linked-heading a:hover::after {
+  transform: scaleX(1);
+}
+
+.code-header {
+  display: flex;
+  padding: 8px;
+  float: right;
+}
+
+pre.p-0 {
+  padding: 16px;
+}

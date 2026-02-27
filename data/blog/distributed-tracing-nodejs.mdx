@@ -56,7 +56,7 @@ Here’s the architecture of the sample application along with OpenTelemetry and
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Sample nodejs app application architecture"
    
    src="/img/blog/2022/02/nodejs_app_flow.webp"
@@ -91,7 +91,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 When you are done installing SigNoz, you can access the UI at [http://localhost:3301](http://localhost:3301/application)
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="SigNoz dashboard"
    
    src="/img/blog/2022/02/signoz_dashboard.webp"
@@ -199,7 +199,7 @@ Below are the steps to run the sample nodejs application with OpenTelemetry:
    You can check the [file](https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/main/.env) in the cloned repo.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Screenshot of terminal showing mircroservices running on different ports"
    
    src="/img/blog/2022/02/running_microservices.webp"
@@ -217,7 +217,7 @@ Below are the steps to run the sample nodejs application with OpenTelemetry:
    ```
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Checking creation of tables"
    
    src="/img/blog/2022/02/mysql_show_tables.webp"
@@ -242,7 +242,7 @@ serve -l 5000 ui
 This will run the app UI on port 5000. Open the UI at [http://localhost:5000/](http://localhost:5000/).
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Running sample app UI"
    
    src="/img/blog/2022/03/serve_ui_port.webp"
@@ -255,7 +255,7 @@ This will run the app UI on port 5000. Open the UI at [http://localhost:5000/](h
    Click `Create User` button to create a new user in the MySQL db.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Create new user"
    src="/img/blog/2022/03/create_user.webp"
    />
@@ -267,7 +267,7 @@ This will run the app UI on port 5000. Open the UI at [http://localhost:5000/](h
    Transfer some amount by clicking `Transfer Fund` button.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Transfer some fund"
    src="/img/blog/2022/03/transfer_fund.webp"
    />
@@ -279,7 +279,7 @@ This will run the app UI on port 5000. Open the UI at [http://localhost:5000/](h
    Place an order by selecting a product from dropdown.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Place an order"
    src="/img/blog/2022/03/place_order.webp"
    />
@@ -302,7 +302,7 @@ This will run the app UI on port 5000. Open the UI at [http://localhost:5000/](h
     This will create a user in our `users` table. Make a note of the ID as you will need it for further API calls.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="ID of the user"
    
    src="/img/blog/2022/02/users_table_id.webp"
@@ -336,7 +336,7 @@ Now go to SigNoz dashboard, wait for sometime and refresh the dashboard. You wil
 - payment-service
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Sample app microservices monitored on the SigNoz dashboard"
    
    src="/img/blog/2022/02/nodejs_microservices_on_signoz.webp"
@@ -383,7 +383,7 @@ The traces tab of SigNoz dashboard provides powerful filters to analyze the trac
 1. **See the count of requests by service and HTTP Status code**
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Count of requests in traces filter tab"
    
    src="/img/blog/2022/02/nodejs_count_of_requests.webp"
@@ -398,7 +398,7 @@ The traces tab of SigNoz dashboard provides powerful filters to analyze the trac
    Go to operation filter on the left navigation apply two filters `GET /payment/transfer/:id` and service name `payment-service` . Click on the single event listed in the table as shown below:
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Events table in traces filter tab"
    
    src="/img/blog/2022/02/distributed_tracing_nodejs_traces_filter_tab.webp"
@@ -410,7 +410,7 @@ The traces tab of SigNoz dashboard provides powerful filters to analyze the trac
    You will be able to see the flamegraph of the selected event which shows how the request traveled between the `payment` and the `user-service`. You can also use the Gantt chart to analyze each event in detail.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Flamegraph and Gantt chart for the selected event"
    
    src="/img/blog/2022/02/flamegraphs_gantt_charts.webp"

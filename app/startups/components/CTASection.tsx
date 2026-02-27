@@ -7,7 +7,7 @@ import { BUTTON_TYPES } from '@/components/Button/Button'
 export default function CTASection() {
   return (
     <section className="to-primary/10 bg-gradient-to-b from-background py-20">
-      <div className="container mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl px-4 md:px-6 lg:px-8">
         <div className="overflow-hidden rounded-2xl bg-gradient-to-r from-[#1c1c21] to-[#252530] shadow-xl">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div className="p-8 md:p-12">

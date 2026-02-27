@@ -24,8 +24,8 @@ export default function CaseStudyLayout({ content, children, toc }: CaseStudyLay
 
   return (
     <RegionProvider>
-      <div className="container mx-auto">
-        <div className="post container overflow-clip">
+      <div className="mx-auto w-full max-w-[1140px] px-4">
+        <div className="post mx-auto w-full max-w-[1140px] overflow-clip px-4">
           <div className="post-content mt-8">
             <PageTitle>{title}</PageTitle>
             <article className="prose prose-slate max-w-none py-6 dark:prose-invert">
@@ -36,8 +36,15 @@ export default function CaseStudyLayout({ content, children, toc }: CaseStudyLay
           <div className="post-toc">
             {toc.map((tocItem: tocItemProps) => {
               return (
-                <div className="post-toc-item" key={tocItem.url}>
-                  <a data-level={tocItem.depth} href={tocItem.url} className="line-clamp-2">
+                <div
+                  className="min-h-6 w-full text-[13px] font-medium leading-normal"
+                  key={tocItem.url}
+                >
+                  <a
+                    data-level={tocItem.depth}
+                    href={tocItem.url}
+                    className={`line-clamp-2 inline-block w-full ${tocItem.depth === 3 ? 'pl-4' : tocItem.depth === 4 ? 'pl-8' : ''}`}
+                  >
                     {tocItem.value}
                   </a>
                 </div>

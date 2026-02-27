@@ -220,6 +220,9 @@ module.exports = {
             code: {
               color: theme('colors.indigo.500'),
             },
+            'blockquote code, h1 code, h2 code, h3 code, h4 code': {
+              color: theme('colors.signoz_robin.500'),
+            },
           },
         },
         invert: {
@@ -248,6 +251,14 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
+    function ({ addComponents }) {
+      addComponents({
+        '.section-container': {
+          padding: '0 1rem',
+          width: '100%',
+        },
+      })
+    },
     nextui({
       themes: {
         light: {

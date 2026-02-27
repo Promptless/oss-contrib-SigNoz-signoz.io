@@ -335,7 +335,7 @@ Run this command in the directory where Promtail was extracted to
 To see Promtail running, visit [localhost:9080/targets](http://localhost:9080/targets) on your browser.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_promtail.webp" alt=""/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_promtail.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -347,7 +347,7 @@ The above image shows that Promtail is running and scraping logs from the specif
 Once the Collector service has been started successfully, navigate to your SigNoz Cloud account and access the “Logs tab” and click on “Logs Explorer”.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_logs_tab_option1.webp" alt="Logs tab options"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_logs_tab_option1.webp" alt="Logs tab options"/>
     <figcaption><i>Logs tab options</i></figcaption>
 </figure>
 
@@ -355,7 +355,7 @@ Once the Collector service has been started successfully, navigate to your SigNo
 Verify that the OpenTelemetry Collector is sending the collected logs to your SigNoz cloud account.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_log_explorer_tab.webp" alt="Logs Explorer tab"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_log_explorer_tab.webp" alt="Logs Explorer tab"/>
     <figcaption><i>Logs Explorer tab</i></figcaption>
 </figure>
 
@@ -363,7 +363,7 @@ Verify that the OpenTelemetry Collector is sending the collected logs to your Si
 Once confirmed that logs are being received, go back to the “Logs” tab and click on “Logs Pipelines”.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_logs_tab_option2.webp" alt="Logs tab options"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_logs_tab_option2.webp" alt="Logs tab options"/>
     <figcaption><i>Logs tab options</i></figcaption>
 </figure>
 
@@ -373,7 +373,7 @@ Logs Pipelines are a set of rules for transforming logs before they get stored i
 In the Logs Pipelines page, click on the “+ New Pipeline” button to create a new pipeline:
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_logs_pipeline_page.webp" alt="Logs Pipelines page"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_logs_pipeline_page.webp" alt="Logs Pipelines page"/>
     <figcaption><i>Logs Pipelines page</i></figcaption>
 </figure>
 
@@ -381,7 +381,7 @@ In the Logs Pipelines page, click on the “+ New Pipeline” button to create a
 Specify a name of your preference for the pipeline, optionally include a description, and choose a filter to apply to the pipeline. In the below image, the filter was set to the `filename=/path/to/the/flask.log`file. Upon selection, preview the filtered logs in the "Filter Logs Preview" section. Once satisfied with the configuration, proceed to create the pipeline.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_creating_the_pipeline.webp" alt="Creating the pipeline"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_creating_the_pipeline.webp" alt="Creating the pipeline"/>
     <figcaption><i>Creating the pipeline</i></figcaption>
 </figure>
 
@@ -393,7 +393,7 @@ In the context of logs and data processing pipelines, a "[processor](https://sig
 Click "Add Processor" to choose a method for processing the logs.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_adding_processor.webp" alt="Adding a processor"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_adding_processor.webp" alt="Adding a processor"/>
     <figcaption><i>Adding a processor</i></figcaption>
 </figure>
 
@@ -403,7 +403,7 @@ There are several processor types to select from; pick any one of your choice. F
 Regular expressions, often abbreviated as “regex,” are powerful and flexible sequences of characters that define a search pattern. It is a tool used for pattern matching within strings, making it useful for tasks such as string validation, search and replace operations, and data extraction. You can learn more about Regex <a href = "https://www.sitepoint.com/learn-regex/" rel="noopener noreferrer nofollow" target="_blank" >here</a>.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_processor_types.webp" alt="Processor types"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_processor_types.webp" alt="Processor types"/>
     <figcaption><i>Processor types</i></figcaption>
 </figure>
 
@@ -419,7 +419,7 @@ This regex extracts specific pieces of information from log entries that follow 
 Set `Parse from` to `body`, `Parse to` to `attributes` and `On Error` to `send`, then save/update.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_regex_settings.webp" alt="Regex settings"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_regex_settings.webp" alt="Regex settings"/>
     <figcaption><i>Regex settings</i></figcaption>
 </figure>
 
@@ -427,7 +427,7 @@ Set `Parse from` to `body`, `Parse to` to `attributes` and `On Error` to `send`,
 You can view the processor settings by clicking on the eye icon for that particular pipeline.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_unprocessed_logs.webp" alt="Unprocessed logs"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_unprocessed_logs.webp" alt="Unprocessed logs"/>
     <figcaption><i>Unprocessed logs</i></figcaption>
 </figure>
 
@@ -435,7 +435,7 @@ You can view the processor settings by clicking on the eye icon for that particu
 Select the opposing blue arrows to view the initial format of the logs.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_initial_logs_format.webp" alt="The initial format of the logs"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_initial_logs_format.webp" alt="The initial format of the logs"/>
     <figcaption><i>The initial format of the logs</i></figcaption>
 </figure>
 
@@ -443,7 +443,7 @@ Select the opposing blue arrows to view the initial format of the logs.
 Return to the previous screen and select "Simulate Processing." Next, click on the opposing blue arrows under the “Processed Output” tab to examine the logs after processing.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_processed_output.webp" alt="Processed output"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_processed_output.webp" alt="Processed output"/>
     <figcaption><i>Processed output</i></figcaption>
 </figure>
 
@@ -451,7 +451,7 @@ Return to the previous screen and select "Simulate Processing." Next, click on t
 The processed logs should look as below:
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_processed_log_format.webp" alt="Processed logs format"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_processed_log_format.webp" alt="Processed logs format"/>
     <figcaption><i>Processed logs format</i></figcaption>
 </figure>
 
@@ -461,7 +461,7 @@ As seen above, more fields have been included through the Regex processor. In co
 Save the pipeline settings and navigate to the "Change History" tab to confirm the success of the deployment. Ensure that the “Deployment Stage” reads as "Deployed" before proceeding, as this signifies the completion of the deployment process triggered by saving the pipeline settings.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_pipeline_deployment.webp" alt="Pipeline deployment"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_pipeline_deployment.webp" alt="Pipeline deployment"/>
     <figcaption><i>Pipeline deployment</i></figcaption>
 </figure>
 
@@ -469,7 +469,7 @@ Save the pipeline settings and navigate to the "Change History" tab to confirm t
 Return to the “Logs Explorer” tab to perform log queries using the configured regex filter fields. In the "Group by" input box, you should be able to see the new fields set through the Regex processor.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_new_query_option.webp" alt="New query options/fields"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_new_query_option.webp" alt="New query options/fields"/>
     <figcaption><i>New query options/fields</i></figcaption>
 </figure>
 
@@ -477,7 +477,7 @@ Return to the “Logs Explorer” tab to perform log queries using the configure
 Click on "tag_status_code" and run the query.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_query_builder.webp" alt="Query builder"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_query_builder.webp" alt="Query builder"/>
     <figcaption><i>Query builder</i></figcaption>
 </figure>
 
@@ -487,7 +487,7 @@ Click on "tag_status_code" and run the query.
 You can set up alerts from queries that you run directly. From the previous query, click on the Setup Alerts button.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_settup_alert_query.webp" alt="Setup alert from query"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_settup_alert_query.webp" alt="Setup alert from query"/>
     <figcaption><i>Setup alert from query</i></figcaption>
 </figure>
 
@@ -497,7 +497,7 @@ You can set up alerts from queries that you run directly. From the previous quer
 Set your filter to whatever information you want to filter from your logs, and choose the metrics of your choice.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_choose_metrics.webp" alt="Choosing your metrics"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_choose_metrics.webp" alt="Choosing your metrics"/>
     <figcaption><i>Choosing your metrics</i></figcaption>
 </figure>
 
@@ -509,7 +509,7 @@ Set the alert condition for your use case. The below alert condition is just a s
 Test the notification, and if it shows success, proceed to create the alert rule.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_alert_condition.webp" alt="Alert condition and configuration"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_alert_condition.webp" alt="Alert condition and configuration"/>
     <figcaption><i>Alert condition and configuration</i></figcaption>
 </figure>
 
@@ -517,7 +517,7 @@ Test the notification, and if it shows success, proceed to create the alert rule
 In the Alert tab, under the Alert rules section, you can see the alerts you have set up.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_alert_rules.webp" alt="Alert Rules"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_alert_rules.webp" alt="Alert Rules"/>
     <figcaption><i>Alert Rules</i></figcaption>
 </figure>
 
@@ -525,7 +525,7 @@ In the Alert tab, under the Alert rules section, you can see the alerts you have
 Within the Triggered Alerts section, you can view alerts that have already been triggered. This indicates that the alert rule has surpassed its defined threshold, prompting the system to send a notification to the specified alerting channel.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/loki_triggered_alerts.webp" alt="Triggered alerts"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/loki_triggered_alerts.webp" alt="Triggered alerts"/>
     <figcaption><i>Triggered alerts</i></figcaption>
 </figure>
 

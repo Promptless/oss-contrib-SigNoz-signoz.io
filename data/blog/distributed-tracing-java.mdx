@@ -56,7 +56,7 @@ Here’s the architecture of the sample Java application along with OpenTelemetr
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Sample Java app application architecture with SigNoz and OpenTelemetry"
    
    src="/img/blog/2022/03/java_app_architecture_opentelemetry_signoz.webp"
@@ -91,7 +91,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 When you are done installing SigNoz, you can access the UI at [http://localhost:3301](http://localhost:3301/application)
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="SigNoz dashboard"
    
    src="/img/blog/2022/02/signoz_dashboard.webp"
@@ -152,7 +152,7 @@ Below are the steps to run the sample Java application with OpenTelemetry:
    You can go to [http://localhost:8761/](http://localhost:8761/) and make sure your discover service registry with Eureka server is up and running.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="SigNoz dashboard"
    
    src="/img/blog/2022/03/service_discovery_eureka.webp"
@@ -167,7 +167,7 @@ Below are the steps to run the sample Java application with OpenTelemetry:
    Download the [latest version](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) of the Java JAR agent, and copy jar agent file in your application code. We have placed the agent under the folder named `agents`.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="SigNoz dashboard"
     src="/img/blog/2022/03/opentelemetry_java_jar_agent.webp"
     />
@@ -198,7 +198,7 @@ Below are the steps to run the sample Java application with OpenTelemetry:
    ```
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Code in scripts file"
    
    src="/img/blog/2022/03/scripts_sh_file.webp"
@@ -208,7 +208,7 @@ Below are the steps to run the sample Java application with OpenTelemetry:
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Scripts folder"
     
     src="/img/blog/2022/03/scripts_folder.webp"
@@ -240,7 +240,7 @@ Below are the steps to run the sample Java application with OpenTelemetry:
    sh ./start.sh
    ```
    {/* <!-- <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Running user service"
    
    src="/img/blog/2022/03/running_user_service.webp"
@@ -250,7 +250,7 @@ Below are the steps to run the sample Java application with OpenTelemetry:
    /> --> */}
 
 {/* <!-- <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
 alt="Running all microservices"
 
 src="/img/blog/2022/03/running_all_microservices.webp"
@@ -260,7 +260,7 @@ src="/img/blog/2022/03/running_all_microservices.webp"
  --> */}
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Running microservices on different ports using service registry"
     src="/img/blog/2022/03/eureka_running_all_services.webp"/>
     <figcaption><i>Running microservices on different ports using service registry</i></figcaption>
@@ -276,7 +276,7 @@ src="/img/blog/2022/03/running_all_microservices.webp"
    ```
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Checking creation of tables"
     
     src="/img/blog/2022/03/confirm_table_creation.webp"
@@ -299,7 +299,7 @@ serve -l 5000 u
 ```
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Running sample app UI"
    
    src="/img/blog/2022/03/serve_ui_port.webp"
@@ -311,7 +311,7 @@ serve -l 5000 u
 Use the buttons to interact with the app and generate some data. For example, click `Create User` button to create a new user in the MySQL db.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Create a new user"
    src="/img/blog/2022/03/create_new_user_java.webp"
    />
@@ -325,7 +325,7 @@ Now go to SigNoz dashboard, you will notice the list of service names that we co
 - payment-service
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Microservices in our Java app being monitored in the SigNoz dashboard"
    
    src="/img/blog/2022/03/java_microservices_list.webp"
@@ -343,7 +343,7 @@ The traces tab of the SigNoz dashboard provides powerful filters to analyze the 
 1. **See the count of requests by service and HTTP Status code**
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Count of requests"
     src="/img/blog/2022/03/java_count_of_requests.webp"/>
     <figcaption><i>Use advanced filters to see count of requests by service and HTTP status code</i></figcaption>
@@ -354,7 +354,7 @@ The traces tab of the SigNoz dashboard provides powerful filters to analyze the 
    You can run aggregates like avg, max, min, 50th percentile, 90th percentile on your tracing data to get analyze performance issues in your application.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Run aggregates"
     
     src="/img/blog/2022/03/run_aggregates.webp"
@@ -367,7 +367,7 @@ The traces tab of the SigNoz dashboard provides powerful filters to analyze the 
    You can also see these aggregates in more granular detail by grouping them by service name, operation, HTTP URL, HTTP method, etc.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Group aggregates"
     src="/img/blog/2022/03/group_aggregates.webp"
     />
@@ -382,7 +382,7 @@ The traces tab of the SigNoz dashboard provides powerful filters to analyze the 
    Go to operation filter on the left navigation and apply two filters `/payment/transfer/id/{id}/amount/{amount}` and service name `payment-service` . Click on the single event listed in the table as shown below:
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image"
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Use filters to inspect spans that you want to investigate further"
     src="/img/blog/2022/03/span_specific_filter.webp"/>
     <figcaption><i>Use filters to inspect spans that you want to investigate further</i></figcaption>
@@ -392,7 +392,7 @@ The traces tab of the SigNoz dashboard provides powerful filters to analyze the 
 You will be able to see the Flamegraph of the selected span which shows how the request traveled between the `payment-service` and the `user-service`. You can also use the Gantt chart to analyze each event in detail.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image"
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Flamegraphs and Gantt charts"
     src="/img/blog/2022/03/java_payment_service_traces.webp"/>
     <figcaption><i>Flamegraph and Gantt chart for the selected event showing payment service traces with HTTP semantics</i></figcaption>
@@ -400,7 +400,7 @@ You will be able to see the Flamegraph of the selected span which shows how the 
 
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image"
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
     alt="Database traces"
     src="/img/blog/2022/03/db_traces.webp"
     />

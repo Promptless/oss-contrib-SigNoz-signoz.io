@@ -11,8 +11,8 @@ function aboutus() {
   return (
     <div title="About Us">
       <section>
-        <div className="container" style={{ marginTop: '4rem', marginBottom: '4rem' }}>
-          <p className="text--center margin-vert--lg">
+        <div className="mx-auto mb-16 mt-16 max-w-7xl px-4">
+          <p className="my-8 text-center">
             {' '}
             Some of you may wonder, what does SigNoz mean? As engineers we are obsessed with the
             idea of signal vs noise. How do devops engineers find signals which they can act on from
@@ -22,22 +22,22 @@ function aboutus() {
             <br></br>
             And, hence the name Sig.Noz ( Signal vs Noise) 🤓
           </p>
-          <div className="row">
-            <div className="col col--6">
-              <div className="card-demo margin--md">
-                <div className="card-dark bg-signoz_slate-500">
-                  <div className="avatar margin--md">
+          <div className="flex flex-wrap">
+            <div className="w-1/2 px-4">
+              <div className="bg-signoz_slate-900 m-4 flex flex-col overflow-hidden rounded-lg border shadow-sm">
+                <div className="rounded-lg bg-signoz_slate-500">
+                  <div className="m-4 flex items-center gap-4">
                     <img
-                      className="avatar__photo avatar__photo--lg"
+                      className="h-12 w-12 rounded-full"
                       src="/img/504541.webp"
                       alt="Profile pic of Pranay Prateek"
                     />
-                    <div className="avatar__intro">
-                      <h4 className="avatar__name">Pranay Prateek</h4>
-                      <small className="avatar__subtitle">Co-founder & CEO </small>
+                    <div>
+                      <h4 className="font-bold">Pranay Prateek</h4>
+                      <small className="block py-1">Co-founder & CEO </small>
                     </div>
                   </div>
-                  <div className="card__body">
+                  <div className="p-4 pt-0">
                     <p>
                       After spending a lot of time in college reading philosophy, I got interested
                       in technology. Biometric & image recognition was especially interesting to me.
@@ -49,16 +49,16 @@ function aboutus() {
                       :)
                     </p>
                   </div>
-                  <div className="card__footer">
+                  <div className="mt-auto p-4 pt-0">
                     <Link
-                      className="button button--secondary button--outline"
+                      className="inline-flex items-center justify-center rounded border border-current px-6 py-1.5 font-bold transition-colors hover:bg-white/10"
                       href={'https://twitter.com/pranay01'}
                     >
                       <div className=""> Twitter </div>
                     </Link>
 
                     <a
-                      className="button button--link"
+                      className="border-none bg-transparent underline"
                       style={{ color: 'white' }}
                       href="mailto:pranay@signoz.io"
                     >
@@ -70,21 +70,21 @@ function aboutus() {
                 </div>
               </div>
             </div>
-            <div className="col col--6">
-              <div className="card-demo margin--md">
-                <div className="card-dark bg-signoz_slate-500">
-                  <div className="avatar margin--md">
+            <div className="w-1/2 px-4">
+              <div className="bg-signoz_slate-900 m-4 flex flex-col overflow-hidden rounded-lg border shadow-sm">
+                <div className="rounded-lg bg-signoz_slate-500">
+                  <div className="m-4 flex items-center gap-4">
                     <img
-                      className="avatar__photo avatar__photo--lg"
+                      className="h-12 w-12 rounded-full"
                       src="/img/12460410.webp"
                       alt="Profile pic of Ankit Nayan"
                     />
-                    <div className="avatar__intro">
-                      <h4 className="avatar__name">Ankit Nayan</h4>
-                      <small className="avatar__subtitle"> Co-Founder & CTO </small>
+                    <div>
+                      <h4 className="font-bold">Ankit Nayan</h4>
+                      <small className="block py-1"> Co-Founder & CTO </small>
                     </div>
                   </div>
-                  <div className="card__body">
+                  <div className="p-4 pt-0">
                     <p>
                       Playing Badminton professionally was my dream at one time. But that seemed too
                       tough, so I started coding. I have delved in all sorts of technologies
@@ -95,16 +95,16 @@ function aboutus() {
                       days.{' '}
                     </p>
                   </div>
-                  <div className="card__footer">
+                  <div className="mt-auto p-4 pt-0">
                     <Link
-                      className="button button--secondary button--outline text-white"
+                      className="inline-flex items-center justify-center rounded border border-white px-6 py-1.5 font-bold text-white transition-colors hover:bg-white/10"
                       href={'https://twitter.com/ankitnayan'}
                     >
                       <div className=""> Twitter </div>
                     </Link>
 
                     <a
-                      className="button button--link"
+                      className="border-none bg-transparent underline"
                       style={{ color: 'white' }}
                       href="mailto:pranay@signoz.io"
                     >

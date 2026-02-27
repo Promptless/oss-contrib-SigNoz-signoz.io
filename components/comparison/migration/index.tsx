@@ -1,16 +1,16 @@
-import React from "react";
-import styles from "./styles.module.css";
+import React from 'react'
+import styles from './styles.module.css'
 
 const Migration = (props) => {
-  const { title, desc } = props;
+  const { title, desc } = props
   return (
     <div className={styles.svsdMigrationContainer}>
-      <div className="container">
+      <div className="mx-auto w-full max-w-[1140px] px-4">
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.desc}>{desc}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Migration;
+export default Migration
