@@ -25,9 +25,7 @@ export default function StartUpsHero({ startUpsData }: StartUpsHeroProps) {
           {/* Left column: text content */}
           <div className="max-w-xl">
             <h1 className="mb-6 text-4xl font-bold md:text-5xl">
-              <span className="bg-[linear-gradient(99deg,#ead8fd_22.85%,#7a97fa_64.34%,#fd5ab2_96.6%)] bg-clip-text p-0 text-transparent">
-                {startUpsData.TITLE}
-              </span>
+              <span className="text-gradient p-0">{startUpsData.TITLE}</span>
             </h1>
             <h2 className="mb-8 text-xl text-signoz_vanilla-100 md:text-2xl">
               {startUpsData.DESC}

@@ -67,7 +67,7 @@ const comparisons = [
 export default function ProductComparisons() {
   return (
     <div className="mx-auto w-full max-w-[1140px] px-4">
-      <h2 className="font-heading mt-8 bg-[linear-gradient(99deg,#ead8fd_22.85%,#7a97fa_64.34%,#fd5ab2_96.6%)] bg-clip-text p-0 px-8 text-center text-4xl font-bold tracking-normal text-transparent">
+      <h2 className="font-heading text-gradient mt-8 p-0 px-8 text-center text-4xl font-bold tracking-normal">
         Product Comparisons
       </h2>
 

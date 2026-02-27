@@ -31,6 +31,13 @@
 }
 
 @layer utilities {
+  .text-gradient {
+    background: linear-gradient(99deg, #ead8fd 22.85%, #7a97fa 64.34%, #fd5ab2 96.6%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .bg-dot-pattern {
     background: radial-gradient(circle, #ffffff 10%, transparent 5%);
     background-size: 12px 12px;

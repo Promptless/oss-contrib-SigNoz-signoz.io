@@ -253,6 +253,13 @@ module.exports = {
     require('@tailwindcss/typography'),
     function ({ addBase, addComponents }) {
       addBase({
+        'h1, h2, h3, h4, h5, h6': {
+          color: 'inherit',
+          fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
+          fontWeight: '700',
+          lineHeight: '1.25',
+          margin: '0 0 0.5rem 0',
+        },
         p: {
           margin: '0 0 1em',
         },
