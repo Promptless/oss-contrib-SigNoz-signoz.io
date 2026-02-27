@@ -81,14 +81,6 @@ body::-webkit-scrollbar-thumb {
   background-color: theme('colors.signoz_robin.500');
 }
 
-.button-background {
-  background: linear-gradient(
-    99deg,
-    theme('colors.signoz_robin.400') 4.42%,
-    theme('colors.signoz_robin.600') 96.6%
-  );
-}
-
 .privacy ol {
   list-style: decimal;
   padding-left: 16px;

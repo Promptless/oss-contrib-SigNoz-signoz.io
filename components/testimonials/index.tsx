@@ -246,7 +246,7 @@ export const Testimonials = ({ page }) => {
           >
             <Button
               id={customerStoriesId}
-              className="button-background flex h-8 items-center justify-center gap-1.5 truncate rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:text-white"
+              className="flex h-8 items-center justify-center gap-1.5 truncate rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:text-white"
             >
               Read customer stories
               <ArrowRight size={14} />

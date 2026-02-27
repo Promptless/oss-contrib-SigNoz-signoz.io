@@ -177,7 +177,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="button-background mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link href="/enterprise-cloud" className="flex-center">
                   Contact us
@@ -218,7 +218,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="button-background mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link href="/enterprise-self-hosted" className="flex-center">
                   Contact us
@@ -247,7 +247,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="button-background mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link href="/enterprise-self-hosted" className="flex-center">
                   Contact us
@@ -514,7 +514,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="button-background mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link href="https://trust.signoz.io/" target="_blank" className="flex-center">
                   Visit Trust Center

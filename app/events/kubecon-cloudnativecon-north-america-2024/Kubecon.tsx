@@ -63,7 +63,7 @@ const MainSection: React.FC = () => {
                   href="https://sched.co/1izsX"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -116,7 +116,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -145,7 +145,7 @@ const MainSection: React.FC = () => {
                   href="https://sched.co/1iztV"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -194,7 +194,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -223,7 +223,7 @@ const MainSection: React.FC = () => {
                   href="https://sched.co/1izub"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -262,7 +262,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -291,7 +291,7 @@ const MainSection: React.FC = () => {
                   href="https://sched.co/1izuq"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -339,7 +339,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -367,7 +367,7 @@ const MainSection: React.FC = () => {
                   href="https://sched.co/1iW8k"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -393,7 +393,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -421,7 +421,7 @@ const MainSection: React.FC = () => {
                   href="https://sched.co/1i7li"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -473,7 +473,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -502,7 +502,7 @@ const MainSection: React.FC = () => {
                   href="https://sched.co/1how7"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -556,7 +556,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -586,7 +586,7 @@ const MainSection: React.FC = () => {
                   href="https://lu.ma/8uws6qyr"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -621,7 +621,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -651,7 +651,7 @@ const MainSection: React.FC = () => {
                   href="https://lu.ma/ngeo54fh"
                   target="_blank"
                   id="btn-register-event"
-                  className="button-background mb-6 flex w-full items-center justify-center gap-2 rounded-full px-3 py-2 sm:mb-0 sm:max-w-fit"
+                  className="mb-6 flex w-full items-center justify-center gap-2 rounded-full bg-[#181a21] px-3 py-2 sm:mb-0 sm:max-w-fit"
                 >
                   <Megaphone size={16} />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -691,7 +691,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="button-background mt-2 flex h-fit w-fit transform items-center justify-center rounded-full p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-[#181a21] p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
