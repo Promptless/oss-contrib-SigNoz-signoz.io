@@ -159,7 +159,7 @@ export const SigNozFeatures = () => {
           </div>
         </div>
       </section>
-      <div className="homepage-observability-container !mx-auto grid !w-[100vw] grid-cols-1 border !border-l-0 !border-t-0 border-dashed border-signoz_slate-400 sm:grid-cols-2 md:!w-[80vw]">
+      <div className="!mx-auto grid !w-[100vw] grid-cols-1 border !border-l-0 !border-t-0 border-dashed border-signoz_slate-400 sm:grid-cols-2 md:!w-[80vw]">
         {sections.map((section, index) => (
           <Card
             iconTag={section.iconTag}
@@ -170,6 +170,7 @@ export const SigNozFeatures = () => {
             img={section.img}
             key={section.text}
             sectionName="Features Section"
+            className={index === 0 ? 'sm:col-span-2' : undefined}
           />
         ))}
       </div>

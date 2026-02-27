@@ -236,11 +236,7 @@ const TrustedByTeams = ({ page }) => {
             </div>
           ))}
         </div>
-        <div
-          className={`wavy-line relative mx-[-1rem]
-          after:absolute after:top-[50%] after:h-0 after:w-full after:bg-transparent after:content-['']
-        `}
-        >
+        <div className="relative mx-[-1rem] after:absolute after:bottom-0 after:h-[2px] after:w-full after:border-b after:border-dashed after:border-[#1d212d] after:content-['']">
           <div className="flex flex-col items-center text-center">
             <Button variant="secondary" rounded="full" to="/case-study/" id={customerStoriesId}>
               <span className="flex-center z-[1] mx-2">

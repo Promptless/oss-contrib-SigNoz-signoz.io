@@ -251,7 +251,16 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    function ({ addComponents }) {
+    function ({ addBase, addComponents }) {
+      addBase({
+        p: {
+          margin: '0 0 1em',
+        },
+        a: {
+          color: 'inherit',
+          textDecoration: 'inherit',
+        },
+      })
       addComponents({
         '.section-container': {
           padding: '0 1rem',
