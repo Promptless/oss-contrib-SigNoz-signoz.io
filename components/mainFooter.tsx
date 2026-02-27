@@ -26,7 +26,7 @@ function Footer() {
     <div className="z-[10] flex flex-col justify-center border-t border-solid border-gray-900 bg-signoz_ink-500 bg-opacity-70 backdrop-blur-md">
       <div className="flex w-full items-center justify-center bg-opacity-70 px-16 py-14 max-md:max-w-full max-md:px-5">
         <div className="mx-auto flex w-full max-w-[1200px] justify-between max-md:max-w-full">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+          <div className="flex w-full justify-between gap-5 max-md:flex-col max-md:gap-0">
             <div className="flex w-3/12 flex-col max-md:ml-0 max-md:w-full">
               <div className="flex flex-col pb-2.5 text-sm tracking-wide text-stone-300 max-md:mt-10">
                 <div className="text-sm font-semibold uppercase leading-5 tracking-wide">Docs</div>
@@ -178,7 +178,7 @@ function Footer() {
                     All systems operational
                   </Link>
                 </div>
-                <div className="footer-icons mt-5 flex items-end justify-between gap-4 py-2">
+                <div className="mt-5 flex items-end justify-between gap-4 py-2 [&_a>svg]:h-6 [&_a>svg]:w-6">
                   <Link
                     href={'https://github.com/SigNoz'}
                     target="_blank"
