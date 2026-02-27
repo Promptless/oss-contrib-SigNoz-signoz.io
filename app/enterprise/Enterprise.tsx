@@ -54,7 +54,10 @@ export default function Enterprise() {
                   </div>
 
                   <Button id="btn-get-started-homepage-hero" className="mt-4">
-                    <a href="#enterprise-plans" className="flex-center">
+                    <a
+                      href="#enterprise-plans"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       Check Enterprise plans
                       <ArrowRight size={14} />
                     </a>
@@ -179,7 +182,10 @@ export default function Enterprise() {
                 type={Button.TYPES.SECONDARY}
                 className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
-                <Link href="/enterprise-cloud" className="flex-center">
+                <Link
+                  href="/enterprise-cloud"
+                  className="flex h-full w-full items-center justify-center gap-1"
+                >
                   Contact us
                   <ArrowRight size={14} />
                 </Link>
@@ -220,7 +226,10 @@ export default function Enterprise() {
                 type={Button.TYPES.SECONDARY}
                 className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
-                <Link href="/enterprise-self-hosted" className="flex-center">
+                <Link
+                  href="/enterprise-self-hosted"
+                  className="flex h-full w-full items-center justify-center gap-1"
+                >
                   Contact us
                   <ArrowRight size={14} />
                 </Link>
@@ -249,7 +258,10 @@ export default function Enterprise() {
                 type={Button.TYPES.SECONDARY}
                 className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
-                <Link href="/enterprise-self-hosted" className="flex-center">
+                <Link
+                  href="/enterprise-self-hosted"
+                  className="flex h-full w-full items-center justify-center gap-1"
+                >
                   Contact us
                   <ArrowRight size={14} />
                 </Link>
@@ -516,7 +528,11 @@ export default function Enterprise() {
                 type={Button.TYPES.SECONDARY}
                 className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
-                <Link href="https://trust.signoz.io/" target="_blank" className="flex-center">
+                <Link
+                  href="https://trust.signoz.io/"
+                  target="_blank"
+                  className="flex h-full w-full items-center justify-center gap-1"
+                >
                   Visit Trust Center
                   <ArrowRight size={14} />
                 </Link>

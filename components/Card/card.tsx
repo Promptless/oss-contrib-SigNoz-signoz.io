@@ -126,12 +126,18 @@ const Card: React.FC<CardProps> = ({
             clickLocation={sectionName}
             className="inline-block"
           >
-            <Button type={Button.TYPES.SECONDARY} className="flex-center mb-4 mt-6">
+            <Button
+              type={Button.TYPES.SECONDARY}
+              className="mb-4 mt-6 flex h-full w-full items-center justify-center gap-1"
+            >
               {buttonText} <ArrowRight size={14} />
             </Button>
           </TrackingLink>
         ) : (
-          <Button type={Button.TYPES.SECONDARY} className="flex-center mb-4 mt-6">
+          <Button
+            type={Button.TYPES.SECONDARY}
+            className="mb-4 mt-6 flex h-full w-full items-center justify-center gap-1"
+          >
             {buttonText} <ArrowRight size={14} />
           </Button>
         )

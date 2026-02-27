@@ -23,7 +23,7 @@ const Header: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Primary CTA',
         clickName: 'Trace Funnels Hero Start Trial',
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
       text: 'Read Documentation',
       href: '/docs/trace-funnels/overview/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Secondary CTA',
         clickName: 'Trace Funnels Hero Docs',
@@ -217,7 +217,7 @@ const StopLosingUsersBanner: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Primary CTA',
         clickName: 'Trace Funnels Banner Start Trial',
@@ -229,7 +229,7 @@ const StopLosingUsersBanner: React.FC = () => {
       text: 'Read Documentation',
       href: '/docs/trace-funnels/overview/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Secondary CTA',
         clickName: 'Trace Funnels Banner Docs',

@@ -28,7 +28,11 @@ const FeatureCard: React.FC<CardProps> = ({ title, img, description, buttonText,
       <div className="mt-4">
         {buttonText ? (
           <Button type={Button.TYPES.SECONDARY} className="mb-4 mt-4 max-w-fit">
-            <Link href={buttonLink ? buttonLink : ''} className="flex-center" target="_blank">
+            <Link
+              href={buttonLink ? buttonLink : ''}
+              className="flex h-full w-full items-center justify-center gap-1"
+              target="_blank"
+            >
               {buttonText} <ArrowRight size={14} />
             </Link>
           </Button>

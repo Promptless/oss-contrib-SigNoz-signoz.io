@@ -257,13 +257,19 @@ const MetricsCostEstimation = () => {
                 </div>
                 <div className="flex flex-col gap-4">
                   <Button className="w-full">
-                    <Link href={'/teams'} className="flex-center">
+                    <Link
+                      href={'/teams'}
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       Start your free 30-day trial
                       <ArrowRight size={14} />
                     </Link>
                   </Button>
                   <Button className="w-full" type={Button.TYPES.SECONDARY}>
-                    <Link href={'/docs/introduction/'} className="flex-center">
+                    <Link
+                      href={'/docs/introduction/'}
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       Read the docs
                       <ArrowRight size={14} />
                     </Link>

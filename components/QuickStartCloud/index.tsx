@@ -59,7 +59,7 @@ export default function QuickStartCloud() {
             <Button id="btn-quick-start-cloud">
               <TrackingLink
                 href="/teams/" // Link to the signup page
-                className="flex-center"
+                className="flex h-full w-full items-center justify-center gap-1"
                 clickType="Primary CTA"
                 clickName="Sign Up Button"
                 clickText="Get Started - Free"

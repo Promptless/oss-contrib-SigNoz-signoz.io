@@ -25,7 +25,10 @@ export const GetStarted = ({ page }) => {
                   clickText="Get Started - Free"
                   clickLocation="Get Started Section"
                 >
-                  <Button id={getStartedId} className="flex-center">
+                  <Button
+                    id={getStartedId}
+                    className="flex h-full w-full items-center justify-center gap-1"
+                  >
                     Get Started - Free
                     <ArrowRight size={14} />
                   </Button>
@@ -42,7 +45,7 @@ export const GetStarted = ({ page }) => {
                   <Button
                     type={Button.TYPES.SECONDARY}
                     id={readDocumentationId}
-                    className="flex-center"
+                    className="flex h-full w-full items-center justify-center gap-1"
                   >
                     <BookOpen size={14} />
                     Read Documentation

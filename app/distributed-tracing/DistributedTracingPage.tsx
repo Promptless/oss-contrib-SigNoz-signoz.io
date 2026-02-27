@@ -37,7 +37,7 @@ const Header: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Primary CTA',
         clickName: 'Distributed Tracing Hero Start Trial',
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
       text: 'Read Documentation',
       href: '/docs/instrumentation/overview/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Secondary CTA',
         clickName: 'Distributed Tracing Hero Docs',
@@ -219,7 +219,7 @@ const LogProcessingSection: React.FC = () => {
                   <TabItem
                     value="supported-sources"
                     label={
-                      <span className="flex-center">
+                      <span className="flex h-full w-full items-center justify-center gap-1">
                         <MonitorDown /> Supported Languages & Frameworks
                       </span>
                     }
@@ -229,7 +229,7 @@ const LogProcessingSection: React.FC = () => {
                   <TabItem
                     value="collection-methods"
                     label={
-                      <span className="flex-center">
+                      <span className="flex h-full w-full items-center justify-center gap-1">
                         <Shovel /> Collection Methods
                       </span>
                     }

@@ -56,7 +56,10 @@ const SigNozStats = () => {
                 clickLocation="Stats Section"
                 target="_blank"
               >
-                <Button className="flex-center text-xs sm:text-sm" id="btn-join-community-homepage">
+                <Button
+                  className="flex h-full w-full items-center justify-center gap-1 text-xs sm:text-sm"
+                  id="btn-join-community-homepage"
+                >
                   <BookOpen className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                   Join the community
                   <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
@@ -73,7 +76,7 @@ const SigNozStats = () => {
               >
                 <Button
                   type={Button.TYPES.SECONDARY}
-                  className="flex-center text-xs sm:text-sm"
+                  className="flex h-full w-full items-center justify-center gap-1 text-xs sm:text-sm"
                   id="btn-github-repo-homepage"
                 >
                   <BookOpen className="h-3 w-3 sm:h-3.5 sm:w-3.5" />

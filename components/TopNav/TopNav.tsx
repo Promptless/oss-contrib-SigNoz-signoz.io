@@ -678,7 +678,10 @@ export default function TopNav() {
                   clickText="Get Started - Free"
                   clickLocation="Top Navbar"
                 >
-                  <Button id="btn-get-started-website-navbar" className="flex-center">
+                  <Button
+                    id="btn-get-started-website-navbar"
+                    className="flex h-full w-full items-center justify-center gap-1"
+                  >
                     Get Started - Free
                     <ArrowRight size={14} />
                   </Button>
@@ -690,7 +693,7 @@ export default function TopNav() {
               <div className="flex items-center gap-2">
                 <TrackingLink
                   href="mailto:cloud-support@signoz.io"
-                  className="flex-center mr-8 text-xs"
+                  className="mr-8 flex h-full w-full items-center justify-center gap-1 text-xs"
                   clickType="Support Link"
                   clickName="Contact Support Link"
                   clickText="Need help? Contact support"

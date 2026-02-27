@@ -217,14 +217,20 @@ const GetStarted = ({ page }) => {
                 </p>
                 <div className="flex items-center justify-center gap-3 pt-4 max-sm:flex-col">
                   <Button id={getStartedId}>
-                    <Link href="/teams/" className="flex-center">
+                    <Link
+                      href="/teams/"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       Get Started - Free
                       <ArrowRight size={14} />
                     </Link>
                   </Button>
 
                   <Button type={Button.TYPES.SECONDARY} id={readDocumentationId}>
-                    <Link href="/docs/introduction/" className="flex-center">
+                    <Link
+                      href="/docs/introduction/"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       <BookOpen size={14} />
                       Read Documentation
                     </Link>

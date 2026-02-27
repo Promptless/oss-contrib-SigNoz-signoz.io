@@ -161,7 +161,7 @@ const Header = () => {
       </div>
       <div className="relative z-[1] !mx-auto mx-2 flex !w-[100vw] flex-col items-center justify-center gap-3 border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 pb-12 pt-4 md:mx-5 md:!w-[80vw] md:flex-row">
         <Button variant="default" rounded="full" to="/teams/" id="btn-get-started-homepage-hero">
-          <span className="flex-center">
+          <span className="flex h-full w-full items-center justify-center gap-1">
             Get Started - Free
             <ArrowRight size={14} />
           </span>
@@ -173,7 +173,7 @@ const Header = () => {
           to="/docs/introduction/"
           id="btn-read-documentation-homepage-hero"
         >
-          <span className="flex-center">
+          <span className="flex h-full w-full items-center justify-center gap-1">
             <BookOpen size={14} />
             Read Documentation
           </span>
@@ -239,7 +239,7 @@ const TrustedByTeams = ({ page }) => {
         <div className="relative mx-[-1rem] after:absolute after:bottom-0 after:h-[2px] after:w-full after:border-b after:border-dashed after:border-[#1d212d] after:content-['']">
           <div className="flex flex-col items-center text-center">
             <Button variant="secondary" rounded="full" to="/case-study/" id={customerStoriesId}>
-              <span className="flex-center z-[1] mx-2">
+              <span className="z-[1] mx-2 flex h-full w-full items-center justify-center gap-1">
                 Read customer stories <ArrowRight size={14} />
               </span>
             </Button>
@@ -442,7 +442,7 @@ const UsageBasedPricing = () => {
               id="btn-get-started-homepage-hero"
               className="mt-5"
             >
-              <span className="flex-center">
+              <span className="flex h-full w-full items-center justify-center gap-1">
                 Check Pricing
                 <ArrowRight size={14} />
               </span>
@@ -489,7 +489,7 @@ const GetStarted = ({ page }) => {
                 </p>
                 <div className="flex items-center justify-center gap-3 pt-4 max-sm:flex-col">
                   <Button to="/teams/" variant={'default'} rounded={'full'} id={getStartedId}>
-                    <span className="flex-center">
+                    <span className="flex h-full w-full items-center justify-center gap-1">
                       Get Started - Free
                       <ArrowRight size={14} />
                     </span>
@@ -501,7 +501,7 @@ const GetStarted = ({ page }) => {
                     rounded={'full'}
                     id={readDocumentationId}
                   >
-                    <span className="flex-center">
+                    <span className="flex h-full w-full items-center justify-center gap-1">
                       <BookOpen size={14} />
                       Read Documentation
                     </span>

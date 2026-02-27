@@ -151,14 +151,17 @@ const Header = () => {
       </div>
       <div className="relative z-[1] !mx-auto mx-2 flex !w-[100vw] flex-col items-center justify-center gap-3 border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 pb-12 pt-4 md:mx-5 md:!w-[80vw] md:flex-row">
         <Button id="btn-get-started-homepage-hero">
-          <Link href="/teams/" className="flex-center">
+          <Link href="/teams/" className="flex h-full w-full items-center justify-center gap-1">
             Get Started - Free
             <ArrowRight size={14} />
           </Link>
         </Button>
 
         <Button type={Button.TYPES.SECONDARY} id="btn-read-documentation-homepage-hero">
-          <Link href="/docs/introduction/" className="flex-center">
+          <Link
+            href="/docs/introduction/"
+            className="flex h-full w-full items-center justify-center gap-1"
+          >
             <BookOpen size={14} />
             Read Documentation
           </Link>
@@ -227,7 +230,10 @@ const TrustedByTeams = ({ page }) => {
               id={customerStoriesId}
               className="relative z-[1] flex h-8 items-center justify-center gap-1.5 truncate rounded-full bg-[#181a21] py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:text-white"
             >
-              <Link href="/case-study/" className="flex-center z-[1] mx-2">
+              <Link
+                href="/case-study/"
+                className="z-[1] mx-2 flex h-full w-full items-center justify-center gap-1"
+              >
                 Read customer stories <ArrowRight size={14} />
               </Link>
             </Button>
@@ -391,7 +397,10 @@ const UsageBasedPricing = () => {
             </p>
             <UsageList />
             <Button id="btn-get-started-homepage-hero" className="mt-5">
-              <Link href="/pricing/" className="flex-center">
+              <Link
+                href="/pricing/"
+                className="flex h-full w-full items-center justify-center gap-1"
+              >
                 Check Pricing
                 <ArrowRight size={14} />
               </Link>
@@ -438,14 +447,20 @@ const GetStarted = ({ page }) => {
                 </p>
                 <div className="flex items-center justify-center gap-3 pt-4 max-sm:flex-col">
                   <Button id={getStartedId}>
-                    <Link href="/teams/" className="flex-center">
+                    <Link
+                      href="/teams/"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       Get Started - Free
                       <ArrowRight size={14} />
                     </Link>
                   </Button>
 
                   <Button type={Button.TYPES.SECONDARY} id={readDocumentationId}>
-                    <Link href="/docs/introduction/" className="flex-center">
+                    <Link
+                      href="/docs/introduction/"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       <BookOpen size={14} />
                       Read Documentation
                     </Link>

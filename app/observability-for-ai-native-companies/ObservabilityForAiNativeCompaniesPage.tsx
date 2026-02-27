@@ -30,7 +30,7 @@ const Header: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Primary CTA',
         clickName: 'Observability for AI Native Companies Hero Start Trial',
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
       text: 'Read Documentation',
       href: '/docs/llm-observability/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Secondary CTA',
         clickName: 'Observability for AI Native Companies Hero Docs',
@@ -286,7 +286,7 @@ const StartMonitoring: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Primary CTA',
         clickName: 'Observability for AI Native Companies Start Monitoring CTA Start Trial',
@@ -298,7 +298,7 @@ const StartMonitoring: React.FC = () => {
       text: 'Read Documentation',
       href: '/docs/llm-observability/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Secondary CTA',
         clickName: 'Observability for AI Native Companies Start Monitoring CTA Docs',

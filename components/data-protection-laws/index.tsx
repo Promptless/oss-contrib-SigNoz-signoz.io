@@ -45,7 +45,7 @@ const DataProtectionLaws = ({ isInPricingPage = false }) => {
                 clickLocation="Data Protection Section"
               >
                 <Button
-                  className="flex-center text-xs sm:text-sm"
+                  className="flex h-full w-full items-center justify-center gap-1 text-xs sm:text-sm"
                   id="btn-use-signoz-cloud-homepage"
                 >
                   Use SigNoz Cloud <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
@@ -61,7 +61,7 @@ const DataProtectionLaws = ({ isInPricingPage = false }) => {
               >
                 <Button
                   type={Button.TYPES.SECONDARY}
-                  className="flex-center text-xs sm:text-sm"
+                  className="flex h-full w-full items-center justify-center gap-1 text-xs sm:text-sm"
                   id="btn-self-host-signoz-homepage"
                 >
                   <BookOpen className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
@@ -78,7 +78,7 @@ const DataProtectionLaws = ({ isInPricingPage = false }) => {
               >
                 <Button
                   type={Button.TYPES.SECONDARY}
-                  className="flex-center text-xs sm:text-sm"
+                  className="flex h-full w-full items-center justify-center gap-1 text-xs sm:text-sm"
                   id="btn-on-prem-signoz-homepage"
                 >
                   <BookOpen className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
