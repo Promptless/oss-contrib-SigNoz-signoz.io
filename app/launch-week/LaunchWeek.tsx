@@ -82,7 +82,7 @@ const MainSection: React.FC = () => {
                   href="https://www.linkedin.com/events/interactivedashboards-signozlau7367550250590404608/theater/"
                   target="_blank"
                   id="btn-linkedin-live"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                 >
                   <Linkedin className="h-4 w-4" />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -91,7 +91,7 @@ const MainSection: React.FC = () => {
                 </Link>
                 <div
                   id="btn-watch-youtube-video"
-                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                   onClick={() => handleOpenModal('oLfLFH00T3U')}
                 >
                   <img src="/svgs/icons/watch-video.svg" alt="watch video icon" />
@@ -119,7 +119,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-600 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-250 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -152,7 +152,7 @@ const MainSection: React.FC = () => {
                   href="https://www.linkedin.com/events/querybuilderv5-signozlaunchweek7368361520373620736/theater/"
                   target="_blank"
                   id="btn-linkedin-live"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                 >
                   <Linkedin className="h-4 w-4" />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -161,7 +161,7 @@ const MainSection: React.FC = () => {
                 </Link>
                 <div
                   id="btn-watch-youtube-video"
-                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                   onClick={() => handleOpenModal('a6GtE_Fah-g')}
                 >
                   <img src="/svgs/icons/watch-video.svg" alt="watch video icon" />
@@ -189,7 +189,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-600 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-250 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -205,7 +205,7 @@ const MainSection: React.FC = () => {
                   href="https://www.linkedin.com/events/ossimprovements-signozlaunchwee7368855069955457024/theater/"
                   target="_blank"
                   id="btn-linkedin-live"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                 >
                   <Linkedin className="h-4 w-4" />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -214,7 +214,7 @@ const MainSection: React.FC = () => {
                 </Link>
                 <div
                   id="btn-watch-youtube-video"
-                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                   onClick={() => handleOpenModal('MC--XaSxbdY')}
                 >
                   <img src="/svgs/icons/watch-video.svg" alt="watch video icon" />
@@ -242,7 +242,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-600 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-250 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -258,7 +258,7 @@ const MainSection: React.FC = () => {
                   href="https://www.linkedin.com/events/traceoperators-signozlaunchweek7369027260701429761/theater/"
                   target="_blank"
                   id="btn-linkedin-live"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                 >
                   <Linkedin className="h-4 w-4" />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -267,7 +267,7 @@ const MainSection: React.FC = () => {
                 </Link>
                 <div
                   id="btn-watch-youtube-video"
-                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                   onClick={() => handleOpenModal('aSGBmAMqUHs')}
                 >
                   <img src="/svgs/icons/watch-video.svg" alt="watch video icon" />
@@ -295,7 +295,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-600 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-250 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>
@@ -311,7 +311,7 @@ const MainSection: React.FC = () => {
                   href="https://www.linkedin.com/events/costcontrol-signozlaunchweek5-07370073117991432192/theater/"
                   target="_blank"
                   id="btn-linkedin-live"
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                 >
                   <Linkedin className="h-4 w-4" />
                   <span className="whitespace-nowrap text-sm font-medium text-[#F7F7F8]">
@@ -320,7 +320,7 @@ const MainSection: React.FC = () => {
                 </Link>
                 <div
                   id="btn-watch-youtube-video"
-                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-600 px-3 py-2 sm:mb-0"
+                  className="mb-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-signoz_ink-250 px-3 py-2 sm:mb-0"
                   onClick={() => handleOpenModal('X_qVjWB9TvY')}
                 >
                   <img src="/svgs/icons/watch-video.svg" alt="watch video icon" />
@@ -348,7 +348,7 @@ const MainSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex justify-end">
-                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-600 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
+                  <div className="mt-2 flex h-fit w-fit transform items-center justify-center rounded-full bg-signoz_ink-250 p-2 transition-transform group-hover:translate-x-2.5 sm:mt-0">
                     <ArrowRight size={14} />
                   </div>
                 </div>

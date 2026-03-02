@@ -371,7 +371,7 @@ const Instructions = () => {
 
 export default function AWSSignupPage() {
   return (
-    <div className="bg-signoz_ink-600 min-h-screen font-sans">
+    <div className="min-h-screen bg-signoz_ink-250 font-sans">
       <VariantNavbar className="bg-signoz_ink-300 px-8" />
       <div className="flex min-h-[calc(100vh-56px)] flex-col lg:flex-row">
         <div className="flex w-full flex-col items-center p-8 px-4 md:px-8 lg:w-5/12 lg:border-r lg:border-signoz_slate-500 lg:px-24">

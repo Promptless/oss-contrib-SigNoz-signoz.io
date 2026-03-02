@@ -1155,7 +1155,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({
         <div
           className={cn(
             'mt-6 flex items-center justify-between rounded-md px-3 py-4',
-            show?.length === 1 ? 'bg-signoz_slate-400/40' : 'bg-signoz_ink-600'
+            show?.length === 1 ? 'bg-signoz_slate-400/40' : 'bg-signoz_ink-250'
           )}
         >
           <span className="text-base font-medium text-signoz_vanilla-100">

@@ -78,7 +78,7 @@ export default function Enterprise() {
             </div>
           </header>
         </div>
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-col items-start border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-col items-start border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="flex w-full flex-col items-start px-8 py-8 md:px-16 md:py-16">
             <div className="text-sm uppercase text-signoz_vanilla-400">why enterprise?</div>
             <p className="mt-3 max-w-full whitespace-normal text-left text-lg font-bold md:text-2xl">
@@ -136,7 +136,7 @@ export default function Enterprise() {
         </div>
 
         {/* Enterprise Cloud */}
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start border-b-1 border-r-0 border-dashed border-signoz_slate-300 px-8 py-8 md:border-b-0 md:border-r md:border-dashed">
               <div className="mt-3 text-xl font-bold">Enterprise Cloud</div>
@@ -180,7 +180,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-600 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link
                   href="/enterprise-cloud"
@@ -224,7 +224,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-600 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link
                   href="/enterprise-self-hosted"
@@ -238,7 +238,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Bring your own cloud */}
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">Bring your own cloud</div>
@@ -256,7 +256,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-600 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link
                   href="/enterprise-self-hosted"
@@ -292,7 +292,7 @@ export default function Enterprise() {
         </section>
 
         {/* Unified Observability ⎯ Built for Increased Developer Productivity */}
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">
@@ -341,7 +341,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Columnar Datastore for Handling Ingestion & Querying at scale */}
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="mx-8 my-8 flex flex-1 items-start justify-start">
               <Image
@@ -407,7 +407,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Engineered for limitless growth */}
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">Engineered for limitless growth</div>
@@ -459,7 +459,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Enterprise-Grade Security, Privacy & Compliance */}
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="mx-8 my-8 flex flex-1 flex-col items-center justify-start">
               <div className="flex items-start justify-start">
@@ -526,7 +526,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-600 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link
                   href="https://trust.signoz.io/"
@@ -541,7 +541,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Observability built on Open-Standards */}
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">Observability built on Open-Standards</div>
@@ -594,7 +594,7 @@ export default function Enterprise() {
         </div>
 
         {/* Enterprise Support & Professional Services */}
-        <div className="!m-0 !mx-auto mt-4 flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">
