@@ -27,7 +27,7 @@ const Header: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Primary CTA',
         clickName: 'LLM Observability Hero Start Trial',
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
       text: 'Read Documentation',
       href: '/docs/llm-observability/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Secondary CTA',
         clickName: 'LLM Observability Hero Docs',
@@ -78,7 +78,7 @@ const EverythingYouNeedCards: React.FC = () => {
     <section className="relative mx-auto w-[100vw] max-w-8xl overflow-hidden border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 bg-[url('/img/background_blur/Ellipse_388.png')] bg-[center_top_calc(-78px)] md:w-[80vw]">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-signoz_ink-500/50 via-signoz_ink-500/25 to-signoz_ink-500/90" />
       <div className="relative">
-        <div className="container">
+        <div className="mx-auto w-full max-w-[1140px] px-4">
           <div className="flex flex-col gap-6 pt-32">
             <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
               <div className="flex flex-col items-center gap-12 text-2xl font-medium leading-[3.25rem] text-signoz_sienna-100">
@@ -103,7 +103,7 @@ const WorksWithYourFavoriteLLMTools: React.FC = () => {
       <section className="relative mx-auto w-[100vw] max-w-8xl overflow-hidden border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 bg-[url('/img/background_blur/Ellipse_388.png')] bg-[center_top_calc(-78px)] md:w-[80vw]">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-signoz_ink-500/50 via-signoz_ink-500/25 to-signoz_ink-500/90" />
         <div className="relative">
-          <div className="container">
+          <div className="mx-auto w-full max-w-[1140px] px-4">
             <div className="flex flex-col gap-6">
               <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
                 <div className="flex flex-col items-center gap-8 font-medium leading-[3.25rem] text-signoz_sienna-100">
@@ -186,7 +186,7 @@ const HowSigNozCompares: React.FC = () => {
     <section className="relative mx-auto w-[100vw] max-w-8xl overflow-hidden border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 bg-[url('/img/background_blur/Ellipse_388.png')] bg-[center_top_calc(-78px)] md:w-[80vw]">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-signoz_ink-500/50 via-signoz_ink-500/25 to-signoz_ink-500/90" />
       <div className="relative">
-        <div className="container pb-16">
+        <div className="mx-auto w-full max-w-[1140px] px-4 pb-16">
           <div className="flex flex-col gap-6 py-32">
             <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
               <div className="flex flex-col items-center gap-12 text-2xl font-medium leading-[3.25rem] text-signoz_sienna-100">
@@ -214,7 +214,7 @@ const StartMonitoring: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Primary CTA',
         clickName: 'LLM Observability Bottom CTA Start Trial',
@@ -226,7 +226,7 @@ const StartMonitoring: React.FC = () => {
       text: 'Read Documentation',
       href: '/docs/llm-observability/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Secondary CTA',
         clickName: 'LLM Observability Bottom CTA Docs',

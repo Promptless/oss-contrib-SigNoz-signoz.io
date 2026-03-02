@@ -20,12 +20,12 @@ export default function StartUpsHero({ startUpsData }: StartUpsHeroProps) {
       <div className="bg-dot-pattern masked-dots absolute inset-0 overflow-hidden opacity-20"></div>
       <div className="absolute left-0 right-0 top-0 mx-auto h-[450px] w-full flex-shrink-0 rounded-[956px] bg-gradient-to-b from-[rgba(190,107,241,1)] to-[rgba(69,104,220,0)] bg-[length:110%] bg-no-repeat opacity-30 blur-[300px] sm:bg-[center_-500px] md:h-[956px]" />
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1140px] px-4 md:px-6 lg:px-8">
         <div className="grid items-center gap-12 md:grid-cols-2 lg:gap-16">
           {/* Left column: text content */}
           <div className="max-w-xl">
             <h1 className="mb-6 text-4xl font-bold md:text-5xl">
-              <span className="text-gradient">{startUpsData.TITLE}</span>
+              <span className="text-gradient p-0">{startUpsData.TITLE}</span>
             </h1>
             <h2 className="mb-8 text-xl text-signoz_vanilla-100 md:text-2xl">
               {startUpsData.DESC}

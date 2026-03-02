@@ -13,7 +13,7 @@ export default function FAQ() {
               Frequently <br /> Asked <br /> Questions
             </p>
           </div>
-          <div className="card-demo left-0 flex-[2_2_0%] border !border-b-0 !border-r-0 !border-t-0 border-dashed border-signoz_slate-400">
+          <div className="left-0 flex-[2_2_0%] rounded-md border !border-b-0 !border-r-0 !border-t-0 border-dashed border-signoz_slate-400 bg-signoz_ink-400 shadow-sm">
             <FAQBody />
           </div>
         </div>

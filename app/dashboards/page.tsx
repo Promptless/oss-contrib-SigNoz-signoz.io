@@ -127,7 +127,7 @@ const Dashboards = () => {
   }
 
   return (
-    <div className="bg-black-900 container mx-auto px-4 py-12">
+    <div className="bg-black-900 mx-auto w-full max-w-[1140px] px-4 py-12">
       {/* Page Heading with Request Button */}
       <div className="mb-8 flex items-center justify-between">
         <div className="text-left">

@@ -181,7 +181,10 @@ export default function SignozCloudSignUpForm() {
             </div>
           </div>
 
-          <a className="button button--primary" href="mailto:cloud-support@signoz.io">
+          <a
+            className="inline-flex items-center justify-center rounded-md border border-signoz_robin-500 bg-signoz_robin-500 px-6 py-1.5 font-bold text-white hover:opacity-90"
+            href="mailto:cloud-support@signoz.io"
+          >
             Contact Support
           </a>
         </div>

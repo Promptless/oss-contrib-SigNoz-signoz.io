@@ -14,7 +14,7 @@ function PricingForm({ portalId, formId }) {
   return (
     <>
       <div id="my-hubspot-form" ref={formRef}>
-        {!formCreated && !error && !showFallback && <p className="text--center">Loading...</p>}
+        {!formCreated && !error && !showFallback && <p className="text-center">Loading...</p>}
       </div>
       {showFallback && <FormBlockedFallback />}
     </>

@@ -111,7 +111,7 @@ const SigNozVsNewRelicV2 = () => {
       <div className="absolute left-0 right-0 top-0 mx-auto h-[300px] w-full flex-shrink-0 rounded-[956px] bg-gradient-to-b from-[rgba(255,127,80,1)] to-[rgba(220,69,69,0)] bg-[length:110%] bg-no-repeat opacity-30 blur-[300px] sm:h-[450px] sm:bg-[center_-500px] md:h-[956px]" />
       <div className="relative mx-auto max-w-7xl px-4 pb-24 pt-20 sm:px-6 sm:pb-32 lg:px-8 lg:pt-32">
         {/* Hero Section */}
-        <section className="container mx-auto mb-10 flex flex-col items-center justify-between lg:flex-row">
+        <section className="mx-auto mb-10 flex w-full max-w-[1140px] flex-col items-center justify-between px-4 lg:flex-row">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

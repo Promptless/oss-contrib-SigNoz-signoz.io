@@ -28,7 +28,7 @@ const HackerNewsThread = (props) => {
   }
   return (
     <div className={styles.svsdThreadContainer}>
-      <div className="container">
+      <div className="mx-auto w-full max-w-[1140px] px-4">
         <h3 className={styles.threadTitle}>{title}</h3>
       </div>
     </div>
@@ -38,7 +38,7 @@ const HackerNewsThread = (props) => {
 const GetStartedSection = (props) => {
   const { withHackerNews, withMigrationSupport } = props
   return (
-    <div className="container">
+    <div className="mx-auto w-full max-w-[1140px] px-4">
       <div
         className={`${styles.trySigNozContainer} 
         ${!withHackerNews && styles.withoutHackerNews} 
@@ -48,7 +48,10 @@ const GetStartedSection = (props) => {
           OpenTelemetry-Native Metrics, Logs, and Traces in a single pane of glass
         </h3>
         <p className={styles.desc}>SigNoz Cloud is the easiest way to run SigNoz</p>
-        <Link className={`button button--secondary ${styles.trySigNozCtaBtn}`} href="/teams/">
+        <Link
+          className={`inline-flex items-center justify-center rounded-md border border-current bg-transparent px-6 py-1.5 font-bold ${styles.trySigNozCtaBtn}`}
+          href="/teams/"
+        >
           Get Started - Free
         </Link>
       </div>
@@ -62,7 +65,7 @@ const MigrationSupport = (props) => {
     return null
   }
   return (
-    <div className="container">
+    <div className="mx-auto w-full max-w-[1140px] px-4">
       <div
         className={`${styles.migrationSupportContainer} 
         ${!withMigrationSupport && styles.withoutMigrationSupport} 

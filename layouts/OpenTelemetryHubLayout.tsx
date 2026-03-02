@@ -1,5 +1,3 @@
-import '../css/opentelemetry-hub.css'
-
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -113,8 +111,8 @@ export default function OpenTelemetryHubLayout({
   const orderedPathMeta = orderPathMeta(pathMeta)
   const showSidebar = currentHubPath !== 'quick-start' && (navItems?.length ?? 0) > 0
   const docClasses = [
-    'doc overflow-clip px-3 md:px-6 lg:px-8',
-    !showSidebar ? 'doc-no-sidebar' : '',
+    'flex mx-auto h-full gap-4 max-w-[1504px] w-full items-start overflow-clip px-3 md:px-6 lg:px-8 max-lg:flex-col max-lg:gap-3',
+    !showSidebar ? 'justify-center' : '',
   ]
     .filter(Boolean)
     .join(' ')
@@ -159,7 +157,7 @@ export default function OpenTelemetryHubLayout({
           <OpenTelemetryProgressBar targetId={MAIN_CONTENT_ID} />
 
           <div className="mb-4 hidden flex-wrap items-center justify-between gap-3 border-b border-signoz_ink-300 px-4 pb-3 pt-6 md:px-6 lg:flex lg:px-8">
-            <div className="doc-header flex flex-wrap items-center gap-6">
+            <div className="mx-auto box-border flex w-full max-w-[1504px] flex-wrap items-center gap-6 px-12">
               {orderedPathMeta.map((path) => {
                 if (!path.firstRoute) return null
                 const isActive = path.key === currentHubPath
@@ -207,7 +205,11 @@ export default function OpenTelemetryHubLayout({
               />
             )}
 
-            <div className="doc-content md:px-0 lg:px-4">
+            <div
+              className={`box-border min-w-0 flex-1 md:px-0 lg:px-4 [&_details+details]:mt-8 ${
+                !showSidebar ? 'mx-auto max-w-[920px]' : ''
+              }`}
+            >
               {(showSidebar || hasToc) && <div id={MOBILE_TRIGGER_ID} className="mb-4 lg:hidden" />}
 
               <article className="prose prose-slate max-w-none px-3 py-6 dark:prose-invert">
@@ -298,8 +300,11 @@ export default function OpenTelemetryHubLayout({
             </div>
 
             {(hasMetaInfo || hasToc) && (
-              <aside className="doc-right hidden lg:block" aria-label="On this page navigation">
-                <div className="doc-right-inner">
+              <aside
+                className="sticky top-[120px] box-border hidden h-[calc(100vh-140px)] max-h-[calc(100vh-140px)] w-80 min-w-80 max-w-80 flex-shrink-0 self-start px-4 max-lg:static max-lg:h-auto max-lg:max-h-none max-lg:w-full max-lg:min-w-0 max-lg:max-w-none lg:block"
+                aria-label="On this page navigation"
+              >
+                <div className="flex h-full flex-col gap-3">
                   {metaInfoCard}
                   {hasToc && <OpenTelemetryTocClient toc={toc} />}
                 </div>

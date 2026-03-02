@@ -19,25 +19,19 @@ is_newsroom: true
 ---
 
 
-<div className='announcementContainer'>
+<div className="max-w-[70%] mx-auto">
 
-<span class="badge badge--secondary mb-4">Launch Week 1.0</span>
+<span className="mb-4 inline-block rounded border border-gray-300 bg-gray-200 px-2 py-0.5 text-[75%] font-bold leading-none text-gray-900">Launch Week 1.0</span>
 
 # Feature in Spotlight: Metrics & Query Builder [Day 2] 📊
 
-<div class="avatar">
-  <a
-    class="avatar__photo-link avatar__photo avatar__photo--lg"
-    href="https://www.linkedin.com/in/ankit-anand-686a53a1/">
-    <img
-      alt="Ankit Profile"
-      src="/img/users/ankit-anand.webp" />
+<div className="flex items-center gap-4">
+  <a href="https://www.linkedin.com/in/ankit-anand-686a53a1/" className="block">
+    <img alt="Ankit Profile" src="/img/users/ankit-anand.webp" className="h-12 w-12 rounded-full" />
   </a>
-  <div class="avatar__intro">
-    <div class="avatar__name">Ankit Anand</div>
-    <small class="avatar__subtitle">
-      Maintainer, SigNoz
-    </small>
+  <div className="flex flex-col gap-1">
+    <div className="font-bold">Ankit Anand</div>
+    <small className="text-sm text-signoz_vanilla-400">Maintainer, SigNoz</small>
   </div>
 </div>
 
@@ -49,7 +43,7 @@ Welcome to SigNoz Launch Week Day 2!
 Today’s feature in the spotlight is **Metrics & Query Builder.**
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/launch-week-day-2-cover.webp" alt="Cover pic"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/launch-week-day-2-cover.webp" alt="Cover pic"/>
 </figure>
 
 
@@ -68,7 +62,7 @@ We have shipped some exciting features in our metrics & query builder to take me
 Srikanth loves contributing to the open-source ecosystem. A core maintainer in various OpenTelemetry repos, he is currently leading the metrics signal at SigNoz.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/metrics-query-builder-sri.webp" alt="Cover pic"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/metrics-query-builder-sri.webp" alt="Cover pic"/>
 </figure>
 
 
@@ -83,7 +77,7 @@ Temporal aggregation is a method of condensing metric data over time to streamli
 In the diagram below, you can see a time series that produces data at an interval of 5 seconds. It might not be possible to visualize the time series in a 5-second interval. With temporal aggregation, you can reduce the number of data points by taking an appropriate aggregation over the time axis. For example, if the below time series is about memory usage, you can take the average of values over 10s intervals rather than 5s.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/temporal-aggregation-srikanth.webp" alt="Temporal aggregations"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/temporal-aggregation-srikanth.webp" alt="Temporal aggregations"/>
 <figcaption><i>Temporal aggregations reduce the number of data points to streamline analysis and visualization</i></figcaption>
 </figure>
 
@@ -101,7 +95,7 @@ In the below diagram, let’s suppose there are 4 time series representing reque
 
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/spatial-aggregation.webp" alt="Spatial aggregations"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/spatial-aggregation.webp" alt="Spatial aggregations"/>
 <figcaption><i>Spatial aggregation refers to the technique of merging metric data across various dimensions or labels</i></figcaption>
 </figure>
 
@@ -121,7 +115,7 @@ For example, if you select a counter metric called `signoz_calls_total`, you can
 
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/temporal-spatial-aggregations.webp" alt="Spatial & temporal aggregations in the metrics query builder of SigNoz"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/temporal-spatial-aggregations.webp" alt="Spatial & temporal aggregations in the metrics query builder of SigNoz"/>
 <figcaption><i>Apply spatial and temporal aggregations in metrics query builder of SigNoz</i></figcaption>
 </figure>
 
@@ -142,7 +136,7 @@ You can use functions for things like reducing visual noise.
 
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/support-for-functions.webp" alt="Functions in metrics query builder"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/support-for-functions.webp" alt="Functions in metrics query builder"/>
 <figcaption><i>Functions in metrics query builder will help extend data analysis capabilities on metrics</i></figcaption>
 </figure>
 
@@ -150,7 +144,7 @@ You can use functions for things like reducing visual noise.
 You can also chain two functions together.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/chain-two-functions.webp" alt="Chained functions"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/chain-two-functions.webp" alt="Chained functions"/>
 <figcaption><i>Chain two functions to get your required metrics</i></figcaption>
 </figure>
 
@@ -158,7 +152,7 @@ You can also chain two functions together.
 Below is an example of using the `Time Shift` function to compare total calls for `frontend` service in an interval of 1hr.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/time-shift.webp" alt="Time Shift function"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/time-shift.webp" alt="Time Shift function"/>
 <figcaption><i>Use the time shift function to compare data across different time periods</i></figcaption>
 </figure>
 
@@ -166,7 +160,7 @@ Below is an example of using the `Time Shift` function to compare total calls fo
 You can plot charts for the same service an hour apart.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/plot-time-shift-charts.webp" alt="Compare performance of services"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/plot-time-shift-charts.webp" alt="Compare performance of services"/>
 <figcaption><i>Check the performance of frontend service an hour apart with the help of time shift function</i></figcaption>
 </figure>
 
@@ -189,7 +183,7 @@ As you can see, the values of the Exponential histogram have a much lesser delta
 
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/exponential-histogram.webp" alt="Exponential Histogram"/>
+<img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/events/launch-week-1/exponential-histogram.webp" alt="Exponential Histogram"/>
 <figcaption><i>Exponential Histograms provide better accuracy than fixed buckets histograms</i></figcaption>
 </figure>
 
@@ -225,19 +219,19 @@ The next big thing in metrics is enabling integrations for getting metrics data 
 
 
 
-<div class="row spotlight-row">
-  <div class="col col--6">
-    <div class="card-demo">
-      <a class="card" href="https://signoz.io/blog/launch-week-1-day-1/"
+<div className="flex flex-wrap">
+  <div className="flex-[0_0_50%] max-w-[50%] px-4">
+    <div className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm">
+      <a className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm no-underline" href="https://signoz.io/blog/launch-week-1-day-1/"
 						rel="noopener noreferrer"
 						target="_blank">
-        <div class="card__image">
+        <div className="pt-4">
         <img
           src="/img/events/launch-week-1/launch-week-day-1-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 1" />
         </div>
-        <div class="card__body">
+        <div className="p-4">
         <h4>Feature in Spotlight: Logs Explorer</h4>
         <small>
           Builder: Nitya & Shuvam.
@@ -247,18 +241,18 @@ The next big thing in metrics is enabling integrations for getting metrics data 
     </div>
   </div>
 
-  <div class="col col--6">
-    <div class="card-demo">
-      <a class="card" href="https://signoz.io/blog/launch-week-1-day-2/"
+  <div className="flex-[0_0_50%] max-w-[50%] px-4">
+    <div className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm">
+      <a className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm no-underline" href="https://signoz.io/blog/launch-week-1-day-2/"
 						rel="noopener noreferrer"
 						target="_blank">
-        <div class="card__image">
+        <div className="pt-4">
         <img
           src="/img/events/launch-week-1/launch-week-day-2-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 2" />
         </div>
-        <div class="card__body">
+        <div className="p-4">
         <h4>Feature in Spotlight: Metrics & Query Builder</h4>
         <small>
           Builder: Srikanth Chekuri.
@@ -269,19 +263,19 @@ The next big thing in metrics is enabling integrations for getting metrics data 
   </div>
 </div>
 
-<div class="row spotlight-row">
-  <div class="col col--6">
-    <div class="card-demo">
-      <a class="card" href="https://signoz.io/blog/launch-week-1-day-3/"
+<div className="flex flex-wrap">
+  <div className="flex-[0_0_50%] max-w-[50%] px-4">
+    <div className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm">
+      <a className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm no-underline" href="https://signoz.io/blog/launch-week-1-day-3/"
 						rel="noopener noreferrer"
 						target="_blank">
-        <div class="card__image">
+        <div className="pt-4">
         <img
           src="/img/events/launch-week-1/launch-week-day-3-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 3" />
         </div>
-        <div class="card__body">
+        <div className="p-4">
         <h4>Feature in Spotlight: Frontend Monitoring</h4>
         <small>
           Builder: Yunus, Rajat & Shuvam.
@@ -292,18 +286,18 @@ The next big thing in metrics is enabling integrations for getting metrics data 
   </div>
 
 
-  <div class="col col--6">
-    <div class="card-demo">
-      <a class="card" href="https://signoz.io/blog/launch-week-1-day-4/"
+  <div className="flex-[0_0_50%] max-w-[50%] px-4">
+    <div className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm">
+      <a className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm no-underline" href="https://signoz.io/blog/launch-week-1-day-4/"
 						rel="noopener noreferrer"
 						target="_blank">
-        <div class="card__image">
+        <div className="pt-4">
         <img
           src="/img/events/launch-week-1/launch-week-day-4-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 4" />
         </div>
-        <div class="card__body">
+        <div className="p-4">
         <h4>Feature in Spotlight: Logs Pipeline</h4>
         <small>
           Builder: Raj.
@@ -317,20 +311,20 @@ The next big thing in metrics is enabling integrations for getting metrics data 
 
 
 
-<div class="row spotlight-row">
+<div className="flex flex-wrap">
 
-<div class="col col--6">
-    <div class="card-demo">
-      <a class="card" href="https://signoz.io/blog/launch-week-1-day-5/"
+<div className="flex-[0_0_50%] max-w-[50%] px-4">
+    <div className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm">
+      <a className="flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm no-underline" href="https://signoz.io/blog/launch-week-1-day-5/"
 						rel="noopener noreferrer"
 						target="_blank">
-        <div class="card__image">
+        <div className="pt-4">
         <img
           src="/img/events/launch-week-1/launch-week-day-5-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 5" />
         </div>
-        <div class="card__body">
+        <div className="p-4">
         <h4>Feature in Spotlight: Access Token Management & Onboarding </h4>
         <small>
           Builder: Vishal & Chitransh.

@@ -48,7 +48,7 @@ const BuildForDevelopers = () => {
                 </div>
               </div>
             </div>
-            <div className="homepage-build-dev-container grid grid-cols-1 sm:grid-cols-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
               {REASONS.map((section, index) => (
                 <Card
                   title={section.title}
@@ -56,6 +56,7 @@ const BuildForDevelopers = () => {
                   img={section.figure}
                   key={section.title}
                   sectionName="Built for Developers"
+                  className={index === REASONS.length - 1 ? 'sm:col-span-2' : undefined}
                 />
               ))}
             </div>

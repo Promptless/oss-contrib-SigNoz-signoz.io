@@ -33,7 +33,7 @@ export default function Enterprise() {
     <div className="relative mt-[-56px] bg-signoz_ink-500 ">
       <div className="bg-dot-pattern masked-dots absolute top-0 flex h-screen w-full items-center justify-center" />
       <div className="absolute left-0 right-0 top-0 mx-auto h-[450px] w-full  flex-shrink-0 rounded-[956px] bg-gradient-to-b from-[rgba(190,107,241,1)] to-[rgba(69,104,220,0)] bg-[length:110%] bg-no-repeat opacity-30 blur-[300px] sm:bg-[center_-500px] md:h-[956px]" />
-      <main className="landing-section relative z-[1]">
+      <main className="relative z-[1]">
         <div className="relative mt-16 w-full overflow-hidden border-b border-dashed border-signoz_slate-400">
           <header className="relative overflow-hidden">
             <div className="absolute bottom-0 left-0 right-0 top-0 z-[-1]" />
@@ -54,7 +54,10 @@ export default function Enterprise() {
                   </div>
 
                   <Button id="btn-get-started-homepage-hero" className="mt-4">
-                    <a href="#enterprise-plans" className="flex-center">
+                    <a
+                      href="#enterprise-plans"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       Check Enterprise plans
                       <ArrowRight size={14} />
                     </a>
@@ -75,7 +78,7 @@ export default function Enterprise() {
             </div>
           </header>
         </div>
-        <div className="border-dashed-container !border-t-0">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-col items-start border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="flex w-full flex-col items-start px-8 py-8 md:px-16 md:py-16">
             <div className="text-sm uppercase text-signoz_vanilla-400">why enterprise?</div>
             <p className="mt-3 max-w-full whitespace-normal text-left text-lg font-bold md:text-2xl">
@@ -122,7 +125,7 @@ export default function Enterprise() {
         </div>
         <TrustedByTeams page="enterprise" />
         <div
-          className="border-dashed-container enterprise-plans flex flex-col !items-center !justify-center px-8 py-16"
+          className="!mx-auto -mt-[60px] flex w-full max-w-full flex-1 flex-col items-start !items-center !justify-center border !border-b-0 border-dashed border-signoz_slate-400 px-8 py-16 md:!w-[80vw]"
           id="enterprise-plans"
         >
           <div className="mt-3 text-5xl font-bold">Enterprise Plans</div>
@@ -133,7 +136,7 @@ export default function Enterprise() {
         </div>
 
         {/* Enterprise Cloud */}
-        <div className="border-dashed-container flex flex-row">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start border-b-1 border-r-0 border-dashed border-signoz_slate-300 px-8 py-8 md:border-b-0 md:border-r md:border-dashed">
               <div className="mt-3 text-xl font-bold">Enterprise Cloud</div>
@@ -177,9 +180,12 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="button-background mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
-                <Link href="/enterprise-cloud" className="flex-center">
+                <Link
+                  href="/enterprise-cloud"
+                  className="flex h-full w-full items-center justify-center gap-1"
+                >
                   Contact us
                   <ArrowRight size={14} />
                 </Link>
@@ -218,9 +224,12 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="button-background mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
-                <Link href="/enterprise-self-hosted" className="flex-center">
+                <Link
+                  href="/enterprise-self-hosted"
+                  className="flex h-full w-full items-center justify-center gap-1"
+                >
                   Contact us
                   <ArrowRight size={14} />
                 </Link>
@@ -229,7 +238,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Bring your own cloud */}
-        <div className="border-dashed-container flex flex-row">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">Bring your own cloud</div>
@@ -247,9 +256,12 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="button-background mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
-                <Link href="/enterprise-self-hosted" className="flex-center">
+                <Link
+                  href="/enterprise-self-hosted"
+                  className="flex h-full w-full items-center justify-center gap-1"
+                >
                   Contact us
                   <ArrowRight size={14} />
                 </Link>
@@ -268,7 +280,7 @@ export default function Enterprise() {
         </div>
 
         <section className="mx-auto w-[100vw] border !border-b-0 border-dashed border-signoz_slate-400 bg-[url('/img/background_blur/Ellipse_388.png')] bg-[center_top_calc(-78px)] md:w-[80vw] ">
-          <div className={`container`}>
+          <div className="mx-auto w-full max-w-[1140px] px-4">
             <div className="flex flex-col py-20">
               <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
                 <div className="text-4xl font-bold leading-[3.25rem] text-signoz_sienna-100">
@@ -280,7 +292,7 @@ export default function Enterprise() {
         </section>
 
         {/* Unified Observability ⎯ Built for Increased Developer Productivity */}
-        <div className="border-dashed-container flex flex-row">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">
@@ -329,7 +341,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Columnar Datastore for Handling Ingestion & Querying at scale */}
-        <div className="border-dashed-container flex flex-row">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="mx-8 my-8 flex flex-1 items-start justify-start">
               <Image
@@ -395,7 +407,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Engineered for limitless growth */}
-        <div className="border-dashed-container flex flex-row">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">Engineered for limitless growth</div>
@@ -447,7 +459,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Enterprise-Grade Security, Privacy & Compliance */}
-        <div className="border-dashed-container flex flex-row">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="mx-8 my-8 flex flex-1 flex-col items-center justify-start">
               <div className="flex items-start justify-start">
@@ -514,9 +526,13 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="button-background mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
-                <Link href="https://trust.signoz.io/" target="_blank" className="flex-center">
+                <Link
+                  href="https://trust.signoz.io/"
+                  target="_blank"
+                  className="flex h-full w-full items-center justify-center gap-1"
+                >
                   Visit Trust Center
                   <ArrowRight size={14} />
                 </Link>
@@ -525,7 +541,7 @@ export default function Enterprise() {
           </div>
         </div>
         {/* Observability built on Open-Standards */}
-        <div className="border-dashed-container flex flex-row">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">Observability built on Open-Standards</div>
@@ -578,7 +594,7 @@ export default function Enterprise() {
         </div>
 
         {/* Enterprise Support & Professional Services */}
-        <div className="border-dashed-container flex flex-row">
+        <div className="!m-0 !mx-auto flex w-full max-w-full flex-1 flex-row items-start border !border-b-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex-1 flex-col items-start px-8 py-8">
               <div className="mt-3 text-xl font-bold">

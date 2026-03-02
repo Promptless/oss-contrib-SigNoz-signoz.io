@@ -1,6 +1,4 @@
-import Hero from '@/components/ui/Hero'
 import Link from 'next/link'
-import { Children } from 'react'
 
 const comparisons = [
   {
@@ -12,7 +10,7 @@ const comparisons = [
         For 20 APM and 50 infra hosts, SigNoz can save up to 90% of your Datadog bill - check{' '}
         <Link
           href="/blog/pricing-comparison-signoz-vs-datadog-vs-newrelic-vs-grafana/"
-          className="highlight"
+          className="text-signoz_robin-500 hover:text-signoz_robin-400"
         >
           comparison with detailed spreadsheet
         </Link>
@@ -54,7 +52,7 @@ const comparisons = [
         for user seats can be a significant portion of your monthly bill - check{' '}
         <Link
           href="/blog/pricing-comparison-signoz-vs-datadog-vs-newrelic-vs-grafana/"
-          className="highlight"
+          className="text-signoz_robin-500 hover:text-signoz_robin-400"
         >
           comparison with detailed spreadsheet
         </Link>
@@ -66,28 +64,25 @@ const comparisons = [
 
 export default function ProductComparisons() {
   return (
-    <div className="container mx-auto">
-      <h2 className="font-heading text-gradient mt-8 px-8 text-center text-4xl font-bold tracking-normal ">
+    <div className="mx-auto w-full bg-signoz_ink-500 px-4 py-8">
+      <h2 className="font-heading text-gradient mt-8 p-0 px-8 text-center text-4xl font-bold tracking-normal">
         Product Comparisons
       </h2>
 
-      <div className="my-8 flex flex-wrap">
+      <div className="mx-auto my-8 flex max-w-[1140px] flex-wrap">
         {comparisons.map((comparison) => {
           return (
-            <div className="col col--6" key={comparison.id}>
-              <div className="card-demo margin--md">
-                <Link href={comparison.url}>
-                  <div className="card-dark min-h-[240px] rounded-sm border p-4">
-                    <div className="card__header">
-                      <div className="avatar">
-                        <div className="avatar__intro">
-                          <h2 className="avatar__name mb-0 text-2xl">{comparison.title}</h2>
-                          {/* <small className="avatar__subtitle">{comparison.designation}</small> */}
-                        </div>
+            <div className="w-full px-4 lg:w-1/2" key={comparison.id}>
+              <div className="m-4">
+                <Link href={comparison.url} className="block no-underline">
+                  <div className="flex min-h-[240px] flex-col gap-4 rounded-sm border p-8 text-white transition-opacity hover:opacity-95">
+                    <div className="flex items-center gap-4">
+                      <div>
+                        <h2 className="mb-0 text-2xl font-bold">{comparison.title}</h2>
                       </div>
                     </div>
 
-                    <div className="card__body">{comparison?.desc}</div>
+                    <div className="pt-0">{comparison?.desc}</div>
                   </div>
                 </Link>
               </div>

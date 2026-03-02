@@ -38,7 +38,7 @@ const Header: React.FC = () => {
       text: 'Get Started - Free',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Primary CTA',
         clickName: 'Log Management Hero Start Trial',
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
       text: 'Read Documentation',
       href: '/docs/introduction/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
       tracking: {
         clickType: 'Secondary CTA',
         clickName: 'Log Management Hero Docs',

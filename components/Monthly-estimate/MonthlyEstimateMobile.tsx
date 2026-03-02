@@ -585,7 +585,7 @@ const MobileEstimate = () => {
           </div>
         )}
 
-        <div className="button-background mt-6 flex items-center justify-between rounded-md px-3 py-4 pt-4">
+        <div className="mt-6 flex items-center justify-between rounded-md bg-signoz_ink-600 px-3 py-4 pt-4">
           <span className="text-base font-medium text-signoz_vanilla-100">Monthly estimate</span>
           <div className="w-[45%] border-b border-dashed border-signoz_slate-400"></div>
           <div className="text-signoz_vanilla-100">${formatNumber(totalEstimate)}</div>

@@ -22,13 +22,13 @@ const Header: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
     },
     {
       text: 'Read Documentation',
       href: '/docs/trace-funnels/overview/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
     },
   ]
 
@@ -214,13 +214,13 @@ const StopAlertFatigueBanner: React.FC = () => {
       text: 'Start your free trial',
       href: '/teams/',
       variant: 'default' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
     },
     {
       text: 'Read Documentation',
       href: '/docs/alerts/',
       variant: 'secondary' as const,
-      className: 'flex-center',
+      className: 'flex h-full w-full items-center justify-center gap-1',
     },
   ]
 

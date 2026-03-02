@@ -17,7 +17,7 @@ const ComparisonGrid = (props) => {
 const ComparisonGridDesktop = (props) => {
   const { data, otherHeading } = props
   return (
-    <div className="container">
+    <div className="mx-auto w-full max-w-[1140px] px-4">
       <div className={styles.tableGrid}>
         {/* header */}
         <div className={styles.tableHeader}></div>
@@ -51,7 +51,7 @@ const ComparisonGridDesktop = (props) => {
 const ComparisonGridMobile = (props) => {
   const { data, otherHeading } = props
   return (
-    <div className="container">
+    <div className="mx-auto w-full max-w-[1140px] px-4">
       <div className={styles.tableGridMobile}>
         {data.map((cell, index) => {
           return (

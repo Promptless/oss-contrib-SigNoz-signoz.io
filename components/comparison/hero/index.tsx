@@ -11,7 +11,7 @@ const Hero = (props) => {
       <div className={styles.ctaContainer}>
         {billForComparison.isVisible && (
           <Link
-            className={`button ${billForComparison.className} ${styles.ctaButton}`}
+            className={`inline-flex items-center justify-center rounded-md border border-white bg-transparent px-6 py-1.5 font-bold text-white no-underline transition-colors hover:bg-white/10 ${styles.ctaButton}`}
             href={billForComparison.path}
           >
             Send your bill for comparison
@@ -19,14 +19,17 @@ const Hero = (props) => {
         )}
         {trySigNozCloud.isVisible && (
           <Link
-            className={`button primary-gradient bg-signoz_vanilla-300 text-signoz_ink-300`}
+            className="primary-gradient inline-flex items-center justify-center rounded-md bg-signoz_vanilla-300 px-6 py-1.5 font-bold text-signoz_ink-300"
             href="/teams"
           >
             Get Started - Free
           </Link>
         )}
         {selfHost.isVisible && (
-          <Link className={`button ${selfHost.className} ${styles.ctaButton}`} href={selfHost.path}>
+          <Link
+            className={`inline-flex items-center justify-center rounded-md border border-white bg-transparent px-6 py-1.5 font-bold text-white no-underline transition-colors hover:bg-white/10 ${styles.ctaButton}`}
+            href={selfHost.path}
+          >
             Self-Host
           </Link>
         )}

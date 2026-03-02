@@ -63,9 +63,9 @@ function OSSToCloud() {
           desc={OSS_TO_CLOUD_DATA.DESC}
         />
         <div className={styles.ossSection}>
-          <div className={`container ${styles.ossContainer}`}>
-            <div className={`row ${styles.ossRow}`}>
-              <div className={'col col--6 margin-vert--md'}>
+          <div className={`mx-auto w-full max-w-[1140px] px-4 ${styles.ossContainer}`}>
+            <div className={`flex flex-wrap ${styles.ossRow}`}>
+              <div className="my-4 max-w-[50%] flex-[0_0_50%] px-4">
                 <div className={styles.featuresContainer}>
                   {OSS_TO_CLOUD_DATA.FEATURE_POINTS.map((feature, idx) => (
                     <div key={idx} className={styles.featureWrapper}>
@@ -77,9 +77,11 @@ function OSSToCloud() {
                   ))}
                 </div>
               </div>
-              <div className={'col col--6 margin-vert--md'}>
-                <div className={`card ${styles.ossCard}`}>
-                  <div className="card__body">
+              <div className="my-4 max-w-[50%] flex-[0_0_50%] px-4">
+                <div
+                  className={`flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm ${styles.ossCard}`}
+                >
+                  <div className="p-4">
                     <SignozCloudSignUpForm />
                   </div>
                 </div>

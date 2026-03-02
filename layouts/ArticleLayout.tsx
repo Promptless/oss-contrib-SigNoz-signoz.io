@@ -1,7 +1,5 @@
 'use client'
 
-import '../css/article-layout.css'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode, useEffect, useRef, useState } from 'react'
@@ -190,8 +188,8 @@ export default function ArticleLayout({
   return (
     <main id={MAIN_CONTENT_ID} ref={mainRef}>
       <SectionContainer>
-        <div className="doc doc-no-sidebar overflow-clip px-3 pt-8 md:px-6 md:pt-12 lg:px-8">
-          <div className="doc-content md:px-0 lg:px-4">
+        <div className="mx-auto flex h-full w-full max-w-[1504px] items-start justify-center gap-4 overflow-clip px-3 pt-8 max-lg:flex-col max-lg:gap-3 md:px-6 md:pt-12 lg:px-8">
+          <div className="mx-auto box-border min-w-0 max-w-[780px] flex-1 md:px-0 lg:px-4 [&_details+details]:mt-8">
             {hasToc && <div className="mb-4 lg:hidden" />}
 
             <article className="prose prose-slate max-w-none px-3 py-6 dark:prose-invert">
@@ -339,15 +337,18 @@ export default function ArticleLayout({
 
           {/* Right sidebar - Desktop only */}
           {(hasMetaInfo || hasToc) && (
-            <aside className="doc-right hidden lg:block" aria-label="On this page navigation">
-              <div className="doc-right-inner">
+            <aside
+              className="sticky top-[120px] box-border hidden h-[calc(100vh-140px)] max-h-[calc(100vh-140px)] w-80 min-w-80 max-w-80 flex-shrink-0 self-start px-4 max-lg:static max-lg:h-auto max-lg:max-h-none max-lg:w-full max-lg:min-w-0 max-lg:max-w-none lg:block"
+              aria-label="On this page navigation"
+            >
+              <div className="flex h-full flex-col gap-3">
                 {metaInfoCard}
                 {hasToc && (
-                  <div className="doc-toc">
+                  <div className="flex min-h-0 flex-1 flex-col gap-1">
                     <div className="mb-3 text-xs uppercase text-gray-400">On this page</div>
                     <div
                       ref={tocContainerRef}
-                      className="doc-toc-items doc-toc-scroll border-l border-signoz_slate-500 pl-3"
+                      className="min-h-0 flex-1 overflow-y-auto border-l border-signoz_slate-500 pl-3"
                     >
                       <TableOfContents
                         toc={toc}

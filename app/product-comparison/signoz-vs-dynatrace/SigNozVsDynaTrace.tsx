@@ -45,17 +45,14 @@ const COMPARISON_DATA = {
     ),
     BILL_FOR_COMPARISON: {
       path: '/comparisons/dynatrace-savings/',
-      className: 'button--primary',
       isVisible: false,
     },
     TRY_SIGNOZ_CLOUD: {
       path: '/teams/',
-      className: 'button--primary',
       isVisible: true,
     },
     SELF_HOST: {
       path: '/docs/install/',
-      className: 'button--outline button--secondary',
       isVisible: true,
     },
   },
@@ -65,7 +62,10 @@ const COMPARISON_DATA = {
       <>
         We provide support for migrating from Dynatrace to SigNoz.
         <br />
-        <Link href="/product-comparison/migrate-from-dynatrace/" className="highlight">
+        <Link
+          href="/product-comparison/migrate-from-dynatrace/"
+          className="text-signoz_robin-500 hover:text-signoz_robin-400"
+        >
           Request a migration support
         </Link>{' '}
         from one of our experts and get started with SigNoz quickly.
@@ -99,7 +99,7 @@ const COMPARISON_DATA = {
           storage. Learn{' '}
           <Link
             href="https://clickhouse.com/docs/en/concepts/why-clickhouse-is-so-fast"
-            className="highlight"
+            className="text-signoz_robin-500 underline hover:text-signoz_robin-400"
             rel="noopener noreferrer nofollow"
             target="_blank"
           >
@@ -117,7 +117,7 @@ const COMPARISON_DATA = {
           Dynatrace charges per hour per host which is not suitable for cloud-native environments
           that need on-demand scaling. SigNoz paid plans are based on the amount of data sent with
           rates that provides the best value for money.{' '}
-          <Link href="/teams/" className="highlight">
+          <Link href="/teams/" className="text-signoz_robin-500 hover:text-signoz_robin-400">
             Sign up
           </Link>{' '}
           for a free cloud trial to get started.
@@ -231,7 +231,10 @@ const COMPARISON_DATA = {
     DESC: (
       <>
         We provide support for migrating from Dynatrace to SigNoz.{' '}
-        <Link href="/product-comparison/migrate-from-dynatrace/" className="highlight">
+        <Link
+          href="/product-comparison/migrate-from-dynatrace/"
+          className="text-signoz_robin-500 hover:text-signoz_robin-400"
+        >
           Request a migration support
         </Link>{' '}
         from one of our experts and get started with SigNoz quickly.

@@ -33,7 +33,7 @@ Previous Releases - <a href = "https://github.com/SigNoz/signoz/releases/tag/v0.
 We have moved to <a href = "https://github.com/leeoniya/uPlot" rel="noopener noreferrer nofollow" target="_blank" >uPLot</a> as our charting library. Our users build a lot of customized dashboards with multiple charts and panels. uPlot will help improve the overall performance of the dashboards along with the initial render time and zoom and cursor performance.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/signal31_improved_charts.webp" alt="Users can expect improved chart performance"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/signal31_improved_charts.webp" alt="Users can expect improved chart performance"/>
     <figcaption><i>Users can expect improved chart performance</i></figcaption>
 </figure>
 
@@ -45,13 +45,13 @@ You can set thresholds in different types of views in SigNoz. While creating any
 Thresholds help you understand if a time series or value has crossed a limit and help you identify it just by visual inspection so that you can focus on what’s really important.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/signal31_threshold.webp" alt="Adding threshold for different types of views in Dashboard"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/signal31_threshold.webp" alt="Adding threshold for different types of views in Dashboard"/>
     <figcaption><i>Adding threshold for different types of views in Dashboard</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/signal31_threshold_time_series.webp" alt="Adding Threshold in the Time-Series chart"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/signal31_threshold_time_series.webp" alt="Adding Threshold in the Time-Series chart"/>
     <figcaption><i>Adding Threshold in the Time-Series chart</i></figcaption>
 </figure>
 
@@ -67,7 +67,7 @@ We made the following improvements:
 We have added `Full Screen View` for dashboards to make it easier to view all charts and panels. It’s useful when your team is monitoring specific dashboards by projecting them on a monitor or large screen. You can focus better on the charts without any distractions.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/signal31_full_screen.webp" alt="You can now view your Dashboards in “Full Screen View”"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/signal31_full_screen.webp" alt="You can now view your Dashboards in “Full Screen View”"/>
     <figcaption><i>You can now view your Dashboards in “Full Screen View”</i></figcaption>
 </figure>
 
@@ -77,7 +77,7 @@ We have added `Full Screen View` for dashboards to make it easier to view all ch
 You can directly create alerts for any charts or panels by clicking on the dropdown and then clicking on Create Alerts. It saves the effort of writing the query again in Alerts builder.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/signal31_alerts.webp" alt="Create Alerts directly from Dashboards Tab"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/signal31_alerts.webp" alt="Create Alerts directly from Dashboards Tab"/>
     <figcaption><i>Create Alerts directly from Dashboards Tab</i></figcaption>
 </figure>
 
@@ -89,7 +89,7 @@ You can directly create alerts for any charts or panels by clicking on the dropd
 If a data series has gaps and `Fill Span Gaps` is enabled, the line would typically be dropped to 0 at the position of the missing data points.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/signal31_fill_spans.webp" alt="Graphs with Fill Span Gaps Disabled and Enabled"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/signal31_fill_spans.webp" alt="Graphs with Fill Span Gaps Disabled and Enabled"/>
     <figcaption><i>Graphs with Fill Span Gaps Disabled and Enabled</i></figcaption>
 </figure>
 
@@ -131,7 +131,7 @@ In this webinar, Nica and Srikanth discuss the Trace API in detail. They talk ab
 We crossed 7 million Docker downloads for our open-source project. 🥳 It’s exciting to see the impact of SigNoz across the globe in helping developers build better applications with better observability in place.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/7-million-docker-downloads.webp" alt="7 million docker downloads"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/7-million-docker-downloads.webp" alt="7 million docker downloads"/>
     <figcaption><i>7 million docker downloads</i></figcaption>
 </figure>
 
@@ -174,39 +174,37 @@ Pranay sat down with Scott Moore from SMC Journal Podcast to discuss why open-so
 
 Every month, contributors from our community help make SigNoz better. We want to thank the following contributors who made contributions to SigNoz last month 🤗
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/Calm-Rock"
-      >
+         href="https://github.com/Calm-Rock" className="block">
          <img
             alt="CheetoDa"
             src="https://avatars.githubusercontent.com/u/31571545?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">CheetoDa</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">CheetoDa</div>
+         <small className="text-sm text-signoz_vanilla-400">
          </small>
       </div>
       </div>
    </div>
-    <div class="col col--6">
-      <div class="avatar">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/alrs"
-      >
+         href="https://github.com/alrs" className="block">
          <img
             alt="Lars Lehtonen"
             src="https://avatars.githubusercontent.com/u/28523?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Lars Lehtonen</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Lars Lehtonen</div>
+         <small className="text-sm text-signoz_vanilla-400">
          </small>
       </div>
       </div>
@@ -215,39 +213,37 @@ Every month, contributors from our community help make SigNoz better. We want to
 
 <p></p>
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/vikrantgupta25"
-      >
+         href="https://github.com/vikrantgupta25" className="block">
          <img
             alt="Vikrant Gupta"
             src="https://avatars.githubusercontent.com/u/54737045?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Vikrant Gupta</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Vikrant Gupta</div>
+         <small className="text-sm text-signoz_vanilla-400">
          </small>
       </div>
       </div>
    </div>
-    <div class="col col--6">
-      <div class="avatar">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/joemiltonm"
-      >
+         href="https://github.com/joemiltonm" className="block">
          <img
             alt="Joe Milton"
             src="https://avatars.githubusercontent.com/u/64725924?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Joe Milton</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Joe Milton</div>
+         <small className="text-sm text-signoz_vanilla-400">
          </small>
       </div>
       </div>
@@ -256,39 +252,37 @@ Every month, contributors from our community help make SigNoz better. We want to
 
 <p></p>
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/srikanth-iyengar"
-      >
+         href="https://github.com/srikanth-iyengar" className="block">
          <img
             alt="Srikanth Iyengar"
             src="https://avatars.githubusercontent.com/u/88551109?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Srikanth Iyengar</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Srikanth Iyengar</div>
+         <small className="text-sm text-signoz_vanilla-400">
          </small>
       </div>
       </div>
    </div>
-    <div class="col col--6">
-      <div class="avatar">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/veyselsahin"
-      >
+         href="https://github.com/veyselsahin" className="block">
          <img
             alt="Veysel Şahin"
             src="https://avatars.githubusercontent.com/u/2998379?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Veysel Şahin</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Veysel Şahin</div>
+         <small className="text-sm text-signoz_vanilla-400">
          </small>
       </div>
       </div>
@@ -297,39 +291,37 @@ Every month, contributors from our community help make SigNoz better. We want to
 
 <p></p>
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/rlaveycal"
-      >
+         href="https://github.com/rlaveycal" className="block">
          <img
             alt="Richard Lavey"
             src="https://avatars.githubusercontent.com/u/6595659?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Richard Lavey</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Richard Lavey</div>
+         <small className="text-sm text-signoz_vanilla-400">
          </small>
       </div>
       </div>
    </div>
-    <div class="col col--6">
-      <div class="avatar">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/aleksasiriski"
-      >
+         href="https://github.com/aleksasiriski" className="block">
          <img
             alt="Aleksa Siriški"
             src="https://avatars.githubusercontent.com/u/31509435?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Aleksa Siriški</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Aleksa Siriški</div>
+         <small className="text-sm text-signoz_vanilla-400">
          </small>
       </div>
       </div>

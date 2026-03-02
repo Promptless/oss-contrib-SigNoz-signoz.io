@@ -46,7 +46,10 @@ const EnterprisePricing = () => {
                   </p>
 
                   <Button className="mt-4 gap-2 rounded-full bg-signoz_ink-300" size="sm">
-                    <Link href="/blog/introducing-ingest-guard-feature" className="flex-center">
+                    <Link
+                      href="/blog/introducing-ingest-guard-feature"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       Learn more <ArrowRight size={16} />
                     </Link>
                   </Button>

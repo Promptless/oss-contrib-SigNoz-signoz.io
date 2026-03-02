@@ -1,8 +1,4 @@
 import 'css/prism.css'
-import 'css/tailwind.css'
-import 'css/post.css'
-import 'css/global.css'
-import 'css/doc.css'
 import { components } from '@/components/MDXComponents'
 import CaseStudyLayout from '../../../layouts/CaseStudyLayout'
 import { Metadata } from 'next'

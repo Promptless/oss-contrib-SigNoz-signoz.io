@@ -77,7 +77,7 @@ const Header: React.FC = () => {
 
       {/* Main content */}
       <div className="relative !mx-auto flex !w-[100vw] max-w-8xl flex-col items-center border !border-b-0 border-dashed border-signoz_slate-400 px-2 pb-4 pt-12 text-center md:!w-[80vw] md:px-5 md:pt-[4rem]">
-        <h1 className="text-gradient z-[1] my-4 !p-3 text-2xl font-semibold tracking-tight dark:text-white sm:my-2 sm:my-5 sm:text-3xl md:leading-[3.5rem] lg:text-[44px]">
+        <h1 className="text-gradient z-[1] my-4 !p-3 text-2xl font-semibold tracking-tight sm:my-5 sm:text-3xl md:leading-[3.5rem] lg:text-[44px]">
           Migrate from Datadog to SigNoz <br className="hidden md:block" /> in Minutes
         </h1>
 
@@ -156,7 +156,7 @@ const CustomerStories: React.FC = () => {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-signoz_ink-500/50 via-signoz_ink-500/25 to-signoz_ink-500/90" />
 
         <div className="relative">
-          <div className="container pb-16">
+          <div className="mx-auto w-full max-w-[1140px] px-4 pb-16">
             <div className="flex flex-col gap-6 py-32">
               <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
                 <div className="flex flex-col items-center gap-12 text-2xl font-medium leading-[3.25rem] text-signoz_sienna-100">
@@ -181,7 +181,7 @@ const CustomerStories: React.FC = () => {
 
       {/* Testimonials grid */}
       <SectionLayout variant="bordered" className="!mx-auto p-0 max-md:-mb-[3rem]">
-        <div className="container pb-16">
+        <div className="mx-auto w-full max-w-[1140px] px-4 pb-16">
           <TestimonialCards />
 
           <div className="z-5 relative -mt-[25rem] flex h-96 items-end justify-center bg-gradient-to-t from-signoz_ink-500 to-transparent py-6 max-md:py-16">

@@ -12,7 +12,7 @@ export default function ContactUsLayout() {
       <div className="bg-dot-pattern masked-dots absolute inset-0 overflow-hidden opacity-20"></div>
       <div className="absolute left-0 right-0 top-0 mx-auto h-[450px] w-full flex-shrink-0 rounded-[956px] bg-gradient-to-b from-[rgba(190,107,241,1)] to-[rgba(69,104,220,0)] bg-[length:110%] bg-no-repeat opacity-30 blur-[300px] sm:bg-[center_-500px] md:h-[956px]" />
 
-      <div className="py-18 container mx-auto px-4 md:px-6 md:py-20 lg:px-8">
+      <div className="py-18 mx-auto w-full max-w-[1140px] px-4 md:px-6 md:py-20 lg:px-8">
         <div className="mb-24 text-center">
           <Hero>{contactUsData.TITLE}</Hero>
 
@@ -53,7 +53,9 @@ export default function ContactUsLayout() {
           </div>
 
           {/* Right column: contact form */}
-          <div className="rounded-xl border border-signoz_slate-400 bg-[rgb(244_242_250)] p-6 shadow-xl backdrop-blur-sm"> {/* TODO: colour not present in design guidelines, see if can be changed */}
+          <div className="rounded-xl border border-signoz_slate-400 bg-[rgb(244_242_250)] p-6 shadow-xl backdrop-blur-sm">
+            {' '}
+            {/* TODO: colour not present in design guidelines, see if can be changed */}
             <ContactForm portalId={contactUsData.PORTAL_ID} formId={contactUsData.FORM_ID} />
           </div>
         </div>

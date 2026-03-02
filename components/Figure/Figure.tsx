@@ -30,9 +30,9 @@ export default function Figure({
 }: FigureProps) {
   return (
     <Zoom>
-      <figure className={figureClassName}>
+      <figure className={cn('m-0 grid place-items-center', figureClassName)}>
         <img src={src} alt={alt} className={cn('rounded-md', className)} />
-        <figcaption className={captionClassName}>
+        <figcaption className={cn('text-center text-[0.9rem]', captionClassName)}>
           <i>
             {link && !sourceText ? (
               <a href={link} target="_blank" rel="noopener noreferrer">

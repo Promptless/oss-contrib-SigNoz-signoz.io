@@ -224,7 +224,7 @@ export default function OpenTelemetrySidebarClient({
 
   const desktopSidebar =
     showSidebar && filteredNav.length ? (
-      <div className="doc-sidenav hidden lg:block">
+      <div className="box-border hidden w-80 min-w-80 max-w-80 self-stretch lg:block">
         <Sidebar
           items={filteredNav}
           activeRoute={normalizedRouteMemo}

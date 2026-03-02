@@ -47,7 +47,7 @@ export const TrustedByTeams = ({ page }) => {
           ))}
         </div>
         <div
-          className={`${page === 'enterprise' ? '' : "wavy-line relative mx-[-1rem] after:absolute after:top-[50%] after:h-0 after:w-full after:bg-transparent after:content-['']"}`}
+          className={`${page === 'enterprise' ? '' : "relative mx-[-1rem] after:absolute after:bottom-0 after:h-[2px] after:w-full after:border-b after:border-dashed after:border-[#1d212d] after:content-['']"}`}
         >
           <div className="mb-5 flex flex-col items-center text-center">
             <TrackingLink
@@ -56,9 +56,12 @@ export const TrustedByTeams = ({ page }) => {
               clickName="Customer Stories Link"
               clickText="Read customer stories"
               clickLocation="Trusted By Section"
-              className=" button-background relative z-[1] flex h-8 items-center justify-center gap-1.5 truncate rounded-full py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:text-white"
+              className="relative z-[1] flex h-8 items-center justify-center gap-1.5 truncate rounded-full bg-signoz_ink-600 py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:text-white"
             >
-              <Button className="flex-center z-[1] mx-2" id={customerStoriesId}>
+              <Button
+                className="z-[1] mx-2 flex h-full w-full items-center justify-center gap-1"
+                id={customerStoriesId}
+              >
                 Read customer stories <ArrowRight size={14} />
               </Button>
             </TrackingLink>

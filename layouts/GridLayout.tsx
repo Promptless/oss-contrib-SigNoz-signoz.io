@@ -7,7 +7,7 @@ import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import React from 'react'
 import BlogPostCard from 'app/resource-center/Shared/BlogPostCard'
-import { Frown, HeartCrack, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Frown, ChevronLeft, ChevronRight } from 'lucide-react'
 import { RegionProvider } from '@/components/Region/RegionContext'
 
 export interface PaginationProps {
@@ -207,7 +207,7 @@ export default function GridLayout({
 
   return (
     <RegionProvider>
-      <div className="container mx-auto p-0">
+      <div className="mx-auto w-full max-w-[1140px] px-4">
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <div className="my-8 flex flex-col">
             <div

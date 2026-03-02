@@ -1,7 +1,5 @@
 'use client'
 
-import '../css/post.css'
-
 import { ReactNode, useRef, useState, useEffect } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
@@ -71,7 +69,7 @@ export default function PostLayout({ content, authors, children, toc }: LayoutPr
     <RegionProvider>
       <main ref={mainRef}>
         <ProgressBar target={mainRef} />
-        <div className="container mx-auto">
+        <div className="mx-auto w-full max-w-[1140px] px-4">
           <SectionContainer>
             <ScrollTopAndComment />
 
@@ -83,16 +81,23 @@ export default function PostLayout({ content, authors, children, toc }: LayoutPr
               readingTime={readingTime.text}
               key={slug}
             />
-            <div className="post container flex flex-row-reverse overflow-clip">
+            <div className="mx-auto flex h-full max-w-full flex-row-reverse gap-4 overflow-clip">
               <div
-                className={`post-toc ml-4 w-1/4 transition-opacity duration-1000 ${
+                className={`ml-4 box-border flex w-80 flex-col gap-1 overflow-y-auto py-4 pl-4 pr-8 transition-opacity duration-1000 max-lg:hidden ${
                   isTocVisible ? 'opacity-100' : 'opacity-30'
-                } hover:opacity-100`}
+                } sticky top-[88px] h-[calc(100vh-156px)] hover:opacity-100`}
               >
                 {toc.map((tocItem: tocItemProps) => {
                   return (
-                    <div className="post-toc-item" key={tocItem.url}>
-                      <a data-level={tocItem.depth} href={tocItem.url} className="line-clamp-2">
+                    <div
+                      className="min-h-6 w-full text-[13px] font-medium leading-normal"
+                      key={tocItem.url}
+                    >
+                      <a
+                        data-level={tocItem.depth}
+                        href={tocItem.url}
+                        className={`line-clamp-2 inline-block w-full ${tocItem.depth === 3 ? 'pl-4' : tocItem.depth === 4 ? 'pl-8' : ''}`}
+                      >
                         {tocItem.value}
                       </a>
                     </div>
@@ -100,7 +105,7 @@ export default function PostLayout({ content, authors, children, toc }: LayoutPr
                 })}
               </div>
 
-              <div className="post-content w-3/4 pr-4">
+              <div className="box-border w-[calc(100%-320px)] overflow-y-auto pl-6 pr-4 max-lg:w-full max-lg:pl-0">
                 <article className="prose prose-slate max-w-none py-6 dark:prose-invert">
                   {children}
                 </article>

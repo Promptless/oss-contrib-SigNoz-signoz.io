@@ -197,7 +197,7 @@ The Company and Customer agree that these Terms shall constitute the entire agre
 
 export default function termsPage() {
   return (
-    <div className="terms-of-service container mx-auto my-16">
+    <div className="terms-of-service mx-auto my-16 w-full max-w-[1140px] px-4">
       <MarkdownRenderer markdownContent={markdownContent} />
     </div>
   )

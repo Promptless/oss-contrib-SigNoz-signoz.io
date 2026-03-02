@@ -18,8 +18,7 @@ export const buttonVariants = cva(
           'bg-signoz_robin-500 text-white hover:bg-signoz_robin-600 active:bg-signoz_robin-700',
         outline:
           'border border-signoz_robin-500 bg-transparent text-signoz_robin-500 hover:bg-signoz_robin-500/10',
-        secondary:
-          'bg-signoz_ink-400 button-background text-signoz_vanilla-300 hover:bg-signoz_ink-300', // TODO: the bg color doesn't match any variable in tailwind, check design guidelines
+        secondary: 'bg-signoz_ink-600 text-signoz_vanilla-300 hover:bg-signoz_ink-300',
         tertiary: 'bg-signoz_vanilla-200 text-signoz_ink-200 hover:bg-signoz_vanilla-300',
         ghost: 'bg-transparent hover:bg-signoz_ink-400',
         link: 'text-signoz_robin-500',

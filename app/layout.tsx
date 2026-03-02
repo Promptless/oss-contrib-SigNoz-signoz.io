@@ -1,5 +1,6 @@
 import 'css/tailwind.css'
 import 'css/global.css'
+import 'css/doc-remaining.css'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { SearchProvider, SearchConfig } from 'pliny/search'

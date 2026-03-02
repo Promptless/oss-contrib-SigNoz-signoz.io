@@ -325,10 +325,10 @@ export default function TopNav() {
   return (
     <div className="fixed left-0 right-0 z-30">
       <header
-        className={`header-bg mx-auto box-border flex h-[56px] w-full items-center border-b border-signoz_slate-500 px-4 text-signoz_vanilla-100 backdrop-blur-[20px] dark:text-signoz_vanilla-100 md:px-8 lg:px-8`}
+        className={`mx-auto box-border flex h-[56px] w-full items-center border-b border-signoz_slate-500 bg-signoz_ink-500/70 px-4 text-signoz_vanilla-100 backdrop-blur-[20px] dark:text-signoz_vanilla-100 md:px-8 lg:px-8`}
       >
         <nav
-          className="container flex w-full justify-between text-signoz_vanilla-100 dark:text-signoz_vanilla-100"
+          className="mx-auto flex w-full max-w-[1140px] justify-between px-4 text-signoz_vanilla-100 dark:text-signoz_vanilla-100"
           aria-label="Global"
         >
           <div className="flex justify-start gap-x-6">
@@ -672,13 +672,16 @@ export default function TopNav() {
 
                 <TrackingLink
                   href="/teams"
-                  className="start-free-trial-btn flex h-8 items-center justify-center gap-1.5 truncate rounded-full px-4 py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:text-white"
+                  className="flex h-8 items-center justify-center gap-1.5 truncate rounded-full bg-primary-500 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:bg-primary-600 hover:text-white"
                   clickType="Primary CTA"
                   clickName="Sign Up Button"
                   clickText="Get Started - Free"
                   clickLocation="Top Navbar"
                 >
-                  <Button id="btn-get-started-website-navbar" className="flex-center">
+                  <Button
+                    id="btn-get-started-website-navbar"
+                    className="flex h-full w-full items-center justify-center gap-1"
+                  >
                     Get Started - Free
                     <ArrowRight size={14} />
                   </Button>
@@ -690,7 +693,7 @@ export default function TopNav() {
               <div className="flex items-center gap-2">
                 <TrackingLink
                   href="mailto:cloud-support@signoz.io"
-                  className="flex-center mr-8 text-xs"
+                  className="mr-8 flex h-full w-full items-center justify-center gap-1 text-xs"
                   clickType="Support Link"
                   clickName="Contact Support Link"
                   clickText="Need help? Contact support"
@@ -823,7 +826,7 @@ export default function TopNav() {
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           <Button
-                            className="start-free-trial-btn font-heading flex items-center justify-center gap-1 truncate rounded-md border-none px-4 py-2 text-center text-sm font-bold leading-4 text-white no-underline outline-none hover:text-white"
+                            className="font-heading flex items-center justify-center gap-1 truncate rounded-md border-none bg-primary-500 px-4 py-2 text-center text-sm font-bold leading-4 text-white no-underline outline-none hover:bg-primary-600 hover:text-white"
                             id="btn-get-started-website-navbar"
                           >
                             Get Started - Free

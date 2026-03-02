@@ -18,7 +18,7 @@ keywords:
 
 </head>
 
-<div className='announcementContainer'>
+<div className="max-w-[70%] mx-auto">
 
 # SigNoz Technical Writer Program - Write for us
 

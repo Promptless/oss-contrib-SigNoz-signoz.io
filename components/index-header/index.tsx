@@ -72,7 +72,10 @@ export async function Header() {
                   variantId={variantId}
                   className="block w-[220px]"
                 >
-                  <Button className="flex-center !w-full" id="btn-get-started-homepage-hero">
+                  <Button
+                    className="flex h-full !w-full w-full items-center justify-center gap-1"
+                    id="btn-get-started-homepage-hero"
+                  >
                     {primaryCTA}
                     <ArrowRight size={14} />
                   </Button>
@@ -91,7 +94,10 @@ export async function Header() {
                 variantId={variantId}
                 className="block w-[220px]"
               >
-                <Button className="flex-center !w-full" type={Button.TYPES.SECONDARY}>
+                <Button
+                  className="flex h-full !w-full w-full items-center justify-center gap-1"
+                  type={Button.TYPES.SECONDARY}
+                >
                   <BookOpen size={14} />
                   Explore the Docs
                 </Button>
@@ -107,7 +113,10 @@ export async function Header() {
               experimentId={experimentId}
               variantId={variantId}
             >
-              <Button className="flex-center" id="btn-get-started-homepage-hero">
+              <Button
+                className="flex h-full w-full items-center justify-center gap-1"
+                id="btn-get-started-homepage-hero"
+              >
                 {primaryCTA}
                 <ArrowRight size={14} />
               </Button>

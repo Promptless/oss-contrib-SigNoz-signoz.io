@@ -13,7 +13,7 @@ const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({ trackin
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-signoz_ink-500/50 via-signoz_ink-500/25 to-signoz_ink-500/90" />
 
         <div className="relative">
-          <div className="container pb-16">
+          <div className="mx-auto w-full max-w-[1140px] px-4 pb-16">
             <div className="flex flex-col gap-6 py-32">
               <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
                 <div className="flex flex-col items-center gap-12 text-2xl font-medium leading-[3.25rem] text-signoz_sienna-100">
@@ -37,7 +37,7 @@ const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({ trackin
       </section>
 
       <SectionLayout variant="bordered" className="!mx-auto p-0 max-md:-mb-[3rem]">
-        <div className="container pb-16">
+        <div className="mx-auto w-full max-w-[1140px] px-4 pb-16">
           <TestimonialCards />
 
           <div className="z-5 relative -mt-[25rem] flex h-96 items-end justify-center bg-gradient-to-t from-signoz_ink-500 to-transparent py-6 max-md:py-16">

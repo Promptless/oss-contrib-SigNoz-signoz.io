@@ -88,6 +88,7 @@ module.exports = {
         signoz_ink: {
           100: '#2A2E37',
           200: '#23262E',
+          250: '#181a21',
           300: '#16181D',
           400: '#121317',
           500: '#0B0C0E',
@@ -178,6 +179,7 @@ module.exports = {
           300: '#16181D',
           400: '#121317',
           500: '#0B0C0E',
+          600: '#181a21',
         },
         signoz_vanilla: {
           100: '#FFFFFF',
@@ -220,6 +222,9 @@ module.exports = {
             code: {
               color: theme('colors.indigo.500'),
             },
+            'blockquote code, h1 code, h2 code, h3 code, h4 code': {
+              color: theme('colors.signoz_robin.500'),
+            },
           },
         },
         invert: {
@@ -248,6 +253,76 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
+    function ({ addBase, addComponents, theme }) {
+      addBase({
+        'h1, h2, h3, h4, h5, h6': {
+          color: 'inherit',
+          fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
+          fontWeight: '700',
+          lineHeight: '1.25',
+          margin: '0 0 0.5rem 0',
+        },
+        p: {
+          margin: '0 0 1em',
+        },
+        a: {
+          color: 'inherit',
+          textDecoration: 'inherit',
+        },
+        code: {
+          backgroundColor: 'rgba(103, 103, 126, 0.323)',
+          border: '0.1rem solid rgba(0, 0, 0, 0.1)',
+          borderRadius: '0.2rem',
+          fontFamily: theme('fontFamily.mono'),
+          fontSize: '0.875em',
+          padding: '0.2rem 0.4rem',
+          verticalAlign: 'middle',
+        },
+        'a code': {
+          color: 'inherit',
+        },
+        pre: {
+          backgroundColor: 'rgba(103, 103, 126, 0.323)',
+          borderRadius: '0.2rem',
+          fontFamily: theme('fontFamily.mono'),
+          fontSize: '0.875em',
+          lineHeight: '1.5',
+          margin: '0 0 1rem',
+          overflow: 'auto',
+          padding: '1rem',
+        },
+        'pre code': {
+          backgroundColor: 'transparent',
+          border: 'none',
+          fontSize: '100%',
+          lineHeight: 'inherit',
+          padding: 0,
+        },
+        kbd: {
+          backgroundColor: theme('colors.gray.100'),
+          border: '1px solid',
+          borderColor: theme('colors.gray.300'),
+          borderRadius: '0.2rem',
+          boxShadow: `inset 0 -1px 0 ${theme('colors.gray.300')}`,
+          color: theme('colors.gray.800'),
+          fontFamily: theme('fontFamily.mono'),
+          fontSize: '80%',
+          padding: '0.15rem 0.3rem',
+        },
+        '.dark kbd': {
+          backgroundColor: theme('colors.gray.700'),
+          borderColor: theme('colors.gray.600'),
+          boxShadow: `inset 0 -1px 0 ${theme('colors.gray.600')}`,
+          color: theme('colors.gray.200'),
+        },
+      })
+      addComponents({
+        '.section-container': {
+          padding: '0 1rem',
+          width: '100%',
+        },
+      })
+    },
     nextui({
       themes: {
         light: {

@@ -145,7 +145,7 @@ const Header = () => {
     <header className="relative !mx-auto mt-16 !w-[100vw] md:!w-[80vw]">
       <div className="absolute bottom-0 left-[12px] right-[12px] top-0 z-[0] border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:left-[24px] md:right-[24px]" />
       <div className="relative !mx-auto flex !w-[100vw] flex-col items-center border !border-b-0 border-dashed border-signoz_slate-400 px-2 pb-4 pt-12 text-center md:!w-[80vw] md:px-5 md:pt-[4rem]">
-        <h1 className="text-gradient z-[1] my-4 !p-3 text-2xl font-semibold tracking-tight dark:text-white sm:my-2 sm:my-5 sm:text-3xl md:leading-[3.5rem] lg:text-[44px]">
+        <h1 className="text-gradient z-[1] my-4 !p-3 text-2xl font-semibold tracking-tight sm:my-5 sm:text-3xl md:leading-[3.5rem] lg:text-[44px]">
           Application Performance Monitoring <br />
           Powered by OpenTelemetry
         </h1>
@@ -161,7 +161,7 @@ const Header = () => {
       </div>
       <div className="relative z-[1] !mx-auto mx-2 flex !w-[100vw] flex-col items-center justify-center gap-3 border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 pb-12 pt-4 md:mx-5 md:!w-[80vw] md:flex-row">
         <Button variant="default" rounded="full" to="/teams/" id="btn-get-started-homepage-hero">
-          <span className="flex-center">
+          <span className="flex h-full w-full items-center justify-center gap-1">
             Get Started - Free
             <ArrowRight size={14} />
           </span>
@@ -173,7 +173,7 @@ const Header = () => {
           to="/docs/introduction/"
           id="btn-read-documentation-homepage-hero"
         >
-          <span className="flex-center">
+          <span className="flex h-full w-full items-center justify-center gap-1">
             <BookOpen size={14} />
             Read Documentation
           </span>
@@ -236,14 +236,10 @@ const TrustedByTeams = ({ page }) => {
             </div>
           ))}
         </div>
-        <div
-          className={`wavy-line relative mx-[-1rem]
-          after:absolute after:top-[50%] after:h-0 after:w-full after:bg-transparent after:content-['']
-        `}
-        >
+        <div className="relative mx-[-1rem] after:absolute after:bottom-0 after:h-[2px] after:w-full after:border-b after:border-dashed after:border-[#1d212d] after:content-['']">
           <div className="flex flex-col items-center text-center">
             <Button variant="secondary" rounded="full" to="/case-study/" id={customerStoriesId}>
-              <span className="flex-center z-[1] mx-2">
+              <span className="z-[1] mx-2 flex h-full w-full items-center justify-center gap-1">
                 Read customer stories <ArrowRight size={14} />
               </span>
             </Button>
@@ -340,7 +336,7 @@ const SigNozFeatures = () => {
     <>
       <div className="bg-[url('/img/background_blur/Frame_1862.png')] bg-[length:65%] bg-[center_top_5rem] sm:bg-no-repeat">
         <section className="mx-auto w-[100vw] border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 bg-[url('/img/background_blur/Ellipse_388.png')] bg-[center_top_calc(-78px)] md:w-[80vw] ">
-          <div className={`container pb-16`}>
+          <div className="mx-auto w-full max-w-[1140px] px-4 pb-16">
             <div className="flex flex-col gap-6 pb-44 pt-28 ">
               <div className="mx-auto mt-[50px] flex max-w-4xl flex-col items-center text-center">
                 <div className="text-[44px] font-semibold leading-[3.25rem] text-signoz_sienna-100">
@@ -370,7 +366,7 @@ const SigNozFeatures = () => {
 
       <div className="bg-[url('/img/background_blur/Frame_1862.png')] bg-[length:65%] bg-[center_top_5rem] sm:bg-no-repeat">
         <section className="mx-auto w-[100vw] border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 bg-[url('/img/background_blur/Ellipse_388.png')] bg-[center_top_calc(-78px)] md:w-[80vw] ">
-          <div className={`container pb-16`}>
+          <div className="mx-auto w-full max-w-[1140px] px-4 pb-16">
             <div className="flex flex-col gap-6 pb-44 pt-28 ">
               <div className="mx-auto mt-[50px] flex max-w-4xl flex-col items-center text-center">
                 <div className="text-[44px] font-semibold leading-[3.25rem] text-signoz_sienna-100">
@@ -446,7 +442,7 @@ const UsageBasedPricing = () => {
               id="btn-get-started-homepage-hero"
               className="mt-5"
             >
-              <span className="flex-center">
+              <span className="flex h-full w-full items-center justify-center gap-1">
                 Check Pricing
                 <ArrowRight size={14} />
               </span>
@@ -493,7 +489,7 @@ const GetStarted = ({ page }) => {
                 </p>
                 <div className="flex items-center justify-center gap-3 pt-4 max-sm:flex-col">
                   <Button to="/teams/" variant={'default'} rounded={'full'} id={getStartedId}>
-                    <span className="flex-center">
+                    <span className="flex h-full w-full items-center justify-center gap-1">
                       Get Started - Free
                       <ArrowRight size={14} />
                     </span>
@@ -505,7 +501,7 @@ const GetStarted = ({ page }) => {
                     rounded={'full'}
                     id={readDocumentationId}
                   >
-                    <span className="flex-center">
+                    <span className="flex h-full w-full items-center justify-center gap-1">
                       <BookOpen size={14} />
                       Read Documentation
                     </span>

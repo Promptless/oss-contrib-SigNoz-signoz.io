@@ -53,7 +53,7 @@ These Terms of Reference provide the definition of words used in capitalized man
 
 export default function termsReferencePage() {
   return (
-    <div className="terms-of-reference container mx-auto my-16">
+    <div className="terms-of-reference mx-auto my-16 w-full max-w-[1140px] px-4">
       <MarkdownRenderer markdownContent={markdownContent} />
     </div>
   )

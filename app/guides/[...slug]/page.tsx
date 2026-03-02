@@ -117,7 +117,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <div className="container mx-auto">
+        <div className="mx-auto w-full max-w-[1140px] px-4">
           <Button
             variant={'ghost'}
             to={`/resource-center/guides/`}
@@ -169,7 +169,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="container mx-auto">
+      <div className="mx-auto w-full max-w-[1140px] px-4">
         <Button
           variant={'ghost'}
           to={`/resource-center/guides/`}

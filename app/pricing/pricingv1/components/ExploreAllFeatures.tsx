@@ -41,7 +41,7 @@ const ALL_FEATURES_DATA = {
       action: (
         <TrackingLink
           href={'/docs/introduction'}
-          className="button-background flex h-8 w-full items-center justify-center gap-1.5 truncate rounded-full px-4 py-2 text-center text-[9px] font-medium leading-5 text-white sm:text-sm"
+          className="flex h-8 w-full items-center justify-center gap-1.5 truncate rounded-full bg-signoz_ink-250 px-4 py-2 text-center text-[9px] font-medium leading-5 text-white sm:text-sm"
           clickType="Secondary CTA"
           clickName="Docs Link"
           clickText="Read Documentation"
@@ -75,7 +75,7 @@ const ALL_FEATURES_DATA = {
       action: (
         <TrackingLink
           href={'/contact-us/'}
-          className="button-background flex h-8 w-full items-center justify-center gap-1.5 rounded-full px-4 py-2 text-center text-[9px] font-medium text-white sm:text-sm"
+          className="flex h-8 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-250 px-4 py-2 text-center text-[9px] font-medium text-white sm:text-sm"
           clickType="Secondary CTA"
           clickName="Enterprise Contact Button"
           clickText="Contact Us"

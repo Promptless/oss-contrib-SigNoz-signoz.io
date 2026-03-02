@@ -35,7 +35,7 @@ export const WhyOpenTelemetry = () => {
   return (
     <>
       <section className="!mx-auto !w-[100vw] border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:!w-[80vw]">
-        <div className="container bg-[url('/img/background_blur/Ellipse_207.png')] bg-[center_top_calc(-600px)]">
+        <div className="mx-auto w-full max-w-[1140px] bg-[url('/img/background_blur/Ellipse_207.png')] bg-[center_top_calc(-600px)] px-4">
           <div className="flex flex-col items-center py-8 text-center md:py-28">
             <p className="text-center text-sm font-medium uppercase tracking-[.05em] text-signoz_vanilla-400">
               SigNoz is OpenTelemetry-Native
@@ -125,7 +125,7 @@ export const WhyOpenTelemetry = () => {
                   </li>
                 </ul>
               </div>
-              <div className="card-background mb-6 aspect-[449/352] sm:h-[352px]">
+              <div className="mb-6 aspect-[449/352] bg-[rgba(217,217,217,0.1)] sm:h-[352px]">
                 <img src="/img/graphics/homepage/feature-graphic-otel.webp" alt="" />
               </div>
             </div>

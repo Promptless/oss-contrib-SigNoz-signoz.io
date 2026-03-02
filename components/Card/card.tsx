@@ -21,6 +21,7 @@ type CardProps = {
   img?: string
   border?: Boolean
   sectionName?: string
+  className?: string
 }
 
 const Card: React.FC<CardProps> = ({
@@ -38,6 +39,7 @@ const Card: React.FC<CardProps> = ({
   logoSize = 16,
   subTitleSize = 1,
   sectionName = 'Features',
+  className,
 }) => {
   const logoSizeClassnames = useMemo(() => {
     if (logoSize === 16) {
@@ -67,7 +69,7 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div
-      className={`col-span-2 border !border-b-0 !border-r-0 border-dashed border-signoz_slate-400 bg-signoz_ink-500 p-9 sm:col-span-1`}
+      className={`col-span-2 border !border-b-0 !border-r-0 border-dashed border-signoz_slate-400 bg-signoz_ink-500 p-9 sm:col-span-1 ${className ?? ''}`}
     >
       <div className="mb-4 flex items-center">
         {logo ? (
@@ -110,7 +112,9 @@ const Card: React.FC<CardProps> = ({
           {desc}
         </p>
       ))}
-      {img ? <img src={img} className="card-background h-auto w-auto border-none" /> : null}
+      {img ? (
+        <img src={img} className="h-auto w-auto border-none bg-[rgba(217,217,217,0.1)]" />
+      ) : null}
 
       {buttonText ? (
         buttonLink ? (
@@ -122,12 +126,18 @@ const Card: React.FC<CardProps> = ({
             clickLocation={sectionName}
             className="inline-block"
           >
-            <Button type={Button.TYPES.SECONDARY} className="flex-center mb-4 mt-6">
+            <Button
+              type={Button.TYPES.SECONDARY}
+              className="mb-4 mt-6 flex h-full w-full items-center justify-center gap-1"
+            >
               {buttonText} <ArrowRight size={14} />
             </Button>
           </TrackingLink>
         ) : (
-          <Button type={Button.TYPES.SECONDARY} className="flex-center mb-4 mt-6">
+          <Button
+            type={Button.TYPES.SECONDARY}
+            className="mb-4 mt-6 flex h-full w-full items-center justify-center gap-1"
+          >
             {buttonText} <ArrowRight size={14} />
           </Button>
         )

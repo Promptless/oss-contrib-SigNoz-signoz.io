@@ -142,7 +142,7 @@ stub_status on;
 If this is a fresh installation of NGINX, you can add this block to your `default.conf` file. Once added, run the command `sudo nginx -t` to validate the change. If the test is successful, you can restart the NGINX service. Now, hit the URL `http://your-domain/status` (use `[localhost](http://localhost)` for `your domain` if you are testing this locally). You will see an output similar to what is shown below.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/nginx_status_page.webp" alt="NGINX status page"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/nginx_status_page.webp" alt="NGINX status page"/>
     <figcaption><i>NGINX status page</i></figcaption>
 </figure>
 
@@ -346,7 +346,7 @@ You should start seeing the metrics on your Signoz Cloud UI in about 30 seconds.
 Once the above setup is done, you will be able to access the metrics in the SigNoz dashboard. You can go to the Dashboards tab and try adding a new panel. You can learn how to create dashboards in SigNoz [here](https://signoz.io/docs/userguide/manage-dashboards-and-panels/).
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/nginx_metrics.webp" alt="NGINX metrics collected by OpenTelemetry collector"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/nginx_metrics.webp" alt="NGINX metrics collected by OpenTelemetry collector"/>
     <figcaption><i>NGINX metrics collected by OpenTelemetry collector</i></figcaption>
 </figure>
 
@@ -354,7 +354,7 @@ Once the above setup is done, you will be able to access the metrics in the SigN
 You can easily create charts with [query builder](https://signoz.io/docs/userguide/create-a-custom-query/#sample-examples-to-create-custom-query) in SigNoz. Here are the [steps](https://signoz.io/docs/userguide/manage-panels/#steps-to-add-a-panel-to-a-dashboard) to add a new panel to the dashboard.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/nginx_dashboard_panel.webp" alt="Creating a dashboard panel for average connections accepted"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/nginx_dashboard_panel.webp" alt="Creating a dashboard panel for average connections accepted"/>
     <figcaption><i>Creating a dashboard panel for average connections accepted</i></figcaption>
 </figure>
 
@@ -362,7 +362,7 @@ You can easily create charts with [query builder](https://signoz.io/docs/usergu
 You can build a complete dashboard around various metrics emitted. Here’s a look at a sample dashboard we built out using the metrics collected.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/nginx_dashboard_panel2.webp" alt="sample dashboard"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/nginx_dashboard_panel2.webp" alt="sample dashboard"/>
     <figcaption><i>sample dashboard</i></figcaption>
 </figure>
 
@@ -370,7 +370,7 @@ You can build a complete dashboard around various metrics emitted. Here’s a lo
 You can also create alerts on any metric. Learn how to create alerts [here](https://signoz.io/docs/userguide/alerts-management/).
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/nginx_create_alerts.webp" alt=""/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/nginx_create_alerts.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -380,7 +380,7 @@ You can also create alerts on any metric. Learn how to create alerts [here](htt
 In order to visualize the logs sent by the OpenTelemetry collector, head over to Signoz → Logs → Logs Explorer. In the logs explorer, you can filter your [logs](https://signoz.io/blog/nginx-logging/) using the tag `app=nginx`, as shown in the image below:
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/nginx_logs.webp" alt="You can visualize the volume of logs as well as the actual log lines easily in this UI. "/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2023/12/nginx_logs.webp" alt="You can visualize the volume of logs as well as the actual log lines easily in this UI. "/>
     <figcaption><i>You can visualize the volume of logs as well as the actual log lines easily in this UI.</i></figcaption>
 </figure>
 

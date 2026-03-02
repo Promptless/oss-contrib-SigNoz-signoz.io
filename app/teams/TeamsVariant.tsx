@@ -38,7 +38,7 @@ export const VariantNavbar = ({ className }: { className?: string }) => {
     <div
       className={`fixed left-0 right-0 top-0 z-[30] mx-auto flex h-[56px] w-full items-center text-signoz_vanilla-100 backdrop-blur-[20px] ${className}`}
     >
-      <div className="bg-signoz_ink-600 flex h-full w-full items-center px-4 md:pl-12 lg:w-5/12 lg:pl-16">
+      <div className="flex h-full w-full items-center bg-signoz_ink-250 px-4 md:pl-12 lg:w-5/12 lg:pl-16">
         <div className="flex justify-start">
           <Link href="/" className="-m-1.5 flex items-center gap-2 p-1.5">
             <Image
@@ -77,7 +77,7 @@ export const VariantNavbar = ({ className }: { className?: string }) => {
           Pricing
         </TrackingLink>
       </div>
-      <div className="bg-signoz_ink-600 flex h-full items-center justify-end px-4 md:px-8 lg:hidden">
+      <div className="flex h-full items-center justify-end bg-signoz_ink-250 px-4 md:px-8 lg:hidden">
         <TrackingLink
           target="_blank"
           clickType="Nav Click"
@@ -937,12 +937,12 @@ const TeamsVariant: React.FC = () => {
   }, [handleError, ssoError])
 
   return (
-    <div className="variant-teams-container bg-signoz_ink-600 flex flex-col">
+    <div className="variant-teams-container flex flex-col bg-signoz_ink-250">
       <VariantNavbar />
 
       <div className="flex h-[calc(100vh-56px)] flex-col lg:flex-row">
         {/* Left section - Sign up form */}
-        <div className="bg-signoz_ink-600 relative flex w-full flex-col p-8 pt-[calc(56px+5vh)] lg:w-5/12 lg:p-12 lg:pt-[calc(56px+5vh)]">
+        <div className="relative flex w-full flex-col bg-signoz_ink-250 p-8 pt-[calc(56px+5vh)] lg:w-5/12 lg:p-12 lg:pt-[calc(56px+5vh)]">
           <div className="w-full">
             {(!isSubmitting && submitFailed) || ssoError ? (
               <ErrorState error={errors.apiError || ''} />

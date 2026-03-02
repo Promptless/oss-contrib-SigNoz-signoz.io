@@ -17,7 +17,7 @@ In this post, I have compared New Relic and Sentry on important features like AP
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-cover.webp" alt=""/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-cover.webp" alt=""/>
 </figure>
 
 
@@ -66,7 +66,7 @@ New Relic provides an “Errors Inbox” feature that detects and triages errors
 I was able to view errors from my application directly in the Errors Inbox UI. This came out of the box and did not require any additional configuration besides my APM and [infrastructure monitoring](https://signoz.io/guides/infrastructure-monitoring/) setup.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-error-box-nr.webp" alt="Errors Inbox in New Relic"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-error-box-nr.webp" alt="Errors Inbox in New Relic"/>
     <figcaption><i>Errors Inbox in New Relic</i></figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ I was able to view errors from my application directly in the Errors Inbox UI. T
 The Errors Inbox is closely integrated with New Relic’s APM. It leverages data from APM to pinpoint errors specific to individual applications. In the Triage tab, errors are categorized based on the count, error rate, and groups, and under the Group errors tab, you can filter different attributes and group errors to help narrow down what you are looking for.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-error-integration-nr.webp" alt="Errors Inbox integration with New Relic’s APM"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-error-integration-nr.webp" alt="Errors Inbox integration with New Relic’s APM"/>
     <figcaption><i>Errors Inbox integration with New Relic’s APM</i></figcaption>
 </figure>
 
@@ -83,7 +83,7 @@ The Errors Inbox is closely integrated with New Relic’s APM. It leverages data
 The Error Groups provide comprehensive insights into error details such as timestamp, host, users impacted, associated URL, logs, error messages, and more. I found the details to be incredibly useful and helpful in troubleshooting my application.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-error-insights-nr.webp" alt="Insights into error details with New Relic’s APM"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-error-insights-nr.webp" alt="Insights into error details with New Relic’s APM"/>
     <figcaption><i>Insights into error details</i></figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ Error monitoring in Sentry requires integrating Sentry with your application. Th
 The Issues UI provides information on error types, their frequency, and the environments in which they occur. It allows for filtering and searching based on various criteria such as error level, release version, and timestamp.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-list-of-issues-sentry.webp" alt="List of issues/errors coming from my application in Sentry"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-list-of-issues-sentry.webp" alt="List of issues/errors coming from my application in Sentry"/>
     <figcaption><i>List of issues/errors coming from my application</i></figcaption>
 </figure>
 
@@ -107,7 +107,7 @@ Inspecting these issues provided me with more information about the source it ge
 Additionally, you can correlate these issues with the relevant traces to gain a deeper understanding of the underlying causes and potential performance bottlenecks.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-connection-error-sentry.webp" alt="Detailed Sentry insights into the “ConnectionError” issue"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-connection-error-sentry.webp" alt="Detailed Sentry insights into the “ConnectionError” issue"/>
     <figcaption><i>Detailed insights into the “ConnectionError” issue</i></figcaption>
 </figure>
 
@@ -116,7 +116,7 @@ Additionally, you can correlate these issues with the relevant traces to gain a 
 It also offers code-level observability by pinpointing the exact location of the issue within your code. Sentry fetches the code context, providing not only the line that is causing the error but also the surrounding lines of code for better context and understanding.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-error-line-sentry.webp" alt="Sentry identifies the line of code causing issues"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-error-line-sentry.webp" alt="Sentry identifies the line of code causing issues"/>
     <figcaption><i>Sentry identifies the line of code causing issues</i></figcaption>
 </figure>
 
@@ -134,7 +134,7 @@ New Relic’s APM feature provides a unified monitoring service for all your app
 Setting up APM involves installing the appropriate agent for your application. In my case, I installed the Python agent. Once the agent is integrated into your application and it's up and running, New Relic seamlessly collects performance data from your application for monitoring.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-apm-nr.webp" alt="Python application being monitored in New Relic APM"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-apm-nr.webp" alt="Python application being monitored in New Relic APM"/>
     <figcaption><i>Python application being monitored in New Relic APM</i></figcaption>
 </figure>
 
@@ -142,7 +142,7 @@ Setting up APM involves installing the appropriate agent for your application. I
 New Relic's APM is equipped with pre-configured dashboards and visualizations that helped me quickly understand my application performance without any customization. It also includes features like service maps, issues & activities tracking, service levels monitoring, SLA reports, vulnerability management, and more. These advanced capabilities provide a comprehensive view of the application environment, enabling users to optimize performance and ensure reliability effectively.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-tracing-nr.webp" alt="Tracing information from my application in New Relic’s APM"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-tracing-nr.webp" alt="Tracing information from my application in New Relic’s APM"/>
     <figcaption><i>Tracing information from my application</i></figcaption>
 </figure>
 
@@ -154,7 +154,7 @@ Sentry tracks application performance by measuring metrics like throughput and l
 The “View Trends” page also helped me assess if my application's performance was improving or deteriorating over time and identify potential bottlenecks or issues that may be affecting user experience.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-apm-sentry.webp" alt="Performance overview of application frontend in Sentry"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-apm-sentry.webp" alt="Performance overview of application frontend in Sentry"/>
     <figcaption><i>Performance overview of application frontend</i></figcaption>
 </figure>
 
@@ -170,7 +170,7 @@ New Relic log management automatically ingests logs from your applications and h
 New Relic's log management platform is designed to help you uncover insights from your logs. It enables you to search for patterns and trends within your log data, which is crucial for identifying anomalies and potential issues that could impact your application's performance and reliability. I was able to run queries against my logs using the New Relic Query language (NRQL) and Lucene (an open-source search engine library) to get the exact log information that I needed. It also allows parsing of logs, making your log messages easier to query, search, and chart.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/04/newrelic-vs-sentry-log-nr.webp" alt="Log management in New Relic"/>
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]" src="/img/blog/2024/04/newrelic-vs-sentry-log-nr.webp" alt="Log management in New Relic"/>
     <figcaption><i>Log management in New Relic</i></figcaption>
 </figure>
 

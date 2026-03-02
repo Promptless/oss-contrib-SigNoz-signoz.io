@@ -50,11 +50,11 @@ export default function OpenTelemetryTocClient({ toc }: OpenTelemetryTocClientPr
   }
 
   return (
-    <div className="doc-toc">
+    <div className="sticky top-[50px] box-border flex h-[calc(100vh-156px)] w-80 min-w-80 max-w-80 flex-shrink-0 flex-col gap-1 overflow-x-hidden overflow-y-hidden p-0 px-4 max-lg:hidden">
       <div className="mb-3 text-xs uppercase text-gray-400">On this page</div>
       <div
         ref={tocContainerRef}
-        className="doc-toc-items doc-toc-scroll border-l border-signoz_slate-500 pl-3"
+        className="relative z-[1] min-h-0 flex-1 overflow-y-auto border-l border-signoz_slate-500 pl-3"
       >
         <TableOfContents
           toc={toc}

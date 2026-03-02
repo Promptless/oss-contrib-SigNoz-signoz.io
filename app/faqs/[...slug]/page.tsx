@@ -1,8 +1,4 @@
 import 'css/prism.css'
-import 'css/tailwind.css'
-import 'css/post.css'
-import 'css/global.css'
-import 'css/doc.css'
 import { components } from '@/components/MDXComponents'
 import FAQLayout from '@/layouts/FAQLayout'
 import { Metadata } from 'next'
@@ -216,7 +212,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="container mx-auto">
+      <div className="mx-auto w-full max-w-[1140px] px-4">
         <Button variant={'ghost'} isButton={true} className="ml-3.5 mt-10 hover:bg-transparent">
           <Link href={`/faqs/`} className="flex items-center">
             <SidebarIcons.ArrowLeft />

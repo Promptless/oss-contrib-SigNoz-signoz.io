@@ -34,7 +34,8 @@ type CardProps = {
 const cardDetails = [
   {
     logo: '/img/case_study/logos/shaped-logo.svg',
-    title: 'YC-backed Shaped AI Swapped a Siloed Toolset for SigNoz, achieving One-Stop Observability',
+    title:
+      'YC-backed Shaped AI Swapped a Siloed Toolset for SigNoz, achieving One-Stop Observability',
     name: 'Karl Lyons',
     position: 'Site Reliability Engineer, Shaped',
     href: '/case-study/shaped/',
@@ -132,7 +133,7 @@ function caseStudies() {
     <div className="relative mt-[-30px] bg-signoz_ink-500 ">
       <section>
         <div
-          className="container mx-auto border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400"
+          className="mx-auto w-full max-w-[1140px] border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 px-4"
           style={{ marginTop: '2rem', paddingBottom: '64px' }}
         >
           <div className="absolute left-0 right-0 top-0 z-[0] h-screen bg-[url('/img/background_blur/Perlin_noise.png')] bg-[length:55%]  bg-[center_top_-1rem] bg-no-repeat" />
@@ -207,7 +208,7 @@ const GetStarted = ({ page }) => {
   return (
     <div className="bg-[url('/img/background_blur/Rectangle_959.png')] bg-[length:68%] bg-[center_top_-20rem] sm:bg-no-repeat">
       <div className="bg-[url('/img/background_blur/Frame_2185.png')] bg-[length:68%] bg-[center_top_-20rem] sm:bg-no-repeat">
-        <section className="container mx-auto border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 !px-0">
+        <section className="mx-auto w-full max-w-[1140px] border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 !px-0">
           <div className="bg-[url('/img/background_blur/Ellipse_206.png')] bg-[center_top_calc(-250px)] bg-no-repeat">
             <div className="flex flex-col gap-16">
               <div className="flex flex-col gap-12">
@@ -216,14 +217,20 @@ const GetStarted = ({ page }) => {
                 </p>
                 <div className="flex items-center justify-center gap-3 pt-4 max-sm:flex-col">
                   <Button id={getStartedId}>
-                    <Link href="/teams/" className="flex-center">
+                    <Link
+                      href="/teams/"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       Get Started - Free
                       <ArrowRight size={14} />
                     </Link>
                   </Button>
 
                   <Button type={Button.TYPES.SECONDARY} id={readDocumentationId}>
-                    <Link href="/docs/introduction/" className="flex-center">
+                    <Link
+                      href="/docs/introduction/"
+                      className="flex h-full w-full items-center justify-center gap-1"
+                    >
                       <BookOpen size={14} />
                       Read Documentation
                     </Link>

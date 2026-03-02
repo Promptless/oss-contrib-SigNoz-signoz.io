@@ -272,7 +272,7 @@ To ask questions or comment about this Privacy Policy and our privacy practices,
 
 export default function page() {
   return (
-    <div className="privacy container mx-auto my-16">
+    <div className="privacy mx-auto my-16 w-full max-w-[1140px] px-4">
       <MarkdownRenderer markdownContent={markdownContent} />
     </div>
   )

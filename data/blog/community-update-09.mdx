@@ -30,7 +30,7 @@ This will enable users to debug the bottlenecks faster and identify the causes o
 Here’s what our new `Traces` tab will look like👇
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="The all-new Traces tab with an exhaustive set of advanced filters"
    
    src="/img/blog/2022/02/trace_filters_v2.webp"
@@ -58,7 +58,7 @@ After shipping the `Traces` tab, we are planning to work on shipping the `Trace 
 Here’s a sneak peek into the design of the `Trace Detail` page. Let us know what you think. You can drop in your feedback on our [slack community](https://signoz.io/slack).
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="Traces detail tab"
    
    src="/img/blog/2022/02/trace-detail_page.webp"
@@ -92,7 +92,7 @@ Prashant is an avid hiker and spends his weekends exploring nearby hiking trails
 We got featured in Runa Capital’s awesome list of open-source alternatives to well-known SaaS products. We believe a tool that is critical to the dev’s daily workflow should be open-source, and more accessible to dev teams of all sizes. We have set our goals high and aim to provide the best user experience to devs monitoring their applications.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="awesome oss alternatives"
    src="/img/blog/2022/02/awesome-oss-alternatives.webp"/>
 </figure>
@@ -104,7 +104,7 @@ We also got featured in Open Pull Request - a wonderful newsletter about open-so
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="open pull request newsletter featured signoz"
    src="/img/blog/2022/02/open-pull-request.webp"/>
 </figure>
@@ -130,40 +130,38 @@ As an open-source project, we want to educate our community more about our proje
 
 We want to thank these amazing contributors who made SigNoz better with their contributions. 🤗
 
-<div class="row">
-    <div class="col col--6">
-      <div class="avatar">
+<div className="flex flex-wrap">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/ybettan"
-      >
+         href="https://github.com/ybettan" className="block">
          <img
             alt="Yoni Bettan profile"
             src="https://avatars.githubusercontent.com/u/29724509?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Yoni Bettan</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Yoni Bettan</div>
+         <small className="text-sm text-signoz_vanilla-400">
             RedHat, Israel
          </small>
       </div>
       </div>
    </div>
-    <div class="col col--6">
-      <div class="avatar">
+    <div className="flex-[0_0_50%] max-w-[50%] px-4">
+      <div className="flex items-center gap-4">
       <a
-         class="avatar__photo-link avatar__photo avatar__photo--lg"
-         href="https://github.com/krtkvrm"
-      >
+         href="https://github.com/krtkvrm" className="block">
          <img
             alt="Kartik Verma Profile"
             src="https://avatars.githubusercontent.com/u/3920286?v=4"
+            className="h-12 w-12 rounded-full"
          />
       </a>
-      <div class="avatar__intro">
-         <div class="avatar__name">Kartik Verma</div>
-         <small class="avatar__subtitle">
+      <div className="flex flex-col gap-1">
+         <div className="font-bold">Kartik Verma</div>
+         <small className="text-sm text-signoz_vanilla-400">
             Engineer @gojek / @odpf | Distributed Systems Enthusiast
          </small>
       </div>
@@ -194,7 +192,7 @@ Distributed tracing is built on causal metadata context propagation. Understand 
 A single trace in distributed tracing consists of a series of tagged time intervals known as spans. Spans represent a logical unit of work in completing a user request or transaction. Combining all the spans in a trace can give you a detailed idea about how the transaction performed across its entire lifecycle.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image"
+    <img className="rounded-[6px] shadow-[2px_10px_24px_rgba(34,34,34,0.2)]"
    alt="open pull request newsletter featured signoz"
    
    src="/img/blog/2022/02/trace_spans.webp"

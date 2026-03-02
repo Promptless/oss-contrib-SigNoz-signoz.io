@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <section className="h-auto w-full bg-signoz_ink-500">
-      <div className="container relative mx-auto flex flex-col gap-7">
+      <div className="relative mx-auto flex w-full max-w-[1140px] flex-col gap-7 px-4">
         <div className="bg-dot-pattern masked-dots absolute top-0 h-screen w-full" />
         <div className="z-10 flex w-full flex-col gap-7 py-16">
           <ChangelogHeader showFilters={false} />
