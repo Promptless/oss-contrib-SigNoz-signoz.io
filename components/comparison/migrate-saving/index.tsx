@@ -28,7 +28,7 @@ const MigrateSaving = (props) => {
                 className={`flex flex-col overflow-hidden rounded-md bg-signoz_ink-400 shadow-sm ${styles.hubForm}`}
               >
                 <div className="p-4">
-                  <div id="my-hubspot-form">
+                  <div id="my-hubspot-form" ref={formRef} className={showFallback ? 'hidden' : ''}>
                     {!formCreated && !error && <p className="text-center">Loading...</p>}
                     {error && <p className="text-center">Some error occurred.</p>}
                   </div>
