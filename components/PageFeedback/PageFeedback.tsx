@@ -189,7 +189,7 @@ const PageFeedback: React.FC<PageFeedbackProps> = ({ placement = 'default' }) =>
   const panelBaseClassName = cx(
     'border-0 rounded-none p-0 bg-transparent',
     isTocPlacement &&
-      'border border-[rgba(42,46,55,0.8)] rounded-lg bg-[rgba(11,12,14,0.5)] max-h-[min(42vh,480px)] overflow-hidden flex flex-col p-[14px] md:p-[8px_10px_6px]'
+      '!border border-[rgba(42,46,55,0.8)] rounded-lg bg-[rgba(11,12,14,0.5)] max-h-[min(42vh,480px)] overflow-hidden flex flex-col p-[14px] md:p-[8px_10px_6px]'
   )
 
   const titleClassName = cx(
