@@ -61,8 +61,10 @@ export default function DocLayout({ children }: LayoutProps) {
             )}
 
             <div
-              className={`box-border min-w-0 flex-1 py-6 max-lg:!w-[calc(100%-320px)] max-md:!w-full md:px-0 lg:px-4 [&_details+details]:mt-8 ${
-                source === ONBOARDING_SOURCE ? '!w-full px-4' : ''
+              className={`box-border min-w-0 flex-1 py-6 md:px-0 lg:px-4 [&_details+details]:mt-8 ${
+                source === ONBOARDING_SOURCE
+                  ? '!w-full px-4'
+                  : 'max-lg:!w-[calc(100%-320px)] max-md:!w-full'
               }`}
             >
               {children}

@@ -67,8 +67,10 @@ const DocContent: React.FC<{
   return (
     <>
       <div
-        className={`box-border min-w-0 flex-1 max-lg:!w-[calc(100%-320px)] max-md:!w-full [&_details+details]:mt-8 ${
-          source === ONBOARDING_SOURCE ? '!w-full px-4' : ''
+        className={`box-border min-w-0 flex-1 [&_details+details]:mt-8 ${
+          source === ONBOARDING_SOURCE
+            ? '!w-full px-4'
+            : 'max-lg:!w-[calc(100%-320px)] max-md:!w-full'
         }`}
       >
         <div className="doc-title-row mb-4 flex items-center justify-between gap-2">

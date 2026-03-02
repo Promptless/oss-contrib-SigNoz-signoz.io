@@ -3,15 +3,6 @@ html {
   scroll-behavior: smooth;
 }
 
-pre {
-  overflow-x: auto;
-}
-
-code {
-  background-color: rgba(103, 103, 126, 0.323);
-  padding: 2px 4px;
-}
-
 .prose :where(blockquote code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: theme('colors.signoz_robin.500');
 }
@@ -43,7 +34,6 @@ code {
 .prose :where(pre):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   padding-left: 8px;
   box-sizing: border-box;
-  background-color: rgba(103, 103, 126, 0.323);
 }
 
 * {
