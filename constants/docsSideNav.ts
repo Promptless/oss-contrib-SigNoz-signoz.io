@@ -1666,6 +1666,11 @@ const docsSideNav = [
               },
               {
                 type: 'doc',
+                route: '/docs/metrics-management/render-metrics',
+                label: 'Render',
+              },
+              {
+                type: 'doc',
                 route: '/docs/tutorial/traefik-observability',
                 label: 'Traefik Observability',
               },
