@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Tabs({ activeTab }) {
   return (
-    <header className="header-bg mx-auto box-border flex h-[56px] w-full items-center overflow-x-auto border-b border-signoz_slate-500 px-4 text-signoz_vanilla-100 backdrop-blur-[20px] dark:text-signoz_vanilla-100 md:px-8 lg:px-8">
+    <header className="mx-auto box-border flex h-[56px] w-full items-center overflow-x-auto border-b border-signoz_slate-500 bg-signoz_ink-500/70 px-4 text-signoz_vanilla-100 backdrop-blur-[20px] dark:text-signoz_vanilla-100 md:px-8 lg:px-8">
       <div className="mx-auto h-full w-full max-w-[1140px] px-4">
         <ul
           className="mb-0 flex h-full gap-6 pl-0 text-center text-sm font-medium text-signoz_vanilla-400"
