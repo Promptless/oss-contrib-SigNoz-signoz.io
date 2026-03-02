@@ -1,5 +1,3 @@
-import '../css/post.css'
-
 import { ReactNode } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import PageTitle from '@/components/PageTitle'
@@ -25,15 +23,15 @@ export default function CaseStudyLayout({ content, children, toc }: CaseStudyLay
   return (
     <RegionProvider>
       <div className="mx-auto w-full max-w-[1140px] px-4">
-        <div className="post overflow-clip">
-          <div className="post-content mt-8">
+        <div className="mx-auto flex h-full max-w-full gap-4 overflow-clip">
+          <div className="mt-8 box-border w-[calc(100%-320px)] overflow-y-auto pl-6 max-lg:w-full max-lg:pl-0">
             <PageTitle>{title}</PageTitle>
             <article className="prose prose-slate max-w-none py-6 dark:prose-invert">
               {children}
             </article>
           </div>
 
-          <div className="post-toc">
+          <div className="sticky top-[88px] box-border flex h-[calc(100vh-156px)] w-80 flex-col gap-1 overflow-y-auto py-4 pl-4 pr-8 max-lg:hidden">
             {toc.map((tocItem: tocItemProps) => {
               return (
                 <div
