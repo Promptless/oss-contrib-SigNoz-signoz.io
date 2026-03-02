@@ -77,7 +77,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://colocatedeventseu2025.sched.com/event/1u5eV"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/A_I'mSpeaking.webp"
@@ -159,7 +159,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://colocatedeventseu2025.sched.com/event/1u5gj/bridging-the-cloud-native-opentelemetry-education-gap-shivay-lamba-couchbase-shivanshu-raj-shrivastava-signoz"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/B_I'mSpeaking.webp"
@@ -242,7 +242,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://kccnceu2025.sched.com/event/1txCq?iframe=no"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/D_I'mSpeaking.webp"

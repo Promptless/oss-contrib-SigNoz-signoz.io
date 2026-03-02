@@ -75,7 +75,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://sched.co/1izsX"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/KubeConNA24_CoLoSnackables-ObservabilityDay.webp"
@@ -157,7 +157,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://sched.co/1iztV"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/KubeConNA24_CoLoSnackables-KubernetesonEdgeDay.webp"
@@ -235,7 +235,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://sched.co/1izub"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/KubeConNA24_CoLoSnackables-ObservabilityDay.webp"
@@ -303,7 +303,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://sched.co/1izuq"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/KubeConNA24_CoLoSnackables-ArgoCon.webp"
@@ -379,7 +379,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://sched.co/1iW8k"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/kubecon-na.webp"
@@ -433,7 +433,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://sched.co/1i7li"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/kubecon-na.webp"
@@ -514,7 +514,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://sched.co/1how7"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/kubecon-na.webp"
@@ -598,7 +598,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://lu.ma/8uws6qyr"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/happy-hrs-kubecon.webp"
@@ -663,7 +663,7 @@ const MainSection: React.FC = () => {
             <Link
               href="https://lu.ma/ngeo54fh"
               target="_blank"
-              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-[rgba(18,19,23,0.8)] px-5 py-4 transition-colors duration-300 hover:bg-[#121317] sm:flex-row"
+              className="flex w-[864px] max-w-full cursor-pointer flex-col gap-6 rounded-md border border-signoz_slate-500 bg-signoz_ink-400/80 px-5 py-4 transition-colors duration-300 hover:bg-signoz_ink-400 sm:flex-row"
             >
               <img
                 src="/img/events/kubecon/run-event-cover.webp"
