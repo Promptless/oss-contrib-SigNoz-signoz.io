@@ -23,9 +23,9 @@ function aboutus() {
             And, hence the name Sig.Noz ( Signal vs Noise) 🤓
           </p>
           <div className="flex flex-wrap">
-            <div className="w-1/2 px-4">
-              <div className="bg-signoz_slate-900 m-4 flex flex-col overflow-hidden rounded-lg border shadow-sm">
-                <div className="rounded-lg bg-signoz_slate-500">
+            <div className="w-full px-4 lg:w-1/2">
+              <div className="m-4 flex flex-col overflow-hidden rounded-lg border border-signoz_slate-400 bg-signoz_slate-500 shadow-sm">
+                <div className="text-white shadow-sm">
                   <div className="m-4 flex items-center gap-4">
                     <img
                       className="h-12 w-12 rounded-full"
@@ -49,30 +49,27 @@ function aboutus() {
                       :)
                     </p>
                   </div>
-                  <div className="mt-auto p-4 pt-0">
+                  <div className="mt-auto flex flex-wrap items-center gap-8 p-4 pt-0">
                     <Link
-                      className="inline-flex items-center justify-center rounded border border-current px-6 py-1.5 font-bold transition-colors hover:bg-white/10"
+                      className="inline-flex shrink-0 items-center justify-center rounded bg-white px-6 py-1.5 font-bold text-black no-underline transition-colors hover:bg-white/90"
                       href={'https://twitter.com/pranay01'}
                     >
-                      <div className=""> Twitter </div>
+                      Twitter
                     </Link>
-
                     <a
-                      className="border-none bg-transparent underline"
+                      className="border-none bg-transparent font-bold"
                       style={{ color: 'white' }}
                       href="mailto:pranay@signoz.io"
                     >
                       pranay at signoz dot io
                     </a>
-
-                    {/* <button className="button button--secondary button--outline button--link" href="https://twitter.com/pranay01">Twitter</button> */}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="w-1/2 px-4">
-              <div className="bg-signoz_slate-900 m-4 flex flex-col overflow-hidden rounded-lg border shadow-sm">
-                <div className="rounded-lg bg-signoz_slate-500">
+            <div className="w-full px-4 lg:w-1/2">
+              <div className="m-4 flex flex-col overflow-hidden rounded-lg border border-signoz_slate-400 bg-signoz_slate-500 shadow-sm">
+                <div className="text-white shadow-sm">
                   <div className="m-4 flex items-center gap-4">
                     <img
                       className="h-12 w-12 rounded-full"
@@ -95,18 +92,17 @@ function aboutus() {
                       days.{' '}
                     </p>
                   </div>
-                  <div className="mt-auto p-4 pt-0">
+                  <div className="mt-auto flex flex-wrap items-center gap-8 p-4 pt-0">
                     <Link
-                      className="inline-flex items-center justify-center rounded border border-white px-6 py-1.5 font-bold text-white transition-colors hover:bg-white/10"
+                      className="inline-flex shrink-0 items-center justify-center rounded bg-white px-6 py-1.5 font-bold text-black no-underline transition-colors hover:bg-white/90"
                       href={'https://twitter.com/ankitnayan'}
                     >
-                      <div className=""> Twitter </div>
+                      Twitter
                     </Link>
-
                     <a
-                      className="border-none bg-transparent underline"
+                      className="border-none bg-transparent font-bold"
                       style={{ color: 'white' }}
-                      href="mailto:pranay@signoz.io"
+                      href="mailto:ankit@signoz.io"
                     >
                       ankit at signoz dot io
                     </a>

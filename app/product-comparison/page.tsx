@@ -1,6 +1,4 @@
-import Hero from '@/components/ui/Hero'
 import Link from 'next/link'
-import { Children } from 'react'
 
 const comparisons = [
   {
@@ -12,7 +10,7 @@ const comparisons = [
         For 20 APM and 50 infra hosts, SigNoz can save up to 90% of your Datadog bill - check{' '}
         <Link
           href="/blog/pricing-comparison-signoz-vs-datadog-vs-newrelic-vs-grafana/"
-          className="text-signoz_robin-500"
+          className="text-signoz_robin-500 hover:text-signoz_robin-400"
         >
           comparison with detailed spreadsheet
         </Link>
@@ -54,7 +52,7 @@ const comparisons = [
         for user seats can be a significant portion of your monthly bill - check{' '}
         <Link
           href="/blog/pricing-comparison-signoz-vs-datadog-vs-newrelic-vs-grafana/"
-          className="text-signoz_robin-500"
+          className="text-signoz_robin-500 hover:text-signoz_robin-400"
         >
           comparison with detailed spreadsheet
         </Link>
@@ -66,26 +64,25 @@ const comparisons = [
 
 export default function ProductComparisons() {
   return (
-    <div className="mx-auto w-full max-w-[1140px] px-4">
+    <div className="mx-auto w-full bg-signoz_ink-500 px-4 py-8">
       <h2 className="font-heading text-gradient mt-8 p-0 px-8 text-center text-4xl font-bold tracking-normal">
         Product Comparisons
       </h2>
 
-      <div className="my-8 flex flex-wrap">
+      <div className="mx-auto my-8 flex max-w-[1140px] flex-wrap">
         {comparisons.map((comparison) => {
           return (
-            <div className="w-1/2 px-4" key={comparison.id}>
+            <div className="w-full px-4 lg:w-1/2" key={comparison.id}>
               <div className="m-4">
-                <Link href={comparison.url}>
-                  <div className="min-h-[240px] rounded-sm border border-signoz_slate-400 bg-signoz_slate-500 p-4">
+                <Link href={comparison.url} className="block no-underline">
+                  <div className="flex min-h-[240px] flex-col gap-4 rounded-sm border p-8 text-white transition-opacity hover:opacity-95">
                     <div className="flex items-center gap-4">
                       <div>
                         <h2 className="mb-0 text-2xl font-bold">{comparison.title}</h2>
-                        {/* <small className="avatar__subtitle">{comparison.designation}</small> */}
                       </div>
                     </div>
 
-                    <div className="p-4 pt-0">{comparison?.desc}</div>
+                    <div className="pt-0">{comparison?.desc}</div>
                   </div>
                 </Link>
               </div>

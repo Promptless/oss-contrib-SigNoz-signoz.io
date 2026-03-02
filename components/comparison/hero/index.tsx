@@ -11,7 +11,7 @@ const Hero = (props) => {
       <div className={styles.ctaContainer}>
         {billForComparison.isVisible && (
           <Link
-            className={`inline-flex items-center justify-center rounded-md px-6 py-1.5 font-bold ${billForComparison.className} ${styles.ctaButton}`}
+            className={`inline-flex items-center justify-center rounded-md border border-white bg-transparent px-6 py-1.5 font-bold text-white no-underline transition-colors hover:bg-white/10 ${styles.ctaButton}`}
             href={billForComparison.path}
           >
             Send your bill for comparison
@@ -27,7 +27,7 @@ const Hero = (props) => {
         )}
         {selfHost.isVisible && (
           <Link
-            className={`inline-flex items-center justify-center rounded-md px-6 py-1.5 font-bold ${selfHost.className} ${styles.ctaButton}`}
+            className={`inline-flex items-center justify-center rounded-md border border-white bg-transparent px-6 py-1.5 font-bold text-white no-underline transition-colors hover:bg-white/10 ${styles.ctaButton}`}
             href={selfHost.path}
           >
             Self-Host
