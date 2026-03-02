@@ -2442,6 +2442,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/alerts-management/no-data-alerts-for-groups',
+            label: 'No Data Alerts for Groups',
+          },
+          {
+            type: 'doc',
             route: '/docs/alerts-management/user-guides/kubernetes-pod-startup-alerts',
             label: 'How to Create Alerts for Slow-Starting Kubernetes Pods',
           },
