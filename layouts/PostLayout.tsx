@@ -83,7 +83,7 @@ export default function PostLayout({ content, authors, children, toc }: LayoutPr
               readingTime={readingTime.text}
               key={slug}
             />
-            <div className="post mx-auto flex w-full max-w-[1140px] flex-row-reverse overflow-clip px-4">
+            <div className="post flex flex-row-reverse overflow-clip">
               <div
                 className={`post-toc ml-4 w-1/4 transition-opacity duration-1000 ${
                   isTocVisible ? 'opacity-100' : 'opacity-30'

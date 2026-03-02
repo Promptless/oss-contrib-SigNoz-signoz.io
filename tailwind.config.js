@@ -91,6 +91,7 @@ module.exports = {
           300: '#16181D',
           400: '#121317',
           500: '#0B0C0E',
+          600: '#181a21',
         },
         signoz_vanilla: {
           100: '#FFFFFF',
@@ -178,6 +179,7 @@ module.exports = {
           300: '#16181D',
           400: '#121317',
           500: '#0B0C0E',
+          600: '#181a21',
         },
         signoz_vanilla: {
           100: '#FFFFFF',

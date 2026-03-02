@@ -125,7 +125,7 @@ export default function Enterprise() {
         </div>
         <TrustedByTeams page="enterprise" />
         <div
-          className="!m-0 !mx-auto -mt-[60px] mt-4 flex w-full max-w-full flex-1 flex-col items-start !items-center !justify-center border !border-b-0 border-dashed border-signoz_slate-400 px-8 py-16 md:!w-[80vw]"
+          className="!mx-auto -mt-[60px] flex w-full max-w-full flex-1 flex-col items-start !items-center !justify-center border !border-b-0 border-dashed border-signoz_slate-400 px-8 py-16 md:!w-[80vw]"
           id="enterprise-plans"
         >
           <div className="mt-3 text-5xl font-bold">Enterprise Plans</div>
@@ -180,7 +180,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-600 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link
                   href="/enterprise-cloud"
@@ -224,7 +224,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-600 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link
                   href="/enterprise-self-hosted"
@@ -256,7 +256,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-600 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link
                   href="/enterprise-self-hosted"
@@ -526,7 +526,7 @@ export default function Enterprise() {
 
               <Button
                 type={Button.TYPES.SECONDARY}
-                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-[#181a21] px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
+                className="mt-9 flex h-10 w-full items-center justify-center gap-1.5 rounded-full bg-signoz_ink-600 px-4 py-2 pl-4 pr-3 text-center text-sm font-medium leading-5 text-white no-underline outline-none hover:text-white"
               >
                 <Link
                   href="https://trust.signoz.io/"

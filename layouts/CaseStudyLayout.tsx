@@ -25,7 +25,7 @@ export default function CaseStudyLayout({ content, children, toc }: CaseStudyLay
   return (
     <RegionProvider>
       <div className="mx-auto w-full max-w-[1140px] px-4">
-        <div className="post mx-auto w-full max-w-[1140px] overflow-clip px-4">
+        <div className="post overflow-clip">
           <div className="post-content mt-8">
             <PageTitle>{title}</PageTitle>
             <article className="prose prose-slate max-w-none py-6 dark:prose-invert">

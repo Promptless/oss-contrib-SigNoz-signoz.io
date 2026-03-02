@@ -77,7 +77,7 @@ const Header: React.FC = () => {
 
       {/* Main content */}
       <div className="relative !mx-auto flex !w-[100vw] max-w-8xl flex-col items-center border !border-b-0 border-dashed border-signoz_slate-400 px-2 pb-4 pt-12 text-center md:!w-[80vw] md:px-5 md:pt-[4rem]">
-        <h1 className="text-gradient z-[1] my-4 !p-3 p-0 text-2xl font-semibold tracking-tight sm:my-2 sm:my-5 sm:text-3xl md:leading-[3.5rem] lg:text-[44px]">
+        <h1 className="text-gradient z-[1] my-4 !p-3 text-2xl font-semibold tracking-tight sm:my-5 sm:text-3xl md:leading-[3.5rem] lg:text-[44px]">
           Migrate from Datadog to SigNoz <br className="hidden md:block" /> in Minutes
         </h1>
 

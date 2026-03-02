@@ -138,7 +138,7 @@ const Header = () => {
     <header className="relative !mx-auto mt-16 !w-[100vw] md:!w-[80vw]">
       <div className="absolute bottom-0 left-[12px] right-[12px] top-0 z-[0] border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:left-[24px] md:right-[24px]" />
       <div className="relative !mx-auto flex !w-[100vw] flex-col items-center border !border-b-0 border-dashed border-signoz_slate-400 px-2 pb-4 pt-12 text-center md:!w-[80vw] md:px-5 md:pt-[4rem]">
-        <h1 className="text-gradient z-[1] my-4 !p-3 p-0 text-2xl font-semibold tracking-tight sm:my-2 sm:my-5 sm:text-3xl md:leading-[3.5rem] lg:text-[44px]">
+        <h1 className="text-gradient z-[1] my-4 !p-3 text-2xl font-semibold tracking-tight sm:my-5 sm:text-3xl md:leading-[3.5rem] lg:text-[44px]">
           Record Exceptions Automatically and <br />
           See detailed Stack Traces
         </h1>
@@ -228,7 +228,7 @@ const TrustedByTeams = ({ page }) => {
           <div className="flex flex-col items-center text-center">
             <Button
               id={customerStoriesId}
-              className="relative z-[1] flex h-8 items-center justify-center gap-1.5 truncate rounded-full bg-[#181a21] py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:text-white"
+              className="relative z-[1] flex h-8 items-center justify-center gap-1.5 truncate rounded-full bg-signoz_ink-600 py-2 pl-4 pr-3 text-center text-sm font-medium not-italic leading-5 text-white no-underline outline-none hover:text-white"
             >
               <Link
                 href="/case-study/"

@@ -503,7 +503,7 @@ const MonthlyEstimate = () => {
           <div className="metrics-background p-2 text-right">${formatNumber(metricsSubtotal)}</div>
         </div>
 
-        <div className="mt-6 flex items-center justify-between rounded-md border border-transparent bg-[#181a21] px-3 py-4 pt-4">
+        <div className="mt-6 flex items-center justify-between rounded-md border border-transparent bg-signoz_ink-600 px-3 py-4 pt-4">
           <span className="text-base font-medium text-signoz_vanilla-100">
             Monthly estimate for usage-based plan
           </span>

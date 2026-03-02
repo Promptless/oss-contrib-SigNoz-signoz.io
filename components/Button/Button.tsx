@@ -9,7 +9,7 @@ const TYPE_TO_STYLES_MAP = {
   [BUTTON_TYPES.PRIMARY]:
     'h-10 pr-3 pl-4 px-4 py-2 rounded-full text-sm flex items-center justify-center gap-1.5 bg-signoz_robin-500 text-center font-medium leading-5 text-white no-underline outline-none hover:text-white',
   [BUTTON_TYPES.SECONDARY]:
-    'h-10 pr-3 pl-4 px-4 py-2 rounded-full text-sm flex items-center justify-center gap-1.5 bg-[#181a21] text-center font-medium leading-5 text-white no-underline outline-none hover:text-white',
+    'h-10 pr-3 pl-4 px-4 py-2 rounded-full text-sm flex items-center justify-center gap-1.5 bg-signoz_ink-600 text-center font-medium leading-5 text-white no-underline outline-none hover:text-white',
 }
 
 function Button(props) {
