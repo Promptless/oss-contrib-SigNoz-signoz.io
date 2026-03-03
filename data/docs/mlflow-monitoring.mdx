@@ -20,7 +20,7 @@ This guide walks you through setting up monitoring and observability for AI and 
 
 ### 1. Configure OpenTelemetry Collector
 
-MLflow exports trace attributes as JSON objects. To properly parse and index these attributes in SigNoz, configure an OpenTelemetry Collector to transform the JSON payloads before forwarding them to SigNoz.
+MLflow exports trace attributes as JSON objects. To properly parse and index these attributes in SigNoz, configure an OpenTelemetry Collector to transform the JSON payloads before forwarding them to SigNoz. 
 
 ```yaml:config.yaml
 receivers:
@@ -94,13 +94,13 @@ service:
 - `<region>`: Your [SigNoz Cloud region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint)
 - `<your-ingestion-key>`: Your SigNoz [ingestion key](https://signoz.io/docs/ingestion/signoz-cloud/keys/)
 
-<Admonition type="info">
-  Using self-hosted SigNoz? Most steps are identical. To adapt this guide, update the endpoint and
-  remove the ingestion key header as shown in
-  <a href="https://signoz.io/docs/ingestion/cloud-vs-self-hosted#cloud-to-self-hosted" target="_blank" rel="noopener noreferrer">Cloud → Self-Hosted</a>.
-</Admonition>
+<KeyPointCallout title="Using self-hosted SigNoz?" defaultCollapsed="true">
+Most steps are identical. To adapt this guide, update the endpoint and remove the ingestion key header as shown in [Cloud → Self-Hosted](https://signoz.io/docs/ingestion/cloud-vs-self-hosted/#cloud-to-self-hosted).
+</KeyPointCallout>
 
 ### 2. Deploy OpenTelemetry Collector using `config.yaml`
+
+You can follow the [OTel Collector guide](https://signoz.io/docs/opentelemetry-collection-agents/docker/install/) for more info on how to setup your OTel collector.
 
 ```bash
 docker run --name opentelemetry-collector \
@@ -132,7 +132,7 @@ pip install \
   openai
 ```
 <Admonition type="info">
-This example uses OpenAI, but you can choose any [MLflow-supported model](https://mlflow.org/docs/2.21.3/llms/) that fits your use case.
+This example uses OpenAI, but you can choose any <a href="https://mlflow.org/docs/2.21.3/llms/" target="_blank" rel="noopener noreferrer">MLflow-supported model</a> that fits your use case.
 </Admonition>
 
 
@@ -212,7 +212,7 @@ pip install \
   openai
 ```
 <Admonition type="info">
-This example uses OpenAI, but you can choose any [MLflow-supported model](https://mlflow.org/docs/2.21.3/llms/) that fits your use case.
+This example uses OpenAI, but you can choose any <a href="https://mlflow.org/docs/2.21.3/llms/" target="_blank" rel="noopener noreferrer">MLflow-supported model</a> that fits your use case.
 </Admonition>
 
 ### Step 2: Import the necessary modules in your Python application
