@@ -21,7 +21,7 @@ export const VideoModalPlayer = ({ thumbnailSrc, videoId }: VideoModalPlayerProp
           <Image
             src={thumbnailSrc}
             alt="Product Explainer Thumbnail"
-            className="rounded-lg object-cover"
+            className="rounded-lg"
             fill
             sizes="(max-width: 768px) 100vw, 80vw"
             priority
