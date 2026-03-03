@@ -52,14 +52,16 @@ export const GetStarted = ({ page }) => {
               </div>
             </div>
             <div className="relative flex items-center justify-center">
-              <Image
-                src="/img/landing/landing_thumbnail.webp"
-                alt="Custom Thumbnail"
-                className="z-[0] -mb-36 w-3/5 rounded-lg max-sm:-mb-8"
-                width={1200}
-                height={630}
-                sizes="60vw"
-              />
+              <div className="relative -mb-36 aspect-[1200/630] w-3/5 max-sm:-mb-8">
+                <Image
+                  src="/img/landing/landing_thumbnail.webp"
+                  alt="Custom Thumbnail"
+                  className="z-[0] rounded-lg object-cover"
+                  fill
+                  sizes="60vw"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
