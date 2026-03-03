@@ -56,7 +56,7 @@ export const GetStarted = ({ page }) => {
                 <Image
                   src="/img/landing/landing_thumbnail.webp"
                   alt="Custom Thumbnail"
-                  className="z-[0] rounded-lg object-cover"
+                  className="z-[0] rounded-lg"
                   fill
                   sizes="60vw"
                   priority
