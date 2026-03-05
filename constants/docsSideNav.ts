@@ -1652,6 +1652,11 @@ const docsSideNav = [
                 route: '/docs/metrics-management/send-metrics/applications/opentelemetry-python',
                 label: 'Python',
               },
+              {
+                type: 'doc',
+                route: '/docs/metrics-management/send-metrics/applications/opentelemetry-rust',
+                label: 'Rust',
+              },
             ],
           },
           {
