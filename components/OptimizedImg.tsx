@@ -42,7 +42,7 @@ export default function OptimizedImg({
       className={className ?? undefined}
       priority={isPriority}
       loading={isPriority ? undefined : 'lazy'}
-      sizes="(max-width: 768px) 100vw, 800px"
+      sizes="(max-width: 768px) 100vw, 780px"
     />
   )
 }

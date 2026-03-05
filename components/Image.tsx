@@ -25,7 +25,7 @@ const Image = ({ width, height, fill, sizes, priority, ...rest }: ImageProps) =>
           {...rest}
           width={width ?? DEFAULT_WIDTH}
           height={height ?? DEFAULT_HEIGHT}
-          sizes={sizes ?? '(max-width: 768px) 100vw, 800px'}
+          sizes={sizes ?? '(max-width: 768px) 100vw, 780px'}
           priority={priority}
           loading={priority ? undefined : 'lazy'}
         />

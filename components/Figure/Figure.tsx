@@ -48,7 +48,7 @@ export default function Figure({
           className={cn('rounded-md', className)}
           priority={priority}
           loading={priority ? undefined : 'lazy'}
-          sizes="(max-width: 768px) 100vw, 1200px"
+          sizes="(max-width: 768px) 100vw, 780px"
         />
         <figcaption className={captionClassName}>
           <i>
