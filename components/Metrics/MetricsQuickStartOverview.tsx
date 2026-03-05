@@ -25,6 +25,7 @@ import {
   SiFlydotio,
   SiEnvoyproxy,
   SiGo,
+  SiRust,
   SiDotnet,
   SiNodedotjs,
   SiPython,
@@ -529,6 +530,12 @@ export default function MetricsQuickStartOverview({
             href: '/docs/metrics-management/send-metrics/applications/golang',
             icon: <SiGo className="h-7 w-7 text-cyan-500" />,
             clickName: 'Golang Metrics Link',
+          },
+          {
+            name: 'Rust',
+            href: '/docs/metrics-management/send-metrics/applications/opentelemetry-rust',
+            icon: <SiRust className="h-7 w-7 text-orange-600" />,
+            clickName: 'Rust Metrics Link',
           },
           {
             name: 'Java',
