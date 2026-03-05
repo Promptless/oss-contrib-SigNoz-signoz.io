@@ -763,9 +763,19 @@ const docsSideNav = [
             isExpanded: false,
             items: [
               {
+                route: '/docs/opentelemetry-collection-agents/docker/overview',
+                type: 'doc',
+                label: 'Overview',
+              },
+              {
                 route: '/docs/opentelemetry-collection-agents/docker/install',
                 type: 'doc',
                 label: 'Install',
+              },
+              {
+                route: '/docs/opentelemetry-collection-agents/docker/configure',
+                type: 'doc',
+                label: 'Configure',
               },
             ],
           },
@@ -774,6 +784,11 @@ const docsSideNav = [
             label: 'Swarm',
             isExpanded: false,
             items: [
+              {
+                route: '/docs/opentelemetry-collection-agents/docker-swarm/overview',
+                type: 'doc',
+                label: 'Overview',
+              },
               {
                 route: '/docs/opentelemetry-collection-agents/docker-swarm/install',
                 type: 'doc',
@@ -1637,6 +1652,11 @@ const docsSideNav = [
                 route: '/docs/metrics-management/send-metrics/applications/opentelemetry-python',
                 label: 'Python',
               },
+              {
+                type: 'doc',
+                route: '/docs/metrics-management/send-metrics/applications/opentelemetry-rust',
+                label: 'Rust',
+              },
             ],
           },
           {
@@ -2224,9 +2244,21 @@ const docsSideNav = [
         label: 'Field Context & Data Types',
       },
       {
-        type: 'doc',
-        route: '/docs/userguide/search-troubleshooting',
-        label: 'Troubleshooting Guide',
+        type: 'category',
+        isExpanded: false,
+        label: 'Troubleshooting',
+        items: [
+          {
+            type: 'doc',
+            route: '/docs/userguide/search-troubleshooting',
+            label: 'Troubleshooting Guide',
+          },
+          {
+            type: 'doc',
+            route: '/docs/userguide/query-troubleshooting-faqs',
+            label: 'Query Troubleshooting - FAQs',
+          },
+        ],
       },
       {
         type: 'doc',
