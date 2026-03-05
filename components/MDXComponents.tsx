@@ -2,6 +2,7 @@ import TOCInline from 'pliny/ui/TOCInline'
 import BlogNewsletterForm from 'pliny/ui/BlogNewsletterForm'
 import type { MDXComponents } from 'mdx/types'
 import Image from './Image'
+import OptimizedImg from './OptimizedImg'
 import CustomLink from './Link'
 import TableWrapper from './TableWrapper'
 import YouTube from './VideoPlayer/VideoPlayer'
@@ -92,6 +93,7 @@ export const components: MDXComponents = {
   RegionTable,
   ToggleHeading,
   Image,
+  img: OptimizedImg,
   TOCInline,
   a: CustomLink,
   pre: RegionAwarePre,

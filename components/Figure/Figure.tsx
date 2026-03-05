@@ -1,11 +1,14 @@
 'use client'
 
 import React from 'react'
-
+import Image from 'next/image'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
 import { cn } from 'app/lib/utils'
+
+const DEFAULT_WIDTH = 1200
+const DEFAULT_HEIGHT = 800
 
 interface FigureProps {
   src: string
@@ -16,6 +19,9 @@ interface FigureProps {
   className?: string
   figureClassName?: string
   captionClassName?: string
+  width?: number
+  height?: number
+  priority?: boolean
 }
 
 export default function Figure({
@@ -27,11 +33,23 @@ export default function Figure({
   className,
   figureClassName,
   captionClassName,
+  width = DEFAULT_WIDTH,
+  height = DEFAULT_HEIGHT,
+  priority = false,
 }: FigureProps) {
   return (
     <Zoom>
       <figure className={figureClassName}>
-        <img src={src} alt={alt} className={cn('rounded-md', className)} />
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className={cn('rounded-md', className)}
+          priority={priority}
+          loading={priority ? undefined : 'lazy'}
+          sizes="(max-width: 768px) 100vw, 1200px"
+        />
         <figcaption className={captionClassName}>
           <i>
             {link && !sourceText ? (
