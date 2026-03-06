@@ -40,74 +40,78 @@ export default function ChatbaseClient({
       return
     }
 
-    // Prevent multiple initializations
-    if (isInitialized.current) return
-    isInitialized.current = true
+    if (!isInitialized.current) {
+      isInitialized.current = true
 
-    // Get user information
-    const anonymousId = getOrCreateAnonymousId()
-    const storedUserId = getUserId()
+      // Get user information
+      const anonymousId = getOrCreateAnonymousId()
+      const storedUserId = getUserId()
 
-    // Use server-provided userId/hash if available, otherwise use client-side data
-    const finalUserId = userId || anonymousId
+      // Use server-provided userId/hash if available, otherwise use client-side data
+      const finalUserId = userId || anonymousId
 
-    // Set up Chatbase configuration BEFORE loading the script
-    if (finalUserId) {
-      const userMetadata: Record<string, string> = {}
+      // Set up Chatbase configuration BEFORE loading the script
+      if (finalUserId) {
+        const userMetadata: Record<string, string> = {}
 
-      // Add email to metadata if available
-      if (storedUserId) {
-        userMetadata.email = storedUserId
+        // Add email to metadata if available
+        if (storedUserId) {
+          userMetadata.email = storedUserId
 
-        // Extract company from email domain
-        const company = extractGroupIdFromEmail(storedUserId)
-        if (company) {
-          userMetadata.company = company
+          // Extract company from email domain
+          const company = extractGroupIdFromEmail(storedUserId)
+          if (company) {
+            userMetadata.company = company
+          }
         }
-      }
 
-      // Configure Chatbase with identity verification if hash is available
-      if (userHash) {
-        window.chatbaseUserConfig = {
-          user_id: finalUserId,
-          user_hash: userHash,
-          user_metadata: userMetadata,
+        // Configure Chatbase with identity verification if hash is available
+        if (userHash) {
+          window.chatbaseUserConfig = {
+            user_id: finalUserId,
+            user_hash: userHash,
+            user_metadata: userMetadata,
+          }
+        } else {
+          // Fallback without identity verification
+          window.chatbaseUserConfig = {
+            user_id: finalUserId,
+            user_metadata: userMetadata,
+          }
         }
       } else {
-        // Fallback without identity verification
-        window.chatbaseUserConfig = {
-          user_id: finalUserId,
-          user_metadata: userMetadata,
+        console.log('No user ID available for Chatbase configuration')
+      }
+
+      if (disableFloatingMessages) {
+        window.chatbaseConfig = {
+          ...(window.chatbaseConfig || {}),
+          showFloatingInitialMessages: false,
         }
       }
-    } else {
-      console.log('No user ID available for Chatbase configuration')
-    }
 
-    if (disableFloatingMessages) {
-      window.chatbaseConfig = {
-        ...(window.chatbaseConfig || {}),
-        showFloatingInitialMessages: false,
-      }
-    }
-
-    // Initialize Chatbase exactly as provided in the embed script
-    if (!window.chatbase || window.chatbase('getState') !== 'initialized') {
-      window.chatbase = (...args: any[]) => {
-        if (!window.chatbase.q) {
-          window.chatbase.q = []
-        }
-        window.chatbase.q.push(args)
-      }
-
-      window.chatbase = new Proxy(window.chatbase, {
-        get(target: any, prop: string | symbol) {
-          if (prop === 'q') {
-            return target.q
+      // Initialize Chatbase exactly as provided in the embed script
+      if (!window.chatbase || window.chatbase('getState') !== 'initialized') {
+        window.chatbase = (...args: any[]) => {
+          if (!window.chatbase.q) {
+            window.chatbase.q = []
           }
-          return (...args: any[]) => target(prop, ...args)
-        },
-      })
+          window.chatbase.q.push(args)
+        }
+
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target: any, prop: string | symbol) {
+            if (prop === 'q') {
+              return target.q
+            }
+            return (...args: any[]) => target(prop, ...args)
+          },
+        })
+      }
+    }
+
+    if (scriptLoadTimeoutRef.current !== null) {
+      window.clearTimeout(scriptLoadTimeoutRef.current)
     }
 
     // Load the widget shortly after the page becomes interactive so it feels less abrupt.
