@@ -1657,6 +1657,11 @@ const docsSideNav = [
                 route: '/docs/metrics-management/send-metrics/applications/opentelemetry-rust',
                 label: 'Rust',
               },
+              {
+                type: 'doc',
+                route: '/docs/metrics-management/send-metrics/applications/opentelemetry-ruby',
+                label: 'Ruby',
+              },
             ],
           },
           {
@@ -1686,6 +1691,15 @@ const docsSideNav = [
               },
               {
                 type: 'doc',
+                route: '/docs/metrics-management/nvidia-dcgm-metrics',
+                label: 'NVIDIA GPU (DCGM)',
+              },
+              {
+                type: 'doc',
+                route: '/docs/metrics-management/slurm-metrics',
+                label: 'SLURM',
+              },
+              { type: 'doc',
                 route: '/docs/metrics-management/render-metrics',
                 label: 'Render',
               },
