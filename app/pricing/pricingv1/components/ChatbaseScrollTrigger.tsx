@@ -135,14 +135,15 @@ export default function ChatbaseScrollTrigger({
         // Style the dot (positioned on the left top of the widget)
         pulseDot.style.cssText = `
           position: fixed;
-          top: ${rect.top - 6}px;
-          left: ${rect.left - 6}px;
-          width: 8px;
-          height: 8px;
-          background-color: #3b82f6;
+          top: ${rect.top - 4}px;
+          left: ${rect.left - 4}px;
+          width: 6px;
+          height: 6px;
+          background-color: rgba(96, 165, 250, 0.85);
           border-radius: 50%;
           z-index: 9999;
-          animation: signoz-pulse 2s ease-in-out infinite;
+          box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12);
+          animation: signoz-pulse 2.8s ease-in-out infinite;
           pointer-events: none;
         `
 
@@ -153,12 +154,12 @@ export default function ChatbaseScrollTrigger({
           style.textContent = `
             @keyframes signoz-pulse {
               0%, 100% {
-                opacity: 0.4;
+                opacity: 0.35;
                 transform: scale(1);
               }
               50% {
-                opacity: 1;
-                transform: scale(1.2);
+                opacity: 0.7;
+                transform: scale(1.08);
               }
             }
           `
@@ -197,8 +198,8 @@ export default function ChatbaseScrollTrigger({
           try {
             if (!chatBubble || !document.body.contains(chatBubble)) return
             const updatedRect = chatBubble.getBoundingClientRect()
-            pulseDot.style.top = `${updatedRect.top - 6}px`
-            pulseDot.style.left = `${updatedRect.left - 6}px`
+            pulseDot.style.top = `${updatedRect.top - 4}px`
+            pulseDot.style.left = `${updatedRect.left - 4}px`
           } catch (error) {
             console.warn('Error updating dot position:', error)
           }

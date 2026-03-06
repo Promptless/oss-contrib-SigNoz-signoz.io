@@ -708,10 +708,7 @@ const ExploreAllFeatures: React.FC = () => {
     <>
       <ChatbaseScrollTrigger
         triggerElementId="choose-when-section"
-        messages={[
-          '👋 Hey, how can I help you get started?',
-          'Exploring SigNoz Pricing or Features? Share your usecase to find the right plan for you and see the relevant docs.',
-        ]}
+        messages={["👋 Hey! I'm SigNoz AI. Ask me about docs, pricing, or anything else!"]}
       />
       <div
         id="all-features"

@@ -22,6 +22,7 @@ export default function ChatbaseClient({
   userHash,
   disableFloatingMessages,
 }: ChatbaseClientProps) {
+  const scriptLoadTimeoutRef = useRef<number | null>(null)
   const isInitialized = useRef(false)
   const [shouldLoadScript, setShouldLoadScript] = useState(false)
   const searchParams = useSearchParams()
@@ -109,8 +110,16 @@ export default function ChatbaseClient({
       })
     }
 
-    // Trigger script loading
-    setShouldLoadScript(true)
+    // Load the widget shortly after the page becomes interactive so it feels less abrupt.
+    scriptLoadTimeoutRef.current = window.setTimeout(() => {
+      setShouldLoadScript(true)
+    }, 1800)
+
+    return () => {
+      if (scriptLoadTimeoutRef.current !== null) {
+        window.clearTimeout(scriptLoadTimeoutRef.current)
+      }
+    }
   }, [disableFloatingMessages, source, userId, userHash])
 
   const handleScriptLoad = () => {
