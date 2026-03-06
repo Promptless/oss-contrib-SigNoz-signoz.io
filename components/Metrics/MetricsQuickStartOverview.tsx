@@ -202,6 +202,18 @@ export default function MetricsQuickStartOverview({
             clickName: 'Envoy Metrics Link',
           },
           {
+            name: 'NVIDIA GPU (DCGM)',
+            href: '/docs/metrics-management/nvidia-dcgm-metrics',
+            icon: <FaServer className="h-7 w-7 text-green-500" />,
+            clickName: 'NVIDIA DCGM Metrics Link',
+          },
+          {
+            name: 'SLURM',
+            href: '/docs/metrics-management/slurm-metrics',
+            icon: <FaServer className="h-7 w-7 text-blue-600" />,
+            clickName: 'SLURM Metrics Link',
+          },
+          {
             name: 'Render',
             href: '/docs/metrics-management/render-metrics',
             icon: <FaCloud className="h-7 w-7 text-purple-500" />,
