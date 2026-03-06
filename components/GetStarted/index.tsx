@@ -39,6 +39,7 @@ export const GetStarted = ({ page }) => {
                   clickName="Read Documentation Link"
                   clickText="Read Documentation"
                   clickLocation="Get Started Section"
+                  prefetch={false}
                 >
                   <Button
                     type={Button.TYPES.SECONDARY}
