@@ -7,8 +7,7 @@ import 'react-medium-image-zoom/dist/styles.css'
 
 import { cn } from 'app/lib/utils'
 
-const DEFAULT_WIDTH = 1200
-const DEFAULT_HEIGHT = 800
+import { DEFAULT_IMAGE_HEIGHT, DEFAULT_IMAGE_WIDTH } from '../imageDefaults'
 
 interface FigureProps {
   src: string
@@ -33,8 +32,8 @@ export default function Figure({
   className,
   figureClassName,
   captionClassName,
-  width = DEFAULT_WIDTH,
-  height = DEFAULT_HEIGHT,
+  width = DEFAULT_IMAGE_WIDTH,
+  height = DEFAULT_IMAGE_HEIGHT,
   priority = false,
 }: FigureProps) {
   return (

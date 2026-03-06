@@ -2,12 +2,16 @@
 
 import NextImage from 'next/image'
 
-const DEFAULT_WIDTH = 800
-const DEFAULT_HEIGHT = 600
+import { DEFAULT_IMAGE_HEIGHT, DEFAULT_IMAGE_WIDTH } from './imageDefaults'
 
 type OptimizedImgProps = React.ComponentProps<'img'> & {
   priority?: boolean
   'data-priority'?: string | boolean
+}
+
+function parseDimension(value: string | number | undefined, fallback: number): number {
+  const parsed = typeof value === 'string' ? parseInt(value, 10) : (value as number)
+  return typeof parsed === 'number' && !Number.isNaN(parsed) && parsed > 0 ? parsed : fallback
 }
 
 export default function OptimizedImg({
@@ -18,15 +22,10 @@ export default function OptimizedImg({
   height,
   priority,
   'data-priority': dataPriority,
+  ...rest
 }: OptimizedImgProps) {
-  const w =
-    typeof width === 'string'
-      ? parseInt(width, 10) || DEFAULT_WIDTH
-      : ((width as number) ?? DEFAULT_WIDTH)
-  const h =
-    typeof height === 'string'
-      ? parseInt(height, 10) || DEFAULT_HEIGHT
-      : ((height as number) ?? DEFAULT_HEIGHT)
+  const w = parseDimension(width, DEFAULT_IMAGE_WIDTH)
+  const h = parseDimension(height, DEFAULT_IMAGE_HEIGHT)
   const isPriority = priority || dataPriority === 'true' || dataPriority === true
 
   if (!src || typeof src !== 'string') {
@@ -35,6 +34,7 @@ export default function OptimizedImg({
 
   return (
     <NextImage
+      {...rest}
       src={src}
       alt={alt}
       width={w}
