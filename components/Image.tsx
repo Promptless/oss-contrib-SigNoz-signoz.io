@@ -2,6 +2,7 @@
 
 import NextImage, { ImageProps } from 'next/image'
 
+import { cn } from 'app/lib/utils'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
@@ -27,17 +28,26 @@ const Image = ({
   const useNextImage = typeof src === 'string' ? shouldUseNextImage(src) : true
 
   if (!useNextImage) {
+    const imgProps = {
+      src,
+      alt,
+      loading: (priority
+        ? undefined
+        : 'lazy') as React.ImgHTMLAttributes<HTMLImageElement>['loading'],
+      ...rest,
+    }
     return (
       <Zoom zoomImg={zoomImgSrc ? { src: zoomImgSrc } : undefined}>
-        <img
-          src={src}
-          alt={alt}
-          width={width ?? DEFAULT_IMAGE_WIDTH}
-          height={height ?? DEFAULT_IMAGE_HEIGHT}
-          className={className}
-          loading={priority ? undefined : 'lazy'}
-          {...rest}
-        />
+        {useFill ? (
+          <img {...imgProps} className={cn('absolute inset-0 size-full object-cover', className)} />
+        ) : (
+          <img
+            {...imgProps}
+            width={width ?? DEFAULT_IMAGE_WIDTH}
+            height={height ?? DEFAULT_IMAGE_HEIGHT}
+            className={className}
+          />
+        )}
       </Zoom>
     )
   }
@@ -52,6 +62,7 @@ const Image = ({
           sizes={sizes}
           priority={priority}
           loading={priority ? undefined : 'lazy'}
+          className={className}
           {...rest}
         />
       ) : (
@@ -63,6 +74,7 @@ const Image = ({
           sizes={sizes ?? '(max-width: 768px) 100vw, 780px'}
           priority={priority}
           loading={priority ? undefined : 'lazy'}
+          className={className}
           {...rest}
         />
       )}

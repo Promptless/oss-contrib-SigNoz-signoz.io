@@ -1,7 +1,8 @@
 export const DEFAULT_IMAGE_WIDTH = 1200
 export const DEFAULT_IMAGE_HEIGHT = 800
 
-const DEFAULT_ALLOWED_DOMAINS = ''
+const DEFAULT_ALLOWED_DOMAINS =
+  'picsum.photos,signoz.io,avatars.githubusercontent.com,storage.googleapis.com'
 
 export function getAllowedExternalImageDomains(): string[] {
   const raw = process.env.NEXT_PUBLIC_ALLOWED_EXTERNAL_IMAGE_DOMAINS ?? DEFAULT_ALLOWED_DOMAINS
