@@ -7,10 +7,22 @@ import 'react-medium-image-zoom/dist/styles.css'
 
 import { DEFAULT_IMAGE_HEIGHT, DEFAULT_IMAGE_WIDTH } from './imageDefaults'
 
-const Image = ({ width, height, fill, sizes, priority, ...rest }: ImageProps) => {
+type ImagePropsWithZoom = ImageProps & {
+  zoomImgSrc?: string
+}
+
+const Image = ({
+  width,
+  height,
+  fill,
+  sizes,
+  priority,
+  zoomImgSrc,
+  ...rest
+}: ImagePropsWithZoom) => {
   const useFill = Boolean(fill)
   return (
-    <Zoom>
+    <Zoom zoomImg={zoomImgSrc ? { src: zoomImgSrc } : undefined}>
       {useFill ? (
         <NextImage
           {...rest}

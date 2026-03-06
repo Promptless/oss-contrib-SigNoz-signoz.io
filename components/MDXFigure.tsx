@@ -24,7 +24,15 @@ export default function MDXFigure({ children, ...props }: MDXFigureProps) {
   const figure = <figure {...props}>{processedChildren}</figure>
 
   if (props['data-zoomable'] && props['data-zoomable'] !== 'false') {
-    return <Zoom>{figure}</Zoom>
+    const imageChild = React.Children.toArray(children).find(
+      (child) =>
+        React.isValidElement(child) && (child.type === 'img' || child.type === OptimizedImg)
+    )
+    const imgSrc = React.isValidElement(imageChild)
+      ? (imageChild.props as { src?: string }).src
+      : undefined
+
+    return <Zoom zoomImg={typeof imgSrc === 'string' ? { src: imgSrc } : undefined}>{figure}</Zoom>
   }
 
   return figure

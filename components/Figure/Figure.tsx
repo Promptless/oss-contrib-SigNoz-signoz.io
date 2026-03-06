@@ -37,7 +37,7 @@ export default function Figure({
   priority = false,
 }: FigureProps) {
   return (
-    <Zoom>
+    <Zoom zoomImg={{ src }}>
       <figure className={figureClassName}>
         <Image
           src={src}
