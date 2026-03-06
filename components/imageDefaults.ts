@@ -7,7 +7,6 @@ const DEFAULT_ALLOWED_DOMAINS =
 export function getAllowedExternalImageDomains(): string[] {
   const raw = process.env.NEXT_PUBLIC_ALLOWED_EXTERNAL_IMAGE_DOMAINS ?? DEFAULT_ALLOWED_DOMAINS
   return raw
-    .concat(DEFAULT_ALLOWED_DOMAINS)
     .split(',')
     .map((d) => d.trim())
     .filter(Boolean)
