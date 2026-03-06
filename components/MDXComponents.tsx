@@ -95,6 +95,7 @@ export const components: MDXComponents = {
   ToggleHeading,
   Image,
   img: OptimizedImg,
+  OptimizedImg,
   figure: MDXFigure,
   TOCInline,
   a: CustomLink,

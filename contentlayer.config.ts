@@ -11,6 +11,7 @@ import {
   remarkCodeTitles,
   remarkImgToJsx,
 } from 'pliny/mdx-plugins/index.js'
+import { remarkExternalImgToOptimizedImg } from './lib/remarkExternalImgToOptimizedImg'
 // Rehype packages
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -464,6 +465,7 @@ export default makeSource({
       remarkCodeTitles,
       remarkMath,
       remarkImgToJsx,
+      remarkExternalImgToOptimizedImg,
     ],
     rehypePlugins: [
       rehypeSlug,

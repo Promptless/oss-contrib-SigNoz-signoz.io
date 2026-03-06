@@ -7,7 +7,7 @@ import 'react-medium-image-zoom/dist/styles.css'
 
 import { cn } from 'app/lib/utils'
 
-import { DEFAULT_IMAGE_HEIGHT, DEFAULT_IMAGE_WIDTH } from '../imageDefaults'
+import { DEFAULT_IMAGE_HEIGHT, DEFAULT_IMAGE_WIDTH, shouldUseNextImage } from '../imageDefaults'
 
 interface FigureProps {
   src: string
@@ -36,19 +36,31 @@ export default function Figure({
   height = DEFAULT_IMAGE_HEIGHT,
   priority = false,
 }: FigureProps) {
+  const useNextImage = shouldUseNextImage(src)
   return (
     <Zoom zoomImg={{ src }}>
       <figure className={figureClassName}>
-        <Image
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          className={cn('rounded-md', className)}
-          priority={priority}
-          loading={priority ? undefined : 'lazy'}
-          sizes="(max-width: 768px) 100vw, 780px"
-        />
+        {useNextImage ? (
+          <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            className={cn('rounded-md', className)}
+            priority={priority}
+            loading={priority ? undefined : 'lazy'}
+            sizes="(max-width: 768px) 100vw, 780px"
+          />
+        ) : (
+          <img
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            className={cn('rounded-md', className)}
+            loading={priority ? undefined : 'lazy'}
+          />
+        )}
         <figcaption className={captionClassName}>
           <i>
             {link && !sourceText ? (
