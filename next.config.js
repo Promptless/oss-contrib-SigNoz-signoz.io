@@ -75,15 +75,20 @@ module.exports = () => {
     swcMinify: true,
     images: {
       remotePatterns: [
-        { protocol: 'https', hostname: 'picsum.photos' },
-        { protocol: 'https', hostname: 'signoz.io' },
-        { protocol: 'https', hostname: 'avatars.githubusercontent.com' },
-        { protocol: 'https', hostname: 'storage.googleapis.com' },
+        { protocol: 'https', hostname: 'picsum.photos', port: '', pathname: '/**' },
+        { protocol: 'https', hostname: 'signoz.io', port: '', pathname: '/**' },
+        { protocol: 'https', hostname: 'avatars.githubusercontent.com', port: '', pathname: '/**' },
+        { protocol: 'https', hostname: 'storage.googleapis.com', port: '', pathname: '/**' },
         ...(process.env.NEXT_PUBLIC_ALLOWED_EXTERNAL_IMAGE_DOMAINS || '')
           .split(',')
           .map((d) => d.trim())
           .filter(Boolean)
-          .map((hostname) => ({ protocol: 'https', hostname })),
+          .map((hostname) => ({
+            protocol: 'https',
+            hostname,
+            port: '',
+            pathname: '/**',
+          })),
       ],
     },
     async headers() {
