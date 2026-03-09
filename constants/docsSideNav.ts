@@ -1698,6 +1698,11 @@ const docsSideNav = [
             label: 'Prometheus Metrics',
           },
           {
+            type: 'doc',
+            route: '/docs/userguide/opentelemetry-statsd',
+            label: 'StatsD Metrics',
+          },
+          {
             type: 'category',
             label: 'Infrastructure',
             isExpanded: false,
