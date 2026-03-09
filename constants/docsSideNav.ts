@@ -1073,6 +1073,19 @@ const docsSideNav = [
           {
             type: 'category',
             isExpanded: false,
+            label: 'Rust',
+            route: '/docs/instrumentation/opentelemetry-rust',
+            items: [
+              {
+                type: 'doc',
+                label: 'Manual Instrumentation',
+                route: '/docs/instrumentation/rust/manual-instrumentation',
+              },
+            ],
+          },
+          {
+            type: 'category',
+            isExpanded: false,
             label: 'Deno',
             route: '/docs/instrumentation/opentelemetry-deno',
             items: [
@@ -1087,11 +1100,6 @@ const docsSideNav = [
             type: 'doc',
             label: 'Elixir',
             route: '/docs/instrumentation/opentelemetry-elixir',
-          },
-          {
-            type: 'doc',
-            label: 'Rust',
-            route: '/docs/instrumentation/opentelemetry-rust',
           },
           {
             type: 'doc',
