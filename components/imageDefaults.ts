@@ -5,11 +5,14 @@ const DEFAULT_ALLOWED_DOMAINS =
   'picsum.photos,signoz.io,avatars.githubusercontent.com,storage.googleapis.com'
 
 export function getAllowedExternalImageDomains(): string[] {
-  const raw = process.env.NEXT_PUBLIC_ALLOWED_EXTERNAL_IMAGE_DOMAINS ?? DEFAULT_ALLOWED_DOMAINS
-  return raw
+  const defaultDomains = DEFAULT_ALLOWED_DOMAINS.split(',')
+    .map((d) => d.trim())
+    .filter(Boolean)
+  const envDomains = (process.env.NEXT_PUBLIC_ALLOWED_EXTERNAL_IMAGE_DOMAINS || '')
     .split(',')
     .map((d) => d.trim())
     .filter(Boolean)
+  return [...new Set([...defaultDomains, ...envDomains])]
 }
 
 export function shouldUseNextImage(src: string): boolean {

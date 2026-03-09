@@ -28,38 +28,8 @@ const Image = ({
   const useNextImage = typeof src === 'string' ? shouldUseNextImage(src) : true
 
   if (!useNextImage) {
-    if (typeof src !== 'string') {
-      return (
-        <Zoom zoomImg={zoomImgSrc ? { src: zoomImgSrc } : undefined}>
-          {useFill ? (
-            <NextImage
-              src={src}
-              alt={alt}
-              fill
-              sizes={sizes}
-              priority={priority}
-              loading={priority ? undefined : 'lazy'}
-              className={className}
-              {...rest}
-            />
-          ) : (
-            <NextImage
-              src={src}
-              alt={alt}
-              width={width ?? DEFAULT_IMAGE_WIDTH}
-              height={height ?? DEFAULT_IMAGE_HEIGHT}
-              sizes={sizes ?? '(max-width: 768px) 100vw, 780px'}
-              priority={priority}
-              loading={priority ? undefined : 'lazy'}
-              className={className}
-              {...rest}
-            />
-          )}
-        </Zoom>
-      )
-    }
     const imgProps: React.ImgHTMLAttributes<HTMLImageElement> = {
-      src,
+      src: src as string,
       alt,
       loading: priority ? undefined : 'lazy',
       ...rest,
