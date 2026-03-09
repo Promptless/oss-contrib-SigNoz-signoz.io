@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import styles from './styles.module.css'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
@@ -27,14 +26,7 @@ export const SignozDatalog = () => {
               </span>
             </p>
           </div>
-          <Image
-            src="/img/graphics/homepage/feature-graphic-data-protection-2.webp"
-            alt="SigNoz data protection and ROI"
-            width={1200}
-            height={600}
-            priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1400px"
-          />
+          <img src="/img/graphics/homepage/feature-graphic-data-protection-2.webp" alt="" />
           <div className="mt-[18px] flex flex-row gap-3"></div>
         </div>
       </div>
