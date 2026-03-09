@@ -20,7 +20,7 @@ This idea seems to have resonated with the developer and devops communities. Ope
 If you think about it, it makes sense. It helps companies be more future-proof and prevent scenarios like [this](https://news.ycombinator.com/item?id=38861354), where users are left scrambling for alternatives when a proprietary product, which is a core part of their infrastructure, is suddenly shut down.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/opentelemetry-growth.png" alt="OpenTelemetry is the 2nd most active CNCF project after Kubernetes"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/opentelemetry-growth.png" alt="OpenTelemetry is the 2nd most active CNCF project after Kubernetes"/>
     <figcaption><i>OpenTelemetry is the 2nd most active CNCF project after Kubernetes</i></figcaption>
 </figure>
 
@@ -54,7 +54,7 @@ As I mentioned, we also run OpenTelemetry APAC meetup group. Some of the key the
     - How should OTel collector be deployed in a k8s environment? What are the tradeoffs between having it as a daemonset or a sidecar?
 
     <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/sidecar-pattern.png" alt="Sidecar Pattern for collecting telemetry data in Kubernetes"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/sidecar-pattern.png" alt="Sidecar Pattern for collecting telemetry data in Kubernetes"/>
     <figcaption><i>Example Sidecar Pattern for collecting telemetry data in Kubernetes with SigNoz & OTel collectors</i></figcaption>
     </figure>
     
@@ -80,7 +80,7 @@ As we encounter many users and customers using [SigNoz](https://signoz.io/docs/i
    - Linking traces and logs is more easily possible by inserting and using `traceid` fields in logs to show related logs to traces. This helps in correlating logs and traces easily and debugging issues faster.
 
     <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/logs-data-model.png" alt="OpenTelemetry Logs Data Model"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/logs-data-model.png" alt="OpenTelemetry Logs Data Model"/>
     <figcaption><i>OpenTelemetry Logs Data Model</i></figcaption>
     </figure>
 
@@ -115,7 +115,7 @@ As we encounter many users and customers using [SigNoz](https://signoz.io/docs/i
     We are amongst the early adopters of the [OpAMP](https://opentelemetry.io/docs/specs/opamp/). It enables our customers to do operations with logs attributes from the UI. The logs pipelines UI provides the ability to create and manage the processors. SigNoz provides an easy-to-use UI to create and manage the processors which our users love, and OpAMP was a big part of successfully implementing it.
 
     <figure data-zoomable align='center'>
-        <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/opamp-signoz.png" alt="Logs Pipeline architecture using OpAMP"/>
+        <img className="box-shadowed-image" src="/img/blog/2024/01/opamp-signoz.png" alt="Logs Pipeline architecture using OpAMP"/>
         <figcaption><i>Logs Pipeline architecture using OpAMP in SigNoz</i></figcaption>
     </figure>
 
@@ -169,7 +169,7 @@ The [OpenTelemetry proposal](https://github.com/open-telemetry/oteps/pull/223/fi
 4. **OpenTelemetry Protocol with Apache Arrow**
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/otel-arrow.png" alt="Traffic reduction with OTel Arrow"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/otel-arrow.png" alt="Traffic reduction with OTel Arrow"/>
     <figcaption><i>Traffic reduction by using OTel Arrow for transporting telemetry data </i></figcaption>
 </figure>
 

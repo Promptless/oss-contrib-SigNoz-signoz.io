@@ -95,7 +95,7 @@ The following things are happening in the query:
 Below is a sample output that you can get with the above query.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-table.webp" alt="Monitoring table and index sizes for PostgreSQL"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-table.webp" alt="Monitoring table and index sizes for PostgreSQL"/>
     <figcaption><i>The query lists tables and indexes in a PostgreSQL database, showing their types, names, schema names, and sizes</i></figcaption>
 </figure>
 
@@ -109,7 +109,7 @@ SELECT * FROM pg_catalog.pg_stat_all_indexes
 You will get an output like below:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-index.webp" alt="Check all indexes in your PostgreSQL database"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-index.webp" alt="Check all indexes in your PostgreSQL database"/>
     <figcaption><i>Check all indexes in your PostgreSQL database</i></figcaption>
 </figure>
 
@@ -121,7 +121,7 @@ The `idx_scan` column tells you how many times each index has been used. If the 
 Connection health and pooling are critical components of a well-optimized PostgreSQL environment. Picture a busy cocktail party. Healthy connections are like smooth conversations. Let's visualize this concept:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-pooling.webp" alt="Connection Pooling in PostgreSQL"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-pooling.webp" alt="Connection Pooling in PostgreSQL"/>
     <figcaption><i>Connection Pooling in PostgreSQL</i></figcaption>
 </figure>
 
@@ -135,7 +135,7 @@ Any target application can be connected to it as if it were a PostgreSQL serve
 You can leverage PgBouncer admin console to monitor a number of important metrics. Once connected, you can use the `SHOW STATS` command to provide various metrics that help monitor and understand the performance and behavior of the connection pool.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-stats.webp" alt="Show Stats output for PgBouncer"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-stats.webp" alt="Show Stats output for PgBouncer"/>
     <figcaption><i>Show Stats output for PgBouncer</i></figcaption>
 </figure>
 
@@ -161,7 +161,7 @@ In this and related commands for PgBouncer, the total figures are since `process
 In PostgreSQL, locks and deadlocks play a critical role in maintaining data integrity. A lock is a mechanism that prevents multiple transactions from accessing the same resource concurrently to avoid conflicts and ensure consistency. A deadlock occurs when two or more transactions are blocked, each waiting for the other to release a lock, resulting in a standstill. Visualize this scenario:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-deadlock.webp" alt="Locks and Deadlocks in PostgreSQL"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-deadlock.webp" alt="Locks and Deadlocks in PostgreSQL"/>
     <figcaption><i>Locks and Deadlocks in PostgreSQL</i></figcaption>
 </figure>
 
@@ -190,7 +190,7 @@ JOIN
 Here's what a sample output might look like:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-sample-output.webp" alt="Sample output for query on pg_locks and pg_stat_activity"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-sample-output.webp" alt="Sample output for query on pg_locks and pg_stat_activity"/>
     <figcaption><i>Sample output for query on pg_locks and pg_stat_activity</i></figcaption>
 </figure>
 
@@ -266,7 +266,7 @@ Below is the list of best tools for monitoring the PostgreSQL database.
 ### SigNoz
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-signoz.webp" alt="Postgresql monitoring tool - SigNoz"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-signoz.webp" alt="Postgresql monitoring tool - SigNoz"/>
     <figcaption><i>Build customized dashboards for PostgreSQL monitoring in SigNoz</i></figcaption>
 </figure>
 
@@ -278,7 +278,7 @@ For a more detailed exploration of how SigNoz performs PostgreSQL monitoring, yo
 ### pgAnalyze
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-pgAnalyze.webp" alt="Postgresql monitoring tool - pgAnalyze"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-pgAnalyze.webp" alt="Postgresql monitoring tool - pgAnalyze"/>
     <figcaption><i>PostgreSQL monitoring in pgAnalyze (Source: pgAnalyze website)</i></figcaption>
 </figure>
 
@@ -290,7 +290,7 @@ The tool offers features like performance monitoring, query analysis, log insigh
 ### pgDash
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-pgDash.webp" alt="Postgresql monitoring tool - pgDash"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-pgDash.webp" alt="Postgresql monitoring tool - pgDash"/>
     <figcaption><i>PostgreSQL monitoring in pgDash (Source: pgDash website)</i></figcaption>
 </figure>
 
@@ -310,7 +310,7 @@ Prometheus provides flexible visualization options, including integration with G
 ### New Relic
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-new-relic.webp" alt="Postgresql monitoring tool - New Relic"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-new-relic.webp" alt="Postgresql monitoring tool - New Relic"/>
     <figcaption><i>PostgreSQL monitoring in New Relic (Source: New Relic website)</i></figcaption>
 </figure>
 
@@ -322,7 +322,7 @@ With New Relic, users can track and visualize key metrics like transaction volum
 ### Datadog
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-datadog.webp" alt="Postgresql monitoring tool - Datadog"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-datadog.webp" alt="Postgresql monitoring tool - Datadog"/>
     <figcaption><i>PostgreSQL monitoring in Datadog (Source: Datadog website)</i></figcaption>
 </figure>
 
@@ -334,7 +334,7 @@ Datadog's integration facilitates query-level performance insights, allowing for
 ### Grafana
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-grafana.webp" alt="Postgresql monitoring tool - Grafana"/>
+    <img className="box-shadowed-image" src="/img/blog/2024/01/postgresql-monitoring-grafana.webp" alt="Postgresql monitoring tool - Grafana"/>
     <figcaption><i>PostgreSQL monitoring in Grafana (Source: Grafana website)</i></figcaption>
 </figure>
 

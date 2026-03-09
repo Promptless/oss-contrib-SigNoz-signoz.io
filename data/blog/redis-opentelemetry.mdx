@@ -43,7 +43,7 @@ The **OpenTelemetry Collector** provides a telemetry processing system that can 
     Exporters are used to export the processed telemetry data to a variety of backends.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/opentelemetry_collector_3x.webp" alt="Architecture of OpenTelemetry Collector"/>
+    <img src="/img/blog/2022/07/opentelemetry_collector_3x.webp" alt="Architecture of OpenTelemetry Collector"/>
     <figcaption><i>OpenTelemetry Collector (OTel Collector) provides a telemetry processing system that can be configured to import and export data in many common formats.</i></figcaption>
 </figure>
 
@@ -53,7 +53,7 @@ SigNoz installation ships with two instances of OpenTelemetry Collectors. One Co
 The collectors write the data to ClickHouse, the database used by SigNoz. Then, a query service talks to the ClickHouse DB, as shown in the picture, to create visualizations that are served by a frontend web application.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/redis_otel_collector.webp" alt="Opentelemetry Collector scraps metrics from Redis instance which is then visualized in SigNoz"/>
+    <img src="/img/blog/2022/07/redis_otel_collector.webp" alt="Opentelemetry Collector scraps metrics from Redis instance which is then visualized in SigNoz"/>
     <figcaption><i>Collecting Redis metrics with OpenTelemetry and visualizing the data with SigNoz.</i></figcaption>
 </figure>
 
@@ -81,7 +81,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 Once installed, you can access SigNoz UI at port 3301 -  [http://localhost:3301](http://localhost:3301/application). You will get a sign-up page. If you’re a first-time user, you can create an account using `Create an account`.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/signoz_sign_up_page.webp" alt="Create an account"/>
+    <img src="/img/blog/2022/07/signoz_sign_up_page.webp" alt="Create an account"/>
     <figcaption><i>If you’re first time user, click on Create an account to create a new account</i></figcaption>
 </figure>
 
@@ -89,7 +89,7 @@ Once installed, you can access SigNoz UI at port 3301 -  [http://localhost:3301
 SigNoz provides role-based access control features. Creating an account for the first time creates an `Admin` account.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/signoz_create_an_account.webp" alt="Sign up page of SigNoz"/>
+    <img src="/img/blog/2022/07/signoz_create_an_account.webp" alt="Sign up page of SigNoz"/>
     <figcaption><i>Create a user account with the required details</i></figcaption>
 </figure>
 
@@ -97,7 +97,7 @@ SigNoz provides role-based access control features. Creating an account for the 
 Once you sign in, you will have access to all the tabs of SigNoz. For [monitoring Redis](https://signoz.io/blog/redis-monitoring/#performance-metrics) metrics, we will be using the `Dashboards` tab. 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/redis_signoz_dashboard_homepage.webp" alt="Homepage"/>
+    <img src="/img/blog/2022/07/redis_signoz_dashboard_homepage.webp" alt="Homepage"/>
     <figcaption><i>SigNoz APM dashboard - comes with metrics monitoring, distributed tracing, and exceptions monitoring, among other things.</i></figcaption>
 </figure>
 
@@ -271,7 +271,7 @@ Once the containers are running again, you can use the `Dashboards` tab of SigNo
 Click on the `Dashboards` and then `+ New Dashboards`. A dashboard is composed of panels in SigNoz.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/create_new_dashboard.webp" alt="Create new dashboard"/>
+    <img src="/img/blog/2022/07/create_new_dashboard.webp" alt="Create new dashboard"/>
     <figcaption><i>Create a new dashboard for Redis monitoring</i></figcaption>
 </figure>
 
@@ -279,7 +279,7 @@ Click on the `Dashboards` and then `+ New Dashboards`. A dashboard is composed o
 You can create two different types of panels: Time Series and Value, based on your use case.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/add_panel.webp" alt="Add a time-series or value-based panel"/>
+    <img src="/img/blog/2022/07/add_panel.webp" alt="Add a time-series or value-based panel"/>
     <figcaption><i>Create either a Time Series or Value-based panels depending on your use case</i></figcaption>
 </figure>
 
@@ -287,7 +287,7 @@ You can create two different types of panels: Time Series and Value, based on yo
 Once you click on `+ Add panel` , you will have access to a DIY metrics query builder to create the charts that you need.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/redis_metrics_query_builder.webp" alt="Metrics Query Builder"/>
+    <img src="/img/blog/2022/07/redis_metrics_query_builder.webp" alt="Metrics Query Builder"/>
     <figcaption><i>Use the Metrics Query Builder to create custom charts for Redis monitoring</i></figcaption>
 </figure>
 
@@ -297,7 +297,7 @@ You can also use native ClickHouse queries or PromQL for creating the charts, bu
 Once you are done building your charts, you can save the layout and start monitoring your Redis instance.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/redis_dashboard_signoz.webp" alt="Redis monitoring dashboard in SigNoz"/>
+    <img src="/img/blog/2022/07/redis_dashboard_signoz.webp" alt="Redis monitoring dashboard in SigNoz"/>
     <figcaption><i>Redis monitoring dashboard in SigNoz</i></figcaption>
 </figure>
 

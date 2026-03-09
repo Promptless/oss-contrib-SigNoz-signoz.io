@@ -20,7 +20,7 @@ On a recent thread on the [CNCF Slack’s OTel Collector channel](https://slack.
 This article will discuss both multi-collector architecture and how Apache Kafka can be useful here.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/c2c-1.webp" alt="A user asks: Does it make sense to think about using an intermediate transport service like Kafka to get event data from the apps to move it forward to the otel-collector? If so, is there a reference implementation/article to read about it? Martin responds: What would be the goal in that as opposed to Collector -> collector tiering?"/>
+    <img src="/img/blog/2023/10/c2c-1.webp" alt="A user asks: Does it make sense to think about using an intermediate transport service like Kafka to get event data from the apps to move it forward to the otel-collector? If so, is there a reference implementation/article to read about it? Martin responds: What would be the goal in that as opposed to Collector -> collector tiering?"/>
     <figcaption><i>Doesn't collector tiering make more sense, generally, than using a queue?</i></figcaption>
 </figure>
 
@@ -31,7 +31,7 @@ This article will discuss both multi-collector architecture and how Apache Kafka
 To review, the OpenTelemetry Collector is an optional but strongly recommended part of an [OpenTelemetry observability](https://signoz.io/blog/opentelemetry-use-cases/) deployment. The collector can gather, compress, manage, and filter data sent by OpenTelemetry instrumentation before data gets sent to your observability backend. If sending data to the [SigNoz](https://signoz.io/docs/introduction/) backend, the system will look something like this:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/c2c-2.webp" alt="Graph of a simple distribution with a single collector"/>
+    <img src="/img/blog/2023/10/c2c-2.webp" alt="Graph of a simple distribution with a single collector"/>
     <figcaption><i>Calls from OpenTelemetry auto-instrumentation, API calls, and other code instrumented with the OpenTelemetry SDK all go to the collector running on a host.</i></figcaption>
 </figure>
 
@@ -42,7 +42,7 @@ Again, the whole benefit of the collector is that it should be able to cache, ba
 ## Multi-Collector Architecture
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/c2c-3.webp" alt="Diagram of a multi-collector architecture"/>
+    <img src="/img/blog/2023/10/c2c-3.webp" alt="Diagram of a multi-collector architecture"/>
     <figcaption><i>A collector, B, running close to the service being instrumented could collect data reliably and batch it before sending to a second, central collector, C. The C collector could gather data from multiple other 'front-line' collectors before sending to a data backend.</i></figcaption>
 </figure>
 
@@ -61,7 +61,7 @@ In the Slack thread above, the proposed solution was to use something like a Kaf
 2. Handling traffic bursts - observability data can spike during a usage spike, and if you're doing deep tracing, the spike can be even larger in scale than the increase in traffic. If you scale your database to handle this spike without any queuing, the DB will be over-provisioned for normal traffic. A queue will buffer the data spike so that the database can handle it when it's ready.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/c2c-4.webp" alt="Diagram with multiple collectors with an added Kafka queue"/>
+    <img src="/img/blog/2023/10/c2c-4.webp" alt="Diagram with multiple collectors with an added Kafka queue"/>
     <figcaption><i>In this new version, a Kafka queue receives data from collectors near the edge. Services could also publish directly to Kafka. Collector C reads the data from the queue, using the OTel Kafka Receiver.</i></figcaption>
 </figure>
 

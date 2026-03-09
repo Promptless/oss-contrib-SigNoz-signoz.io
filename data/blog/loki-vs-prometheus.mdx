@@ -63,7 +63,7 @@ Prometheus uses a pull-based monitoring model to collect metrics and store them
 Prometheus doesn't have built-in visualization or dashboard capabilities. It aims to provide you with a powerful query language called <a href = "https://prometheus.io/docs/prometheus/latest/querying/basics/" rel="noopener noreferrer nofollow" target="_blank" >PromQL</a> that queries and analyzes metrics in real-time. It is usually combined with Grafana to build dashboards.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/grafana_prometheus.webp" alt="A Prometheus dashboard creating with Grafana"/>
+    <img src="/img/blog/2023/02/grafana_prometheus.webp" alt="A Prometheus dashboard creating with Grafana"/>
     <figcaption><i>A Prometheus dashboard creating with Grafana</i></figcaption>
 </figure>
 
@@ -95,7 +95,7 @@ A brief overview of components in Prometheus architecture:
 - [Prometheus web UI](https://signoz.io/guides/how-does-prometheus-work/)/SigNoz - SigNoz or other API consumers can be used to visualize the collected data.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/prometheus_architecture.webp" alt="Architecture of Prometheus"/>
+    <img src="/img/blog/2023/02/prometheus_architecture.webp" alt="Architecture of Prometheus"/>
     <figcaption><i>Architecture of Prometheus</i></figcaption>
 </figure>
 
@@ -110,7 +110,7 @@ A brief overview of components in Loki architecture:
 - Querior - It handles the read path, scanning the index to figure out which chunks match.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/loki_architecture.webp" alt="The architecture of Loki"/>
+    <img src="/img/blog/2023/02/loki_architecture.webp" alt="The architecture of Loki"/>
     <figcaption><i>The architecture of Loki</i></figcaption>
 </figure>
 
@@ -173,7 +173,7 @@ Loki is efficient at keeping the cost of log management low. But it doesn’t pe
 Instead of using Loki and Prometheus, you can use [SigNoz](https://signoz.io/) - an open source full-stack observability platform. SigNoz provides log management, metrics monitoring, and distributed tracing under a [single pane of glass](https://signoz.io/blog/single-pane-of-glass-monitoring/) and can be a one-stop solution for all your monitoring needs.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_dashboard_homepage.webp" alt="SigNoz dashboard"/>
+    <img src="/img/blog/common/signoz_dashboard_homepage.webp" alt="SigNoz dashboard"/>
     <figcaption><i>SigNoz provides logs, metrics, and traces along with useful features like service map, alerts and exceptions monitoring</i></figcaption>
 </figure>
 
@@ -183,7 +183,7 @@ In a [logs performance benchmark](https://signoz.io/blog/logs-performance-benchm
 SigNoz uses [OpenTelemetry](https://signoz.io/blog/what-is-opentelemetry/) for generating and collecting telemetry signals. OpenTelemetry provides a handy [OpenTelemetry collector](https://signoz.io/blog/opentelemetry-collector-complete-guide/) which you can configure to collect logs and metrics. If you want to move out of your current logging setup, you just have to [change some configuration files](https://signoz.io/docs/userguide/fluentbit_to_signoz/) to start sending logs to SigNoz.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/01/signal_20_logs.webp" alt="Log Management Tab in SigNoz"/>
+    <img src="/img/blog/2023/01/signal_20_logs.webp" alt="Log Management Tab in SigNoz"/>
     <figcaption><i>Log Management Tab in SigNoz</i></figcaption>
 </figure>
 

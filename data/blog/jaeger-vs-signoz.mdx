@@ -44,7 +44,7 @@ Metrics are usually captured as time-series data and show statistics about the p
 Jaeger is a distributed tracing tool and does not provide metrics.
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/2022/06/jaeger_ui.webp" alt="Jaeger UI for showing traces"/>
+    <img src="/img/blog/2022/06/jaeger_ui.webp" alt="Jaeger UI for showing traces"/>
     <figcaption><i>Jaeger UI showing services and corresponding traces</i></figcaption>
 </figure>
 
@@ -57,12 +57,12 @@ SigNoz, on the other hand, provides application metrics like the popular RED met
 [SigNoz](https://signoz.io/docs/introduction/) also provides an easy way to track the top endpoints of your application, as shown in the dashboard below. You can see that SigNoz has a dedicated tab for metrics visualization. You can also track metrics for external calls and database calls.
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/common/signoz_charts_application_metrics.webp" alt="SigNoz dashboard showing popular RED metrics"/>
+    <img src="/img/blog/common/signoz_charts_application_metrics.webp" alt="SigNoz dashboard showing popular RED metrics"/>
     <figcaption><i>SigNoz UI showing application overview metrics like RPS, 50th/90th/99th Percentile latencies, and Error Rate</i></figcaption>
 </figure>
 
 {/* <!-- <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image"
+    <img className="box-shadowed-image"
     alt="SigNoz UI"
     
     src="/img/blog/2021/08/signoz_ui-min.webp"
@@ -78,7 +78,7 @@ SigNoz is an open-source tool, but its genesis lies in the absence of a great us
 Below you can see how spans in a trace are visualized with flamegraphs and Gantt charts. A good visualization dashboard is designed with the intent to drive actionable insights fast. With a single-pane view of spans and details for selected spans, it's much easier for teams to identify issues in selected spans.
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/common/signoz_flamegraphs.webp" alt="SigNoz flamegraphs"/>
+    <img src="/img/blog/common/signoz_flamegraphs.webp" alt="SigNoz flamegraphs"/>
     <figcaption><i>Spans of a trace visualized with the help of flamegraphs and gantt charts in SigNoz dashboard</i></figcaption>
 </figure>
 
@@ -86,7 +86,7 @@ Below you can see how spans in a trace are visualized with flamegraphs and Gantt
 Jaeger does not provide Flamegraphs, and to view details of a span, you need to drill down on a selected span.
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/2022/06/jaeger_flamegraphs.webp" alt="Jaeger gantt charts"/>
+    <img src="/img/blog/2022/06/jaeger_flamegraphs.webp" alt="Jaeger gantt charts"/>
     <figcaption><i>Jaeger's UI showing  spans for selected traces</i></figcaption>
 </figure>
 
@@ -94,7 +94,7 @@ Jaeger does not provide Flamegraphs, and to view details of a span, you need to 
 Currently in beta, SigNoz also provides interactive service maps which can automatically identify the dependency between your services. The size of each circle is proportional to the number of requests it is serving. The dots connecting the services are synced with the flow of requests between the services.
 
 {/* <!-- <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image"
+    <img className="box-shadowed-image"
     alt="SigNoz service maps"
     
     src= "/img/blog/2021/08/signoz_service_maps-min.webp"
@@ -104,13 +104,13 @@ Currently in beta, SigNoz also provides interactive service maps which can autom
  --> */}
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/common/signoz_service_maps_beta.webp" alt="SigNoz service maps"/>
+    <img src="/img/blog/common/signoz_service_maps_beta.webp" alt="SigNoz service maps"/>
     <figcaption><i>Interactive Service Maps shown on SigNoz dashboard</i></figcaption>
 </figure>
 
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/2022/06/jaeger_dependency_graph.webp" alt="Jaeger's dependency graph"/>
+    <img src="/img/blog/2022/06/jaeger_dependency_graph.webp" alt="Jaeger's dependency graph"/>
     <figcaption><i>Jaeger's dependency graph</i></figcaption>
 </figure>
 
@@ -122,7 +122,7 @@ A single trace tells you how a user request performed across services to serve t
 Let's break down what it means. Suppose you have a user category marked `gold` for customers in a particular segment for your application. Seeing how requests from a specific segment of users perform in your application can be critical to business metrics like growth or revenue. SigNoz allows you to filter traces with the help of tags. For example, you can filter traces where the customer type tag is set to `gold`.
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/common/trace_filter_apply_tags.webp" alt="You can filter traces with tags in SigNoz traces dashboard"/>
+    <img src="/img/blog/common/trace_filter_apply_tags.webp" alt="You can filter traces with tags in SigNoz traces dashboard"/>
     <figcaption><i>You can filter traces with tags in SigNoz traces dashboard</i></figcaption>
 </figure>
 
@@ -130,7 +130,7 @@ Let's break down what it means. Suppose you have a user category marked `gold` f
 After filtering the traces, you can choose to visualize metrics like calls, duration, and error rate on the filtered traces. This insight can help you improve app's performance for specific user segments and use-cases. Jaeger does not provide such capabilities.
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/common/trace_filter_apply_aggregates.webp" alt="See aggregated metrics of filtered traces"/>
+    <img src="/img/blog/common/trace_filter_apply_aggregates.webp" alt="See aggregated metrics of filtered traces"/>
     <figcaption><i>See aggregated metrics of filtered traces</i></figcaption>
 </figure>
 
@@ -139,7 +139,7 @@ After filtering the traces, you can choose to visualize metrics like calls, dura
 SigNoz comes with a tab for `Exceptions` monitoring. You can monitor popular exceptions like `SSLError`, `ZeroDivisionError`, `MaxRetryError`, etc., occuring in your application code at one place. We have also empowered our users to dig deeper into why these exceptions are happening.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/exceptions_monitoring.webp" alt="Exceptions monitoring tab on SigNoz dashboard"/>
+    <img src="/img/blog/2022/05/exceptions_monitoring.webp" alt="Exceptions monitoring tab on SigNoz dashboard"/>
     <figcaption><i>Monitor all your exceptions at one place</i></figcaption>
 </figure>
 
@@ -147,7 +147,7 @@ SigNoz comes with a tab for `Exceptions` monitoring. You can monitor popular exc
 You can click on any exception to see its stacktrace and check what happened before and after the exception using our trace graphs. The trace graph enables our users to access more contextual data around why the exception occurred.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/signoz_stacktrace.webp" alt="Stacktrace on exceptions caught"/>
+    <img src="/img/blog/2022/05/signoz_stacktrace.webp" alt="Stacktrace on exceptions caught"/>
     <figcaption><i>Dig Deeper into your exceptions with stacktrace</i></figcaption>
 </figure>
 
@@ -157,13 +157,13 @@ You can click on any exception to see its stacktrace and check what happened bef
 SigNoz uses [ClickHouse](https://clickhouse.com/) for storing observability data.
 
 <figure data-zoomable>
-    <OptimizedImg src="/img/blog/common/architecture-signoz-clickhouse.svg" alt="Technical architecture of SigNoz with ClickHouse setup"/>
+    <img src="/img/blog/common/architecture-signoz-clickhouse.svg" alt="Technical architecture of SigNoz with ClickHouse setup"/>
     <figcaption><i>Technical architecture of SigNoz with ClickHouse setup</i></figcaption>
 </figure>
 
 
 {/* <!-- <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image"
+    <img className="box-shadowed-image"
     alt=""
     
     src= "/img/blog/2021/08/SigNoz_architecture-min.webp"
@@ -179,7 +179,7 @@ ClickHouse is designed to be a <a href = "https://clickhouse.tech/docs/en/faq/ge
 SigNoz provides capabilities to create custom dashboards to monitor important components of your application stack like database, host metrics, and infrastructure.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_custom_dashboard-min.webp" alt="Custom dashboards on SigNoz"/>
+    <img src="/img/blog/common/signoz_custom_dashboard-min.webp" alt="Custom dashboards on SigNoz"/>
     <figcaption><i>You can create custom dashboards to monitor important components of your application infrastructure</i></figcaption>
 </figure>
 
@@ -189,7 +189,7 @@ SigNoz provides capabilities to create custom dashboards to monitor important co
 Using SigNoz, you can set alerts on metrics that matter to you. You can integrate alerts with popular channels like Slack and PagerDuty.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_alerts.webp" alt="Set alerts on critical metrics"/>
+    <img src="/img/blog/common/signoz_alerts.webp" alt="Set alerts on critical metrics"/>
     <figcaption><i>Using SigNoz, set alerts on metrics that are important to you</i></figcaption>
 </figure>
 
@@ -205,7 +205,7 @@ Org management will enable teams using SigNoz to collaborate better. There are t
 - Viewer
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/org_management.webp" alt="Organization settings on SigNoz dashboard"/>
+    <img src="/img/blog/2022/05/org_management.webp" alt="Organization settings on SigNoz dashboard"/>
     <figcaption><i>Organization settings on SigNoz dashboard</i></figcaption>
 </figure>
 

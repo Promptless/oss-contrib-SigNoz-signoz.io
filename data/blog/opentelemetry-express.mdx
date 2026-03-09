@@ -120,7 +120,7 @@ keywords: [OpenTelemetry, Express.js, observability, instrumentation, monitoring
 Nodejs is a popular Javascript runtime environment that executes Javascript code outside of a web browser. Express is the most popular web frameworks that sits on top of Nodejs and adds functionalities like middleware, routing, etc. to Nodejs.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2024/12/opentelemetry-express-cover.webp" alt="Monitor your Expressjs applications with SigNoz"/>
+    <img src="/img/blog/2024/12/opentelemetry-express-cover.webp" alt="Monitor your Expressjs applications with SigNoz"/>
 </figure>
 
 You can monitor your express application using OpenTelemetry and a tracing backend of your choice. OpenTelemetry is the leading open-source standard under the Cloud Native Computing Foundation that aims to standardize the process of instrumentation across multiple languages.
@@ -211,7 +211,7 @@ For the sample application, let's create a basic 'hello world' express.js applic
     You can check if your app is working by visiting [**http://localhost:5555/**](http://localhost:5555/)
 
     <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2024/12/node-app-running.webp" alt="Express App started successfully"/>
+    <img src="/img/blog/2024/12/node-app-running.webp" alt="Express App started successfully"/>
     <figcaption><i>Express application running</i></figcaption>
     </figure>
     
@@ -268,7 +268,7 @@ SigNoz offers various [instrumentation methods](https://signoz.io/docs/instrumen
     Be sure to replace `<SIGNOZ_INGESTION_KEY>` with your actual SigNoz ingestion key. If you haven't created one yet, you can follow [this guide](https://signoz.io/docs/ingestion/signoz-cloud/keys/) to generate your ingestion key.
     
     <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2024/12/variable-config.webp" alt="Variable config"/>
+    <img src="/img/blog/2024/12/variable-config.webp" alt="Variable config"/>
     <figcaption><i>Variable config</i></figcaption>
     </figure>
     
@@ -292,7 +292,7 @@ SigNoz offers various [instrumentation methods](https://signoz.io/docs/instrumen
 Once your application is running and has generated some traffic, you can start monitoring its performance in your SigNoz Cloud account. Navigate to the **`Services`** tab, and you should see your application listed.
 
 <figure data-zoomable align='center'>
-<OptimizedImg src="/img/blog/2024/12/services-tab-express.webp" alt="Express app in the list of applications"/>
+<img src="/img/blog/2024/12/services-tab-express.webp" alt="Express app in the list of applications"/>
 <figcaption><i>Express app in the list of applications</i></figcaption>
 </figure>
 
@@ -305,21 +305,21 @@ SigNoz provides out-of-the-box visualizations for key performance metrics, known
 Click on your application listed in the Services tab to be redirected to the Metrics page. Here, you will find pre-built visualizations that provide insights into your application's performance.
 
 <figure data-zoomable align='center'>
-<OptimizedImg src="/img/blog/2024/12/signoz_charts_application_metrics.webp" alt="Metrics tab"/>
+<img src="/img/blog/2024/12/signoz_charts_application_metrics.webp" alt="Metrics tab"/>
 <figcaption><i>Measure things like application latency, requests per sec, error percentage and see your top endpoints with SigNoz</i></figcaption>
 </figure>
 
 To explore traces, navigate to the **`Traces`** tab. You can choose a particular timestamp where latency is high and investigate traces from those moments to pinpoint performance bottlenecks.
 
 <figure data-zoomable align='center'>
-<OptimizedImg src="/img/blog/2024/12/traces-tab-express.webp" alt="Traces tab"/>
+<img src="/img/blog/2024/12/traces-tab-express.webp" alt="Traces tab"/>
 <figcaption><i>Apply filters to analyze traces</i></figcaption>
 </figure>
 
 For further analysis, click on a trace to investigate performance issues or latency. SigNoz provides Flamegraphs that allow you to identify the root cause of latency by visualizing the time spent on each part of the request. This helps pinpoint which specific operations or services are causing delays and enables you to optimize your application's performance.
 
 <figure data-zoomable align='center'>
-<OptimizedImg src="/img/blog/2024/12/flamegraphs-express.webp" alt="View traces at a particular timestamp"/>
+<img src="/img/blog/2024/12/flamegraphs-express.webp" alt="View traces at a particular timestamp"/>
 <figcaption><i>View traces at a particular timestamp</i></figcaption>
 </figure>
 

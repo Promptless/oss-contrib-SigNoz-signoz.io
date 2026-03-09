@@ -55,7 +55,7 @@ I instrumented a sample Java application and sent data to both DataDog and New R
 In DataDog, I had a hard time figuring out whether my setup was complete or not, and I found the onboarding flow of New Relic much better.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2024/02/datadog-onboarding-tabs.webp"
     alt="Datadog's onboarding tab"
@@ -70,7 +70,7 @@ The good thing about DataDog is it gives you a lot of control. You can set up th
 Once the setup is done, you can see your list of [spans](https://signoz.io/blog/distributed-tracing-span/) and corresponding [flamegraphs](https://signoz.io/blog/flamegraphs/) for your traces. DataDog does a good job of correlating different types of signals. You can relate info from infrastructure, metrics, network, etc., right from trace data if you have those products enabled.
 
 <figure data-zoomable align="center">
-  <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/02/datadog-apm.webp" alt="Datadog APM" />
+  <img className="box-shadowed-image" src="/img/blog/2024/02/datadog-apm.webp" alt="Datadog APM" />
   <figcaption>
     <i>DataDog's APM showing breakdown of an internal server error</i>
   </figcaption>
@@ -88,7 +88,7 @@ Once the setup is done, you can see your list of [spans](https://signoz.io/blog/
 New Relic's traces page shows trace groups instead of a list of spans, which feels like a cleaner representation, and you can filter by root spans, which comes in handy in case of large trace groups.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2024/02/new-relic-apm.webp"
     alt="New Relic APM"
@@ -101,7 +101,7 @@ New Relic's traces page shows trace groups instead of a list of spans, which fee
 You can get flamegraphs for your traces in New Relic, too. Compared to DataDog, New Relic has fewer options for correlation. But it is interesting to note that New Relic shows many more spans for the same call in my Java application.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2024/02/new-relic-traces.webp"
     alt="New Relic Traces"
@@ -131,7 +131,7 @@ Let's dive deeper into the specific features and performance of New Relic vs Dat
 New Relic automatically collected logs from my Java application and displayed them in the logs tab. It allows you to [search logs](https://signoz.io/docs/logs-management/logs-api/search-logs/) using Lucene, an open-source search library, and query log data using NRQL, a SQL-like query language developed by New Relic.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2024/02/new-relic-log-management-dashboard.webp"
     alt="Log Management Dashboard in New Relic"
@@ -145,7 +145,7 @@ New Relic automatically collected logs from my Java application and displayed th
 
 - Automatically extracts attributes from logs.
   <figure data-zoomable align="center">
-    <OptimizedImg
+    <img
       className="box-shadowed-image"
       src="/img/blog/2024/02/new-relic-log-attributes.webp"
       alt="Log Attributes in New Relic"
@@ -162,7 +162,7 @@ New Relic automatically collected logs from my Java application and displayed th
 For DataDog, automatic log collection is disabled by default and needs to be enabled in the agent's config file, along with activating a Java integration for application logs collection.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2024/02/datadog-logs-tab.webp"
     alt="Log Tab in Datadog"
@@ -191,7 +191,7 @@ Host monitoring in both DataDog and New Relic is good, and choosing one over the
 What's interesting about DataDog is that it showed me a glimpse of the JVM metrics dashboard while clicking on my host. DataDog has done a really good job at correlating different types of information collected from your application and host.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2024/02/datadog-infrastructure.webp"
     alt="Datadog infrastructure tab"
@@ -202,7 +202,7 @@ What's interesting about DataDog is that it showed me a glimpse of the JVM metri
 </figure>
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2024/02/datadog-infrastructure-2.webp"
     alt="Datadog host monitoring dashboard"
@@ -223,7 +223,7 @@ Some of the key features of DataDog's infrastructure monitoring include:
 New Relic's infrastructure monitoring provides robust features for connecting host performance with configuration changes.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2024/02/new-relic-host-monitoring.webp"
     alt="New Relic Host Monitoring Dashboard"
@@ -448,7 +448,7 @@ Both Datadog's and New Relic's support for OpenTelemetry is [not up to the mark]
 For example, Datadog cannot link traces and logs automatically with the [DataDog OpenTelemetry](https://signoz.io/blog/opentelemetry-vs-datadog/) tools. New Relic's documentation is better for using OpenTelemetry, but once the data gets reported, you can see the difference again.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     src="/img/blog/2023/09/firsclass-6.webp"
     alt="OpenTelemetry data in New Relic"
@@ -585,7 +585,7 @@ With SigNoz, you get:
 SigNoz comes with out of box visualization of things like RED metrics.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     alt="SigNoz UI showing the popular RED metrics"
     src="/img/blog/common/signoz_charts_application_metrics.webp"
@@ -601,7 +601,7 @@ SigNoz comes with out of box visualization of things like RED metrics.
 You can also use flamegraphs to visualize spans from your trace data. All of this comes out of the box with SigNoz.
 
 <figure data-zoomable align="center">
-  <OptimizedImg
+  <img
     className="box-shadowed-image"
     alt="Flamegraphs used to visualize spans of distributed tracing in SigNoz UI"
     src="/img/blog/common/signoz_flamegraphs.webp"
@@ -614,7 +614,7 @@ You can also use flamegraphs to visualize spans from your trace data. All of thi
 You can use logs to dig deeper into application issues.
 
 <figure data-zoomable align="center">
-  <OptimizedImg src="/img/blog/common/signoz_logs.webp" alt="Logs management in SigNoz" />
+  <img src="/img/blog/common/signoz_logs.webp" alt="Logs management in SigNoz" />
   <figcaption>
     <i>Logs management in SigNoz</i>
   </figcaption>
@@ -625,7 +625,7 @@ You can also build custom metrics dashboard for your infrastructure.
 The logs tab in SigNoz has advanced features like a log query builder, search across multiple fields, structured table view, JSON view, etc.
 
 <figure data-zoomable align="center">
-  <OptimizedImg src="/img/blog/common/signoz_logs.webp" alt="Log management in SigNoz" />
+  <img src="/img/blog/common/signoz_logs.webp" alt="Log management in SigNoz" />
   <figcaption>
     <i>Log management in SigNoz</i>
   </figcaption>

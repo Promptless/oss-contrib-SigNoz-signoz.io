@@ -19,7 +19,7 @@ This means that instead of just sending observability data to SigNoz, the agent 
 We’ll walk through how to set up a SigNoz MCP agent with LangChain, instrument it with [OpenTelemetry](https://signoz.io/blog/what-is-opentelemetry/), and explore the kinds of insights it can surface when observability data becomes part of the agent’s context.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/langchain-cover-2.webp" />
+    <img src="/img/blog/2025/10/langchain-cover-2.webp" />
 </figure>
 
 ## Building the Example App: A LangChain SigNoz MCP Agent
@@ -39,13 +39,13 @@ All of this activity is itself instrumented with OpenTelemetry. Each agent reaso
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/mcp-agent-1.webp" alt="MCP Agent App Image"/>
+    <img src="/img/blog/2025/10/mcp-agent-1.webp" alt="MCP Agent App Image"/>
     <figcaption><i>LangChain MCP App Chat</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/mcp-agent-2.webp" alt="MCP Agent App Image"/>
+    <img src="/img/blog/2025/10/mcp-agent-2.webp" alt="MCP Agent App Image"/>
     <figcaption><i>LangChain MCP App Chat</i></figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ Use the right-hand attributes to confirm request metadata and inspect the input/
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/query-graph-span.webp" alt="Root Span"/>
+    <img src="/img/blog/2025/10/query-graph-span.webp" alt="Root Span"/>
     <figcaption><i>LangChain MCP App Root Span</i></figcaption>
 </figure>
 
@@ -94,7 +94,7 @@ What to look for:
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/mcp-pre-agent-span.webp" alt="Pre-Tool Agent Span"/>
+    <img src="/img/blog/2025/10/mcp-pre-agent-span.webp" alt="Pre-Tool Agent Span"/>
     <figcaption><i>Pre-Tool Call Agent Span</i></figcaption>
 </figure>
 
@@ -105,7 +105,7 @@ Next comes the MCP tool call. For example, a `fetch_services` operation hitting 
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/mcp-tool-span.webp" alt="Tool Calls Span"/>
+    <img src="/img/blog/2025/10/mcp-tool-span.webp" alt="Tool Calls Span"/>
     <figcaption><i>Tool Calls Span</i></figcaption>
 </figure>
 
@@ -121,7 +121,7 @@ What to look for:
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/mcp-pre-agent-span.webp" alt="Post-Tool Agent Span"/>
+    <img src="/img/blog/2025/10/mcp-pre-agent-span.webp" alt="Post-Tool Agent Span"/>
     <figcaption><i>Post-Tool Call Agent Span</i></figcaption>
 </figure>
 
@@ -142,7 +142,7 @@ Instead of guessing, you know exactly what broke, where, and why, making debuggi
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/mcp-token-limit-error-span.webp" alt="Error Span"/>
+    <img src="/img/blog/2025/10/mcp-token-limit-error-span.webp" alt="Error Span"/>
     <figcaption><i>Token Limit Error Span</i></figcaption>
 </figure>
 
@@ -178,7 +178,7 @@ Here are some insightful panels we built using the traces from our instrumented 
 This panel shows the 95th percentile latency for LLM calls made by the agent. Since generation often dominates total response time, monitoring p95 latency highlights worst-case scenarios and helps you optimize prompts, reduce context size, or adjust model selection.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/call-model-latency.webp" alt="call_model duration"/>
+    <img src="/img/blog/2025/10/call-model-latency.webp" alt="call_model duration"/>
     <figcaption><i>call_model Duration Panel</i></figcaption>
 </figure>
 
@@ -188,7 +188,7 @@ This panel visualizes how often the agent queries different MCP endpoints: logs,
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/tool-call-distr-mcp.webp" alt="Tool Distribution"/>
+    <img src="/img/blog/2025/10/tool-call-distr-mcp.webp" alt="Tool Distribution"/>
     <figcaption><i>Tool Call Distribution Panel</i></figcaption>
 </figure>
 
@@ -198,7 +198,7 @@ This panel tracks the total number of input and output tokens processed by the L
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/token-usage-mcp.webp" alt="Token Usage" width="50%"/>
+    <img src="/img/blog/2025/10/token-usage-mcp.webp" alt="Token Usage" width="50%"/>
     <figcaption><i>I/O Total Token Usage</i></figcaption>
 </figure>
 
@@ -210,7 +210,7 @@ With these dashboards in place, you can move beyond ad-hoc debugging and gain da
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/10/error-rate-mcp.webp" alt="Error Rate"/>
+    <img src="/img/blog/2025/10/error-rate-mcp.webp" alt="Error Rate"/>
     <figcaption><i>Total Error Rate Panel</i></figcaption>
 </figure>
 

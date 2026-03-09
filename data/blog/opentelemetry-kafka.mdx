@@ -29,7 +29,7 @@ Before we demonstrate how to implement OpenTelemetry libraries for tracing Kafka
 The telemetry data is then sent to an observability tool for storage and visualization.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/04/how_opentelemetry_fits.webp" alt="How opentelemetry fits with an application"/>
+    <img src="/img/blog/2022/04/how_opentelemetry_fits.webp" alt="How opentelemetry fits with an application"/>
     <figcaption><i>OpenTelemetry libraries instrument application code to generate telemetry data that is then sent to an observability tool for storage & visualization</i></figcaption>
 </figure>
 
@@ -65,7 +65,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 When you are done installing SigNoz, you can access the UI at [http://localhost:3301](http://localhost:3301/application).
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_dashboard_homepage.webp" alt="SigNoz dashboard"/>
+    <img src="/img/blog/common/signoz_dashboard_homepage.webp" alt="SigNoz dashboard"/>
     <figcaption><i>SigNoz dashboard - It shows services from a sample app that comes bundled with the application</i></figcaption>
 </figure>
 
@@ -110,7 +110,7 @@ docker compose up -d
 The containers should be visible once they are running. You can check them by running `docker ps`.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/otel_kafka_docker_ps.webp" alt="Docker ps output"/>
+    <img src="/img/blog/2022/05/otel_kafka_docker_ps.webp" alt="Docker ps output"/>
 </figure>
 
 
@@ -208,7 +208,7 @@ func InitTracer() func(context.Context) error {
 Modify `go.mod` in producer and consumer folder by adding `replace github.com/SigNoz/sample-golang-kafka-app/config => ../config`
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/opentelemetry_kafka_modify_go_mod.webp" alt="Modify go.mod in kafka producer and consumer folder"/>
+    <img src="/img/blog/2022/05/opentelemetry_kafka_modify_go_mod.webp" alt="Modify go.mod in kafka producer and consumer folder"/>
 </figure>
 
 
@@ -291,7 +291,7 @@ SERVICE_NAME=goKafkaProducer INSECURE_MODE=true OTEL_EXPORTER_OTLP_ENDPOINT=loca
 You will start seeing messages created by the producer and they are being consumed by the consumer.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/opentelemetry_kafka_terminal_message.webp" alt="Messages created by the producer and consumed by consumer on the terminal"/>
+    <img src="/img/blog/2022/05/opentelemetry_kafka_terminal_message.webp" alt="Messages created by the producer and consumed by consumer on the terminal"/>
 </figure>
 
 
@@ -304,7 +304,7 @@ Go to the `Traces` tab, you will see `goKafkaProducer` and `goKafkaConsumer` und
 The table in the screenshot below shows [spans - a key concept of distributed tracing](https://signoz.io/blog/distributed-tracing-span/). Spans represent a logical unit of work in completing a user request.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/otel_kafka_traces_tab.webp" alt="Traces tab of SigNoz showing spans captured from kafka client"/>
+    <img src="/img/blog/2022/05/otel_kafka_traces_tab.webp" alt="Traces tab of SigNoz showing spans captured from kafka client"/>
     <figcaption><i>You can trace your application’s interaction with Kafka client using the Traces tab of SigNoz</i></figcaption>
 </figure>
 
@@ -312,7 +312,7 @@ The table in the screenshot below shows [spans - a key concept of distributed tr
 Using Flamegraphs and Gantt charts, you can see the detailed breakdown of each request.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/otel_kafka_flamegraphs.webp" alt="Breakdown by requests from Kafka Producer and consumer"/>
+    <img src="/img/blog/2022/05/otel_kafka_flamegraphs.webp" alt="Breakdown by requests from Kafka Producer and consumer"/>
     <figcaption><i>Flamegraphs and Gantt charts visualize how Kafka producer and consumer interacted</i></figcaption>
 </figure>
 

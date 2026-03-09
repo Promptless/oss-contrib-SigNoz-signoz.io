@@ -30,7 +30,7 @@ OpenTelemetry specification is organized into distinct types of telemetry, which
 OpenTelemetry provides a way to **merge the three signals into a single cohesive data** so that debugging issues becomes very easy. For e.g, if you look at metrics on a chart, you can find the corresponding logs or find the trace associated with that metric instance if you have instrumented your application with OpenTelemetry client libraries.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/07/o11y-net-trans.webp" alt="Telemetry signals are correlated"/>
+    <img src="/img/blog/2022/07/o11y-net-trans.webp" alt="Telemetry signals are correlated"/>
     <figcaption><i>Telemetry signals are correlated to give maximum contextual insights for troubleshooting issues.</i></figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ OpenTelemetry provides a way to **merge the three signals into a single cohesive
 OpenTelemetry is a cross-cutting concern that follows the execution of a transaction as it passes through each library and service. To achieve this feat, it uses a separation of concerns design principle to separate signals with the underlying system which stores context data and helps propagating data across the network calls.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/context_and_propagators.webp" alt="Context and Propagators in Action"/>
+    <img src="/img/blog/2023/02/context_and_propagators.webp" alt="Context and Propagators in Action"/>
     <figcaption><i>Context and Propagators in Action</i></figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ Hopefully, you must be comfortable with the basic concepts now. Let's try to und
 An application is instrumented with OpenTelemetry by installing a collection of software libraries: the API, the SDK (software development kit), SDK plug-ins, and library instrumentation. This set of libraries is referred to as the OpenTelemetry client.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/otel_client_side_architecture.webp" alt="OpenTelemetry client-side Architecture"/>
+    <img src="/img/blog/2023/02/otel_client_side_architecture.webp" alt="OpenTelemetry client-side Architecture"/>
     <figcaption><i>OpenTelemetry client-side architecture</i></figcaption>
 </figure>
 
@@ -87,7 +87,7 @@ The providers become the receivers of all API calls. When no providers are loade
 OpenTelemetry provides SDK implementations for major languages, as shown below.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/otel_ref_implementations.webp" alt="OpenTelemetry Standard and Implementation Libraries support"/>
+    <img src="/img/blog/2023/02/otel_ref_implementations.webp" alt="OpenTelemetry Standard and Implementation Libraries support"/>
     <figcaption><i>OpenTelemetry Standard and Implementation Libraries support</i></figcaption>
 </figure>
 
@@ -97,7 +97,7 @@ OpenTelemetry provides SDK implementations for major languages, as shown below.
 The server-side architecture is mostly concerned with what to do with the telemetry data which is generated in your application by using the API and SDK. The telemetry data needs to be received, processed, and then sent to the target visualization or storage tools like [SigNoz](https://signoz.io/).
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/traces_combined_with_logs_and_metrics.webp" alt="How Otel fits in an application architecture"/>
+    <img src="/img/blog/2023/02/traces_combined_with_logs_and_metrics.webp" alt="How Otel fits in an application architecture"/>
     <figcaption><i>How OpenTelemetry fits in the entire application stack - OTel agent sends data to OTel collector from where you can export data to a backend of your choice</i></figcaption>
 </figure>
 
@@ -127,7 +127,7 @@ OpenTelemetry Collector is a **vendor-independent agent** that can receive, proc
 The OpenTelemetry Collector then forwards the telemetry it receives to one or more observability backends. It also supports processing and filtering of telemetry data before export, for example, batching data to increase the efficiency of compression or converting between formats, etc.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/09/collector_pipeline.webp" alt="Architecture of OpenTelemetry Collector"/>
+    <img src="/img/blog/2022/09/collector_pipeline.webp" alt="Architecture of OpenTelemetry Collector"/>
     <figcaption><i>Architecture of OpenTelemetry Collector with receivers, processors and exporters.</i></figcaption>
 </figure>
 
@@ -144,7 +144,7 @@ The Collector consists of three components that access telemetry data:
 OpenTelemetry Collector also provides a feature known as pipelines . For a given use case, we can configure a pipeline as below to handle a particular kind of signal.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/otel_collector_pipeline.webp" alt="OpenTelemetry Collector Pipeline"/>
+    <img src="/img/blog/2023/02/otel_collector_pipeline.webp" alt="OpenTelemetry Collector Pipeline"/>
     <figcaption><i>OpenTelemetry Collector Pipeline</i></figcaption>
 </figure>
 

@@ -191,7 +191,7 @@ SigNoz provides Helm charts that package OpenTelemetry Collectors in a flavor op
 To set up the OpenTelemetry Collector for SigNoz, you'll first need your ingestion key and the specific region your instance is hosted in. This information is vital for configuring the collector to send data to your SigNoz instance securely. You can retrieve these details from your SigNoz settings page.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/ingestion-key-details.webp" alt="You can find ingestion details in the SigNoz dashboard"/>
+    <img src="/img/blog/common/ingestion-key-details.webp" alt="You can find ingestion details in the SigNoz dashboard"/>
     <figcaption><i>You can find ingestion details in the SigNoz dashboard</i></figcaption>
 </figure>
 
@@ -209,7 +209,7 @@ Replace `<ingestionKey>` with the key you obtained from your settings page and `
 After running the install command, you should see an output confirming that the Helm chart has been deployed.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/helm_deployed.webp" alt=""/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/helm_deployed.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -225,7 +225,7 @@ kubectl logs -f -n signoz -l app.kubernetes.io/component=otel-agent
 ```
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/otel_agent_logs.webp" alt="You will see an output like this"/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/otel_agent_logs.webp" alt="You will see an output like this"/>
     <figcaption><i>You will see an output like this</i></figcaption>
 </figure>
 
@@ -239,7 +239,7 @@ kubectl get cm/kubelet-otel-k8s-infra-otel-agent -n signoz -o yaml
 ```
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/helm_configs.webp" alt="Generated configuration through helm charts"/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/helm_configs.webp" alt="Generated configuration through helm charts"/>
     <figcaption><i>Generated configuration through helm charts</i></figcaption>
 </figure>
 
@@ -261,7 +261,7 @@ kubectl get ds/kubelet-otel-k8s-infra-otel-agent -n signoz -o yaml
 ```
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/daemonset_congfigs.webp" alt=""/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/daemonset_congfigs.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -309,7 +309,7 @@ config:
 ```
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/view_access_token.webp" alt=""/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/view_access_token.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -321,7 +321,7 @@ For verification and debugging procedures, follow the same steps provided for th
 Once the above setup is done, you will be able to access the collected metrics in the SigNoz dashboard. You can go to the `Dashboards` tab and try adding a new panel. You can learn how to create dashboards in SigNoz [here](https://signoz.io/docs/userguide/manage-dashboards-and-panels/).
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/k8s_metrics.webp" alt="Plotting a metric into a panel in a dashboard"/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/k8s_metrics.webp" alt="Plotting a metric into a panel in a dashboard"/>
     <figcaption><i>Plotting a metric into a panel in a dashboard</i></figcaption>
 </figure>
 
@@ -329,13 +329,13 @@ Once the above setup is done, you will be able to access the collected metrics i
 You can easily create charts with [query builder](https://signoz.io/docs/userguide/create-a-custom-query/#sample-examples-to-create-custom-query) in SigNoz. Here are the [steps](https://signoz.io/docs/userguide/manage-panels/#steps-to-add-a-panel-to-a-dashboard) to add a new panel to the dashboard.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/node_dashboard.webp" alt="Node Dashboard for EKS cluster"/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/node_dashboard.webp" alt="Node Dashboard for EKS cluster"/>
     <figcaption><i>Node Dashboard for EKS cluster</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/pod_dashboard.webp" alt="Pod Dashboard for EKS cluster"/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/pod_dashboard.webp" alt="Pod Dashboard for EKS cluster"/>
     <figcaption><i>Pod Dashboard for EKS cluster</i></figcaption>
 </figure>
 
@@ -347,7 +347,7 @@ Sometimes, we would want to show different views of the dashboard for different 
 This is possible with SigNoz with Dashboard Variables.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/pod_dashboard_filtered.webp" alt="Pod Dashboard Filtered with default namespace and an otel-demo-frontend pod"/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/pod_dashboard_filtered.webp" alt="Pod Dashboard Filtered with default namespace and an otel-demo-frontend pod"/>
     <figcaption><i>Pod Dashboard Filtered with default namespace and an otel-demo-frontend pod</i></figcaption>
 </figure>
 
@@ -359,7 +359,7 @@ Learn how to create variables in Dashboards [here](https://signoz.io/docs/usergu
 You can also create alerts on any metric and send notifications to Slack, Teams, or PagerDuty. Learn how to create alerts [here](https://signoz.io/docs/userguide/alerts-management/).
 
 <figure data-zoomable align='center'>
-    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/create_alert_k8s.webp" alt="Creating an alert from dashboard"/>
+    <img className="box-shadowed-image" src="/img/blog/2023/12/create_alert_k8s.webp" alt="Creating an alert from dashboard"/>
     <figcaption><i>Creating an alert from dashboard</i></figcaption>
 </figure>
 

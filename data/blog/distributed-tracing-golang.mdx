@@ -81,7 +81,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 When you are done installing SigNoz, you can access the UI at [http://localhost:3301](http://localhost:3301/application).
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_dashboard_homepage.webp" alt="SigNoz dashboard"/>
+    <img src="/img/blog/common/signoz_dashboard_homepage.webp" alt="SigNoz dashboard"/>
     <figcaption><i>SigNoz dashboard - It shows services from a sample app that comes bundled with the application</i></figcaption>
 </figure>
 
@@ -98,7 +98,7 @@ We have built a sample Golang application for the purpose of this tutorial. It h
 These services are instrumented with OpenTelemetry libraries, and when they interact with each other, OpenTelemetry emits the telemetry data to [OTel collector](https://signoz.io/blog/opentelemetry-collector-complete-guide/) which comes bundled with SigNoz.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/distributed_tracing_app_otel_signoz.webp" alt="How an application with microservices fits with OpenTelemetry and SigNoz"/>
+    <img src="/img/blog/2022/05/distributed_tracing_app_otel_signoz.webp" alt="How an application with microservices fits with OpenTelemetry and SigNoz"/>
     <figcaption><i>Application architecture along with OpenTelemetry(OTel Collector) and SigNoz</i></figcaption>
 </figure>
 
@@ -300,7 +300,7 @@ mysql> show tables;
 ```
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/distributed_tracing_golang_sql.webp" alt="Screenshot of terminal showing MySQL database working"/>
+    <img src="/img/blog/2022/05/distributed_tracing_golang_sql.webp" alt="Screenshot of terminal showing MySQL database working"/>
 </figure>
 
 
@@ -322,14 +322,14 @@ Now go to the app frontend running at [localhost:5000](http://localhost:5000). P
 1. Create a user:<br></br>
    Click `Create User` button to create a new user in the MySQL db.
    <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/dt_golang_create_user.webp" alt="Create user using UI"/>
+    <img src="/img/blog/2022/05/dt_golang_create_user.webp" alt="Create user using UI"/>
     </figure>
 
 
 2. Transfer the fund:<br></br>
    Transfer some amount by clicking `Transfer Fund` button.
    <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/dt_golang_transfer_fund.webp" alt="Transfer Funds using UI"/>
+    <img src="/img/blog/2022/05/dt_golang_transfer_fund.webp" alt="Transfer Funds using UI"/>
     </figure>
 
 
@@ -337,7 +337,7 @@ Now go to the app frontend running at [localhost:5000](http://localhost:5000). P
    Place an order by selecting a product from the dropdown.
 
     <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/dt_golang_place_order.webp" alt="Place orders using UI"/>
+    <img src="/img/blog/2022/05/dt_golang_place_order.webp" alt="Place orders using UI"/>
     </figure>
 
 
@@ -356,7 +356,7 @@ In the metrics tab, you can see Application Metrics, External Calls, and Databas
 Here, we can see the application latency, requests per second(rps), error percentage, and the endpoints that were hit for a given service.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/dt_golang_application_metrics.webp" alt="SigNoz dashboard showing application metrics"/>
+    <img src="/img/blog/2022/05/dt_golang_application_metrics.webp" alt="SigNoz dashboard showing application metrics"/>
     <figcaption><i>Track important application metrics like latency, requests per second(rps), error percentage, and top endpoints with SigNoz</i></figcaption>
 </figure>
 
@@ -367,7 +367,7 @@ Here, we can see the application latency, requests per second(rps), error percen
 Here, you can see the metrics about the calls made to external services. In our case, we are running the services on localhost; hence we see a single line. Metrics like external call duration (by address) give a quick glimpse of the network connectivity with the external service. This might be useful to detect a network issue.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/dt_golang_external_calls.webp" alt="SigNoz dashboard showing external calls"/>
+    <img src="/img/blog/2022/05/dt_golang_external_calls.webp" alt="SigNoz dashboard showing external calls"/>
     <figcaption><i>Monitor external calls from a service that can help you with insights regarding network connectivity</i></figcaption>
 </figure>
 
@@ -382,7 +382,7 @@ You can inspect each event in the spans table with Flamegraphs and Gantt charts 
 Go to the service name filter on the left and select `order-service`. Now select any span:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/dt_golang_gantt.webp" alt="SigNoz dashboard showing a user request broken down by Flamegraphs and Gantt charts"/>
+    <img src="/img/blog/2022/05/dt_golang_gantt.webp" alt="SigNoz dashboard showing a user request broken down by Flamegraphs and Gantt charts"/>
     <figcaption><i>Flamegraphs and Gantt charts on SigNoz dashboard can be used to see complete breakdown of user requests as it propagates across services</i></figcaption>
 </figure>
 
@@ -391,7 +391,7 @@ Go to the service name filter on the left and select `order-service`. Now selec
 Here, expanding on `insert order` you will see the time utilised in various SQL DB calls.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/05/dt_golang_gantt_2.webp" alt="Gantt charts showing details on time utilised in various SQL DB calls"/>
+    <img src="/img/blog/2022/05/dt_golang_gantt_2.webp" alt="Gantt charts showing details on time utilised in various SQL DB calls"/>
     <figcaption><i>Gantt charts can give you detailed information on things like Db calls</i></figcaption>
 </figure>
 

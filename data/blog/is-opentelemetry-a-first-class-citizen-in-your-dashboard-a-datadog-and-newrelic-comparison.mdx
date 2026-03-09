@@ -33,7 +33,7 @@ The result is a system that is gently sloped. It guides the user, without them e
 Right from the installation stage… something feels amiss when trying to use [OpenTelemetry](https://signoz.io/blog/what-is-opentelemetry/) with Datadog. There seem to be no actual use cases listed for OpenTelemetry. The guide on their documentation for trying OpenTelemetry reporting with a simple Python app is out of date, and there’s something kind of odd about the linked of articles from their OpenTelemetry overview:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/09/firsclass-1.webp" alt="a screenshot of datadog documentation"/>
+    <img src="/img/blog/2023/09/firsclass-1.webp" alt="a screenshot of datadog documentation"/>
     <figcaption><i>Nothing here tells you positively that you should use OpenTelemetry</i></figcaption>
 </figure>
 
@@ -62,14 +62,14 @@ Whatever path you take, you’ll find that once your data is in Datadog, the exp
 You cannot link traces and logs automatically with the [DataDog OpenTelemetry](https://signoz.io/blog/opentelemetry-vs-datadog/) tools. It’s necessary to manually patch your particular logging module or library with a processor that adds the aforementioned translated `TraceId` and `SpanId` as Log attributes marked `dd.trace_id` and `dd.span_id`, respectively.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/09/firsclass-2.webp" alt="a screenshot of datadog traces"/>
+    <img src="/img/blog/2023/09/firsclass-2.webp" alt="a screenshot of datadog traces"/>
     <figcaption><i>This trace from manual OpenTelemetry instrumentation looks pretty good in Datadog, but despite several logging calls, nothing shows up here</i></figcaption>
 </figure>
 
 By contrast, with just the automatic instrumentation for Python in OpenTelemetry, an OpenTelemetry native tool like [SigNoz](https://signoz.io/docs/introduction/) can connect traces to related logs without the needed for an additional processor.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/09/firsclass-3.webp" alt="a screenshot of SigNoz traces"/>
+    <img src="/img/blog/2023/09/firsclass-3.webp" alt="a screenshot of SigNoz traces"/>
     <figcaption><i>The same trace sent into SigNoz, with connected logs</i></figcaption>
 </figure>
 
@@ -94,7 +94,7 @@ def do_roll():
 However in all my experiments these span events didn’t show up anywhere in Datadog, not as metrics, not as events, not even present within the span info
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/09/firsclass-4.webp" alt="a screenshot of datadog traces"/>
+    <img src="/img/blog/2023/09/firsclass-4.webp" alt="a screenshot of datadog traces"/>
     <figcaption><i>Notice the matching span name as the snippet above.</i></figcaption>
 </figure>
 
@@ -116,7 +116,7 @@ Adding calls to send metrics with the [OpenTelemetry SDK](https://signoz.io/comp
 One limitation did surprise me: it doesn’t appear that span data is available as a ‘metric’ to be queried in Datadog.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/09/firsclass-5.webp" alt="a screenshot of datadog traces"/>
+    <img src="/img/blog/2023/09/firsclass-5.webp" alt="a screenshot of datadog traces"/>
     <figcaption><i>It's tough to prove an absence, but while some metrics are available, no span name appears in the metrics explorer.</i></figcaption>
 </figure>
 
@@ -133,7 +133,7 @@ Once data is reporting, the experience again shows significant gaps between Open
 Right from when you first get data reported, you’ll see the biggest difference with New Relic’s approach to OpenTelemetry data: all data is segregated.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/09/firsclass-6.webp" alt="a screenshot of new relic services"/>
+    <img src="/img/blog/2023/09/firsclass-6.webp" alt="a screenshot of new relic services"/>
 <figcaption><i>At the service level, all OpenTelemetry data is separated from New Relic’s mainline data.</i></figcaption>
 </figure>
 
@@ -147,14 +147,14 @@ Setting the same service name won’t fix the issue: application data, traces, a
 Clicking into the dashboards for our two applications gives a very different experience for OpenTelemetry. Starting with the New Relic view its users are used to:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/09/firsclass-7.webp" alt="a screenshot of new relic services"/>
+    <img src="/img/blog/2023/09/firsclass-7.webp" alt="a screenshot of new relic services"/>
     <figcaption><i>Note the web requests divided into percentiles with apdex</i></figcaption>
 </figure>
 
 The differences are subtle with an OpenTelemetry-monitored application, but an experienced New Relic user will know right away that something’s amiss
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/09/firsclass-8.webp" alt="a screenshot of new relic services"/>
+    <img src="/img/blog/2023/09/firsclass-8.webp" alt="a screenshot of new relic services"/>
     <figcaption><i>New Relic’s dashboard for an application monitored with OpenTelemetry.</i></figcaption>
 </figure>
 

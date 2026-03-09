@@ -26,7 +26,7 @@ A Flamegraph is a visualization of hierarchical data created by Brendan Gregg, p
 It provides an in-depth representation of stack traces, their respective resource consumption, and microservice latency(s) and is particularly useful for identifying performance bottlenecks in software systems. It's a really handy visualization from a developer's point of view.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/flamegraph-typical.webp" alt="A typical flame graph."/>
+    <img src="/img/blog/2023/10/flamegraph-typical.webp" alt="A typical flame graph."/>
     <figcaption><i>A typical flame graph (source: https://www.brendangregg.com/flamegraphs.html).</i></figcaption>
 </figure>
 
@@ -41,7 +41,7 @@ The x-axis of the graph corresponds to the stack depth, whereas the y-axis repre
 Here's a simple textual example of a Flamegraph:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/flamegraph-interpretation.webp" alt=""/>
+    <img src="/img/blog/2023/10/flamegraph-interpretation.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ These functions are the most time-consuming and offer the most significant poten
 In the image below, you find out the longest trace is of **redis** and its a **redis timeout**, now that you know the cause for latency, you go back to your code and optimise it.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/db-error.webp" alt="Flamegraphs as represented for a distributed trace in SigNoz."/>
+    <img src="/img/blog/2023/10/db-error.webp" alt="Flamegraphs as represented for a distributed trace in SigNoz."/>
     <figcaption><i>Flamegraphs as represented for a distributed trace in SigNoz.</i></figcaption>
 </figure>
 
@@ -111,7 +111,7 @@ In distributed tracing, Flamegraphs visually represent the execution path for re
 Each horizontal bar in a Flamegraph represents a function or a service, and the width of the bar reflects the amount of time spent within that function or service during the request's lifecycle.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/flamegraph-axes.webp" alt="Each horizontal bar in a Flamegraph represents a function or a service and the width of the bar reflects the amount of time spent."/>
+    <img src="/img/blog/2023/10/flamegraph-axes.webp" alt="Each horizontal bar in a Flamegraph represents a function or a service and the width of the bar reflects the amount of time spent."/>
     <figcaption><i>Each horizontal bar in a Flamegraph represents a function or a service and the width of the bar reflects the amount of time spent.</i></figcaption>
 </figure>
 
@@ -130,7 +130,7 @@ Once you have instrumented your application with [OpenTelemetry](https://signoz.
 Once you have captured trace data from your services, you can feed it into a tool like [SigNoz](https://signoz.io/), which processes the data and generates Flamegraphs. The Flamegraph displays the execution path of requests, showing how time is spent across different functions or services.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/signoz_trace_details.webp" alt="Flamegraph for a trace as represented in SigNoz dashboard."/>
+    <img src="/img/blog/2023/10/signoz_trace_details.webp" alt="Flamegraph for a trace as represented in SigNoz dashboard."/>
     <figcaption><i>Flamegraph for a trace as represented in SigNoz dashboard.</i></figcaption>
 </figure>
 
@@ -152,7 +152,7 @@ Once you've instrumented your code, you can configure your SDK or [OpenTelemetry
 - In SigNoz, navigate to the trace data section and select the span you want to analyze. [Spans](https://signoz.io/blog/distributed-tracing-span/) are fundamental building blocks of distributed tracing. A single trace in distributed tracing consists of a series of tagged time intervals known as spans.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/signoz_traces.webp" alt="Trace Explorer page in SigNoz."/>
+    <img src="/img/blog/2023/10/signoz_traces.webp" alt="Trace Explorer page in SigNoz."/>
     <figcaption><i>Trace Explorer page in SigNoz.</i></figcaption>
 </figure>
 
@@ -163,7 +163,7 @@ The generated Flamegraphs will typically display a graphical representation of t
 The following illustration shows the Span Details page:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/10/signoz_flamegraphs.webp" alt=""/>
+    <img src="/img/blog/2023/10/signoz_flamegraphs.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 

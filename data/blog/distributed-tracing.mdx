@@ -57,7 +57,7 @@ The key components and data points that make up a trace are as follows:
 A trace is usually visualized as Flamegraphs or Gantt charts. Below is a snapshot from the traces dashboard of [SigNoz](https://signoz.io/). In the trace diagram below, the root span spawns two child spans which call more inner processes.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/03/understanding_a_trace_dark_mode.webp" alt="Components of a trace"/>
+    <img src="/img/blog/2022/03/understanding_a_trace_dark_mode.webp" alt="Components of a trace"/>
     <figcaption><i>Understanding the components of a trace - spans, duration & the sequential flow of the request</i></figcaption>
 </figure>
 
@@ -65,7 +65,7 @@ A trace is usually visualized as Flamegraphs or Gantt charts. Below is a snapsho
 You can also add tags and span attributes to provide more context for your spans. Span attributes are key-value pairs that can be used to provide additional context on a span about the specific operation it tracks.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/03/distributed_tracing_tags_dark.webp" alt="Tags and attributes attached with a span"/>
+    <img src="/img/blog/2022/03/distributed_tracing_tags_dark.webp" alt="Tags and attributes attached with a span"/>
     <figcaption><i>Tags provide you with additional context on spans. Details associated with a span captured by SigNoz.</i></figcaption>
 </figure>
 
@@ -83,7 +83,7 @@ Tracing data can be visualized in the form of Flamegraphs and Gantt Charts to re
 [SigNoz](https://signoz.io/) shows Flamegraphs and Gantt charts both to make visualizing trace data easier. In the dashboard below, you can see the data for a single trace that consists of 50 spans.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/03/flamegraphs_gantt_charts_dark_mode.webp" alt="Flamegraphs and Gantt charts visualizing a single trace data"/>
+    <img src="/img/blog/2022/03/flamegraphs_gantt_charts_dark_mode.webp" alt="Flamegraphs and Gantt charts visualizing a single trace data"/>
     <figcaption><i>Flamegraphs and Gantt Charts visualizing the journey of a user request from a single trace data (SigNoz Dashboard)</i></figcaption>
 </figure>
 
@@ -93,7 +93,7 @@ Tracing data can be visualized in the form of Flamegraphs and Gantt Charts to re
 Using tags and tracing data, you can run aggregates to get relevant business metrics from the behavior of your distributed systems. For example, with SigNoz, you can get the error rate and 99th percentile latency of `customer_type: gold` or `deployment_version: v2`. This enables quick analysis of services affecting a particular user group or type of requests.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/03/aggregates_on_trace_data.webp" alt="Aggregates on trace data"/>
+    <img src="/img/blog/2022/03/aggregates_on_trace_data.webp" alt="Aggregates on trace data"/>
     <figcaption><i>SigNoz allows you to run aggregates on your tracing data and visualize them by important dimensions like service-type, operation, HTTP status code, etc.</i></figcaption>
 </figure>
 
@@ -129,7 +129,7 @@ It provides both metrics monitoring and distributed tracing with an ability to c
 For example, you can view traces at a particular timestamp where metrics like application latency are poor, and then you can dig deeper with traces generated around that timestamp.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/03/metrics_monitoring_signoz.webp" alt="Metrics monitoring with SigNoz"/>
+    <img src="/img/blog/2022/03/metrics_monitoring_signoz.webp" alt="Metrics monitoring with SigNoz"/>
     <figcaption><i>Metrics monitoring with SigNoz</i></figcaption>
 </figure>
 
@@ -137,7 +137,7 @@ For example, you can view traces at a particular timestamp where metrics like ap
 SigNoz comes with out of box visualizations for your tracing data. The `Traces` dashboard of SigNoz provides you with powerful filters that can be used to analyze your tracing data.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/03/signoz_traces_tab.webp" alt="Traces tab of SigNoz"/>
+    <img src="/img/blog/2022/03/signoz_traces_tab.webp" alt="Traces tab of SigNoz"/>
     <figcaption><i>The Traces tab of SigNoz provides powerful filters like service name, status, HTTP status code, operation, etc. to analyze your traces data quickly</i></figcaption>
 </figure>
 

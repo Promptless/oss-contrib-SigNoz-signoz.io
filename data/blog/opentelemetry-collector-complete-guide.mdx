@@ -17,7 +17,7 @@ The OpenTelemetry Collector is a stand-alone service that acts as a powerful, ve
 This guide will provide a comprehensive overview of the OpenTelemetry Collector, its architecture, deployment patterns, and how to configure it for production use.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/09/opentelemetry_architecture.webp" alt="OpenTelemetry Architecture"/>
+    <img src="/img/blog/2022/09/opentelemetry_architecture.webp" alt="OpenTelemetry Architecture"/>
     <figcaption><i>High-level application architecture with an OpenTelemetry Collector.</i></figcaption>
 </figure>
 
@@ -54,7 +54,7 @@ Using a Collector is a best practice for several key reasons:
 The Collector's functionality is defined by pipelines, which are composed of three types of components:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/09/collector_pipeline.webp" alt="Architecture of OpenTelemetry Collector"/>
+    <img src="/img/blog/2022/09/collector_pipeline.webp" alt="Architecture of OpenTelemetry Collector"/>
     <figcaption><i>A pipeline consists of receivers, processors, and exporters.</i></figcaption>
 </figure>
 
@@ -82,7 +82,7 @@ Exporters send the processed data to a destination. This can be an observability
 There are two primary patterns for deploying the Collector. Choosing the right one depends on your scale and requirements.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/otel-deployment.webp" alt="OpenTelemetry Collector Deployment Patterns: Agent and Gateway"/>
+    <img src="/img/blog/2025/09/otel-deployment.webp" alt="OpenTelemetry Collector Deployment Patterns: Agent and Gateway"/>
     <figcaption><i>The Agent pattern deploys a collector with each application, while the Gateway pattern uses a central collector service.</i></figcaption>
 </figure>
 
@@ -249,7 +249,7 @@ The OpenTelemetry Collector provides a powerful, vendor-agnostic way to manage y
 With SigNoz, you can visualize all your logs, metrics, and traces in a single pane of glass, helping you resolve issues faster.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_charts_application_metrics.webp" alt="SigNoz dashboard showing overview metrics like RPS"/>
+    <img src="/img/blog/common/signoz_charts_application_metrics.webp" alt="SigNoz dashboard showing overview metrics like RPS"/>
     <figcaption><i>SigNoz UI showing application overview metrics like RPS, 50th/90th/99th Percentile latencies, and Error Rate</i></figcaption>
 </figure>
 

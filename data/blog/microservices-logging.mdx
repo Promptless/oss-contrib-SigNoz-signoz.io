@@ -511,7 +511,7 @@ log.Ctx(r.Context()).Info("Order controller called", metadata...)
 In this example, we will configure our application to write the logs to a log file. Then the [SigNoz](https://signoz.io/docs/introduction/) OpenTelemetry collector collects logs from the log file and exports them to `clickhouselogsexporter` which shows up the logs in the SigNoz UI.
 
 <figure data-zoomable align='center'>
-<OptimizedImg src="/img/blog/2023/01/microservices-logging-signoz-working.webp" alt="How Telemetry signals are collected and correlated with SigNoz."/>
+<img src="/img/blog/2023/01/microservices-logging-signoz-working.webp" alt="How Telemetry signals are collected and correlated with SigNoz."/>
 <figcaption><i>How Telemetry signals are collected and correlated with SigNoz.</i></figcaption>
 </figure>
 
@@ -590,21 +590,21 @@ exporters: [clickhouselogsexporter]
 Now we can restart the [OTel collector](https://signoz.io/blog/opentelemetry-collector-complete-guide/) container so that new changes are applied, and the logs are read from the application log file. If you look at the traces tab, we can see the traces available with the traceID and span.
 
 <figure data-zoomable align='center'>
-<OptimizedImg src="/img/blog/2023/01/microservices-logging-trace.webp" alt="Trace data visualized as flamegraphs in SigNoz."/>
+<img src="/img/blog/2023/01/microservices-logging-trace.webp" alt="Trace data visualized as flamegraphs in SigNoz."/>
 <figcaption><i>Trace data visualized as flamegraphs in SigNoz.</i></figcaption>
 </figure>
 
 Now we need to switch to the logs tab and check for the equivalent log to the above trace.
 
 <figure data-zoomable align='center'>
-<OptimizedImg src="/img/blog/2023/01/microservices-logging-log.webp" alt="Log tab in the SigNoz dashboard."/>
+<img src="/img/blog/2023/01/microservices-logging-log.webp" alt="Log tab in the SigNoz dashboard."/>
 <figcaption><i>Log tab in the SigNoz dashboard.</i></figcaption>
 </figure>
 
 We can see the complete log of the above trace with traceid, spanid and traceflags.
 
 <figure data-zoomable align='center'>
-<OptimizedImg src="/img/blog/2023/01/microservices-logging-log-complete.webp" alt="We can see complete log information along with traceID, spanID, and traceflags."/>
+<img src="/img/blog/2023/01/microservices-logging-log-complete.webp" alt="We can see complete log information along with traceID, spanID, and traceflags."/>
 <figcaption><i>We can see complete log information along with traceID, spanID, and traceflags.</i></figcaption>
 </figure>
 

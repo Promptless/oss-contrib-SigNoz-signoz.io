@@ -18,7 +18,7 @@ Observability vs monitoring has been a common topic in DevOps recently. There ha
 In this blog post, I want to give you a practical understanding of observability and the differences between observability and monitoring with different scenarios and examples.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/monitoring_vs_observability.webp" alt="Monitoring vs Observability"/>
+    <img src="/img/blog/2023/02/monitoring_vs_observability.webp" alt="Monitoring vs Observability"/>
     <figcaption><i>Monitoring vs Observability</i></figcaption>
 </figure>
 
@@ -61,7 +61,7 @@ When metrics are associated with traces, we can understand that a query received
 Logs and metrics, when combined with traces bring out contextual insights that help to troubleshoot issues faster.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/traces_combined_with_logs_and_metrics.webp" alt="Traces combined with logs and metrics"/>
+    <img src="/img/blog/2023/02/traces_combined_with_logs_and_metrics.webp" alt="Traces combined with logs and metrics"/>
     <figcaption><i>Traces combined with logs and metrics help derive contextual insights</i></figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ Monitoring solutions are based on component monitoring and cannot integrate thes
 On the other hand, observability is designed to work with integrated data. Observability solutions will use the concept of [distributed tracing](https://signoz.io/blog/distributed-tracing/) to create a topology, integrate the data, understand the context, and understand how each component is integrated into the entire infrastructure.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_service_maps.webp" alt="Service maps in SigNoz"/>
+    <img src="/img/blog/common/signoz_service_maps.webp" alt="Service maps in SigNoz"/>
     <figcaption><i>Service maps in SigNoz are  built with tracing data showing how services are interconnected</i></figcaption>
 </figure>
 
@@ -85,7 +85,7 @@ Monitoring systems were designed to react to the problems to fix the issues as q
 Observability solutions are designed to contextualize the issues, associate infrastructure components with application components, understand the integration of all services, and detect anomalies in normal behavior, allowing the teams to work proactively.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/reactive_vs_proactive.webp" alt="Reactive approach versus Proactive approach"/>
+    <img src="/img/blog/2023/02/reactive_vs_proactive.webp" alt="Reactive approach versus Proactive approach"/>
     <figcaption><i>Reactive approach versus Proactive approach</i></figcaption>
 </figure>
 
@@ -107,7 +107,7 @@ Monitoring cannot get all information to cover the full-stack monitoring; the so
 Observability can associate application and infrastructure automatically, allowing us to know if a problem on the infrastructure is impacting the application layer and vice versa, providing a more informed way of doing the root cause analysis.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/component_monitoring_vs_full_stack_monitoring.webp" alt="Component monitoring vs Full-stack monitoring"/>
+    <img src="/img/blog/2023/02/component_monitoring_vs_full_stack_monitoring.webp" alt="Component monitoring vs Full-stack monitoring"/>
     <figcaption><i>Component monitoring vs Full-stack monitoring</i></figcaption>
 </figure>
 
@@ -117,7 +117,7 @@ Observability can associate application and infrastructure automatically, allowi
 Imagine you need to monitor a web application that sells books. As shown in the image below, the user will start the interaction by finding a book, adding the book to the cart, proceeding with the checkout, and finishing the payment.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/web_application.webp" alt="A web application architecture that sells books"/>
+    <img src="/img/blog/2023/02/web_application.webp" alt="A web application architecture that sells books"/>
     <figcaption><i>A web application architecture that sells books</i></figcaption>
 </figure>
 
@@ -137,7 +137,7 @@ Observability solutions can provide a way to see which service is causing the de
 The image below represents a trace; Observability solutions can measure span by span, trace by trace, and the performance of each one. We can evaluate them using tools like [SigNoz](https://signoz.io/docs/instrumentation/overview/) and analyze deeply what is happening.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/web_application_traces.webp" alt="Traces can correlate the entire transaction as it traverses the entire software system"/>
+    <img src="/img/blog/2023/02/web_application_traces.webp" alt="Traces can correlate the entire transaction as it traverses the entire software system"/>
     <figcaption><i>Traces can correlate the entire transaction as it traverses the entire software system</i></figcaption>
 </figure>
 
@@ -159,7 +159,7 @@ SigNoz is a full-stack [open source observability platform](https://signoz.io/bl
 It also provides an intelligent correlation between these telemetry signals.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/02/metrics_to_traces.webp" alt="You can switch from metrics to traces easily"/>
+    <img src="/img/blog/2023/02/metrics_to_traces.webp" alt="You can switch from metrics to traces easily"/>
     <figcaption><i>At points of high application latency, as shown by application metrics, you can hump into traces to investigate further</i></figcaption>
 </figure>
 

@@ -13,7 +13,7 @@ LlamaIndex has become a popular choice for building Retrieval-Augmented Generati
 That’s why observability is essential. By instrumenting your LlamaIndex-based RAG app with OpenTelemetry and sending the telemetry data to SigNoz, you can track retrieval and generation performance, pinpoint bottlenecks, catch errors early, and gain actionable insights into how your app behaves in production with minimal setup.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/llamaindex-cover.webp" />
+    <img src="/img/blog/2025/09/llamaindex-cover.webp" />
 </figure>
 
 ## Why Observability Matters for LlamaIndex RAG Apps
@@ -45,7 +45,7 @@ Under the hood, the app uses LlamaIndex to structure and query the ingested docu
 To make it more interactive, the chatbot also lets users give feedback on the retrieved answer, whether it was helpful or not. This feedback loop can be logged and analysed in SigNoz, helping identify where the retrieval or generation steps might need improvement.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/chatbot.webp" alt="Chatbot App Image"/>
+    <img src="/img/blog/2025/09/chatbot.webp" alt="Chatbot App Image"/>
     <figcaption><i>Chatbot App Interactions</i></figcaption>
 </figure>
 
@@ -127,14 +127,14 @@ Your LlamaIndex commands should now automatically emit traces, spans, and attrib
 Finally, you should be able to view this data in Signoz Cloud under the traces tab:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/llamaindex-trace-view.webp" alt="Trace View"/>
+    <img src="/img/blog/2025/09/llamaindex-trace-view.webp" alt="Trace View"/>
     <figcaption><i>Trace View in SigNoz</i></figcaption>
 </figure>
 
 When you click on a [trace ID](https://signoz.io/comparisons/opentelemetry-trace-id-vs-span-id/) in SigNoz, you'll see a detailed view of the trace, including all associated spans, along with their events and attributes.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/llamaindex-detailed-trace-view.webp" alt="Trace Detailed View"/>
+    <img src="/img/blog/2025/09/llamaindex-detailed-trace-view.webp" alt="Trace Detailed View"/>
     <figcaption><i>Detailed Trace View in SigNoz</i></figcaption>
 </figure>
 
@@ -213,7 +213,7 @@ After being emitted, we can see these log details in SigNoz:
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/embed-log.webp" alt="Embedding Log"/>
+    <img src="/img/blog/2025/09/embed-log.webp" alt="Embedding Log"/>
     <figcaption><i>Log View of Embeddings</i></figcaption>
 </figure>
 
@@ -231,7 +231,7 @@ logger.info(
 These are what the log details would look like:
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/query-log.webp" alt="Query Log"/>
+    <img src="/img/blog/2025/09/query-log.webp" alt="Query Log"/>
     <figcaption><i>Log View of Query</i></figcaption>
 </figure>
 
@@ -250,7 +250,7 @@ And it would look like this:
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/feedback-log.webp" alt="Feedback Log"/>
+    <img src="/img/blog/2025/09/feedback-log.webp" alt="Feedback Log"/>
     <figcaption><i>Log View of User Feedback</i></figcaption>
 </figure>
 
@@ -263,7 +263,7 @@ Once telemetry is enabled in our LlamaIndex RAG app, we start seeing detailed tr
 Shows how long it took to split ingested documents into individual sentences or chunks before embedding. This is useful for spotting preprocessing bottlenecks, especially with large documentation sets.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/splitting-trace.webp" alt="Splitting Trace"/>
+    <img src="/img/blog/2025/09/splitting-trace.webp" alt="Splitting Trace"/>
     <figcaption><i>Trace View of Splitting process</i></figcaption>
 </figure>
 
@@ -274,7 +274,7 @@ The trace view shows the `SentenceSplitter.__call__` operation handling document
 Captures the duration of embedding operations when converting text chunks into vector representations. Long times here could point to slow API responses or oversized batch processing.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/embedding-trace.webp" alt="Embedding Trace"/>
+    <img src="/img/blog/2025/09/embedding-trace.webp" alt="Embedding Trace"/>
     <figcaption><i>Trace View of Embedding process</i></figcaption>
 </figure>
 
@@ -285,7 +285,7 @@ This trace highlights the `OpenAIEmbedding.get_text_embedding_batch` operation, 
 Represents the retrieval phase, where the app queries the vector store to find the top‑k relevant documents. Tracking this helps identify if slow lookups are hurting your RAG latency.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/query-trace.webp" alt="Query Trace"/>
+    <img src="/img/blog/2025/09/query-trace.webp" alt="Query Trace"/>
     <figcaption><i>Trace View of Querying process</i></figcaption>
 </figure>
 
@@ -309,7 +309,7 @@ Here are some of the most insightful panels we built using the traces from our i
 This panel shows how long it takes to process and ingest documents into the system. Spikes in this graph may indicate larger document batches being processed or slower preprocessing steps such as chunking and embedding.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/docs-ingestion.webp" alt="Docs Ingestion"/>
+    <img src="/img/blog/2025/09/docs-ingestion.webp" alt="Docs Ingestion"/>
     <figcaption><i>Docs Ingestion Duration Panel</i></figcaption>
 </figure>
 
@@ -319,7 +319,7 @@ This panel displays the total time taken to answer user queries. Monitoring this
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/query-duration.webp" alt="Query Duration"/>
+    <img src="/img/blog/2025/09/query-duration.webp" alt="Query Duration"/>
     <figcaption><i>Query Duration Panel</i></figcaption>
 </figure>
 
@@ -328,7 +328,7 @@ This panel displays the total time taken to answer user queries. Monitoring this
 This panel visualizes which large language models are being used most often in the application. This is useful for understanding usage patterns and evaluating the trade‑offs between cost and performance for different models.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/llm-distribution.webp" alt="LLM Distribution"/>
+    <img src="/img/blog/2025/09/llm-distribution.webp" alt="LLM Distribution"/>
     <figcaption><i>LLM Model Distribution Panel</i></figcaption>
 </figure>
 
@@ -338,7 +338,7 @@ This panel breaks down the embedding models used during vector generation. Track
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/embedding-distribution.webp" alt="Embedding Duration"/>
+    <img src="/img/blog/2025/09/embedding-distribution.webp" alt="Embedding Duration"/>
     <figcaption><i>Embedding Model Distribution Panel</i></figcaption>
 </figure>
 
@@ -347,7 +347,7 @@ This panel breaks down the embedding models used during vector generation. Track
 This panel counts the total number of text chunks created during document ingestion. A sudden increase here could indicate larger ingests or a change in your chunking strategy.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/chunks-processed.webp" alt="Chunks Processed"/>
+    <img src="/img/blog/2025/09/chunks-processed.webp" alt="Chunks Processed"/>
     <figcaption><i># of Chunks Embedded Panel</i></figcaption>
 </figure>
 
@@ -356,7 +356,7 @@ This panel counts the total number of text chunks created during document ingest
 This panel shows the relevance of retrieved documents to the user’s query, based on vector similarity scores. By tracking the top‑1 and top‑2 scores over time, you can spot changes in retrieval accuracy and tune your pipeline accordingly.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/similarity-scores.webp" alt="Similarity Scores"/>
+    <img src="/img/blog/2025/09/similarity-scores.webp" alt="Similarity Scores"/>
     <figcaption><i>Average 1st and 2nd Rank Document Similarity Scores Panel</i></figcaption>
 </figure>
 
@@ -365,7 +365,7 @@ This panel shows the relevance of retrieved documents to the user’s query, bas
 This panel indicates the configured number of documents fetched for each query. Adjusting this number can have a direct impact on both retrieval quality and overall query latency.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/k-documents.webp" alt="K-Documents"/>
+    <img src="/img/blog/2025/09/k-documents.webp" alt="K-Documents"/>
     <figcaption><i>K Most Relevant Documents Panel</i></figcaption>
 </figure>
 
@@ -374,7 +374,7 @@ This panel indicates the configured number of documents fetched for each query. 
 This panel shows how users are rating the chatbot’s responses, broken down into positive (“up”) and negative (“down”) feedback. Monitoring this helps identify trends in answer quality and provides a direct signal for improving retrieval or generation steps.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/feedback-distribution.webp" alt="Feedback Distribution"/>
+    <img src="/img/blog/2025/09/feedback-distribution.webp" alt="Feedback Distribution"/>
     <figcaption><i>User Feedback Distribution Panel</i></figcaption>
 </figure>
 
@@ -383,7 +383,7 @@ This panel shows how users are rating the chatbot’s responses, broken down int
 This panel tracks the total number of user queries over a given time frame. This gives you visibility into traffic patterns, peak usage times, and how query volume might correlate with performance changes.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/query-period.webp" alt="Queries during Period"/>
+    <img src="/img/blog/2025/09/query-period.webp" alt="Queries during Period"/>
     <figcaption><i>Query Count Time Period Panel</i></figcaption>
 </figure>
 
@@ -392,7 +392,7 @@ This panel tracks the total number of user queries over a given time frame. This
 This panel displays the number of input and output tokens processed by the LLM. Input tokens represent the size of the prompt (including retrieved context), while output tokens reflect the length of the generated response. Tracking both helps with cost estimation, model performance analysis, and prompt optimization.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2025/09/token-usage.webp" alt="Token Usage"/>
+    <img src="/img/blog/2025/09/token-usage.webp" alt="Token Usage"/>
     <figcaption><i>Total Token Usage Panel</i></figcaption>
 </figure>
 

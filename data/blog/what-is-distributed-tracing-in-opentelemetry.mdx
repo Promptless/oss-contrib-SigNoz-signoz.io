@@ -39,7 +39,7 @@ As you break your single monolithic application into smaller sets of services, t
 However, in a microservice architecture, you could end up with 50-100 services, each with its logging file and separate process, with multiple instances running and distributed across multiple environments and locations. Imagine the pain of trying to understand or track a request in such a complex web of dynamic components. These requests are nearly impossible to track with traditional techniques designed for a single service application.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/01/netflix-microservices-traffic-flow-768x466.webp" alt="Netflix Microservices call tree/hierarchy"/>
+    <img src="/img/blog/2023/01/netflix-microservices-traffic-flow-768x466.webp" alt="Netflix Microservices call tree/hierarchy"/>
     <figcaption><i>Netflix Microservices call tree/hierarchy</i></figcaption>
 </figure>
 
@@ -83,7 +83,7 @@ It encompasses **instrumenting** the system under observation and sending **tele
 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/01/typical_components_tracing_solution.webp" alt="Typical Components of a Tracing tool/solution"/>
+    <img src="/img/blog/2023/01/typical_components_tracing_solution.webp" alt="Typical Components of a Tracing tool/solution"/>
     <figcaption><i>Typical Components of a Tracing tool/solution</i></figcaption>
 </figure>
                                                                                     
@@ -100,7 +100,7 @@ It has the following high-level components, i.e., **instrumentation libraries(ag
 For example, **Zipkin** and **[Jaeger](https://signoz.io/blog/distributed-tracing-jaeger/)** also have similar architecture.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/01/jaeger_zipkin_architecture.webp" alt="Zipkin and Jaeger Architecture"/>
+    <img src="/img/blog/2023/01/jaeger_zipkin_architecture.webp" alt="Zipkin and Jaeger Architecture"/>
     <figcaption><i>Simplified view of Zipkin and Jaeger Architecture</i></figcaption>
 </figure>
 
@@ -118,7 +118,7 @@ Existing solutions have following problems:
 - Overall, the architecture tightly couples the Telemetry collection and Telemetry Storage aspects of the solution.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2023/01/interoperability_tracing_tools.webp" alt="Different tracing solutions are not interoperable"/>
+    <img src="/img/blog/2023/01/interoperability_tracing_tools.webp" alt="Different tracing solutions are not interoperable"/>
     <figcaption><i>A view of how different tracing solution are not interoperable and tightly coupled.</i></figcaption>
 </figure>
 

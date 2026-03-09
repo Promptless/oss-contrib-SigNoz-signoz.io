@@ -27,7 +27,7 @@ In a microservice architecture, you can use Jaeger to track transactions across 
 In the world of microservices, a user request travels through hundreds of services before serving a user what they need. To make a business scalable, engineering teams are responsible for particular services with no insight into how the system performs as a whole. And that's where distributed tracing comes into the picture.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2021/09/jaeger_vs_zipkin_microservices_architecture.webp" alt="Microservices architecture"/>
+    <img src="/img/blog/2021/09/jaeger_vs_zipkin_microservices_architecture.webp" alt="Microservices architecture"/>
     <figcaption><i>Microservice architecture of a fictional e-commerce application</i></figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ A collection of spans from a single user request forms a trace.
 A **trace context** is passed along when requests travel between services, which tracks a user request across services. Thus, you can see how a user request performs across services and identify what exactly needs your attention without manually shifting through multiple dashboards.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2021/09/opentelemetry_distributed_tracing-min.webp" alt="Trace context"/>
+    <img src="/img/blog/2021/09/opentelemetry_distributed_tracing-min.webp" alt="Trace context"/>
     <figcaption><i>A trace context is passed when user requests pass from one service to another</i></figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ The four key components of a distributed tracing tool are:
 - Web UI/Visualization
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2021/09/Jaeger_architecture-min.webp" alt="Jaeger architecture"/>
+    <img src="/img/blog/2021/09/Jaeger_architecture-min.webp" alt="Jaeger architecture"/>
     <figcaption><i>Jaeger architecture (Source: Jaeger Website)</i></figcaption>
 </figure>
 
@@ -113,7 +113,7 @@ Jaeger's UI is basic but comprehensive when it comes to distributed tracing.
 The sample HotRod application is a demo ride-sharing application. It shows four locations and by clicking on a location you call a ride to that location.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2021/09/hotrod_application_ui-min.webp" alt="HotRod application webUI"/>
+    <img src="/img/blog/2021/09/hotrod_application_ui-min.webp" alt="HotRod application webUI"/>
     <figcaption><i>HotRod application webUI</i></figcaption>
 </figure>
 
@@ -122,7 +122,7 @@ The sample HotRod application is a demo ride-sharing application. It shows four 
 The sample HotRod application is a demo ride-sharing application. It shows four locations, and by clicking on a location, you call a ride to that location.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2021/09/hotrod_app_customer_call-min.webp" alt="Backend responses"/>
+    <img src="/img/blog/2021/09/hotrod_app_customer_call-min.webp" alt="Backend responses"/>
     <figcaption><i>When you click a customer button, the backend responds with a license plate number and ETA</i></figcaption>
 </figure>
 
@@ -156,7 +156,7 @@ Steps to run HotRod application with Jaeger:
    You will be able to access the app UI at http://127.0.0.1:8080/ 
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2022/09/jaeger_distributed_tracing.webp" alt="HOTrod application UI"/>
+    <img src="/img/blog/2022/09/jaeger_distributed_tracing.webp" alt="HOTrod application UI"/>
     <figcaption><i>Sample hotrod application</i></figcaption>
 </figure>
 
@@ -165,7 +165,7 @@ Steps to run HotRod application with Jaeger:
 To see traces on Jaeger, we need to generate some load. Click on different locations a number of times. When you access the Jaeger UI now, you can find the list of services along with its trace captured on Jaeger.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2021/09/distributed_tracing_jaeger_reporting-min.webp" alt="Jaeger UI"/>
+    <img src="/img/blog/2021/09/distributed_tracing_jaeger_reporting-min.webp" alt="Jaeger UI"/>
     <figcaption><i>List of services of HotRod application reported on Jaeger dashboard</i></figcaption>
 </figure>
 
@@ -174,7 +174,7 @@ To see traces on Jaeger, we need to generate some load. Click on different locat
 Jaeger also creates a dependency diagram by tracing how requests flow and shows it in the dashboard. From the dependency diagram, we can see that the HotRod application has four microservices and two databases.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/2021/09/jaeger_dependency_graph-min.webp" alt="Jaeger dependency graph"/>
+    <img src="/img/blog/2021/09/jaeger_dependency_graph-min.webp" alt="Jaeger dependency graph"/>
     <figcaption><i>Jaeger shows a dependency diagram mapping your services</i></figcaption>
 </figure>
 
@@ -203,7 +203,7 @@ But SigNoz provides much more than distributed tracing. It also comes with appli
 {/* <!-- SigNoz also provides users flexibility in terms of data storage.You can choose between ClickHouse or Kafka + Druid as your backend storage while installing SigNoz. Both are industry-proven and highly scalable databases. --> */}
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/architecture-signoz-clickhouse.svg" alt="Architecture of SigNoz with OpenTelemetry and ClickHouse"/>
+    <img src="/img/architecture-signoz-clickhouse.svg" alt="Architecture of SigNoz with OpenTelemetry and ClickHouse"/>
     <figcaption><i>Architecture of SigNoz with ClickHouse as storage backend and OpenTelemetry for code instrumentatiion</i></figcaption>
 </figure>
 
@@ -212,7 +212,7 @@ But SigNoz provides much more than distributed tracing. It also comes with appli
 SigNoz comes with out of box visualization of things like RED metrics.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_charts_application_metrics.webp" alt="SigNoz UI showing the popular RED metrics"/>
+    <img src="/img/blog/common/signoz_charts_application_metrics.webp" alt="SigNoz UI showing the popular RED metrics"/>
     <figcaption><i>SigNoz UI showing application overview metrics like RPS, 50th/90th/99th Percentile latencies, and Error Rate</i></figcaption>
 </figure>
 
@@ -221,7 +221,7 @@ SigNoz comes with out of box visualization of things like RED metrics.
 You can also use flamegraphs to visualize spans from your trace data. All of this comes out of the box with SigNoz.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_flamegraphs.webp" alt="Flamegraphs used to visualize spans of distributed tracing in SigNoz UI"/>
+    <img src="/img/blog/common/signoz_flamegraphs.webp" alt="Flamegraphs used to visualize spans of distributed tracing in SigNoz UI"/>
     <figcaption><i>Flamegraphs showing exact duration taken by each spans - a concept of distributed tracing</i></figcaption>
 </figure>
 
@@ -230,7 +230,7 @@ You can also use flamegraphs to visualize spans from your trace data. All of thi
 SigNoz also provides Logs management. Using OpenTelemetry, you can correlated your logs to metrics and traces. Intelligently correlating your telemetry signals can help developers to debug performance issues quickly.
 
 <figure data-zoomable align='center'>
-    <OptimizedImg src="/img/blog/common/signoz_logs.webp" alt="Logs management in SigNoz"/>
+    <img src="/img/blog/common/signoz_logs.webp" alt="Logs management in SigNoz"/>
     <figcaption><i>Logs management in SigNoz</i></figcaption>
 </figure>
 
