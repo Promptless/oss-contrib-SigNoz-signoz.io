@@ -61,6 +61,15 @@ const Image = ({
     )
   }
 
+  const nextImageOnlyProps = {
+    quality,
+    placeholder,
+    blurDataURL,
+    loader,
+    unoptimized,
+    overrideSrc,
+  }
+
   return (
     <Zoom zoomImg={zoomImgSrc ? { src: zoomImgSrc } : undefined}>
       {useFill ? (
@@ -72,6 +81,7 @@ const Image = ({
           priority={priority}
           loading={priority ? undefined : 'lazy'}
           className={className}
+          {...nextImageOnlyProps}
           {...rest}
         />
       ) : (
@@ -84,6 +94,7 @@ const Image = ({
           priority={priority}
           loading={priority ? undefined : 'lazy'}
           className={className}
+          {...nextImageOnlyProps}
           {...rest}
         />
       )}
