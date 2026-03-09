@@ -38,7 +38,7 @@ Here are the top 11 open-source APM tools in 2026.
 Unlike fragmented stacks that require managing separate components for each signal (e.g., Prometheus for metrics, Jaeger for traces, ELK for logs), SigNoz stores everything in a single, efficient columnar store. This architecture simplifies operations and enables powerful correlation between signals.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/common/signoz_charts_application_metrics.webp" alt="SigNoz UI showing application overview metrics like RPS, 50th/90th/99th Percentile latencies, and Error Rate"/>
+<OptimizedImg src="/img/blog/common/signoz_charts_application_metrics.webp" alt="SigNoz UI showing application overview metrics like RPS, 50th/90th/99th Percentile latencies, and Error Rate" width="724" height="360" />
 <figcaption><i>SigNoz UI showing application overview metrics like RPS, 50th/90th/99th Percentile latencies, and Error Rate</i></figcaption>
 </figure>
 
@@ -62,7 +62,7 @@ Based on your use case, you can choose between  different deployment options. Yo
 
 Grafana is an open-source data visualization tool that offers the LGTM stack (Loki, Grafana, Tempo, Mimir) for APM and observability. Loki handles logs, Tempo manages traces, and Mimir stores metrics, while Grafana visualizes data from these sources.
 
-<Figure src="/img/blog/2025/06/open-source-apm-tools-new-relic-vs-grafana-app-observability.webp" alt="Application observability in Grafana" caption="Application observability in Grafana" />
+<Figure src="/img/blog/2025/06/open-source-apm-tools-new-relic-vs-grafana-app-observability.webp" alt="Application observability in Grafana" caption="Application observability in Grafana" width="724" height="500" />
 
 The platform is built on separate components for each signal, integrated via the Grafana interface. It supports a wide range of data sources and has a large plugin ecosystem. However, managing the individual components of the LGTM stack can be operationally complex compared to unified backends.
 
@@ -74,7 +74,7 @@ You can check out Grafana <a href="https://grafana.com/" rel="noopener noreferre
 
 Jaeger is a distributed tracing system originally built by Uber. It is designed to monitor and troubleshoot transactions in complex distributed systems. It supports OpenTelemetry and provides features like distributed context propagation, distributed transaction monitoring, and latency analysis.
 
-<Figure src="/img/blog/2025/06/open-source-apm-tools-image%201.webp" alt="Jaeger UI" caption="Jaeger UI" /> 
+<Figure src="/img/blog/2025/06/open-source-apm-tools-image%201.webp" alt="Jaeger UI" caption="Jaeger UI" width="724" height="386" /> 
 
 Jaeger focuses specifically on the tracing aspect of APM. While it excels at visualizing call flows and identifying bottlenecks in microservices, it typically requires integration with other tools like Prometheus and Grafana to provide a complete observability picture with metrics and logs.
 
