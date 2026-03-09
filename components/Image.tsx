@@ -27,6 +27,12 @@ const Image = ({
   src,
   alt = '',
   className,
+  quality,
+  placeholder,
+  blurDataURL,
+  loader,
+  unoptimized,
+  overrideSrc,
   ...rest
 }: ImagePropsWithZoom) => {
   const useFill = Boolean(fill)

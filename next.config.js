@@ -1,4 +1,5 @@
 const { withContentlayer } = require('next-contentlayer2')
+const { getAllowedImageDomains } = require('./constants/allowedImageDomains')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -76,17 +77,10 @@ module.exports = () => {
     images: {
       deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920, 2048, 3840],
       imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-      remotePatterns: [
-        { protocol: 'https', hostname: 'picsum.photos' },
-        { protocol: 'https', hostname: 'signoz.io' },
-        { protocol: 'https', hostname: 'avatars.githubusercontent.com' },
-        { protocol: 'https', hostname: 'storage.googleapis.com' },
-        ...(process.env.NEXT_PUBLIC_ALLOWED_EXTERNAL_IMAGE_DOMAINS || '')
-          .split(',')
-          .map((d) => d.trim())
-          .filter(Boolean)
-          .map((hostname) => ({ protocol: 'https', hostname })),
-      ],
+      remotePatterns: getAllowedImageDomains().map((hostname) => ({
+        protocol: 'https',
+        hostname,
+      })),
     },
     async headers() {
       return [

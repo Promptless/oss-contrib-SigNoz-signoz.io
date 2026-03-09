@@ -40,13 +40,13 @@ export default function OptimizedImg({
   if (!shouldUseNextImage(src)) {
     return (
       <img
+        {...rest}
         src={src}
         alt={alt}
         width={w}
         height={h}
         className={className ?? undefined}
         loading={isPriority ? undefined : 'lazy'}
-        {...rest}
       />
     )
   }
