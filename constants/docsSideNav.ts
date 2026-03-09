@@ -2655,6 +2655,11 @@ const docsSideNav = [
         type: 'doc',
       },
       {
+        route: '/docs/claude-agent-monitoring',
+        label: 'Claude Agent SDK',
+        type: 'doc',
+      },
+      {
         route: '/docs/codex-monitoring',
         label: 'Codex (OpenAI)',
         type: 'doc',
