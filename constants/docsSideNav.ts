@@ -1071,6 +1071,19 @@ const docsSideNav = [
             ],
           },
           {
+            type: 'category',
+            isExpanded: false,
+            label: 'Deno',
+            route: '/docs/instrumentation/opentelemetry-deno',
+            items: [
+              {
+                type: 'doc',
+                label: 'Manual Instrumentation',
+                route: '/docs/instrumentation/manual-instrumentation/deno/manual-instrumentation',
+              },
+            ],
+          },
+          {
             type: 'doc',
             label: 'Elixir',
             route: '/docs/instrumentation/opentelemetry-elixir',
@@ -1335,6 +1348,11 @@ const docsSideNav = [
                 type: 'doc',
                 route: '/docs/logs-management/send-logs/zap-to-signoz',
                 label: 'Zap',
+              },
+              {
+                type: 'doc',
+                route: '/docs/instrumentation/opentelemetry-deno',
+                label: 'Deno',
               },
             ],
           },
@@ -1661,6 +1679,11 @@ const docsSideNav = [
                 type: 'doc',
                 route: '/docs/metrics-management/send-metrics/applications/opentelemetry-ruby',
                 label: 'Ruby',
+              },
+              {
+                type: 'doc',
+                route: '/docs/instrumentation/opentelemetry-deno',
+                label: 'Deno',
               },
             ],
           },
