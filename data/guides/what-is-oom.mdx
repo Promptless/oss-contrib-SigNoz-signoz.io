@@ -42,6 +42,7 @@ When the limit is hit, the kernel sends a `SIGKILL` (Signal 9) to the process wi
   alt="OS kills the process with the highest OOM score (usually the biggest memory hog)."
   caption="OS kills the process with the highest OOM score (usually the biggest memory hog)"
   width="724" height="400"
+  priority
 />
 
 You have a linux server running a database (like PostgreSQL), and a backup script starts running at the same time. The physical RAM fills up completely. The OS kernel steps in to save the system.
