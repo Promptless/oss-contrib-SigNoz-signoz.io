@@ -254,21 +254,23 @@ function Footer() {
                   </Link>
                 </div>
                 <div className="mt-5 flex flex-row gap-8">
-                  <img
+                  <Image
                     className="cursor-pointer opacity-60 hover:opacity-100"
                     src="/svgs/icons/hipaa.svg"
                     width={90}
                     height={90}
-                    alt=""
+                    alt="HIPAA"
                     onClick={() => window.open('https://trust.signoz.io/', '_blank')}
+                    loading="lazy"
                   />
-                  <img
+                  <Image
                     className="cursor-pointer rounded-full opacity-60 shadow-[0px_0_40px_0_rgba(255,255,255,0.27)] transition-opacity hover:opacity-100"
                     src="/svgs/icons/SOC-2.svg"
                     width={60}
                     height={60}
-                    alt=""
+                    alt="SOC2"
                     onClick={() => window.open('https://trust.signoz.io/', '_blank')}
+                    loading="lazy"
                   />
                 </div>
               </div>
