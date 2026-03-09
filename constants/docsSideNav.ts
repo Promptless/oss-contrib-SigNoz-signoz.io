@@ -2023,6 +2023,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/claude-agent-sdk-dashboard',
+            label: 'Claude Agent SDK',
+          },
+          {
+            type: 'doc',
             route: '/docs/dashboards/dashboard-templates/codex-dashboard',
             label: 'Codex (OpenAI)',
           },
