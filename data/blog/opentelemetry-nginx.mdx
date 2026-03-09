@@ -190,7 +190,7 @@ You should now see OpenTelemetry data being collected from your Nginx server!
 The architecture of the setup used for the tutorial is given below.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/02/architecture_nginx_backend_signoz.webp" alt="Architecture of the setup consisting of nginx, backend and SigNoz"/>
+<OptimizedImg src="/img/blog/2023/02/architecture_nginx_backend_signoz.webp" alt="Architecture of the setup consisting of nginx, backend and SigNoz"/>
 <figcaption><i>Architecture of the setup consisting of nginx, backend and SigNoz</i></figcaption>
 </figure>
 
@@ -350,7 +350,7 @@ k3s                     Running           10.117.145.50    Ubuntu 22.04 LTS
 Since we are using Traefik and ingresses for the distinction on the cluster we will expose signoz.local as the entry point for the SigNoz frontend.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/02/nginx_go_services.webp" alt="nginx and go backend in the list of applications monitored on SigNoz"/>
+<OptimizedImg src="/img/blog/2023/02/nginx_go_services.webp" alt="nginx and go backend in the list of applications monitored on SigNoz"/>
 <figcaption><i>nginx and go backend in the list of applications monitored on SigNoz</i></figcaption>
 </figure>
 
@@ -376,7 +376,7 @@ Entry doesn't exists.
 Let's inspect the traces on the SigNoz UI.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/02/nginx_traces.webp" alt="Traces on SigNoz dashboard"/>
+<OptimizedImg src="/img/blog/2023/02/nginx_traces.webp" alt="Traces on SigNoz dashboard"/>
 <figcaption><i>Traces on the SigNoz dashboard shows requests traveling through nginx to the backend application.</i></figcaption>
 </figure>
 
@@ -385,14 +385,14 @@ As can be seen in the picture, the requests are traveling through the nginx to t
 It returns the 500 error since the API returns 500 for nonexistent entries.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/02/nginx_500_traces.webp" alt="spans with http status codes in attributes"/>
+<OptimizedImg src="/img/blog/2023/02/nginx_500_traces.webp" alt="spans with http status codes in attributes"/>
 <figcaption><i>http_status_code is 500 in case of non-existent entries</i></figcaption>
 </figure>
 
 If we’re hitting the right endpoint, the `http_status_code` shows 200.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/02/nginx_200_traces.webp" alt="spans with http status codes in attributes"/>
+<OptimizedImg src="/img/blog/2023/02/nginx_200_traces.webp" alt="spans with http status codes in attributes"/>
 <figcaption><i>http_status_code is 200 in case of hitting the right endpoint</i></figcaption>
 </figure>
 

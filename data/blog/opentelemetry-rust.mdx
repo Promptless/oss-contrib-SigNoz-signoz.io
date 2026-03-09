@@ -13,7 +13,7 @@ keywords: [opentelemetry,rust,opentelemetry rust,apm tools,application performan
 OpenTelemetry can be used to trace Rust applications for performance issues and bugs. OpenTelemetry is an open-source project under the Cloud Native Computing Foundation ([**CNCF**](https://www.cncf.io/)) that aims to standardize the generation and collection of telemetry data. Telemetry data includes logs, metrics, and traces.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2024/12/opentelemetry-rust-cover.webp" alt="Monitor your Rust applications with SigNoz"/>
+    <OptimizedImg src="/img/blog/2024/12/opentelemetry-rust-cover.webp" alt="Monitor your Rust applications with SigNoz"/>
 </figure>
 
 Rust is a multi-paradigm, general-purpose programming language designed for performance and safety, especially safe concurrency. In this tutorial, we will demonstrate how to use the OpenTelemetry to generate end-to-end tracing.
@@ -27,7 +27,7 @@ Before we demonstrate how to implement the OpenTelemetry libraries, let’s have
 The telemetry data is then sent to an observability tool for storage and visualization.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/09/opentelemetry_architecture.webp" alt="OpenTelemetry libraries"/>
+<OptimizedImg src="/img/blog/2022/09/opentelemetry_architecture.webp" alt="OpenTelemetry libraries"/>
 <figcaption><i>OpenTelemetry libraries instrument application code to generate telemetry data that is then sent to an observability tool for storage & visualization</i></figcaption>
 </figure>
 
@@ -261,7 +261,7 @@ cargo run
 Open [localhost:1337](http://localhost:1337) in your browser and you should see your application running.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2024/12/rust-app-running.webp" alt="Rust app running"/>
+<OptimizedImg src="/img/blog/2024/12/rust-app-running.webp" alt="Rust app running"/>
 <figcaption><i>Rust app running</i></figcaption>
 </figure>
 
@@ -283,14 +283,14 @@ After instrumenting your Rust application with OpenTelemetry, you can access the
 Under the `Services` tab, you will find your sample Rust application in the list of applications being monitored by SigNoz.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2024/12/services-tab-rust.webp" alt="Rust application being monitored on the SigNoz dashboard"/>
+<OptimizedImg src="/img/blog/2024/12/services-tab-rust.webp" alt="Rust application being monitored on the SigNoz dashboard"/>
 <figcaption><i>Rust application being monitored on the SigNoz dashboard</i></figcaption>
 </figure>
 
 Navigate to the **`Traces`** tab in SigNoz and select your **`rust-app`** from the list of services to view trace data. Tracing data can help you visualize how user requests perform across services in a multi-service application. You can use various filters such as tags, status codes, service names, and operations to drill down into specific aspects of your application's tracing data.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2024/12/traces-tab-rust.webp" alt="Use filters to analyze the tracing data of your Rust application"/>
+<OptimizedImg src="/img/blog/2024/12/traces-tab-rust.webp" alt="Use filters to analyze the tracing data of your Rust application"/>
 <figcaption><i>Use filters to analyze the tracing data of your Rust application</i></figcaption>
 </figure>
 
@@ -299,7 +299,7 @@ Additionally, SigNoz provides Flamegraphs and Gantt charts for a detailed breakd
 By clicking on any [span](https://signoz.io/blog/distributed-tracing-span/) in the **`Spans`** table, you can dive deeper into the trace details and get a clearer view of your application's performance across different operations and services.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2024/12/flamegraphs-rust.webp" alt="Flamegraphs for detailed trace analysis"/>
+<OptimizedImg src="/img/blog/2024/12/flamegraphs-rust.webp" alt="Flamegraphs for detailed trace analysis"/>
 <figcaption><i>You can see the complete breakdown of your requests with details like how much time each operation took, span attributes, etc</i></figcaption>
 </figure>
 

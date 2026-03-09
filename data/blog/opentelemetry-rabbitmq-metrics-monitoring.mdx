@@ -160,7 +160,7 @@ rabbitmq-plugins enable rabbitmq_management
 The OpenTelemetry Collector needs to have permission to access the RabbitMQ management plugin. You can create a dedicated user for OpenTelemetry and grant it the necessary permissions based on your requirements. To create a user for OpenTelemetry, you can use the RabbitMQ management UI at \***_`http://_{node-hostname}\*:15672/`**.\*\*
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/11/add-user-rabbitmq.webp" alt="Add a user for monitoring"/>
+    <OptimizedImg src="/img/blog/2023/11/add-user-rabbitmq.webp" alt="Add a user for monitoring"/>
     <figcaption><i>Add a user for monitoring</i></figcaption>
 </figure>
 
@@ -346,28 +346,28 @@ kill "$(< otel-pid)"
 Once the above setup is done, you will be able to access the metrics in the SigNoz dashboard. You can go to the `Dashboards` tab and try adding a new panel. You can learn how to create dashboards in SigNoz [here](https://signoz.io/docs/userguide/manage-dashboards-and-panels/).
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/11/rabbitmq-metrics-signoz.webp" alt="RabbitMQ metrics collected by OTel Collector and sent to SigNoz"/>
+    <OptimizedImg src="/img/blog/2023/11/rabbitmq-metrics-signoz.webp" alt="RabbitMQ metrics collected by OTel Collector and sent to SigNoz"/>
     <figcaption><i>RabbitMQ metrics collected by OTel Collector and sent to SigNoz</i></figcaption>
 </figure>
 
 You can easily create charts with [query builder](https://signoz.io/docs/userguide/create-a-custom-query/#sample-examples-to-create-custom-query) in SigNoz. Here are the [steps](https://signoz.io/docs/userguide/manage-panels/#steps-to-add-a-panel-to-a-dashboard) to add a new panel to the dashboard.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/11/published-message-query-chart.webp" alt="Building a chart for published messages with Query Builder in SigNoz"/>
+    <OptimizedImg src="/img/blog/2023/11/published-message-query-chart.webp" alt="Building a chart for published messages with Query Builder in SigNoz"/>
     <figcaption><i>Building a chart for published messages with Query Builder in SigNoz</i></figcaption>
 </figure>
 
 You can write queries to create charts on the RabbitMQ metrics data and add it to a dashboard.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/11/rabbitmq-dashboard-signoz.webp" alt="RabbitMQ dashboard in SigNoz"/>
+    <OptimizedImg src="/img/blog/2023/11/rabbitmq-dashboard-signoz.webp" alt="RabbitMQ dashboard in SigNoz"/>
     <figcaption><i>RabbitMQ dashboard in SigNoz</i></figcaption>
 </figure>
 
 You can also create alerts on any metric. Learn how to create alerts [here](https://signoz.io/docs/userguide/alerts-management/).
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/11/create-alerts-signoz.webp" alt=""/>
+    <OptimizedImg src="/img/blog/2023/11/create-alerts-signoz.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 

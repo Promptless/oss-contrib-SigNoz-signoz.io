@@ -36,7 +36,7 @@ Before deep diving into OpenTelemetry logs, let's briefly overview OpenTelemetry
 OpenTelemetry provides instrumentation libraries for your application. The development of these libraries is guided by the <a href = "https://github.com/open-telemetry/opentelemetry-specification" rel="noopener noreferrer nofollow" target="_blank" >OpenTelemetry specification</a>. The OpenTelemetry specification describes the cross-language requirements and design expectations for all OpenTelemetry implementations in various programming languages.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/09/opentelemetry_architecture.webp" alt="OpenTelemetry Architecture"/>
+    <OptimizedImg src="/img/blog/2022/09/opentelemetry_architecture.webp" alt="OpenTelemetry Architecture"/>
     <figcaption><i>How OpenTelemetry fits in an application architecture. OTel is the convenient short form for OpenTelemetry</i></figcaption>
 </figure>
 
@@ -219,7 +219,7 @@ In OpenTelemetry, there are two important context IDs for context propagation.
 - **Span IDs**<br></br>
   A trace consists of multiple spans. Each span represents a single unit of logical work in the trace data. Spans have span IDs that are used to represent the parent-child relationship.
     <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/09/otel-spans.webp" alt="Traces in SigNoz"/>
+    <OptimizedImg src="/img/blog/2025/09/otel-spans.webp" alt="Traces in SigNoz"/>
     <figcaption><i>A trace graph broken down into individual spans visualized as Flamegraphs and Gantt charts in SigNoz dashboard</i></figcaption>
     </figure>
     
@@ -232,7 +232,7 @@ There are **two** ways to collect application logs:
   Here, the logs of the application are directly collected by the OpenTelemetry receiver using collectors like **filelog receiver.** Then operators and processors are used for parsing them into the OpenTelemetry log data model.
 
     <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/09/log-pipeline.webp" alt="Collecting logs via file or Stdout logs"/>
+    <OptimizedImg src="/img/blog/2025/09/log-pipeline.webp" alt="Collecting logs via file or Stdout logs"/>
     <figcaption><i>Collecting logs via file or Stdout logs</i></figcaption>
     </figure>
     
@@ -428,7 +428,7 @@ For example, you can quickly find all logs with `SeverityText = ERROR` from your
 the last hour as shown in the below screenshot.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/09/logs-query-error.webp" alt="Log Management in SigNoz"/>
+    <OptimizedImg src="/img/blog/2025/09/logs-query-error.webp" alt="Log Management in SigNoz"/>
     <figcaption><i>Logs management in SigNoz</i></figcaption>
 </figure>
 
@@ -440,7 +440,7 @@ changes as demonstrated in the below screenshot.
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/09/live-tailing.webp" alt="Live tail logging in SigNoz"/>
+    <OptimizedImg src="/img/blog/2025/09/live-tailing.webp" alt="Live tail logging in SigNoz"/>
     <figcaption><i>Live tail logging in SigNoz</i></figcaption>
 </figure>
 
@@ -456,7 +456,7 @@ In SigNoz, the `TraceId` in a log record is a clickable link. Meaning, when you 
   - Latency breakdowns for each step, helping you pinpoint the root cause.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/09/otel-log-correlation.webp" alt="Correlating Logs with Traces in SigNoz"/>
+    <OptimizedImg src="/img/blog/2025/09/otel-log-correlation.webp" alt="Correlating Logs with Traces in SigNoz"/>
     <figcaption><i>Correlating Logs with Traces in SigNoz</i></figcaption>
 </figure>
 

@@ -253,7 +253,7 @@ service:
 Replace `{region}` with the region for your SigNoz cloud account and `<SIGNOZ_INGESTION_KEY>` with the ingestion key for your account. You can find these settings in the SigNoz dashboard under `Settings > Ingestion Settings`.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/common/ingestion-key-details.webp" alt="You can find ingestion key details under settings tab of SigNoz"/>
+    <OptimizedImg src="/img/blog/common/ingestion-key-details.webp" alt="You can find ingestion key details under settings tab of SigNoz"/>
     <figcaption><i>You can find ingestion key details under settings tab of SigNoz</i></figcaption>
 </figure>
 
@@ -290,7 +290,7 @@ You should receive a similar output to show it has started successfully:
 Once the collector service has been started successfully, navigate to your SigNoz Cloud account and access the "Dashboard" tab. Click on the “New Dashboard” button to create a new dashboard.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/11/new_dashboard.webp" alt=""/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/11/new_dashboard.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -298,7 +298,7 @@ Once the collector service has been started successfully, navigate to your SigNo
 To give the dashboard a name, click on “Configure.”
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/11/dashboard_configure.webp" alt=""/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/11/dashboard_configure.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -306,7 +306,7 @@ To give the dashboard a name, click on “Configure.”
 Enter your preferred name in the "Name" input box and save the changes.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/11/dashboard_name_flask.webp" alt=""/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/11/dashboard_name_flask.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -314,7 +314,7 @@ Enter your preferred name in the "Name" input box and save the changes.
 Now, you can create various panels for your dashboard. There are three visualization options to display your data: Time Series, Value, and Table formats. Choose the format that best suits your preferences, depending on the metric you want to monitor. For the initial metric, opt for the "Time Series" visualization.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/11/dashboard_types_flask.webp" alt=""/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/11/dashboard_types_flask.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -322,7 +322,7 @@ Now, you can create various panels for your dashboard. There are three visualiza
 In the "Query Builder" tab, enter "flask," and you should see various Flask metrics. This confirms that the OpenTelemetry Collector is successfully collecting the Flask metrics and forwarding them to SigNoz for monitoring and visualization.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/11/flask_metrics.webp" alt=""/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/11/flask_metrics.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -339,7 +339,7 @@ Filter: status=200
 It should look as the below image:
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/11/flask_http_request_duration_seconds_count.webp" alt=""/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/11/flask_http_request_duration_seconds_count.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -356,7 +356,7 @@ Legend Format: {{path}}
 It should look as the below image:
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/11/histogram_quantile.webp" alt=""/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/11/histogram_quantile.webp" alt=""/>
     <figcaption><i></i></figcaption>
 </figure>
 
@@ -368,7 +368,7 @@ Click on the "Stage and Run Query" button, and then save the panel.
 You can repeat the same steps for different metrics you would like to visualize. After creating different panels for various metrics, click on the "Save Layout" button, which enables you to save the current arrangement and configuration of your panels. This ensures that your customized dashboard layout and visualizations are saved for future reference and monitoring.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/11/flask_monitoring_dashboard.webp" alt="Flask Monitoring Dashboard built in SigNoz"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/11/flask_monitoring_dashboard.webp" alt="Flask Monitoring Dashboard built in SigNoz"/>
     <figcaption><i>Flask Monitoring Dashboard built in SigNoz</i></figcaption>
 </figure>
 

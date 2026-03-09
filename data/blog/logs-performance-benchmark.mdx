@@ -89,7 +89,7 @@ All the configurations used for performing the benchmark can be found in the Sig
 SigNoz cluster architecture for the performance benchmark looks as the following:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/signoz-logs-setup.webp" alt="SigNoz setup for logs performance benchmark"/>
+    <OptimizedImg src="/img/blog/2022/12/signoz-logs-setup.webp" alt="SigNoz setup for logs performance benchmark"/>
     <figcaption><i>SigNoz setup for logs performance benchmark</i></figcaption>
 </figure>
 
@@ -105,7 +105,7 @@ For this benchmark, we used Elastic version `8.4.3` and Logstash version `8.4.3`
 Elasticsearch cluster architecture for the performance benchmark looks as the following:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/elastic-logs-setup.webp" alt="ElasticSearch setup for logs performance benchmark"/>
+    <OptimizedImg src="/img/blog/2022/12/elastic-logs-setup.webp" alt="ElasticSearch setup for logs performance benchmark"/>
     <figcaption><i>ElasticSearch setup for logs performance benchmark</i></figcaption>
 </figure>
 
@@ -119,7 +119,7 @@ For this benchmark, we used Loki version `2.6.1` and Promtail version `2.6.1`
 Loki cluster architecture for the performance benchmark looks as the following:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/loki-logs-setup.webp" alt="Loki setup for logs performance benchmark"/>
+    <OptimizedImg src="/img/blog/2022/12/loki-logs-setup.webp" alt="Loki setup for logs performance benchmark"/>
     <figcaption><i>Loki setup for logs performance benchmark</i></figcaption>
 </figure>
 
@@ -143,19 +143,19 @@ Now let's go through each of them individually.
 ### Number of logs ingested per second
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/signoz-logs-insertion-speed.webp" alt="SigNoz insertion speed(count/sec)"/>
+    <OptimizedImg src="/img/blog/2022/12/signoz-logs-insertion-speed.webp" alt="SigNoz insertion speed(count/sec)"/>
     <figcaption><i>SigNoz insertion speed(count/sec)</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/elk-indexing-rate.webp" alt="ElasticSearch indexing rate. (count/sec)"/>
+    <OptimizedImg src="/img/blog/2022/12/elk-indexing-rate.webp" alt="ElasticSearch indexing rate. (count/sec)"/>
     <figcaption><i>ElasticSearch indexing rate. (count/sec)</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/loki_insertion_speed.webp" alt="Loki insertion speed(count/sec)"/>
+    <OptimizedImg src="/img/blog/2022/12/loki_insertion_speed.webp" alt="Loki insertion speed(count/sec)"/>
     <figcaption><i>Loki insertion speed(count/sec)</i></figcaption>
 </figure>
 
@@ -169,19 +169,19 @@ Here ClickHouse is able to ingest very fast regardless of the number of indexes 
 Many a times, ingestion processes are CPU intensive. In such scenario, an application which is more CPU efficient during ingestion allows you to handle the same data ingestion rate in a machine with smaller number of CPU cores.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/signoz-logs-insertion-cpu.webp" alt="SigNoz VM using 40% of the CPU"/>
+    <OptimizedImg src="/img/blog/2022/12/signoz-logs-insertion-cpu.webp" alt="SigNoz VM using 40% of the CPU"/>
     <figcaption><i>SigNoz VM using 40% of the CPU</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/elk-cpu.webp" alt="ElasticSearch VM using 75% of the CPU"/>
+    <OptimizedImg src="/img/blog/2022/12/elk-cpu.webp" alt="ElasticSearch VM using 75% of the CPU"/>
     <figcaption><i>ElasticSearch VM using 75% of the CPU</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/loki_cpu.webp" alt="Loki VM using 15% of the CPU"/>
+    <OptimizedImg src="/img/blog/2022/12/loki_cpu.webp" alt="Loki VM using 15% of the CPU"/>
     <figcaption><i>Loki VM using 15% of the CPU</i></figcaption>
 </figure>
 
@@ -197,19 +197,19 @@ Some terminologies on how memory is measured and what the graphs below indicate:
 `shared` / `buffers` : This shows memory usage for specific purposes, these values are included in the value for `used`.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/signoz-logs-insertion-memory.webp" alt="SigNoz VM using 20% of the available memory"/>
+    <OptimizedImg src="/img/blog/2022/12/signoz-logs-insertion-memory.webp" alt="SigNoz VM using 20% of the available memory"/>
     <figcaption><i>SigNoz VM using 20% of the available memory (~6GB out of 32 GB)</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/elk-memory-new.webp" alt="ElasticSearch VM using 60% of the available memory"/>
+    <OptimizedImg src="/img/blog/2022/12/elk-memory-new.webp" alt="ElasticSearch VM using 60% of the available memory"/>
     <figcaption><i>ElasticSearch VM using 60% of the available memory (~18GB out of 32 GB)</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/loki-memory-new.webp" alt="Loki VM using 30% of the available memory"/>
+    <OptimizedImg src="/img/blog/2022/12/loki-memory-new.webp" alt="Loki VM using 30% of the available memory"/>
     <figcaption><i>Loki VM using 30% of the available memory (~9.6GB out of 32 GB)</i></figcaption>
 </figure>
 
@@ -229,19 +229,19 @@ So, as you can see from the below disk utilization graphs, SigNoz is able to uti
 Here we are using <a href = "https://aws.amazon.com/ebs/volume-types/" rel="noopener noreferrer nofollow" target="_blank" >gp2 disk</a> for all the ingestion. The max throughput for gp2 is ~250 MB/s
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/signoz-logs-insertion-diskio.webp" alt="SigNoz VM Disk I/O "/>
+    <OptimizedImg src="/img/blog/2022/12/signoz-logs-insertion-diskio.webp" alt="SigNoz VM Disk I/O "/>
     <figcaption><i>SigNoz VM Disk I/O (avg. Write ~145 MiB/s, Read ~48 MiB/s)</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/elk-diskio.webp" alt="ElasticSearch VM Disk I/O"/>
+    <OptimizedImg src="/img/blog/2022/12/elk-diskio.webp" alt="ElasticSearch VM Disk I/O"/>
     <figcaption><i>ElasticSearch VM Disk I/O (avg. Write ~180 MiB/s, Read ~40 MiB/s)</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/loki-diskio.webp" alt="Loki VM Disk I/O"/>
+    <OptimizedImg src="/img/blog/2022/12/loki-diskio.webp" alt="Loki VM Disk I/O"/>
     <figcaption><i>Loki VM Disk I/O (avg. Write ~50 MiB/s, Read ~40 MiB/s)</i></figcaption>
 </figure>
 
@@ -259,7 +259,7 @@ SigNoz and Elasticsearch are able to utilize the disk in a better way compared t
 This is also helpful because if your disk throughput is low, then it would keep more things in the buffer and utilize more of its RAM. So, a lower disk throughput is likely to hog more RAM and eventually lead to dropping of data.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/12/back-pressure.webp" alt="Back pressure with poor disk utilization"/>
+    <OptimizedImg src="/img/blog/2022/12/back-pressure.webp" alt="Back pressure with poor disk utilization"/>
     <figcaption><i>Data Drop due to backpressure from Disk running at 100%</i></figcaption>
 </figure>
 

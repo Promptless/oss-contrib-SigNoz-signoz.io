@@ -11,7 +11,7 @@ keywords: [monitor, observe, opentelemetry, Vercel, AI, integrations, SigNoz]
 LLM-powered apps are growing fast, and frameworks like the Vercel AI SDK make it easy to build them. But with AI comes complexity. Latency issues, unpredictable outputs, and opaque failures can impact user experience. That’s why monitoring is essential. By using OpenTelemetry for standard instrumentation and SigNoz for observability, you can track performance, detect errors, and gain insights into your AI app’s behavior with minimal setup.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/vercel-ai-sdk-cover.webp" />
+    <OptimizedImg src="/img/blog/2025/08/vercel-ai-sdk-cover.webp" />
 </figure>
 
 ## What is the Vercel AI SDK? Why Monitoring Matters
@@ -35,7 +35,7 @@ To demonstrate how monitoring works in practice, we’ve built a simple product 
 The chatbot leverages streaming and LLM calls under the hood—making it a great candidate for observability. By instrumenting this app with OpenTelemetry and analyzing it in SigNoz, we can gain visibility into response times, error patterns, and user interactions. You can check out the github repository for the code [here](https://github.com/SigNoz/vercel-ai-sdk-opentelemetry-example).
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/combined-chatbot-image.webp" alt="Chatbot App Image"/>
+    <OptimizedImg src="/img/blog/2025/08/combined-chatbot-image.webp" alt="Chatbot App Image"/>
     <figcaption><i>Chatbot App Interactions</i></figcaption>
 </figure>
 
@@ -129,7 +129,7 @@ npm run dev
 In your terminal, you should see output from OpenTelemetry when the application starts, confirming that the instrumentation.ts file was loaded correctly.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/vercel-run-output.webp" alt="Vercel Run Output"/>
+    <OptimizedImg src="/img/blog/2025/08/vercel-run-output.webp" alt="Vercel Run Output"/>
     <figcaption><i>Output showing OpenTelemetry initialization when running your application</i></figcaption>
 </figure>
 
@@ -205,14 +205,14 @@ Your Vercel AI SDK commands should now automatically emit traces, spans, and eve
 Finally, you should be able to view this data in Signoz Cloud under the traces tab:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/vercel-traces-view.webp" alt="Vercel Traces View"/>
+    <OptimizedImg src="/img/blog/2025/08/vercel-traces-view.webp" alt="Vercel Traces View"/>
     <figcaption><i>Traces of your Vercel AI Application</i></figcaption>
 </figure>
 
 If you click on any span, you can see the detailed trace of which it is a part of.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/vercel-traces-detailed-view.webp" alt="Vercel Detailed Traces View"/>
+    <OptimizedImg src="/img/blog/2025/08/vercel-traces-detailed-view.webp" alt="Vercel Detailed Traces View"/>
     <figcaption><i>Detailed Trace view of your Vercel AI Application</i></figcaption>
 </figure>
 
@@ -281,7 +281,7 @@ logger.emit({
 After being emitted, we can see these log details in SigNoz:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/starter_msg_log.webp" alt="Starter Message Log"/>
+    <OptimizedImg src="/img/blog/2025/08/starter_msg_log.webp" alt="Starter Message Log"/>
     <figcaption><i>Detailed Log View of Starter Message</i></figcaption>
 </figure>
 
@@ -302,7 +302,7 @@ logger.emit({
 These are what the log details would look like:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/feedback_log.webp" alt="Feedback Log"/>
+    <OptimizedImg src="/img/blog/2025/08/feedback_log.webp" alt="Feedback Log"/>
     <figcaption><i>Detailed Log View of User Feedback</i></figcaption>
 </figure>
 
@@ -339,7 +339,7 @@ Once your app is instrumented with OpenTelemetry, SigNoz gives you powerful dash
 This panel shows the total number of tokens used across all LLM interactions, combining both input (prompts) and output (responses). It’s useful for tracking overall API usage and estimating costs, especially when using providers like OpenAI that charge per token.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/input_output_tokens.webp" alt="Input/Output Tokens Dashboard"/>
+    <OptimizedImg src="/img/blog/2025/08/input_output_tokens.webp" alt="Input/Output Tokens Dashboard"/>
     <figcaption><i>Input/Output Tokens Usage Dashboard</i></figcaption>
 </figure>
 
@@ -348,7 +348,7 @@ This panel shows the total number of tokens used across all LLM interactions, co
 This panel shows how often each starter prompt is selected by users when beginning a conversation with the chatbot. It helps identify which topics are most relevant or interesting to users—useful for refining prompt design or tailoring content.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/starter_message_distribution.webp" alt="Starter Msg Distribution Dashboard"/>
+    <OptimizedImg src="/img/blog/2025/08/starter_message_distribution.webp" alt="Starter Msg Distribution Dashboard"/>
     <figcaption><i>Starter Message Distribution Dashboard</i></figcaption>
 </figure>
 
@@ -357,7 +357,7 @@ This panel shows how often each starter prompt is selected by users when beginni
 This panel shows how users are rating the chatbot's responses using thumbs up or thumbs down. A higher ratio of thumbs-up indicates helpful or relevant answers, while thumbs-down can highlight areas where the LLM needs improvement.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/feedback_distribution.webp" alt="Feedback Distribution Dashboard"/>
+    <OptimizedImg src="/img/blog/2025/08/feedback_distribution.webp" alt="Feedback Distribution Dashboard"/>
     <figcaption><i>User Feedback Distribution Dashboard</i></figcaption>
 </figure>
 
@@ -366,7 +366,7 @@ This panel shows how users are rating the chatbot's responses using thumbs up or
 This panel tracks the percentage of requests where the LLM response time exceeds 1000 milliseconds. It’s useful for identifying latency outliers that could impact user experience. You can also colour code the text displayed based on different value thresholds(orange for ≥ 5%, red for ≥ 10%)
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/08/requests_latency.webp" alt="Requests Latency Dashboard"/>
+    <OptimizedImg src="/img/blog/2025/08/requests_latency.webp" alt="Requests Latency Dashboard"/>
     <figcaption><i>Latent Requests Percentage Dashboard</i></figcaption>
 </figure>
 

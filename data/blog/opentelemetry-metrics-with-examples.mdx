@@ -28,7 +28,7 @@ We will be closely examining some cool custom metric examples later in this blog
 The best way to understand OTel metrics is to think of it as a ‘fitness tracker’. A fitness tracker monitors various health metrics such as steps taken, heart rate, and calories burned throughout the day. Similarly, OTel metrics functions as the ‘fitness tracker’ for your application, continuously collecting data on application and system health like request rates, error counts, and response times.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/03/metric_pipeline.webp" alt="Metric pipeline"/>
+    <OptimizedImg src="/img/blog/2025/03/metric_pipeline.webp" alt="Metric pipeline"/>
     <figcaption><i>
     OTel metrics -
     <a href = "https://opentelemetry.io/docs/specs/otel/metrics/#concepts" style={{color: "#b2b5b8"}} rel="noopener noreferrer nofollow" target="_blank" >programming model</a>
@@ -132,7 +132,7 @@ As an example, think of the time a customer spends on a product page. Majority c
 Histogram’s <a href="https://github.com/open-telemetry/opentelemetry-python/blob/main/opentelemetry-sdk/src/opentelemetry/sdk/metrics/_internal/instrument.py#L251" rel="noopener noreferrer nofollow" target="_blank">`record` method</a> implementation is similar to the Counter’s `add` method, where it processes only non-negative values.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/03/instrument.webp" alt="A Quick Overview of OTel Metric Instruments"/>
+    <OptimizedImg src="/img/blog/2025/03/instrument.webp" alt="A Quick Overview of OTel Metric Instruments"/>
     <figcaption><i>A Quick Overview of OTel Metric Instruments</i></figcaption>
 </figure>
 
@@ -452,7 +452,7 @@ We had previously touched upon callbacks. Let’s try to understand it in greate
 In the code, a *callback* (*get_total_stock*)  is a function that you provide to the *metrics system* via the *meter*. It gets called automatically whenever the system needs to collect the current value of the metric, in this case, the *total_stock*. 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/03/updown.webp" alt="Signoz counter"/>
+    <OptimizedImg src="/img/blog/2025/03/updown.webp" alt="Signoz counter"/>
     <figcaption><i>Visualised as a counter in a SigNoz panel</i></figcaption>
 </figure>
 
@@ -492,7 +492,7 @@ OpenTelemetry helps you in generating metrics. If you want to store and visualiz
 Using our [dashboards](https://signoz.io/docs/userguide/manage-dashboards/) and [alerts](https://signoz.io/docs/alerts-management/metrics-based-alerts/) feature, you can monitor any custom metric coming from your application.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/03/dashboard.webp" alt="Signoz dashboard"/>
+    <OptimizedImg src="/img/blog/2025/03/dashboard.webp" alt="Signoz dashboard"/>
     <figcaption><i>Dashboard created in SigNoz</i></figcaption>
 </figure>
 

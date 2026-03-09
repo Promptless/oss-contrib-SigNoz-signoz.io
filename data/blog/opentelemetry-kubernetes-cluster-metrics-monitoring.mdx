@@ -178,7 +178,7 @@ This configuration sets up OpenTelemetry instrumentation for collecting Kubernet
 Replace `{region}` with the region for your SigNoz cloud account and `<SIGNOZ_INGESTION_KEY>` with the ingestion key for your account. You can find these settings in the SigNoz dashboard under `Settings > Ingestion Settings`.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/common/ingestion-key-details.webp" alt="You can find ingestion details in the SigNoz dashboard"/>
+    <OptimizedImg src="/img/blog/common/ingestion-key-details.webp" alt="You can find ingestion details in the SigNoz dashboard"/>
     <figcaption><i>You can find ingestion details in the SigNoz dashboard</i></figcaption>
 </figure>
 
@@ -387,7 +387,7 @@ You can find more information on OpenTelemetry Kubernetes receiver <a href = "ht
 Once the collector service has been started successfully, navigate to your SigNoz Cloud account and access the "Dashboard" tab. Click on the “New Dashboard” button to create a new dashboard.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/k8s_dashboard.webp" alt="SigNoz dashboard"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/k8s_dashboard.webp" alt="SigNoz dashboard"/>
     <figcaption><i>SigNoz dashboard</i></figcaption>
 </figure>
 
@@ -395,7 +395,7 @@ Once the collector service has been started successfully, navigate to your SigNo
 To give the dashboard a name, click on “Configure.”
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/k8s_dashboard_config.webp" alt="Configuring dashboard"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/k8s_dashboard_config.webp" alt="Configuring dashboard"/>
     <figcaption><i>Configuring dashboard</i></figcaption>
 </figure>
 
@@ -403,7 +403,7 @@ To give the dashboard a name, click on “Configure.”
 Enter your preferred dashboard name in the "Name" input box and save the changes.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/k8s_dashboard_naming.webp" alt="Dashboard Naming"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/k8s_dashboard_naming.webp" alt="Dashboard Naming"/>
     <figcaption><i>Dashboard Naming</i></figcaption>
 </figure>
 
@@ -411,7 +411,7 @@ Enter your preferred dashboard name in the "Name" input box and save the changes
 Now, you can create various panels for your dashboard. There are three visualization options to display your data: Time Series, Value, and Table formats. Choose the format that best suits your preferences, depending on the metric you want to monitor. You can opt for the "Time Series" visualization for the initial metric.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/k8s_dashboard_visualization.webp" alt="Dashboard visualization options"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/k8s_dashboard_visualization.webp" alt="Dashboard visualization options"/>
     <figcaption><i>Dashboard visualization options</i></figcaption>
 </figure>
 
@@ -419,7 +419,7 @@ Now, you can create various panels for your dashboard. There are three visualiza
 In the "Query Builder" tab, enter "k8s," and you should see various Kubernetes metrics. This confirms that the OpenTelemetry Collector is successfully collecting the Kubernetes cluster metrics and forwarding them to SigNoz for monitoring and visualization.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/k8s_metrics1.webp" alt="Collected Kubernetes cluster metrics for visualization"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/k8s_metrics1.webp" alt="Collected Kubernetes cluster metrics for visualization"/>
     <figcaption><i>Collected Kubernetes cluster metrics for visualization</i></figcaption>
 </figure>
 
@@ -427,7 +427,7 @@ In the "Query Builder" tab, enter "k8s," and you should see various Kubernetes m
 You can query the collected metrics using the [query builder](https://signoz.io/blog/query-builder-v5/) and create panels for your dashboard.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/k8s_monitoring_dashboard.webp" alt="Monitoring dashboard for the Kubernetes cluster"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/k8s_monitoring_dashboard.webp" alt="Monitoring dashboard for the Kubernetes cluster"/>
     <figcaption><i>Monitoring dashboard for the Kubernetes cluster</i></figcaption>
 </figure>
 
@@ -437,7 +437,7 @@ Visit the SigNoz [documentation](https://signoz.io/docs/userguide/manage-dashboa
 Besides just setting up dashboards to monitor your Kubernetes cluster metrics, you can create alerts for the different metrics you query. Click on the drop-down of the panel from your dashboard, and then click on “Create Alerts”.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2023/12/k8s_alerts.webp" alt="Create alerts on important Kubernetes cluster"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/k8s_alerts.webp" alt="Create alerts on important Kubernetes cluster"/>
     <figcaption><i>Create alerts on important Kubernetes cluster</i></figcaption>
 </figure>
 

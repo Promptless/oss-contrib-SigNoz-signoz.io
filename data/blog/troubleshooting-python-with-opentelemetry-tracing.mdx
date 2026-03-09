@@ -20,21 +20,21 @@ In the classic definition, Observability is something one step beyond monitoring
 Let’s lay out our scenario: we’re using a Python application with automatic monitoring from the OpenTelemetry Python SDK. It’s correctly monitoring the number of requests we’re getting, and it’s able to tell us that there are some extreme spikes in latency.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/10/manual-tracing/manual-tracing-python1.webp" alt="a screenshot of the SigNoz top level dashboard"/>
+    <OptimizedImg src="/img/blog/2023/10/manual-tracing/manual-tracing-python1.webp" alt="a screenshot of the SigNoz top level dashboard"/>
     <figcaption><i>This service loads a web page for users, so response times greater than 7 seconds are unacceptably slow!</i></figcaption>
 </figure>
 
 So, we definitely have monitoring working, in that it’s showing us there’s a problem and it’s frequent enough to be a concern for all users. Let’s dive in further and we’ll see the current setup lacks Observability. First let’s take a look at traces and sort them by duration. Sure enough we’ve got traces for some requests that took too long to handle:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/10/manual-tracing/manual-tracing-python2.webp" alt="a screenshot of the SigNoz top level dashboard"/>
+    <OptimizedImg src="/img/blog/2023/10/manual-tracing/manual-tracing-python2.webp" alt="a screenshot of the SigNoz top level dashboard"/>
     <figcaption><i>Sure enough we do have traces for the problematic requests.</i></figcaption>
 </figure>
 
 When we dive into these traces we get another clue: there’s almost 13 seconds spent in a database request, `authenticate_check_db`.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/10/manual-tracing/manual-tracing-python3.webp" alt="a screenshot of the SigNoz top level dashboard"/>
+<OptimizedImg src="/img/blog/2023/10/manual-tracing/manual-tracing-python3.webp" alt="a screenshot of the SigNoz top level dashboard"/>
 <figcaption><i>Automatic instrumentation is getting us nice values, thanks to our cleanly labeled functions</i></figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ This will send our user as a span attribute. Attributes are key-value pairs only
 Now when we look at traces, we can see a user for each `authenticate_check_db` span.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/10/manual-tracing/manual-tracing-python4.webp" alt="a screenshot of the SigNoz top level dashboard"/>
+<OptimizedImg src="/img/blog/2023/10/manual-tracing/manual-tracing-python4.webp" alt="a screenshot of the SigNoz top level dashboard"/>
 <figcaption><i>From these spans we get our first clue, only certain users are affected by this latency issue</i></figcaption>
 </figure>
 
@@ -106,7 +106,7 @@ A better strategy with events is to find points of interest that exist at a sing
 Sure enough, when checking the traces for slowest transactions, they all include this event:
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/10/manual-tracing/manual-tracing-python5.webp" alt="a screenshot of the SigNoz top level dashboard"/>
+<OptimizedImg src="/img/blog/2023/10/manual-tracing/manual-tracing-python5.webp" alt="a screenshot of the SigNoz top level dashboard"/>
 <figcaption><i>Events will show up in the ‘Events’ tab for span details in the SigNoz dashboard</i></figcaption>
 </figure>
 
@@ -130,7 +130,7 @@ with tracer.start_as_current_span("authenticate_check_db"):
 Now you finally see the code that, in our contrived example, slowed things downed if the user was named ‘eddy.’ With this child span in the problem becomes a _lot_ clearer.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2023/10/manual-tracing/manual-tracing-python6.webp" alt="a screenshot of the SigNoz top level dashboard"/>
+<OptimizedImg src="/img/blog/2023/10/manual-tracing/manual-tracing-python6.webp" alt="a screenshot of the SigNoz top level dashboard"/>
 <figcaption><i>We can see in the final version of our SigNoz dashboard that the user_verification step is taking up the majority of the request time for certain users</i></figcaption>
 </figure>
 

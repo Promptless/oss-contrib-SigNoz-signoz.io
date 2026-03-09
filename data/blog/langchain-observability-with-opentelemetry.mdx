@@ -16,7 +16,7 @@ The trip planner agent helps users plan their travel itinerary by combining LLM 
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/langchain-cover-1.webp" />
+    <OptimizedImg src="/img/blog/2025/10/langchain-cover-1.webp" />
 </figure>
 
 
@@ -73,12 +73,12 @@ To make it more interactive, the trip planner also includes a chatbot feature. U
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/langchain-agent-1.webp" alt="Agent App Image" width="70%"/>
+    <OptimizedImg src="/img/blog/2025/10/langchain-agent-1.webp" alt="Agent App Image" width="70%"/>
     <figcaption><i>LangChain App Starting Page</i></figcaption>
 </figure>
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/langchain-agent-2.webp" alt="Agent App Chat"/>
+    <OptimizedImg src="/img/blog/2025/10/langchain-agent-2.webp" alt="Agent App Chat"/>
     <figcaption><i>LangChain App Interactions</i></figcaption>
 </figure>
 
@@ -159,14 +159,14 @@ Your LangChain commands should now automatically emit traces, spans, and attribu
 Finally, you should be able to view this data in Signoz Cloud under the traces tab:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/langchain-trace.webp" alt="Traces View"/>
+    <OptimizedImg src="/img/blog/2025/10/langchain-trace.webp" alt="Traces View"/>
     <figcaption><i>Traces of your LangChain Application</i></figcaption>
 </figure>
 
 When you click on a [trace ID](https://signoz.io/comparisons/opentelemetry-trace-id-vs-span-id/) in SigNoz, you'll see a detailed view of the trace, including all associated spans, along with their events and attributes:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/langchain-detailed-trace.webp" alt="Detailed Traces View"/>
+    <OptimizedImg src="/img/blog/2025/10/langchain-detailed-trace.webp" alt="Detailed Traces View"/>
     <figcaption><i>Detailed traces view of your LangChain Application</i></figcaption>
 </figure>
 
@@ -182,7 +182,7 @@ This view makes it clear how long the entire request took. On the right panel, y
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/langraph-root-span.webp" alt="Root Span"/>
+    <OptimizedImg src="/img/blog/2025/10/langraph-root-span.webp" alt="Root Span"/>
     <figcaption><i>Langraph Root Span</i></figcaption>
 </figure>
 
@@ -195,7 +195,7 @@ Here, you can see the `call_model → RunnableSequence → ChatOpenAI` flow. Eac
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/pre-agent-span.webp" alt="Pre-Tool Agent Span"/>
+    <OptimizedImg src="/img/blog/2025/10/pre-agent-span.webp" alt="Pre-Tool Agent Span"/>
     <figcaption><i>Pre-Tool Call Agent Span</i></figcaption>
 </figure>
 
@@ -212,7 +212,7 @@ For example:
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/tool-calls-spans.webp" alt="Tool Calls Span"/>
+    <OptimizedImg src="/img/blog/2025/10/tool-calls-spans.webp" alt="Tool Calls Span"/>
     <figcaption><i>Tool Calls Span</i></figcaption>
 </figure>
 
@@ -228,7 +228,7 @@ This is where the agent stitches together structured API responses into a user-f
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/post-agent-span.webp" alt="Post-Tool Agent Span"/>
+    <OptimizedImg src="/img/blog/2025/10/post-agent-span.webp" alt="Post-Tool Agent Span"/>
     <figcaption><i>Post-Tool Call Agent Span</i></figcaption>
 </figure>
 
@@ -253,7 +253,7 @@ This panel shows the 95th percentile latency for the LLM calls made by the agent
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/call-model-trip.webp" alt="call_model duration"/>
+    <OptimizedImg src="/img/blog/2025/10/call-model-trip.webp" alt="call_model duration"/>
     <figcaption><i>call_model Duration Panel</i></figcaption>
 </figure>
 
@@ -264,7 +264,7 @@ This panel visualizes how often different tools—flights, hotels, weather, and 
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/tool-calls-trip.webp" alt="Tool Distribution"/>
+    <OptimizedImg src="/img/blog/2025/10/tool-calls-trip.webp" alt="Tool Distribution"/>
     <figcaption><i>Tool Call Distribution Panel</i></figcaption>
 </figure>
 
@@ -274,7 +274,7 @@ This panel visualizes how often different tools—flights, hotels, weather, and 
 This panel tracks the total number of input and output tokens processed by the LLM over time. Input tokens include the user query and tool outputs passed to the model, while output tokens are the generated itineraries or chatbot replies. Monitoring this helps you manage costs, optimize prompt length, and detect patterns in response verbosity.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/token-count-trip.webp" alt="Token Usage" width="70%"/>
+    <OptimizedImg src="/img/blog/2025/10/token-count-trip.webp" alt="Token Usage" width="70%"/>
     <figcaption><i>I/O Token Usage Panel</i></figcaption>
 </figure>
 
@@ -284,7 +284,7 @@ This panel breaks down the latency of each tool: `get_flight_tickets`, `get_hote
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/tools-durations-trip.webp" alt="Tool Duration"/>
+    <OptimizedImg src="/img/blog/2025/10/tools-durations-trip.webp" alt="Tool Duration"/>
     <figcaption><i>Tool Call Durations Panel</i></figcaption>
 </figure>
 
@@ -295,7 +295,7 @@ If your app is configured to use multiple LLMs, this panel shows the distributio
 
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/10/llm-models-trip.webp" alt="Model Distribution"/>
+    <OptimizedImg src="/img/blog/2025/10/llm-models-trip.webp" alt="Model Distribution"/>
     <figcaption><i>LLM Model Distribution Panel</i></figcaption>
 </figure>
 

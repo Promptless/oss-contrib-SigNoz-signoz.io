@@ -15,7 +15,7 @@ That’s where observability comes in. By leveraging OpenTelemetry and SigNoz, w
 In this post, we’ll walk through how we connected Claude Code’s monitoring hooks with OpenTelemetry and exported everything into SigNoz. The result: a streamlined, data-driven way to shine a light on how developers actually interact with Claude Code and to help teams make smarter, evidence-backed decisions about scaling AI-assisted coding.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-code-blog-cover.webp" />
+    <OptimizedImg src="/img/blog/2025/11/claude-code-blog-cover.webp" />
 </figure>
 
 ## Why Monitor Claude Code?
@@ -185,14 +185,14 @@ Your Claude Code activity should now automatically emit logs and metrics.
 Finally, you should be able to view logs in Signoz Cloud under the logs tab:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-logs-view.webp" alt="Claude Logs View"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-logs-view.webp" alt="Claude Logs View"/>
     <figcaption><i>Claude Code Logs View</i></figcaption>
 </figure>
 
 When you click on any of these logs in SigNoz, you'll see a detailed view of the log, including attributes:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-logs-detailed-4.webp" alt="Claude Code Detailed Log View"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-logs-detailed-4.webp" alt="Claude Code Detailed Log View"/>
     <figcaption><i>Detailed view of Claude Code User Prompt</i></figcaption>
 </figure>
 
@@ -200,14 +200,14 @@ When you click on any of these logs in SigNoz, you'll see a detailed view of the
 You should be able to see Claude Code related metrics in Signoz Cloud under the metrics tab:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-metrics.webp" alt="Claude Code Metrics Overview"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-metrics.webp" alt="Claude Code Metrics Overview"/>
     <figcaption><i>Overview of available Claude Code metrics in SigNoz</i></figcaption>
 </figure>
 
 When you click on any of these metrics in SigNoz, you'll see a detailed view of the metric, including attributes:
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-metrics-detailed.webp" alt="Claude Code Detailed Metrics View"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-metrics-detailed.webp" alt="Claude Code Detailed Metrics View"/>
     <figcaption><i>Detailed view of Claude Code metrics in SigNoz</i></figcaption>
 </figure>
 
@@ -264,7 +264,7 @@ Once you've got Claude Code's telemetry flowing into SigNoz, you can build dashb
 Tokens are the currency of AI coding assistants. By splitting input tokens (developer prompts) and output tokens (Claude’s responses), this panel shows exactly how much work Claude is doing. Over time, you can see whether usage is ramping up, stable, or dropping off—and keep an eye on efficiency.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-io-token-usg.webp" alt="Claude Code Input/Output Token Usage"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-io-token-usg.webp" alt="Claude Code Input/Output Token Usage"/>
     <figcaption><i>Dashboard showing total input and output token usage for Claude Code</i></figcaption>
 </figure>
 
@@ -273,7 +273,7 @@ Tokens are the currency of AI coding assistants. By splitting input tokens (deve
 This panel tracks how many CLI sessions and conversations are happening. Sessions show how often developers are turning to Claude, while conversations capture depth of interaction. Together, they reveal adoption and engagement.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-sessions-convos.webp" alt="Claude Code Sessions and Conversations"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-sessions-convos.webp" alt="Claude Code Sessions and Conversations"/>
     <figcaption><i>Tracking Claude Code sessions and conversations</i></figcaption>
 </figure>
 
@@ -283,7 +283,7 @@ This panel tracks how many CLI sessions and conversations are happening. Session
 Claude Code usage comes with a cost. This panel translates token consumption into actual dollars spent. It’s a quick way to validate ROI, spot runaway usage early, and ensure your AI assistant remains a cost-effective part of the toolchain.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-cost.webp" alt="Claude Code Total Cost"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-cost.webp" alt="Claude Code Total Cost"/>
     <figcaption><i>Total cost tracking in USD for Claude Code token usage</i></figcaption>
 </figure>
 
@@ -292,7 +292,7 @@ Claude Code usage comes with a cost. This panel translates token consumption int
 How long do Claude-assisted commands actually take? This chart tracks the 95th percentile duration, helping you catch slowdowns, spikes, or performance regressions. Developers want Claude to be fast—this view keeps latency in check.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-cmd-dur.webp" alt="Claude Code Command Duration P95"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-cmd-dur.webp" alt="Claude Code Command Duration P95"/>
     <figcaption><i>95th percentile command duration tracking for Claude Code requests</i></figcaption>
 </figure>
 
@@ -301,7 +301,7 @@ How long do Claude-assisted commands actually take? This chart tracks the 95th p
 Instead of looking at total tokens in a snapshot, this time series shows usage trends. Are developers spiking usage during sprints? Is there a steady upward adoption curve? This view is perfect for spotting both growth and anomalies.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-token-usage-time.webp" alt="Claude Code Token Usage Over Time"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-token-usage-time.webp" alt="Claude Code Token Usage Over Time"/>
     <figcaption><i>Time series view of Claude Code token usage trends</i></figcaption>
 </figure>
 
@@ -310,7 +310,7 @@ Instead of looking at total tokens in a snapshot, this time series shows usage t
 Not every request to Claude is successful. This panel highlights how often requests succeed vs. fail, helping you spot reliability issues—whether from the model, connectivity, or developer inputs. A healthy success rate means smooth workflows.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-success-rate.webp" alt="Claude Code Request Success Rate"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-success-rate.webp" alt="Claude Code Request Success Rate"/>
     <figcaption><i>Success rate tracking for Claude Code API requests</i></figcaption>
 </figure>
 
@@ -319,7 +319,7 @@ Not every request to Claude is successful. This panel highlights how often reque
 Claude Code is flexible, but developers use it differently depending on environment. This pie chart shows where developers are working—VS Code, Apple Terminal, or elsewhere. Great for understanding adoption across dev setups.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-term-type.webp" alt="Claude Code Terminal Type Distribution"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-term-type.webp" alt="Claude Code Terminal Type Distribution"/>
     <figcaption><i>Pie chart showing distribution of Claude Code usage across different terminal types</i></figcaption>
 </figure>
 
@@ -328,7 +328,7 @@ Claude Code is flexible, but developers use it differently depending on environm
 Usage isn’t always evenly distributed. This table breaks down requests by user, making it clear who’s leaning on Claude heavily and who’s barely touching it. Perfect for identifying champions, training needs, or power users.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-users-reqs.webp" alt="Claude Code Requests Per User"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-users-reqs.webp" alt="Claude Code Requests Per User"/>
     <figcaption><i>Table showing request volume breakdown by individual users</i></figcaption>
 </figure>
 
@@ -337,7 +337,7 @@ Usage isn’t always evenly distributed. This table breaks down requests by user
 Claude ships with multiple models, and not all usage is equal. This panel shows which models developers are actually calling. It’s a handy way to track preferences and see if newer models are gaining traction.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-model-distr.webp" alt="Claude Code Model Distribution"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-model-distr.webp" alt="Claude Code Model Distribution"/>
     <figcaption><i>Distribution of Claude model usage</i></figcaption>
 </figure>
 
@@ -346,7 +346,7 @@ Claude ships with multiple models, and not all usage is equal. This panel shows 
 Claude can call on different tools—like `Read`, `Edit`, `LS`, `TodoWrite`, `Bash`, and more. This breakdown shows which tools are most frequently used, shining a light on the kinds of coding tasks developers are trusting Claude with.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-tool-type.webp" alt="Claude Code Tool Type Usage"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-tool-type.webp" alt="Claude Code Tool Type Usage"/>
     <figcaption><i>Breakdown of tool types used by Claude Code</i></figcaption>
 </figure>
 
@@ -355,7 +355,7 @@ Claude can call on different tools—like `Read`, `Edit`, `LS`, `TodoWrite`, `Ba
 AI suggestions only matter if developers use them. This panel tracks accept vs. reject decisions, showing how much developers trust Claude’s output. High acceptance is a sign of quality; high rejection is a signal to dig deeper.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-user-decisions.webp" alt="Claude Code User Decision Tracking"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-user-decisions.webp" alt="Claude Code User Decision Tracking"/>
     <figcaption><i>User decision metrics showing accept vs. reject rates for Claude Code suggestions and tool outputs</i></figcaption>
 </figure>
 
@@ -364,7 +364,7 @@ AI suggestions only matter if developers use them. This panel tracks accept vs. 
 Claude Code subscriptions often come with rolling quotas that reset every 5 hours. This panel tracks how much of that rolling limit has been used based on your specific subscription plan, giving you an early warning system before developers hit hard caps. Instead of being caught off guard by usage rejections, teams can proactively manage consumption and adjust workflows as they approach the threshold.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2025/11/claude-quota-usg.webp" alt="Claude Code Quota Usage Monitoring"/>
+    <OptimizedImg src="/img/blog/2025/11/claude-quota-usg.webp" alt="Claude Code Quota Usage Monitoring"/>
     <figcaption><i>5-hour rolling quota usage tracking to monitor consumption against subscription limits</i></figcaption>
 </figure>
 

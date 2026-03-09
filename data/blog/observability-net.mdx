@@ -13,7 +13,7 @@ Wherever you read about observability, you are told that there are "3 pillars" o
 An image that is generally projected is something like this.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/09/3-pillars-new.webp" alt="3 Pillars of observabiltiy"/>
+    <OptimizedImg src="/img/blog/2022/09/3-pillars-new.webp" alt="3 Pillars of observabiltiy"/>
     <figcaption><i>Today observability is generally projected as having 3 siloed pillars. But is this accurate?</i></figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ Talking about metrics, traces and logs as three pillars creates a flase dichotom
 - You can add logs and events in traces, which can help you get more context on the specific spans.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/08/logs_traces.webp" alt="Logs in Traces"/>
+    <OptimizedImg src="/img/blog/2022/08/logs_traces.webp" alt="Logs in Traces"/>
     <figcaption><i>Events can be added in traces to give more context</i></figcaption>
 </figure>
 
@@ -61,7 +61,7 @@ Talking about metrics, traces and logs as three pillars creates a flase dichotom
 - Trace data can be aggregated to plot granular graphs on count of specific attributes in a time range. e.g. if you have an attribute of `customer_type` in your span, you can plot graphs of request made by premium customers by just filtering on `customer_type=premium` and showing that over a given time range. This would be good example of generating metrics from trace data.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/08/trace_aggregation.webp" alt="Trace aggregation"/>
+    <OptimizedImg src="/img/blog/2022/08/trace_aggregation.webp" alt="Trace aggregation"/>
     <figcaption><i>Creating metrics from traces: Trace aggregates showing p90 latency group by `operation name`</i></figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ That is why at SigNoz, we don't believe in pillars or silos. There are just diff
 I think an analogy of a mesh or network may be more apt here. Rather than the three silos supporting making up a stack, think of it more as an observability hive mind which can correlate, talk to each other and point you to the source of the problems.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/07/o11y-net-trans.webp" alt="Observability net"/>
+    <OptimizedImg src="/img/blog/2022/07/o11y-net-trans.webp" alt="Observability net"/>
     <figcaption><i>A better model where all signals come together to give insights to users</i></figcaption>
 </figure>
 
@@ -108,7 +108,7 @@ Currently, people think of observability systems as a dashboard that they can us
 Think Siri rather than dashboards. At least, this is what we at SigNoz are building towards.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2022/09/unknown-questions.webp" alt="Dashboard or Siri"/>
+    <OptimizedImg src="/img/blog/2022/09/unknown-questions.webp" alt="Dashboard or Siri"/>
     <figcaption><i>Dashboards or Siri? Observability systems can be much more powerful than just a bunch of dials.</i></figcaption>
 </figure>
 

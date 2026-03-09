@@ -133,14 +133,14 @@ Let’s discuss them one by one.
 With Fluentd, you can collect all the data, regardless of where it came from. It transforms them into a unified format all in one place so that you can use the data again for compliance or debugging, etc. Fluentd does this reliably, which means if there is a network outage or data spikes, this shouldn’t mess up data collection.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/12/fluentd_architecture.webp" alt="FluentD architecture"/>
+<OptimizedImg src="/img/blog/2022/12/fluentd_architecture.webp" alt="FluentD architecture"/>
 <figcaption><i>Architecture of FluentD</i></figcaption>
 </figure>
 
 Fluentd scrapes all logs from a given source, converts them to a structured data format, and then forwards them to services, such as SigNoz, Elasticsearch, etc.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/12/fluentd_working.webp" alt="Working of FluentD"/>
+<OptimizedImg src="/img/blog/2022/12/fluentd_working.webp" alt="Working of FluentD"/>
 <figcaption><i>Use ClickHouse queries to set alerts on logs, metrics, and traces</i></figcaption>
 </figure>
 
@@ -160,7 +160,7 @@ Filebeat has two components:
 The below diagram is the architecture of Filebeat.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/12/filebeat.webp" alt="Filebeat architecture"/>
+<OptimizedImg src="/img/blog/2022/12/filebeat.webp" alt="Filebeat architecture"/>
 <figcaption><i>The architecture of Filebeat (Source: [elastic.co](http://elastic.co/))</i></figcaption>
 </figure>
 
@@ -171,7 +171,7 @@ The below diagram is the architecture of Filebeat.
 RSYSLOG has a modular design, offers excellent security, and provides high performance. It is capable of sending over `one million messages per second` to a local destination when limited processing is used.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/12/rsyslog_architecture.webp" alt="Alert based on ClickHouse query"/>
+<OptimizedImg src="/img/blog/2022/12/rsyslog_architecture.webp" alt="Alert based on ClickHouse query"/>
 <figcaption><i>Rsyslog can take input from many sources and send it over to a final destination</i></figcaption>
 </figure>
 
@@ -186,7 +186,7 @@ Syslog is capable of generating a large number of messages, and it forwards thes
 One of the *disadvantages of the Syslog protocol* is that it does not provide any form of security mechanism, and there is no built-in mechanism for identifying incoming messages.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/12/syslog_server.webp" alt="Architecture of Syslog Server"/>
+<OptimizedImg src="/img/blog/2022/12/syslog_server.webp" alt="Architecture of Syslog Server"/>
 <figcaption><i>Architecture of Syslog Server</i></figcaption>
 </figure>
 
@@ -203,7 +203,7 @@ Logstash includes more than `200` plugins, and you can also write your own very 
 3. The data is then output to a storage destination, such as Elasticsearch or a file.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/12/logstash_basic_architecture.webp" alt="Basic Architecture of Logstash"/>
+<OptimizedImg src="/img/blog/2022/12/logstash_basic_architecture.webp" alt="Basic Architecture of Logstash"/>
 <figcaption><i>Basic Architecture of Logstash</i></figcaption>
 </figure>
 
@@ -222,7 +222,7 @@ A key benefit of Elasticbeat is that it can `run on multiple servers` and collec
 3. It sends the processed and enriched data to Elasticsearch for indexing and storage. Then, the collected data can be accessed and analyzed.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/12/elastic_beats.webp" alt="Elastic Beats architecture"/>
+<OptimizedImg src="/img/blog/2022/12/elastic_beats.webp" alt="Elastic Beats architecture"/>
 <figcaption><i>Basic Architecture of Elasticbeat</i></figcaption>
 </figure>
 
@@ -233,7 +233,7 @@ OpenTelemetry Collector is one of the newest entrants in [log collection tools](
 OpenTelemetry is a collection of client libraries, APIs, and SDKs that help in generating telemetry data. It provides [OpenTelemetry Collectors](https://signoz.io/blog/opentelemetry-collector-complete-guide/) as a stand-alone service. OpenTelemetry Collectors can be used to collect logs and send them to a final destination like [SigNoz](https://signoz.io/).
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/09/collector_pipeline.webp" alt="Architecture of OpenTelemetry Collector"/>
+<OptimizedImg src="/img/blog/2022/09/collector_pipeline.webp" alt="Architecture of OpenTelemetry Collector"/>
 <figcaption><i>Architecture of OpenTelemetry Collector with receivers, processors and exporters.</i></figcaption>
 </figure>
 
@@ -324,21 +324,21 @@ By anticipating these challenges and implementing appropriate solutions, you can
 The logs tab in SigNoz has advanced features like a log query builder, search across multiple fields, structured table view, JSON view, etc.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/common/signoz_logs.webp" alt="Log management in SigNoz"/>
+<OptimizedImg src="/img/blog/common/signoz_logs.webp" alt="Log management in SigNoz"/>
 <figcaption><i>Log management in SigNoz</i></figcaption>
 </figure>
 
 You can also view logs in real time with live tail logging.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/10/signoz_live_logs.webp" alt="Live Tail Logging in SigNoz"/>
+<OptimizedImg src="/img/blog/2022/10/signoz_live_logs.webp" alt="Live Tail Logging in SigNoz"/>
 <figcaption><i>Live Tail Logging in SigNoz</i></figcaption>
 </figure>
 
 With advanced Log Query Builder, you can filter out logs quickly with a mix and match of fields.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/2022/10/signoz_log_query_builder.webp" alt="Advanced Log Query Builder in SigNoz"/>
+<OptimizedImg src="/img/blog/2022/10/signoz_log_query_builder.webp" alt="Advanced Log Query Builder in SigNoz"/>
 <figcaption><i>Advanced Log Query Builder in SigNoz</i></figcaption>
 </figure>
 

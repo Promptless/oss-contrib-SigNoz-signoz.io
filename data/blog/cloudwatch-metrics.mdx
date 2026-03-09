@@ -76,7 +76,7 @@ CloudWatch organizes the collected metrics for clarity and ease of use. Metrics 
    At the highest level of organization, metrics are grouped by namespaces. Namespaces are containers for CloudWatch metrics. They are used to group related metrics together. This provides a way to avoid naming conflicts by segregating metrics from various sources. Each AWS service has its namespace to distinguish its set of metrics. For example, all metrics related to Amazon EC2 instances are grouped under the "AWS/EC2" namespace.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-namespace.webp" alt="Namespaces in Cloudwatch metrics monitoring"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-namespace.webp" alt="Namespaces in Cloudwatch metrics monitoring"/>
     <figcaption><i>Namespaces in Cloudwatch metrics monitoring</i></figcaption>
 </figure>
 
@@ -85,7 +85,7 @@ CloudWatch organizes the collected metrics for clarity and ease of use. Metrics 
    Within the "AWS/EC2" namespace, metrics can further be organized based on dimensions. Dimensions are attributes that provide additional context to metrics. They are like tags that help organize and specify metrics. When you add a trait like "Instance ID", "Instance Type" or "Auto Scaling Group" to a metric, you're creating a distinct version of that metric. For instance, an EC2 instance may have dimensions such as "Instance ID" and "Image ID." This makes it easier to filter and understand your metrics based on these dimensions.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-dimensions.webp" alt="Dimensions in Cloudwatch metrics"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-dimensions.webp" alt="Dimensions in Cloudwatch metrics"/>
     <figcaption><i>Dimensions in Cloudwatch metrics</i></figcaption>
 </figure>
 
@@ -94,7 +94,7 @@ CloudWatch organizes the collected metrics for clarity and ease of use. Metrics 
    At the most detailed level, metrics are the specific data points that capture the performance of your AWS resources—like monitoring CPU usage, disk space, disk activity, network traffic and more. Each combination of namespace, dimensions, and specific metric type provides a unique set of data for analysis.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-data.webp" alt="Metrics data in Amazon Cloudwatch"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-data.webp" alt="Metrics data in Amazon Cloudwatch"/>
     <figcaption><i>Metrics data in Amazon Cloudwatch</i></figcaption>
 </figure>
 
@@ -250,13 +250,13 @@ Check out the <a href = "https://docs.aws.amazon.com/AmazonCloudWatch/latest/mon
 While CloudWatch offers valuable monitoring services, some users express concerns about the associated costs, often attributed to a high volume of API requests. For a detailed breakdown of every billing bucket, see our [CloudWatch pricing guide](/guides/cloudwatch-pricing) and [cost optimization playbook](/guides/cloudwatch-cost-optimization). This issue has been a topic of discussion on platforms like Reddit, where users share their experiences and challenges with CloudWatch expenses.
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-high-cost.webp" alt="Users discussing high costs with Cloudwatch"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-high-cost.webp" alt="Users discussing high costs with Cloudwatch"/>
     <figcaption><i>Users discussing high costs with Cloudwatch</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-cost-unpredictable.webp" alt="Sometimes CloudWatch costs can be unpredictable"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-cost-unpredictable.webp" alt="Sometimes CloudWatch costs can be unpredictable"/>
     <figcaption><i>Sometimes CloudWatch costs can be unpredictable</i></figcaption>
 </figure>
 
@@ -299,13 +299,13 @@ Key architecture features of SigNoz:
 - Easy to set alerts with DIY [query builder](https://signoz.io/blog/query-builder-v5/)
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/common/signoz_flamegraphs.webp" alt="Flamegraphs showing exact duration taken by each spans - a concept of distributed tracing"/>
+    <OptimizedImg src="/img/blog/common/signoz_flamegraphs.webp" alt="Flamegraphs showing exact duration taken by each spans - a concept of distributed tracing"/>
     <figcaption><i>Flamegraphs showing exact duration taken by each spans - a concept of distributed tracing</i></figcaption>
 </figure>
 
 
 <figure data-zoomable align='center'>
-    <img className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-dashboard.webp" alt="Metrics dashboard in SigNoz"/>
+    <OptimizedImg className="box-shadowed-image" src="/img/blog/2024/01/cloudwatch-metrics-dashboard.webp" alt="Metrics dashboard in SigNoz"/>
     <figcaption><i>Metrics dashboard in SigNoz</i></figcaption>
 </figure>
 

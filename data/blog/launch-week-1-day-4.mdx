@@ -29,7 +29,7 @@ is_newsroom: true
   <a
     class="avatar__photo-link avatar__photo avatar__photo--lg"
     href="https://www.linkedin.com/in/ankit-anand-686a53a1/">
-    <img
+    <OptimizedImg
       alt="Ankit Profile"
       src="/img/users/ankit-anand.webp" />
   </a>
@@ -48,7 +48,7 @@ Welcome to SigNoz Launch Week Day 4!
 Today’s feature in the spotlight is **Logs Pipeline.**
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/launch-week-day-4-cover.webp" alt="Cover pic"/>
+<OptimizedImg className="box-shadowed-image" src="/img/events/launch-week-1/launch-week-day-4-cover.webp" alt="Cover pic"/>
 </figure>
 
 
@@ -59,7 +59,7 @@ With Log Pipelines, you can transform logs to suit your querying and aggregation
 Raj joined SigNoz for the love of startups and building things from scratch. An ex-googler, he loves the dynamic and innovative environment of startups and bringing new products to the market.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/logs-pipeline-builder.webp" alt="Cover pic"/>
+<OptimizedImg className="box-shadowed-image" src="/img/events/launch-week-1/logs-pipeline-builder.webp" alt="Cover pic"/>
 </figure>
 
 
@@ -98,7 +98,7 @@ You can also use log preprocessing to achieve other goals, like cleaning sensiti
 Let’s suppose you have a demo service called `cart-service`, which logs information about orders that are being placed. The body of the log is in `json`.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/logs-demo-cart-service.webp" alt="Logs from a demo cart service"/>
+<OptimizedImg className="box-shadowed-image" src="/img/events/launch-week-1/logs-demo-cart-service.webp" alt="Logs from a demo cart service"/>
 <figcaption><i>Logs from a demo cart service which logs information about orders that are being placed. </i></figcaption>
 </figure>
 
@@ -108,7 +108,7 @@ With log pipelines, you can extract things like `country code` and `total amount
 With the extracted attributes, you will be able to run queries for finding things like average order values across countries. This becomes very powerful for querying specific things out of raw log data and creating charts & alerts on them.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/287d5481-70cd-4ca8-8c12-e85f27e383f2.gif" alt="Query for avg order value"/>
+<OptimizedImg className="box-shadowed-image" src="/img/events/launch-week-1/287d5481-70cd-4ca8-8c12-e85f27e383f2.gif" alt="Query for avg order value"/>
 <figcaption><i>Run a query for avg. order value across countries. It is made possible by extracting the attributes for country and total order value from the log body.</i></figcaption>
 </figure>
 
@@ -116,7 +116,7 @@ With the extracted attributes, you will be able to run queries for finding thing
 You can access `pipelines` from the Logs Explorer tab. And then click on `Enter Edit Mode` to add a new pipeline.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/add-new-pipeline.webp" alt="Add a new pipeline"/>
+<OptimizedImg className="box-shadowed-image" src="/img/events/launch-week-1/add-new-pipeline.webp" alt="Add a new pipeline"/>
 <figcaption><i>Enter edit mode to add a new pipeline.</i></figcaption>
 </figure>
 
@@ -124,7 +124,7 @@ You can access `pipelines` from the Logs Explorer tab. And then click on `Enter 
 Once you click on `Add a New Pipeline`, there will be a pop-up for creating a new pipeline with fields for name, description, and filter. Using the `Filter` field, you can create pipelines for specific incoming log streams.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/create-new-pipeline.webp" alt="Create a new pipeline"/>
+<OptimizedImg className="box-shadowed-image" src="/img/events/launch-week-1/create-new-pipeline.webp" alt="Create a new pipeline"/>
 <figcaption><i>Create a new pipeline by filtering the stream of logs you want to create pipeline for.</i></figcaption>
 </figure>
 
@@ -132,7 +132,7 @@ Once you click on `Add a New Pipeline`, there will be a pop-up for creating a ne
 Once the pipeline is created, you can apply a chain of processors to transform your logs to suit your needs.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/logs-pipelines-signoz.webp" alt="Add a chain of log processors"/>
+<OptimizedImg className="box-shadowed-image" src="/img/events/launch-week-1/logs-pipelines-signoz.webp" alt="Add a chain of log processors"/>
 <figcaption><i>Add a chain of log processors to transform your logs to suit your needs</i></figcaption>
 </figure>
 
@@ -144,7 +144,7 @@ Log pipelines are essentially configurations in the OpenTelemetry Collector depl
 To understand how Log pipelines work, let’s get a brief overview of SigNoz architecture. Data from instrumented applications and Otel collectors are sent to the SigNoz OTel collector for pre-processing, which then gets written to ClickHouse (SigNoz DB). SigNoz UI interacts with this data with the help of **Query Service**.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/events/launch-week-1/logs-pipeline-architecture2.webp" alt="OpAMP server is integrated with our query service to handle OTel Collector configs remotely"/>
+<OptimizedImg className="box-shadowed-image" src="/img/events/launch-week-1/logs-pipeline-architecture2.webp" alt="OpAMP server is integrated with our query service to handle OTel Collector configs remotely"/>
 <figcaption><i>OpAMP server is integrated with our query service to handle OTel Collector configs remotely</i></figcaption>
 </figure>
 
@@ -193,7 +193,7 @@ OpenTelemetry has standardized the write path for observability. In the long-ter
 						rel="noopener noreferrer"
 						target="_blank">
         <div class="card__image">
-        <img
+        <OptimizedImg
           src="/img/events/launch-week-1/launch-week-day-1-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 1" />
@@ -214,7 +214,7 @@ OpenTelemetry has standardized the write path for observability. In the long-ter
 						rel="noopener noreferrer"
 						target="_blank">
         <div class="card__image">
-        <img
+        <OptimizedImg
           src="/img/events/launch-week-1/launch-week-day-2-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 2" />
@@ -237,7 +237,7 @@ OpenTelemetry has standardized the write path for observability. In the long-ter
 						rel="noopener noreferrer"
 						target="_blank">
         <div class="card__image">
-        <img
+        <OptimizedImg
           src="/img/events/launch-week-1/launch-week-day-3-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 3" />
@@ -259,7 +259,7 @@ OpenTelemetry has standardized the write path for observability. In the long-ter
 						rel="noopener noreferrer"
 						target="_blank">
         <div class="card__image">
-        <img
+        <OptimizedImg
           src="/img/events/launch-week-1/launch-week-day-4-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 4" />
@@ -286,7 +286,7 @@ OpenTelemetry has standardized the write path for observability. In the long-ter
 						rel="noopener noreferrer"
 						target="_blank">
         <div class="card__image">
-        <img
+        <OptimizedImg
           src="/img/events/launch-week-1/launch-week-day-5-cover.webp"
           alt="Image alt text"
           title="Launch Week Day 5" />

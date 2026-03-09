@@ -281,7 +281,7 @@ In the above config file, you can see that we are setting the endpoints as targe
 Replace [http://localhost:5000](http://localhost:5000/) with the correct endpoint where you have your web app running. If you have only one target endpoint, take out the rest endpoints. Also, replace `{region}` with the region for your SigNoz cloud account and `<SIGNOZ_INGESTION_KEY>` with the ingestion key for your account. You can find these settings in the SigNoz dashboard under `Settings > Ingestion Settings`.
 
 <figure data-zoomable align='center'>
-<img src="/img/blog/common/ingestion-key-details.webp" alt="You can find ingestion details in the SigNoz dashboard"/>
+<OptimizedImg src="/img/blog/common/ingestion-key-details.webp" alt="You can find ingestion details in the SigNoz dashboard"/>
 <figcaption><i>You can find ingestion details in the SigNoz dashboard</i></figcaption>
 </figure>
 
@@ -319,7 +319,7 @@ Navigate to your SigNoz Cloud account and access the "Dashboard" tab. Click on t
 For HTTP endpoint monitoring, you can use the time-series chart.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/blog/2023/12/create_new_dashboard.webp" alt="Create a new dashboard and click on the time-series panel type"/>
+<OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/create_new_dashboard.webp" alt="Create a new dashboard and click on the time-series panel type"/>
 <figcaption><i>Create a new dashboard and click on the time-series panel type</i></figcaption>
 </figure>
 
@@ -328,7 +328,7 @@ In the "[Query Builder](https://signoz.io/blog/query-builder-v5/)" tab, enter "h
 **HTTP metrics sent to SigNoz**
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/blog/2023/12/receiver_metrics_signoz.webp" alt="HTTP Receiver Metrics monitored by SigNoz"/>
+<OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/receiver_metrics_signoz.webp" alt="HTTP Receiver Metrics monitored by SigNoz"/>
 <figcaption><i>HTTP Receiver Metrics monitored by SigNoz</i></figcaption>
 </figure>
 
@@ -337,14 +337,14 @@ In SigNoz, you can monitor the health of HTTP endpoints by running queries again
 So if you need the endpoints monitored, you can create a query with the `where` clause set to `http_status_class = 2xx` .
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/blog/2023/12/https_check_status.webp" alt=""/>
+<OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/https_check_status.webp" alt=""/>
 <figcaption><i></i></figcaption>
 </figure>
 
 It will give you a chart where you can see all the URLs are monitored their value as 1 when they are up and 0 when they are down.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/blog/2023/12/monitoring_chart_signoz.webp" alt="Chart for monitoring HTTP endpoints in SigNoz"/>
+<OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/monitoring_chart_signoz.webp" alt="Chart for monitoring HTTP endpoints in SigNoz"/>
 <figcaption><i>Chart for monitoring HTTP endpoints in SigNoz</i></figcaption>
 </figure>
 
@@ -353,7 +353,7 @@ You can also create an alert for an endpoint going down and get it in your prefe
 It will take you to the alerts page; from there, you can create the alerts.
 
 <figure data-zoomable align='center'>
-<img className="box-shadowed-image" src="/img/blog/2023/12/alert_endpoint_down.webp" alt="Create alerts to be notified in case an endpoint is down"/>
+<OptimizedImg className="box-shadowed-image" src="/img/blog/2023/12/alert_endpoint_down.webp" alt="Create alerts to be notified in case an endpoint is down"/>
 <figcaption><i>Create alerts to be notified in case an endpoint is down</i></figcaption>
 </figure>
 

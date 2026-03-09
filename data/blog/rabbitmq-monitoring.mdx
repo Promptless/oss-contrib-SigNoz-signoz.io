@@ -60,7 +60,7 @@ rabbitmq-plugins enable rabbitmq_management
 ```
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/10/rabbitmq-ui-dashboard.webp" alt="UI Management Dashboard."/>
+    <OptimizedImg src="/img/blog/2023/10/rabbitmq-ui-dashboard.webp" alt="UI Management Dashboard."/>
     <figcaption><i>UI Management Dashboard.</i></figcaption>
 </figure>
 
@@ -97,7 +97,7 @@ We can divide the key RabbitMQ metrics to monitor into four sections -
 Queue length measures the number of messages waiting in a queue at any given time. High queue lengths can indicate backlogs. You can either access queue metrics in the web-based management interface, or you can build your own system through HTTP requests to endpoints like `/api/queues` to retrieve queue statistics, including message counts.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/10/rabbitmq-queues.webp" alt="UI Interface - Queues."/>
+    <OptimizedImg src="/img/blog/2023/10/rabbitmq-queues.webp" alt="UI Interface - Queues."/>
     <figcaption><i>UI Interface - Queues.</i></figcaption>
 </figure>
 
@@ -114,7 +114,7 @@ To prevent these scenarios, RabbitMQ uses resource watermarks(refer to the scree
 This blocking state is visible within the built-in monitoring tools; however, the responsibility for configuring notifications regarding these blocked connections falls to the user.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/10/rabbitmq-node.webp" alt="UI Interface - Nodes Section."/>
+    <OptimizedImg src="/img/blog/2023/10/rabbitmq-node.webp" alt="UI Interface - Nodes Section."/>
     <figcaption><i>UI Interface - Nodes Section.</i></figcaption>
 </figure>
 
@@ -133,7 +133,7 @@ You can either check the "Connections" tab in the web-based interface or program
 API furnishes connection information, covering aspects like state, heartbeat, publish rate, subscription rate, and whatnot. However, it's the user's responsibility to establish alerting mechanisms for tracking rising connection numbers and identifying connection failures. A centralized monitoring tool like [SigNoz](https://signoz.io/) can help you set up alerts on critical RabbitMQ metrics.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/10/rabbitmq-connection-details.webp" alt="UI Interface - Connections Details."/>
+    <OptimizedImg src="/img/blog/2023/10/rabbitmq-connection-details.webp" alt="UI Interface - Connections Details."/>
     <figcaption><i>UI Interface - Connections Details.</i></figcaption>
 </figure>
 
@@ -154,7 +154,7 @@ Queue depth is essentially a measure of how many messages are currently piled up
 RabbitMQ's native tools, such as the management plugin or Management API, allow you to view queue depths for all your queues. The "Queue" section of the web interface provides insights into individual queue depths, while the `/api/queues` endpoint in the Management API offers programmatic access.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/10/rabbitmq-queues-2.webp" alt="UI Interface - Queues."/>
+    <OptimizedImg src="/img/blog/2023/10/rabbitmq-queues-2.webp" alt="UI Interface - Queues."/>
     <figcaption><i>UI Interface - Queues.</i></figcaption>
 </figure>
 
@@ -165,7 +165,7 @@ Acknowledgment times represent how long it takes for messages to be acknowledged
 Examine acknowledgment rates within the "Queue" section of the web-based management interface or the `/api/queues` endpoint through the Management API.
 
 <figure data-zoomable align='center'>
-    <img src="/img/blog/2023/10/rabbitm1-queue-stat.webp" alt="UI Interface - Queues Stats."/>
+    <OptimizedImg src="/img/blog/2023/10/rabbitm1-queue-stat.webp" alt="UI Interface - Queues Stats."/>
     <figcaption><i>UI Interface - Queues Stats.</i></figcaption>
 </figure>
 
