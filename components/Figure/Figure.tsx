@@ -7,7 +7,12 @@ import 'react-medium-image-zoom/dist/styles.css'
 
 import { cn } from 'app/lib/utils'
 
-import { DEFAULT_IMAGE_HEIGHT, DEFAULT_IMAGE_WIDTH, shouldUseNextImage } from '../imageDefaults'
+import {
+  CONTENT_IMAGE_SIZES,
+  DEFAULT_IMAGE_HEIGHT,
+  DEFAULT_IMAGE_WIDTH,
+  shouldUseNextImage,
+} from '../imageDefaults'
 
 interface FigureProps {
   src: string
@@ -49,7 +54,7 @@ export default function Figure({
             className={cn('rounded-md', className)}
             priority={priority}
             loading={priority ? undefined : 'lazy'}
-            sizes="(max-width: 768px) 100vw, 780px"
+            sizes={CONTENT_IMAGE_SIZES}
           />
         ) : (
           <img

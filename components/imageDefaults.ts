@@ -1,6 +1,9 @@
 export const DEFAULT_IMAGE_WIDTH = 1200
 export const DEFAULT_IMAGE_HEIGHT = 800
 
+export const CONTENT_IMAGE_SIZES =
+  '(max-width: 768px) 100vw, (max-width: 1024px) 90vw, (max-width: 1280px) 960px, (max-width: 1536px) 1100px, 1200px'
+
 const DEFAULT_ALLOWED_DOMAINS =
   'picsum.photos,signoz.io,avatars.githubusercontent.com,storage.googleapis.com'
 

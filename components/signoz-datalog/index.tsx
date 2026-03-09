@@ -33,7 +33,7 @@ export const SignozDatalog = () => {
             width={1200}
             height={600}
             priority
-            sizes="(max-width: 768px) 100vw, 1200px"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1400px"
           />
           <div className="mt-[18px] flex flex-row gap-3"></div>
         </div>

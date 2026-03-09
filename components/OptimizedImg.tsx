@@ -2,7 +2,12 @@
 
 import NextImage from 'next/image'
 
-import { DEFAULT_IMAGE_HEIGHT, DEFAULT_IMAGE_WIDTH, shouldUseNextImage } from './imageDefaults'
+import {
+  CONTENT_IMAGE_SIZES,
+  DEFAULT_IMAGE_HEIGHT,
+  DEFAULT_IMAGE_WIDTH,
+  shouldUseNextImage,
+} from './imageDefaults'
 
 type OptimizedImgProps = React.ComponentProps<'img'> & {
   priority?: boolean
@@ -56,7 +61,7 @@ export default function OptimizedImg({
       className={className ?? undefined}
       priority={isPriority}
       loading={isPriority ? undefined : 'lazy'}
-      sizes="(max-width: 768px) 100vw, 780px"
+      sizes={CONTENT_IMAGE_SIZES}
     />
   )
 }

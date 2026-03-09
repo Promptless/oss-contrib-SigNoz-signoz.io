@@ -6,7 +6,12 @@ import { cn } from 'app/lib/utils'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
-import { DEFAULT_IMAGE_HEIGHT, DEFAULT_IMAGE_WIDTH, shouldUseNextImage } from './imageDefaults'
+import {
+  CONTENT_IMAGE_SIZES,
+  DEFAULT_IMAGE_HEIGHT,
+  DEFAULT_IMAGE_WIDTH,
+  shouldUseNextImage,
+} from './imageDefaults'
 
 type ImagePropsWithZoom = ImageProps & {
   zoomImgSrc?: string
@@ -69,7 +74,7 @@ const Image = ({
           alt={alt}
           width={width ?? DEFAULT_IMAGE_WIDTH}
           height={height ?? DEFAULT_IMAGE_HEIGHT}
-          sizes={sizes ?? '(max-width: 768px) 100vw, 780px'}
+          sizes={sizes ?? CONTENT_IMAGE_SIZES}
           priority={priority}
           loading={priority ? undefined : 'lazy'}
           className={className}
