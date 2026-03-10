@@ -1,5 +1,5 @@
 ---
-date: 2026-02-19
+date: 2026-03-08
 title: Send logs from Logstash to SigNoz via OpenTelemetry
 description: Send logs from Logstash to SigNoz using OpenTelemetry Collector.
 doc_type: howto
@@ -128,9 +128,16 @@ Verify these values:
 
 ### Step 2: Create the Logstash Config
 
-Add the following `output` block to your `logstash.conf` (or pipeline configuration) to forward logs to the OTel Collector by its Docker service name:
+Create a `logstash.conf` file with an `input` to receive logs and an `output` to forward them to the OTel Collector:
 
 ```ruby:logstash.conf
+input {
+  file {
+    path => "/var/log/app/*.log"
+    start_position => "beginning"
+  }
+}
+
 output {
   tcp {
     codec => json_lines
@@ -140,7 +147,28 @@ output {
 }
 ```
 
+- Replace the `input` block with the source that matches your setup. The `file` input above is just an example.
 - `otel-collector` is the Docker service name defined in the next step. Docker networking resolves this to the correct container automatically.
+
+<KeyPointCallout title="Other common Logstash inputs" defaultCollapsed="true">
+Replace the `file` input above with whichever source suits your environment:
+
+```ruby
+# Receive logs from Filebeat agents
+input { beats { port => 5044 } }
+
+# Receive logs over TCP from an application
+input { tcp { port => 5000 codec => json_lines } }
+
+# Receive syslog messages
+input { syslog { port => 514 } }
+
+# Read from stdin (useful for quick testing)
+input { stdin { } }
+```
+
+See the <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener noreferrer nofollow">Logstash input plugins</a> documentation for the full list.
+</KeyPointCallout>
 
 ### Step 3: Create/Update the Docker Compose file
 
@@ -155,9 +183,14 @@ services:
 
   logstash:
     ...
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - /var/log/app:/var/log/app:ro # Mount the log directory referenced in logstash.conf
     depends_on:
       - otel-collector
 ```
+
+- Adjust the volume mounts to match the log paths used in your `logstash.conf` input configuration.
 
 ### Step 4: Start the Services
 
