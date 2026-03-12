@@ -11,6 +11,7 @@ import {
   CONTENT_IMAGE_SIZES,
   DEFAULT_IMAGE_HEIGHT,
   DEFAULT_IMAGE_WIDTH,
+  DEFAULT_IMAGE_QUALITY,
   shouldUseNextImage,
 } from '../imageDefaults'
 
@@ -55,6 +56,7 @@ export default function Figure({
             priority={priority}
             loading={priority ? undefined : 'lazy'}
             sizes={CONTENT_IMAGE_SIZES}
+            quality={DEFAULT_IMAGE_QUALITY}
           />
         ) : (
           <img
