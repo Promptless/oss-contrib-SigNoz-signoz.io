@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '@signozhq/design-tokens/dist/style.css';
-
 .task-list-item::before {
   @apply hidden;
 }

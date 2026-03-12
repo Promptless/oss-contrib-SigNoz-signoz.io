@@ -1,5 +1,5 @@
 'use client'
-import Pagination from '@signozhq/pagination'
+import Pagination from '@/components/Pagination'
 import { useState, useEffect } from 'react'
 import type { TPagination } from '@/utils/strapi'
 import { useRouter, useParams, useSearchParams } from 'next/navigation'
