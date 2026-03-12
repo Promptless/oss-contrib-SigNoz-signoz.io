@@ -3,7 +3,6 @@ import BlogNewsletterForm from 'pliny/ui/BlogNewsletterForm'
 import type { MDXComponents } from 'mdx/types'
 import Image from './Image'
 import OptimizedImg from './OptimizedImg'
-import MDXFigure from './MDXFigure'
 import CustomLink from './Link'
 import TableWrapper from './TableWrapper'
 import YouTube from './VideoPlayer/VideoPlayer'
@@ -96,7 +95,6 @@ export const components: MDXComponents = {
   Image,
   img: OptimizedImg,
   OptimizedImg,
-  figure: MDXFigure,
   TOCInline,
   a: CustomLink,
   pre: RegionAwarePre,
