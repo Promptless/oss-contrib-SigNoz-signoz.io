@@ -22,6 +22,7 @@ export const SigNozFeatures = () => {
     { src: '/img/index_features/logs.svg', label: 'Logs' },
     { src: '/img/index_features/layout-grid.svg', label: 'Dashboards' },
     { src: '/img/index_features/bug.svg', label: 'Errors' },
+    { src: '/img/index_features/llm-observability.svg', label: 'LLM/AI' },
     { src: '/img/index_features/concierge-bell.svg', label: 'Alerts' },
   ]
 
@@ -66,12 +67,12 @@ export const SigNozFeatures = () => {
       img: '/img/graphics/homepage/feature-graphic-6.webp',
     },
     {
-      iconTag: 'EXCEPTIONS',
-      text: 'Record exceptions automatically with stack trace & linked span data.',
+      iconTag: 'LLM/AI OBSERVABILITY',
+      text: 'Track LLM calls, analyze performance, and monitor usage across your AI applications.',
       buttonText: 'Explore More',
-      buttonLink: '/exceptions-monitoring/',
-      logo: '/img/index_features/bug.svg',
-      img: '/img/graphics/homepage/feature-graphic-5.webp',
+      buttonLink: '/llm-observability/',
+      logo: '/img/index_features/llm-observability.svg',
+      img: '/img/graphics/homepage/feature-graphic-8.webp',
     },
     {
       iconTag: 'ALERTS',
