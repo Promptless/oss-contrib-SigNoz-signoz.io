@@ -27,6 +27,7 @@ interface FigureProps {
   width?: number
   height?: number
   priority?: boolean
+  sizes?: string
 }
 
 export default function Figure({
@@ -41,8 +42,13 @@ export default function Figure({
   width = DEFAULT_IMAGE_WIDTH,
   height = DEFAULT_IMAGE_HEIGHT,
   priority = false,
+  sizes: sizesProp,
 }: FigureProps) {
   const useNextImage = shouldUseNextImage(src)
+  const sizes =
+    sizesProp ??
+    (width !== DEFAULT_IMAGE_WIDTH ? `(max-width: 768px) 100vw, ${width}px` : CONTENT_IMAGE_SIZES)
+
   return (
     <Zoom zoomImg={{ src }}>
       <figure className={figureClassName}>
@@ -55,7 +61,7 @@ export default function Figure({
             className={cn('rounded-md', className)}
             priority={priority}
             loading={priority ? undefined : 'lazy'}
-            sizes={CONTENT_IMAGE_SIZES}
+            sizes={sizes}
             quality={DEFAULT_IMAGE_QUALITY}
           />
         ) : (
