@@ -2,9 +2,10 @@ import { getAllowedImageDomains } from '../constants/allowedImageDomains'
 
 export const DEFAULT_IMAGE_WIDTH = 1200
 export const DEFAULT_IMAGE_HEIGHT = 800
+export const DEFAULT_IMAGE_QUALITY = 90
 
 export const CONTENT_IMAGE_SIZES =
-  '(max-width: 768px) 100vw, (max-width: 1024px) 90vw, (max-width: 1280px) 960px, (max-width: 1536px) 1100px, 1200px'
+  '(max-width: 768px) 100vw, (max-width: 1024px) 90vw, (max-width: 1280px) 960px, (max-width: 1536px) 1100px, 1920px'
 
 const ALLOWED_EXTERNAL_IMAGE_DOMAINS = getAllowedImageDomains()
 

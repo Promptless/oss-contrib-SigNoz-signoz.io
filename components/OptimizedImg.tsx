@@ -7,6 +7,7 @@ import {
   DEFAULT_IMAGE_HEIGHT,
   DEFAULT_IMAGE_WIDTH,
   shouldUseNextImage,
+  DEFAULT_IMAGE_QUALITY,
 } from './imageDefaults'
 
 type OptimizedImgProps = React.ComponentProps<'img'> & {
@@ -62,6 +63,7 @@ export default function OptimizedImg({
       priority={isPriority}
       loading={isPriority ? undefined : 'lazy'}
       sizes={CONTENT_IMAGE_SIZES}
+      quality={DEFAULT_IMAGE_QUALITY}
     />
   )
 }
