@@ -15,7 +15,11 @@ import PageViewTracker from '@/components/Analytics/PageViewTracker'
 import { GrowthBookProvider } from '@/components/GrowthBookProvider'
 import { AnonymousIdSetter } from './anonymous-id-setter'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
