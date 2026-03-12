@@ -13,6 +13,7 @@ import {
 type OptimizedImgProps = React.ComponentProps<'img'> & {
   priority?: boolean
   'data-priority'?: string | boolean
+  sizes?: string
 }
 
 function parseDimension(value: string | number | undefined, fallback: number): number {
@@ -27,12 +28,17 @@ export default function OptimizedImg({
   width,
   height,
   priority,
+  sizes: sizesProp,
   'data-priority': dataPriority,
   ...rest
 }: OptimizedImgProps) {
   const w = parseDimension(width, DEFAULT_IMAGE_WIDTH)
   const h = parseDimension(height, DEFAULT_IMAGE_HEIGHT)
   const isPriority = priority || dataPriority === 'true' || dataPriority === true
+
+  const hasExplicitWidth = width !== undefined
+  const sizes =
+    sizesProp ?? (hasExplicitWidth ? `(max-width: 768px) 100vw, ${w}px` : CONTENT_IMAGE_SIZES)
 
   if (!src || typeof src !== 'string') {
     return null
@@ -62,7 +68,7 @@ export default function OptimizedImg({
       className={className ?? undefined}
       priority={isPriority}
       loading={isPriority ? undefined : 'lazy'}
-      sizes={CONTENT_IMAGE_SIZES}
+      sizes={sizes}
       quality={DEFAULT_IMAGE_QUALITY}
     />
   )
