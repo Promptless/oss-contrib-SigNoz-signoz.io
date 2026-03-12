@@ -124,6 +124,11 @@ module.exports = () => {
           permanent: true,
         },
         {
+          source: '/docs/overview/what-and-why-opentelemetry/',
+          destination: '/docs/overview/what-is-opentelemetry-and-why-it-matters/',
+          permanent: true,
+        },
+        {
           source: '/docs/logs-pipelines/guides/severity/',
           destination: '/docs/logs-pipelines/guides/severity-parsing/',
           permanent: true,

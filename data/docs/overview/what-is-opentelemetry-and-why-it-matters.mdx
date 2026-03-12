@@ -1,0 +1,168 @@
+---
+date: 2026-03-11
+id: what-is-opentelemetry-and-why-it-matters
+title: What Is OpenTelemetry and Why It Matters
+description: What is OpenTelemetry and why do teams adopt it? Learn how OpenTelemetry reduces vendor lock-in, standardizes telemetry, and works well with SigNoz.
+doc_type: explanation
+---
+
+OpenTelemetry is an open-source, vendor-neutral observability framework and toolkit for generating, collecting, and exporting traces, metrics, and logs. If you're asking what OpenTelemetry is and why it matters, the short answer is this: it lets you instrument software once, keep control over your telemetry, and choose the backend that works best for you.
+
+<Admonition type="info">
+If you remember one thing, remember this: OpenTelemetry lets you instrument once and keep control over where your telemetry goes.
+</Admonition>
+
+## What OpenTelemetry actually is
+
+OpenTelemetry is not a dashboard, a database, or an observability backend. It is the telemetry layer that sits between your application and a backend like SigNoz. If you want the official project overview, start with <a href="https://opentelemetry.io/docs/what-is-opentelemetry/" target="_blank" rel="noopener noreferrer nofollow">What is OpenTelemetry?</a>.
+
+In practice, OpenTelemetry gives you a shared set of building blocks:
+
+- **APIs and SDKs** to generate telemetry from your application code
+- **Auto-instrumentation** to capture common frameworks and libraries with minimal code changes
+- **OTLP (OpenTelemetry Protocol)** to move telemetry in a standard format
+- **The OpenTelemetry Collector** to receive, process, and route telemetry
+- **Semantic conventions** so common things like HTTP requests, database calls, and messaging systems are named consistently
+
+That combination matters because observability becomes easier when the data follows a common shape. Your traces, metrics, and logs become easier to correlate, easier to query, and easier to move between tools.
+
+## Why OpenTelemetry was created
+
+Before OpenTelemetry, teams usually had two bad options:
+
+- instrument separately for every backend they wanted to use
+- rely on vendor-specific agents and data models that were hard to change later
+
+That worked for simpler systems, but it broke down as architectures became more distributed. Microservices, Kubernetes, serverless, managed databases, queues, and third-party APIs all made telemetry more fragmented.
+
+OpenTelemetry was created to solve that fragmentation with one open standard. It unified earlier efforts like OpenTracing and OpenCensus, but the bigger idea is more important than the history: **make high-quality telemetry portable, consistent, and practical across languages, runtimes, and vendors**.
+
+The philosophy behind OpenTelemetry is simple:
+
+- **You own the telemetry you generate**
+- **You should not need to rewrite instrumentation to change tools**
+- **Teams should share one set of conventions instead of learning a new model for every vendor**
+- **Telemetry should be easy to collect, route, enrich, and reuse**
+
+OpenTelemetry is also mature enough for real production use. The project publishes a language-by-language <a href="https://opentelemetry.io/status/" target="_blank" rel="noopener noreferrer nofollow">status matrix</a>, and that status page shows traces and metrics are already stable across many major SDKs, while logs maturity still varies by language. If you are evaluating adoption, that is a better signal than generic hype: you can check the status of the exact language stack you run today.
+
+## Why teams adopt OpenTelemetry
+
+For most teams, the appeal is not ideology. It is leverage.
+
+### 1. It reduces vendor lock-in
+
+When instrumentation is tied to one vendor, switching tools becomes expensive. OpenTelemetry gives you a stable instrumentation layer, so changing backends is much less disruptive.
+
+This is especially useful if you are:
+
+- migrating from a proprietary observability platform
+- using different tools across teams today
+- planning for multi-vendor or hybrid environments
+- trying to control observability cost without throwing away existing instrumentation
+
+### 2. It gives you one telemetry model across the stack
+
+Modern systems rarely live in one language or platform. You might have Java services, Python workers, Node.js APIs, a React frontend, Kafka, PostgreSQL, and Kubernetes running together.
+
+OpenTelemetry helps normalize that world. Instead of stitching together unrelated agents and naming schemes, you get a common model for traces, metrics, logs, resource attributes, and context propagation.
+
+That consistency pays off when you need to answer real questions like:
+
+- Why is checkout slow right now?
+- Which service introduced the error spike?
+- Did latency go up after the last deploy?
+- Which database call is responsible for most of the request time?
+
+### 3. It improves telemetry quality
+
+Observability is only as good as the data behind it. OpenTelemetry improves quality by encouraging consistent context, shared conventions, and richer metadata.
+
+For example, semantic conventions help multiple services describe similar operations in a compatible way. That makes it much easier for tools like SigNoz to build service maps, correlate related signals, and give you useful defaults without custom parsing everywhere.
+
+### 4. It gives you control over the pipeline
+
+With the OpenTelemetry Collector, telemetry does not have to go straight from your app to your backend. You can add a control layer in the middle to:
+
+- batch and retry data
+- remove noisy attributes
+- redact sensitive values
+- enrich data with infrastructure context
+- route the same telemetry to multiple destinations
+
+That is one of the biggest practical advantages of OpenTelemetry. Your application stays focused on generating telemetry, while the pipeline stays flexible.
+
+## The mental model: how OpenTelemetry fits together
+
+You can think about OpenTelemetry as a simple flow:
+
+1. **Your application emits telemetry** using OpenTelemetry SDKs, libraries, or auto-instrumentation.
+2. **Telemetry is labeled consistently** with shared conventions and resource attributes.
+3. **Telemetry is sent using OTLP** either directly to a backend or through the OpenTelemetry Collector.
+4. **A backend like SigNoz stores, correlates, queries, and visualizes it.**
+
+That separation is important.
+
+- OpenTelemetry is the **generation and transport layer**
+- SigNoz is the **storage, analysis, and action layer**
+
+Together, they give you an open pipeline without sacrificing a polished user experience.
+
+## Why OpenTelemetry works well with SigNoz
+
+SigNoz is built on OpenTelemetry from day one, which means OpenTelemetry is not bolted on as an afterthought.
+
+That shows up in a few practical ways:
+
+- **Native OpenTelemetry flow:** SigNoz is designed around OTLP-based ingestion rather than forcing a proprietary agent-first model.
+- **Better defaults from semantic conventions:** When your telemetry follows OpenTelemetry conventions, SigNoz can turn raw telemetry into useful views faster.
+- **Cleaner migration path:** If you are coming from tools like Datadog, OpenTelemetry gives you a more portable foundation while SigNoz gives you a full backend and UI on top of it.
+- **Flexibility as you grow:** You can start simple and export directly, then introduce the Collector later when you need more routing, processing, or control.
+
+In short, OpenTelemetry gives you freedom. SigNoz gives you a powerful place to use that freedom well.
+
+## What OpenTelemetry is not
+
+It is worth being explicit about what OpenTelemetry does **not** do on its own:
+
+- It does not store your telemetry long-term
+- It does not query or visualize data for you
+- It does not replace dashboards, alerts, or incident workflows
+
+That is why OpenTelemetry and SigNoz are complementary. OpenTelemetry standardizes how telemetry is produced and moved. SigNoz helps you turn that telemetry into debugging workflows, dashboards, alerts, and shared operational context.
+
+## When OpenTelemetry is the right choice
+
+OpenTelemetry is usually the right choice if you want to:
+
+- build observability on open standards
+- avoid rewriting instrumentation later
+- standardize telemetry across teams and languages
+- keep more control over cost and routing
+- adopt a backend that works well with the wider OpenTelemetry ecosystem
+
+If you are starting fresh, OpenTelemetry is the cleanest path.
+
+If you are migrating from another platform, OpenTelemetry is often the safest path.
+
+If you want observability that stays portable as your architecture changes, OpenTelemetry is the future-proof path.
+
+## Next steps
+
+<DocCardContainer>
+  <DocCard
+    title="Get started with APM"
+    description="Instrument your app with OpenTelemetry and start sending traces to SigNoz."
+    href="https://signoz.io/docs/instrumentation/overview/"
+  />
+  <DocCard
+    title="Why use the Collector?"
+    description="Understand when to send telemetry through the OpenTelemetry Collector."
+    href="https://signoz.io/docs/opentelemetry-collection-agents/opentelemetry-collector/why-to-use-collector/"
+  />
+  <DocCard
+    title="Migrate from Datadog"
+    description="Use OpenTelemetry to move from Datadog to SigNoz with less rework."
+    href="https://signoz.io/docs/migration/migrate-from-datadog-to-signoz/"
+  />
+</DocCardContainer>
