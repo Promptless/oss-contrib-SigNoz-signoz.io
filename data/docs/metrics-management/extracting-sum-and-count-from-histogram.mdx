@@ -6,33 +6,44 @@ doc_type: howto
 id: docker-container-metrics
 ---
 
-This documentation explains how to extract summary metrics (sum and count) from histogram-type metrics while excluding the original bucket data. This transformation is particularly useful for calculating averages.
+A histogram metric like `myApp_latency_bucket` contains detailed bucket data (for example, how many requests fell into each latency range). Often, you only need two numbers from it:
+- **Count** — the total number of observations
+- **Sum** — the total combined value of all observations
 
-## Overview
-
-The transformation configuration allows you to:
-
-1. Extract count and sum metrics from histogram data
-2. Filter out the original histogram buckets
+With those two values you can calculate the **average** (`sum ÷ count`), and you no longer need the full bucket breakdown.
+This guide shows how to:
+1. Extract the count and sum from a histogram into their own metrics.
+2. Drop the original histogram so you're not storing unnecessary bucket data.
 3. Use the resulting metrics for average calculations
 
+## Configuration
+This requires **two separate processors** in your OpenTelemetry Collector pipeline:
+- The **transform** processor to extract count and sum.
+- The **filter** processor to drop the original histogram.
+
 ```yaml
-transform:
-  error_mode: ignore
-  metric_statements:
-    - context:
-        metric:
-          conditions:
-            - name == "myApp_latency_bucket"
-          statements:
-            - extract_count_metric(true)
-            - extract_sum_metric(true)
-  filter:
+processors:
+    transform:
+      error_mode: ignore
+      metric_statements:
+        - context:
+            metric:
+              conditions:
+                - name == "myApp_latency_bucket"
+              statements:
+                - extract_count_metric(true)
+                - extract_sum_metric(true)
+    filter:
+      metrics:
+        exclude:
+          match_type: strict
+          metric_names:
+            - myApp_latency_bucket
+
+service:
+  pipelines:
     metrics:
-      exclude:
-        match_type: strict
-        metric_names:
-          - myApp_latency_bucket
+      processors: [transform, filter]
 ```
 
 ## Generated Metrics
@@ -41,3 +52,6 @@ The transformation will create two new metrics:
 
 1. myApp_latency_bucket_count: Total number of observations
 2. myApp_latency_bucket_sum: Sum of all observations
+
+You can then compute the average latency:
+average latency = myApp_latency_bucket_sum ÷ myApp_latency_bucket_count
