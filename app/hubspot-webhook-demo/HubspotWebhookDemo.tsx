@@ -3,7 +3,7 @@
 import React, { useRef, useState } from 'react'
 import { HubspotProvider } from '@aaronhayes/react-use-hubspot-form'
 import { FormBlockedFallback, useHubspotFormFallback } from '@/components/HubspotFormFallback'
-import { contactUsData } from '@/app/contact-us/data'
+import { contactUsData } from '../contact-us/data'
 
 type ForwardState =
   | { status: 'idle' }
