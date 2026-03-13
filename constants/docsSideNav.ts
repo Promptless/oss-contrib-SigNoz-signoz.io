@@ -1569,6 +1569,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/userguide/logs-query-troubleshooting',
+            label: 'Logs Query Troubleshooting',
+          },
+          {
+            type: 'doc',
             route: '/docs/logs-management/features/logs-quick-filters',
             label: 'Logs Quick Filters',
           },
