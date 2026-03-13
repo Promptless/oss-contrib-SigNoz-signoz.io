@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form'
+import { useHubspotForm, type UseHubSpotFormProps } from '@aaronhayes/react-use-hubspot-form'
 import Button from '@/components/ui/Button'
 
 const FORM_LOAD_TIMEOUT_MS = 10_000
@@ -27,13 +27,7 @@ export function FormBlockedFallback() {
   )
 }
 
-type UseHubspotFormFallbackProps = {
-  portalId: string
-  formId: string
-  target: string
-}
-
-export function useHubspotFormFallback(props: UseHubspotFormFallbackProps) {
+export function useHubspotFormFallback(props: UseHubSpotFormProps) {
   const { error, formCreated } = useHubspotForm(props)
 
   const formRef = useRef<HTMLDivElement>(null)
