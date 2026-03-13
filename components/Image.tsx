@@ -46,7 +46,7 @@ const Image = ({
       ...rest,
     }
     return (
-      <Zoom zoomImg={zoomImgSrc ? { src: zoomImgSrc } : undefined}>
+      <Zoom>
         {useFill ? (
           <img {...imgProps} className={cn('absolute inset-0 size-full object-cover', className)} />
         ) : (
@@ -71,7 +71,7 @@ const Image = ({
   }
 
   return (
-    <Zoom zoomImg={zoomImgSrc ? { src: zoomImgSrc } : undefined}>
+    <Zoom>
       {useFill ? (
         <NextImage
           src={src}

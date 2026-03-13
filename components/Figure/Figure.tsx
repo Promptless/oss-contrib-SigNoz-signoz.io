@@ -50,7 +50,7 @@ export default function Figure({
     (width !== DEFAULT_IMAGE_WIDTH ? `(max-width: 768px) 100vw, ${width}px` : CONTENT_IMAGE_SIZES)
 
   return (
-    <Zoom zoomImg={{ src }}>
+    <Zoom>
       <figure className={figureClassName}>
         {useNextImage ? (
           <Image
