@@ -2083,6 +2083,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/envoy-dashboard',
+            label: 'Envoy Proxy',
+          },
+          {
+            type: 'doc',
             route: '/docs/dashboards/dashboard-templates/flask-monitoring',
             label: 'Flask Monitoring',
           },
