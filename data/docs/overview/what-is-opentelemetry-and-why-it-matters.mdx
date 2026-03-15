@@ -46,9 +46,9 @@ OpenTracing and OpenCensus tried this separately. Neither got broad adoption. Op
 
 ### Complexity
 
-More moving parts than a single-vendor agent. That is real. But auto-instrumentation covers most frameworks with zero code changes for supported languages. Setup is: add a dependency, set an environment variable, point at your backend.
+The first thing many teams notice is that OpenTelemetry has more pieces than a single-vendor agent. That can feel heavier at first, especially if you are comparing it with a tool that bundles instrumentation, collection, and export into one install.
 
-The Collector has a learning curve. But it replaces what you would build anyway: log shippers, glue scripts, format-converting sidecars. Start without it. Export directly from the SDK and add the Collector when you need filtering, sampling, or multi-destination routing.
+For a new rollout or a migration, you do not need to adopt every piece on day one. In many supported languages, teams start with auto-instrumentation and send data straight to their backend. The Collector becomes useful later, when you want central control over filtering, sampling, redaction, or routing to multiple destinations.
 
 ### Performance
 
