@@ -13,6 +13,7 @@ const FeaturePageHeader: React.FC<FeaturePageHeaderProps> = ({
   sectionLayoutVariant = 'bordered',
   sectionLayoutClassName = '!mt-0 max-md:-mb-[3rem]',
   className = '',
+  buttonDescription = '',
 }) => {
   const heroContent =
     typeof heroImage === 'string' ? (
@@ -45,8 +46,11 @@ const FeaturePageHeader: React.FC<FeaturePageHeaderProps> = ({
         </p>
       </div>
 
-      <div className="relative z-[1] !mx-auto max-w-8xl border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 pb-12 pt-4 md:!w-[80vw]">
+      <div className="relative z-[1] !mx-auto flex max-w-8xl flex-col items-center gap-4 border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 pb-12 pt-4 md:!w-[80vw]">
         <ButtonGroup buttons={buttons} />
+        {buttonDescription && (
+          <div className="text-center text-sm text-signoz_vanilla-400">{buttonDescription}</div>
+        )}
       </div>
 
       <SectionLayout variant={sectionLayoutVariant} className={sectionLayoutClassName}>

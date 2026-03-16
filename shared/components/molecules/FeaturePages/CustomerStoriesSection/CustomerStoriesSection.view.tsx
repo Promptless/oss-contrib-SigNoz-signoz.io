@@ -40,7 +40,7 @@ const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({ trackin
         <div className="container pb-16">
           <TestimonialCards />
 
-          <div className="z-5 relative -mt-[25rem] flex h-96 items-end justify-center bg-gradient-to-t from-signoz_ink-500 to-transparent py-6 max-md:py-16">
+          <div className="z-5 relative -mt-[25rem] flex h-[25rem] items-end justify-center bg-gradient-to-t from-signoz_ink-500 to-transparent py-6 max-md:py-16">
             {tracking ? (
               <Button
                 variant="secondary"
