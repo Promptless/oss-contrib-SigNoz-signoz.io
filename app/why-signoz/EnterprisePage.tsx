@@ -81,7 +81,7 @@ const Header: React.FC = () => {
       heroImage="/img/platform/ClickStackAlternativeMeta.webp"
       buttonDescription={
         <div className="text-center text-sm text-signoz_vanilla-400">
-          No 45-minute intro call. Engineers talk to engineers.
+          No sales deck. No 45-minute intro call. <br /> Engineers talk to engineers.
         </div>
       }
       className="mt-0"
@@ -166,9 +166,11 @@ const ObservabilityLandscape: React.FC = () => {
       </h2>
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-3">
         {OBSERABILITY_LANDSCAPE_CARDS.map((card, index) => (
-          <Card key={index} className="h-full" variant="aqua">
+          <Card key={index} className="group h-full" variant="aqua">
             <div className="flex h-full flex-col items-start gap-4 px-8 py-6">
-              {card.title}
+              <span className="inline-block bg-[linear-gradient(to_right,rgba(78,116,248)_50%,#ffffff_50%)] bg-[length:200%_100%] bg-clip-text bg-right text-transparent transition-[background-position] duration-300 ease-out group-hover:bg-left">
+                {card.title}
+              </span>
               {card.description && (
                 <div className="m-0 w-full text-left text-sm text-signoz_vanilla-400">
                   {card.description}
@@ -195,7 +197,7 @@ const NumbersThatSpeak: React.FC = () => {
         cards={NUMBERS_THAT_SPEAK_CARDS}
         layoutVariant={'no-border'}
         variant="combined"
-        className="!px-24"
+        className="md:!px-24"
       />
     </div>
   )
@@ -241,7 +243,7 @@ const EnterpriseObservability: React.FC = () => {
           </Button>
         </div>
         <p className="text-center text-sm text-signoz_vanilla-400">
-          No sales deck. No 45-minute intro call. Engineers talk to engineers.
+          No sales deck. No 45-minute intro call. <br /> Engineers talk to engineers.
         </p>
       </div>
     </SectionLayout>

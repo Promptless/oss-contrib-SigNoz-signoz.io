@@ -257,7 +257,7 @@ export const HIGH_GROWTH_TEAMS_CARDS = [
   },
   {
     description: (
-      <div className="mt-5 flex flex-row gap-8">
+      <div className="flex h-full min-h-28 w-full flex-row items-center justify-center gap-8 bg-[url('/svgs/graph-bg.svg')] bg-cover bg-center">
         <Image
           className="cursor-pointer opacity-60 hover:opacity-100"
           src="/svgs/icons/hipaa.svg"
@@ -337,33 +337,63 @@ export const GETTING_STARTED_CARDS = [
   {
     title: 'Analyze, Migrate, Instrument OTel',
     description: (
-      <div className="flex min-h-24 flex-col items-start justify-between">
+      <div className="flex min-h-36 flex-col items-start justify-between">
         Analyze current stack; use our connectors to migrate fast. Add OTel SDK to your services —
         any language, any framework. Auto-instrumentation covers most stacks out of the box. No
         vendor lock-in, minimal learning curve
-        <SourceLink href="https://grafana.com/" />
+        <TrackingLink
+          href="/docs/integrations/integrations-list/"
+          clickType="button"
+          clickName="Analyze, Migrate, Instrument OTel"
+          clickLocation="Enterprise Page"
+          clickText="Analyze, Migrate, Instrument OTel"
+        >
+          <Button variant="secondary" rounded="full" isButton>
+            Learn more
+          </Button>
+        </TrackingLink>
       </div>
     ),
   },
   {
     title: 'Use SigNoz Cloud or host in your infrastructure',
     description: (
-      <div className="flex min-h-24 flex-col items-start justify-between">
+      <div className="flex min-h-36 flex-col items-start justify-between">
         SigNoz Cloud is fully managed, SOC 2 compliant, and is live in minutes. If you want to run
         in your infra - Self-host via Helm chart runs in your own VPC or air-gapped environment. Or
         you can bring your own cloud.
-        <SourceLink href="https://dimensionalreserach.com" />
+        <TrackingLink
+          href="/enterprise-cloud/"
+          clickType="button"
+          clickName="Use SigNoz Cloud or host in your infrastructure"
+          clickLocation="Enterprise Page"
+          clickText="Use SigNoz Cloud or host in your infrastructure"
+        >
+          <Button variant="secondary" rounded="full" isButton>
+            Learn more
+          </Button>
+        </TrackingLink>
       </div>
     ),
   },
   {
     title: 'Observability Experts and Support Plans - 24 x 7',
     description: (
-      <div className="flex min-h-24 flex-col items-start justify-between">
+      <div className="flex min-h-36 flex-col items-start justify-between">
         Engineers with deep, experience across the full observability stack — OpenTelemetry,
         distributed tracing, log pipeline design, cost governance. Support aligns to your business
         outcomes: reduced MTTR, high cardinality, low TCO
-        <SourceLink href="https://dimensionalreserach.com" />
+        <TrackingLink
+          href="/enterprise-support/"
+          clickType="button"
+          clickName="Observability Experts and Support Plans - 24 x 7"
+          clickLocation="Enterprise Page"
+          clickText="Observability Experts and Support Plans - 24 x 7"
+        >
+          <Button variant="secondary" rounded="full" isButton>
+            Learn more
+          </Button>
+        </TrackingLink>
       </div>
     ),
   },

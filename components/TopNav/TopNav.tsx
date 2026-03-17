@@ -512,6 +512,17 @@ export default function TopNav() {
                   </Popover>
                 </div>
                 <TrackingLink
+                  href="/why-signoz"
+                  className="flex items-center truncate px-1.5 py-1 text-sm font-normal hover:text-signoz_robin-500"
+                  clickType="Nav Click"
+                  clickName="Why Signoz Link"
+                  clickText="Why Signoz"
+                  clickLocation="Top Navbar"
+                  prefetch={false}
+                >
+                  Why SigNoz?
+                </TrackingLink>
+                <TrackingLink
                   href="/docs"
                   className="flex items-center truncate px-1.5 py-1 text-sm font-normal hover:text-signoz_robin-500"
                   clickType="Nav Click"
