@@ -99,7 +99,7 @@ export const TRUSTED_BY_LOGOS = [
 export const NUMBERS_THAT_SPEAK_CARDS = [
   {
     icon: <div className="text-4xl font-bold text-[#FF3B23]">50%</div>,
-    title: 'Reduction in MTTR and Total Cost of Ownership',
+    title: 'Reduction in MTTR and TCO',
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
         Our logs, metrics, traces work on an innovative co-related architecture so you find the

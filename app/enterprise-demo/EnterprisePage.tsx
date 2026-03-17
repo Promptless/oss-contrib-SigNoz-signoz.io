@@ -203,7 +203,7 @@ const EnterpriseObservability: React.FC = () => {
       variant="bordered"
       className="flex flex-col items-center justify-center gap-6 !px-0 !py-16"
     >
-      <h2 className="mx-auto mb-6 max-w-2xl text-center text-4xl font-semibold text-signoz_vanilla-100">
+      <h2 className="mx-auto mb-6 max-w-4xl text-center text-4xl font-semibold text-signoz_vanilla-100">
         Enterprise Observability that scales with you.
         <br /> <span className="text-[#FF3B23]">No Pricing Shocks. Guaranteed.</span>
       </h2>
