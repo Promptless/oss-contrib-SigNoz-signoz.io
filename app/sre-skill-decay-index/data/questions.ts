@@ -63,7 +63,8 @@ export const questions: QuizQuestion[] = [
   {
     scenario:
       'INCIDENT: p99 latency on API gateway jumped from 200ms to 12s. All downstream services report healthy. No error spikes in logs. Users are reporting intermittent hangs, not errors.',
-    question: 'Latency is through the roof but nothing looks broken. What\u2019s your theory?',
+    question:
+      'Latency is through the roof but nothing looks broken. What\u2019s your theory?',
     olly: 'hangglider',
     options: [
       {

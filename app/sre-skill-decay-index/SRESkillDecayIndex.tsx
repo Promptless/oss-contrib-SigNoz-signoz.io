@@ -4,7 +4,12 @@ import React, { useState, useCallback } from 'react'
 import { Outfit, Syne, JetBrains_Mono } from 'next/font/google'
 import { Answer, CategoryScore, QuizPhase } from './types'
 import { questions } from './data/questions'
-import { CATEGORY_LABELS, ROASTS, SEVERITY_CONFIG, getSeverityLevel } from './data/constants'
+import {
+  CATEGORY_LABELS,
+  ROASTS,
+  SEVERITY_CONFIG,
+  getSeverityLevel,
+} from './data/constants'
 import HeroSection from './components/HeroSection'
 import QuizSection from './components/QuizSection'
 import ResultsSection from './components/ResultsSection'
@@ -54,18 +59,20 @@ function computeResults(answers: Answer[]): ResultsData {
     categoryScores[a.category].count += 1
   })
 
-  const breakdown: CategoryScore[] = Object.entries(categoryScores).map(([cat, data]) => {
-    const avg = (data.total / (data.count * 3)) * 10
-    return {
-      category: cat as CategoryScore['category'],
-      label: CATEGORY_LABELS[cat as CategoryScore['category']],
-      score: data.total,
-      count: data.count,
-      average: avg,
-      level: getSeverityLevel(avg),
-      percent: Math.round(avg * 10),
+  const breakdown: CategoryScore[] = Object.entries(categoryScores).map(
+    ([cat, data]) => {
+      const avg = (data.total / (data.count * 3)) * 10
+      return {
+        category: cat as CategoryScore['category'],
+        label: CATEGORY_LABELS[cat as CategoryScore['category']],
+        score: data.total,
+        count: data.count,
+        average: avg,
+        level: getSeverityLevel(avg),
+        percent: Math.round(avg * 10),
+      }
     }
-  })
+  )
 
   return { display, level, label: config.label, roast, breakdown }
 }
@@ -113,7 +120,9 @@ export default function SRESkillDecayIndex() {
   }, [])
 
   return (
-    <div className={`${outfit.variable} ${syne.variable} ${jetbrainsMono.variable} decay-page`}>
+    <div
+      className={`${outfit.variable} ${syne.variable} ${jetbrainsMono.variable} decay-page`}
+    >
       <div className="relative z-[60]">
         {phase === 'hero' && <HeroSection onStart={handleStart} />}
 

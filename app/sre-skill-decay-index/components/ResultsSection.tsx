@@ -1,13 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CategoryScore, SeverityLevel } from '../types'
-import {
-  OLLY_IMAGES,
-  getResultOllyKey,
-  SEVERITY_CONFIG,
-  SEVERITY_TEXT,
-  SEVERITY_BG,
-} from '../data/constants'
+import { OLLY_IMAGES, getResultOllyKey, SEVERITY_CONFIG, SEVERITY_TEXT, SEVERITY_BG } from '../data/constants'
 import { Twitter, Linkedin } from '@/components/social-icons/SolidIcons'
 import SkillBreakdownChart from './SkillBreakdownChart'
 import RecentDiagnostics from './RecentDiagnostics'
@@ -57,23 +51,14 @@ export default function ResultsSection({ results, onRestart }: ResultsSectionPro
     <section className="px-6 pb-[120px] pt-20 text-center">
       {/* Branding */}
       <div className="mb-8 font-[family-name:var(--font-jetbrains)] text-[9px] uppercase tracking-[0.12em] text-[var(--text-dim)] opacity-60">
-        <a
-          href="https://signoz.io/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[var(--text-dim)] no-underline transition-colors duration-200 hover:text-[var(--accent)]"
-        >
-          SigNoz
-        </a>
+        <a href="https://signoz.io/" target="_blank" rel="noopener noreferrer" className="text-[var(--text-dim)] hover:text-[var(--accent)] no-underline transition-colors duration-200">SigNoz</a>
       </div>
 
       <div className="mx-auto max-w-[720px]">
         {/* Results card */}
         <div className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-10 pb-[60px] max-md:px-6 max-md:py-10">
           {/* Top accent bar */}
-          <div
-            className={`absolute left-0 right-0 top-0 h-[3px] ${LEVEL_TOP_BAR[results.level]}`}
-          />
+          <div className={`absolute left-0 right-0 top-0 h-[3px] ${LEVEL_TOP_BAR[results.level]}`} />
 
           {/* Result Olly */}
           <Image
@@ -81,7 +66,7 @@ export default function ResultsSection({ results, onRestart }: ResultsSectionPro
             alt={ollyData.alt}
             width={250}
             height={250}
-            className={`mx-auto mb-5 block h-auto max-h-[250px] w-[250px] object-contain ${isCritical ? 'brightness-[0.6] drop-shadow-[0_0_20px_rgba(255,61,61,0.4)] grayscale-[0.4]' : ''}`}
+            className={`mx-auto mb-5 block h-auto max-h-[250px] w-[250px] object-contain ${isCritical ? 'brightness-[0.6] grayscale-[0.4] drop-shadow-[0_0_20px_rgba(255,61,61,0.4)]' : ''}`}
             style={{ animation: 'ollyBob 3.5s ease-in-out infinite' }}
           />
 
@@ -92,7 +77,7 @@ export default function ResultsSection({ results, onRestart }: ResultsSectionPro
 
           {/* Score number */}
           <div
-            className={`mb-2 font-[family-name:var(--font-syne)] text-[56px] font-extrabold leading-none max-md:text-[64px] ${SCORE_STYLE[results.level]}`}
+            className={`font-[family-name:var(--font-syne)] text-[56px] font-extrabold leading-none mb-2 max-md:text-[64px] ${SCORE_STYLE[results.level]}`}
             style={{ animation: 'scoreReveal 1s ease' }}
           >
             {results.display}
@@ -100,7 +85,7 @@ export default function ResultsSection({ results, onRestart }: ResultsSectionPro
 
           {/* Level label */}
           <div
-            className={`mb-8 font-[family-name:var(--font-jetbrains)] text-[13px] font-semibold uppercase tracking-[0.1em] ${SEVERITY_TEXT[results.level]}`}
+            className={`font-[family-name:var(--font-jetbrains)] text-[13px] font-semibold uppercase tracking-[0.1em] mb-8 ${SEVERITY_TEXT[results.level]}`}
           >
             {results.label}
           </div>
@@ -132,21 +117,9 @@ export default function ResultsSection({ results, onRestart }: ResultsSectionPro
             </a>
             <button
               onClick={() => navigator.clipboard.writeText(shareText)}
-              className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] px-5 py-[10px] font-[family-name:var(--font-jetbrains)] text-xs font-medium text-[var(--text)] transition-all duration-200 hover:border-[var(--text-dim)] hover:bg-[var(--border)]"
+              className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface-2)] px-5 py-[10px] font-[family-name:var(--font-jetbrains)] text-xs font-medium text-[var(--text)] transition-all duration-200 hover:border-[var(--text-dim)] hover:bg-[var(--border)] cursor-pointer"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="9" y="9" width="13" height="13" rx="2" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-              </svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               Copy
             </button>
           </div>
@@ -161,14 +134,14 @@ export default function ResultsSection({ results, onRestart }: ResultsSectionPro
               <strong className="text-[var(--text)]">
                 Bainbridge&apos;s Ironies of Automation
               </strong>{' '}
-              &mdash; the more you automate, the worse you get at the exact moments automation
-              fails.
+              &mdash; the more you automate, the worse you get at the exact moments
+              automation fails.
             </p>
             <Link
               href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-[var(--accent)] px-7 py-[14px] font-[family-name:var(--font-jetbrains)] text-xs font-semibold uppercase tracking-[0.08em] text-[var(--accent)] no-underline transition-all duration-300 hover:bg-[var(--accent)] hover:text-white"
+              className="inline-flex items-center gap-2 rounded-md border border-[var(--accent)] px-7 py-[14px] font-[family-name:var(--font-jetbrains)] text-xs font-semibold uppercase tracking-[0.08em] text-[var(--accent)] transition-all duration-300 hover:bg-[var(--accent)] hover:text-white no-underline"
             >
               Read the Full Article &rarr;
             </Link>
