@@ -1450,6 +1450,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/integrations/opentelemetry-neondb',
+            label: 'Neon',
+          },
+          {
+            type: 'doc',
             route: '/docs/userguide/send-logs-http',
             label: 'Logs via HTTP (JSON)',
           },
@@ -1777,6 +1782,11 @@ const docsSideNav = [
                 type: 'doc',
                 route: '/docs/metrics-management/mysql-metrics',
                 label: 'MySQL',
+              },
+              {
+                type: 'doc',
+                route: '/docs/integrations/opentelemetry-neondb',
+                label: 'Neon',
               },
             ],
           },
@@ -3205,6 +3215,11 @@ const docsSideNav = [
         type: 'doc',
         route: '/docs/integrations/sql-server',
         label: 'Microsoft SQL Server',
+      },
+      {
+        type: 'doc',
+        route: '/docs/integrations/opentelemetry-neondb',
+        label: 'Neon',
       },
       {
         type: 'doc',
