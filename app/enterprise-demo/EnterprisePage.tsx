@@ -15,11 +15,29 @@ import {
 } from './EnterprisePage.constants'
 import TrackingLink from '@/components/TrackingLink'
 import Image from 'next/image'
-import ButtonGroup from '@/shared/components/molecules/FeaturePages/ButtonGroup'
 import HeroCards from '@/shared/components/molecules/FeaturePages/HeroCards'
-import RoundedCardGrid from '@/shared/components/molecules/FeaturePages/RoundedCardGrid'
+import { BookADemoModalProvider, useBookADemoModal } from './BookADemoModal'
+import { useLogEvent } from '@/hooks/useLogEvent'
+import { usePathname } from 'next/navigation'
 
 const Header: React.FC = () => {
+  const { openModal } = useBookADemoModal()
+  const logEvent = useLogEvent()
+  const pathname = usePathname()
+  const handleBookDemoClick = () => {
+    logEvent({
+      eventName: 'Website Click',
+      eventType: 'track',
+      attributes: {
+        clickType: 'Secondary CTA',
+        clickName: 'Enterprise Hero Book a demo',
+        clickLocation: 'Enterprise Hero',
+        clickText: 'Book a demo',
+        pageLocation: pathname,
+      },
+    })
+    openModal()
+  }
   const headerButtons = [
     {
       text: 'Get Started - Free',
@@ -31,18 +49,6 @@ const Header: React.FC = () => {
         clickName: 'Enterprise Hero Start Trial',
         clickLocation: 'Enterprise Hero',
         clickText: 'Get Started - Free',
-      },
-    },
-    {
-      text: 'Book a demo',
-      href: '/book-a-demo/',
-      variant: 'secondary' as const,
-      className: 'flex-center',
-      tracking: {
-        clickType: 'Secondary CTA',
-        clickName: 'Enterprise Hero Book a demo',
-        clickLocation: 'Enterprise Hero',
-        clickText: 'Book a demo',
       },
     },
   ]
@@ -62,6 +68,18 @@ const Header: React.FC = () => {
         </>
       }
       buttons={headerButtons}
+      additionalButtons={
+        <Button
+          isButton
+          variant="secondary"
+          rounded="full"
+          className="flex-center flex !w-fit items-center gap-2"
+          onClick={handleBookDemoClick}
+        >
+          Book a demo
+          <ArrowRight size={14} />
+        </Button>
+      }
       sectionLayoutClassName="!mt-0 !border-x-1 !border-dashed !border-signoz_slate-400 max-md:-mb-[3rem]"
       heroImageAlt="Enterprise observability hero"
       heroImage="/img/platform/ClickStackAlternativeMeta.webp"
@@ -144,13 +162,16 @@ const BetterChoiceBanner: React.FC = () => {
   return (
     <SectionLayout
       variant="bordered"
-      className="flex flex-col items-center justify-center gap-10 !py-20"
+      className="flex flex-col items-center justify-center gap-10 !px-0 !py-20"
     >
       <h2 className="mb-6 text-center text-4xl text-signoz_vanilla-100">
         Observability Landscape is changing. <br /> Are you Ready?
       </h2>
-      {/* <IconTitleDescriptionCardGrid cards={OBSERABILITY_LANDSCAPE_CARDS} variant="lg" /> */}
-      <RoundedCardGrid cards={OBSERABILITY_LANDSCAPE_CARDS} cols={4} variant={'cherry'} />
+      <IconTitleDescriptionCardGrid
+        cards={OBSERABILITY_LANDSCAPE_CARDS}
+        variant="lg"
+        className="md:grid-cols-4"
+      />
     </SectionLayout>
   )
 }
@@ -175,20 +196,7 @@ const NumbersThatSpeak: React.FC = () => {
 }
 
 const EnterpriseObservability: React.FC = () => {
-  const buttons = [
-    {
-      text: 'Book a demo',
-      href: '/book-a-demo/',
-      variant: 'secondary' as const,
-      className: 'flex-center',
-    },
-    {
-      text: 'Get Started - Free',
-      href: '/teams/',
-      variant: 'default' as const,
-      className: 'flex-center',
-    },
-  ]
+  const { openModal } = useBookADemoModal()
 
   return (
     <SectionLayout
@@ -204,7 +212,27 @@ const EnterpriseObservability: React.FC = () => {
         unified, and give you a predictable cost model you can trust from Day Zero.
       </p>
       <div className="flex flex-col items-center justify-center gap-4">
-        <ButtonGroup buttons={buttons} />
+        <div className="flex flex-col items-center justify-center gap-3 md:flex-row">
+          <Button
+            to="/teams/"
+            variant="default"
+            rounded="full"
+            className="flex-center flex !w-fit items-center gap-2"
+          >
+            Get Started - Free
+            <ArrowRight size={14} />
+          </Button>
+          <Button
+            isButton
+            variant="secondary"
+            rounded="full"
+            className="flex-center flex !w-fit items-center gap-2"
+            onClick={openModal}
+          >
+            Book a demo
+            <ArrowRight size={14} />
+          </Button>
+        </div>
         <p className="text-center text-sm text-signoz_vanilla-400">
           No sales deck. No 45-minute intro call. Engineers talk to engineers.
         </p>
@@ -215,25 +243,28 @@ const EnterpriseObservability: React.FC = () => {
 
 const EnterpriseDemoPage: React.FC = () => {
   return (
-    <FeaturePageLayout>
-      <Header />
-      <TrustedByTeams />
-      <BetterChoiceBanner />
+    <BookADemoModalProvider>
+      <FeaturePageLayout>
+        <Header />
+        <TrustedByTeams />
+        <BetterChoiceBanner />
 
-      <SectionLayout variant="bordered" className="!px-0">
-        <HighGrowthTeams />
+        <SectionLayout variant="bordered" className="!px-0">
+          <HighGrowthTeams />
 
-        <CustomerStoriesSection
-          tracking={{
-            clickName: 'Enterprise Demo Customer Stories Button',
-            clickLocation: 'Enterprise Demo Testimonials',
-          }}
-        />
+          <CustomerStoriesSection
+            tracking={{
+              clickName: 'Enterprise Demo Customer Stories Button',
+              clickLocation: 'Enterprise Demo Testimonials',
+            }}
+            showOverlay={false}
+          />
 
-        <NumbersThatSpeak />
-        <EnterpriseObservability />
-      </SectionLayout>
-    </FeaturePageLayout>
+          <NumbersThatSpeak />
+          <EnterpriseObservability />
+        </SectionLayout>
+      </FeaturePageLayout>
+    </BookADemoModalProvider>
   )
 }
 

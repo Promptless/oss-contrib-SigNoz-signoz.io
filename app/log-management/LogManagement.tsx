@@ -80,7 +80,7 @@ const Header: React.FC = () => {
   )
 }
 
-const LogProcessingSection: React.FC = () => {
+export const SourcesTabsGrid: React.FC = () => {
   const sourcesTabContent = (
     <div className="flex min-h-52 flex-col gap-4">
       <div className="grid grid-cols-2 gap-4">
@@ -175,6 +175,21 @@ const LogProcessingSection: React.FC = () => {
   )
 
   return (
+    <Card className="bg-signoz_ink-400 [&>*]:p-4 [&>div]:border-1">
+      <Tabs entityName="sources">
+        <TabItem value="supported-sources" label="Supported Sources">
+          {sourcesTabContent}
+        </TabItem>
+        <TabItem value="collection-methods" label="Collection Methods">
+          {methodsTabContent}
+        </TabItem>
+      </Tabs>
+    </Card>
+  )
+}
+
+const LogProcessingSection: React.FC = () => {
+  return (
     <div className="mt-12 border-y-1 border-dashed border-signoz_slate-400 bg-signoz_ink-500 py-16">
       <GridLayout variant="split">
         {/* Left Column - Ingestion */}
@@ -207,16 +222,7 @@ const LogProcessingSection: React.FC = () => {
             </Button>
           </div>
 
-          <Card className="bg-signoz_ink-400 [&>*]:p-4 [&>div]:border-1">
-            <Tabs entityName="sources">
-              <TabItem value="supported-sources" label="Supported Sources">
-                {sourcesTabContent}
-              </TabItem>
-              <TabItem value="collection-methods" label="Collection Methods">
-                {methodsTabContent}
-              </TabItem>
-            </Tabs>
-          </Card>
+          <SourcesTabsGrid />
         </div>
 
         {/* Right Column - Processing */}

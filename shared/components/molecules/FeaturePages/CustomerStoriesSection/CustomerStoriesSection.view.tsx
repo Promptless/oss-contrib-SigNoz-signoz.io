@@ -6,11 +6,20 @@ import SectionLayout from '../SectionLayout'
 import TestimonialCards from '../TestimonialCard'
 import { CustomerStoriesSectionProps } from './CustomerStoriesSection.types'
 
-const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({ tracking }) => {
+const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({
+  tracking,
+  showOverlay = true,
+}) => {
+  const sectionClassName = showOverlay
+    ? "relative mx-auto max-w-8xl overflow-hidden border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 bg-[url('/img/background_blur/Ellipse_388.webp')] bg-[center_top_calc(-78px)] md:w-[80vw]"
+    : 'relative mx-auto max-w-8xl overflow-hidden border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:w-[80vw]'
+
   return (
     <>
-      <section className="relative mx-auto max-w-8xl overflow-hidden border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 bg-[url('/img/background_blur/Ellipse_388.webp')] bg-[center_top_calc(-78px)] md:w-[80vw]">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-signoz_ink-500/50 via-signoz_ink-500/25 to-signoz_ink-500/90" />
+      <section className={sectionClassName}>
+        {showOverlay && (
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-signoz_ink-500/50 via-signoz_ink-500/25 to-signoz_ink-500/90" />
+        )}
 
         <div className="relative">
           <div className="container pb-16">
@@ -38,9 +47,15 @@ const CustomerStoriesSection: React.FC<CustomerStoriesSectionProps> = ({ trackin
 
       <SectionLayout variant="bordered" className="!mx-auto p-0 max-md:-mb-[3rem]">
         <div className="container pb-16">
-          <TestimonialCards />
+          <TestimonialCards excludeLastCard={!showOverlay} />
 
-          <div className="z-5 relative -mt-[25rem] flex h-[25rem] items-end justify-center bg-gradient-to-t from-signoz_ink-500 to-transparent py-6 max-md:py-16">
+          <div
+            className={
+              showOverlay
+                ? 'z-5 relative -mt-[25rem] flex h-[25rem] items-end justify-center bg-gradient-to-t from-signoz_ink-500 to-transparent py-6 max-md:py-16'
+                : 'flex items-center justify-center py-6 max-md:py-16'
+            }
+          >
             {tracking ? (
               <Button
                 variant="secondary"

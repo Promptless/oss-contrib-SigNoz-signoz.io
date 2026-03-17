@@ -12,4 +12,5 @@ export interface FeaturePageHeaderProps {
   sectionLayoutClassName?: string
   className?: string
   buttonDescription?: string | React.ReactNode
+  additionalButtons?: React.ReactNode
 }
