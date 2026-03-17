@@ -2,6 +2,7 @@ import Image from 'next/image'
 import ButtonGroup from '../ButtonGroup'
 import SectionLayout from '../SectionLayout'
 import { FeaturePageHeaderProps } from './FeaturePageHeader.types'
+import { cn } from 'app/lib/utils'
 
 const FeaturePageHeader: React.FC<FeaturePageHeaderProps> = ({
   title,
@@ -34,7 +35,7 @@ const FeaturePageHeader: React.FC<FeaturePageHeaderProps> = ({
     )
 
   return (
-    <header className={`relative !mx-auto mt-16 max-w-8xl md:!w-[80vw] ${className}`}>
+    <header className={cn('relative !mx-auto max-w-8xl md:!w-[80vw]', className)}>
       <div className="absolute bottom-0 left-[12px] right-[12px] top-0 z-[0] border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:left-[24px] md:right-[24px]" />
 
       <div className="relative !mx-auto flex max-w-8xl flex-col items-center border !border-b-0 border-dashed border-signoz_slate-400 px-2 pb-4 pt-12 text-center md:!w-[80vw] md:px-5 md:pt-[4rem]">

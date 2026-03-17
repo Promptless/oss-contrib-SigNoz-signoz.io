@@ -12,6 +12,7 @@ import {
   NUMBERS_THAT_SPEAK_CARDS,
   TRUSTED_BY_LOGOS,
   OBSERABILITY_LANDSCAPE_CARDS,
+  GETTING_STARTED_CARDS,
 } from './EnterprisePage.constants'
 import TrackingLink from '@/components/TrackingLink'
 import Image from 'next/image'
@@ -19,6 +20,7 @@ import HeroCards from '@/shared/components/molecules/FeaturePages/HeroCards'
 import { BookADemoModalProvider, useBookADemoModal } from './BookADemoModal'
 import { useLogEvent } from '@/hooks/useLogEvent'
 import { usePathname } from 'next/navigation'
+import { Card } from '@/components/ui/Card'
 
 const Header: React.FC = () => {
   const { openModal } = useBookADemoModal()
@@ -29,7 +31,7 @@ const Header: React.FC = () => {
       eventName: 'Website Click',
       eventType: 'track',
       attributes: {
-        clickType: 'Secondary CTA',
+        clickType: 'Primary CTA',
         clickName: 'Enterprise Hero Book a demo',
         clickLocation: 'Enterprise Hero',
         clickText: 'Book a demo',
@@ -40,12 +42,18 @@ const Header: React.FC = () => {
   }
   const headerButtons = [
     {
-      text: 'Get Started - Free',
-      href: '/teams/',
+      text: 'Book a demo',
       variant: 'default' as const,
       className: 'flex-center',
+      onClick: handleBookDemoClick,
+    },
+    {
+      text: 'Get Started - Free',
+      href: '/teams/',
+      variant: 'secondary' as const,
+      className: 'flex-center',
       tracking: {
-        clickType: 'Primary CTA',
+        clickType: 'Secondary CTA',
         clickName: 'Enterprise Hero Start Trial',
         clickLocation: 'Enterprise Hero',
         clickText: 'Get Started - Free',
@@ -57,7 +65,7 @@ const Header: React.FC = () => {
     <FeaturePageHeader
       title={
         <>
-          SigNoz <br /> Enterprise observability, built for the AI era.
+          Enterprise observability, <br /> built for the AI era.
         </>
       }
       description={
@@ -68,18 +76,6 @@ const Header: React.FC = () => {
         </>
       }
       buttons={headerButtons}
-      additionalButtons={
-        <Button
-          isButton
-          variant="secondary"
-          rounded="full"
-          className="flex-center flex !w-fit items-center gap-2"
-          onClick={handleBookDemoClick}
-        >
-          Book a demo
-          <ArrowRight size={14} />
-        </Button>
-      }
       sectionLayoutClassName="!mt-0 !border-x-1 !border-dashed !border-signoz_slate-400 max-md:-mb-[3rem]"
       heroImageAlt="Enterprise observability hero"
       heroImage="/img/platform/ClickStackAlternativeMeta.webp"
@@ -88,17 +84,18 @@ const Header: React.FC = () => {
           No 45-minute intro call. Engineers talk to engineers.
         </div>
       }
+      className="mt-0"
     />
   )
 }
 
 const TrustedByTeams: React.FC = () => {
   return (
-    <div className="relative mx-auto flex max-w-8xl flex-col items-center justify-center gap-6 overflow-hidden border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 py-16 md:w-[80vw]">
+    <div className="relative mx-auto flex max-w-8xl flex-col items-center justify-center gap-10 overflow-hidden border !border-b-1 !border-t-0 border-dashed border-signoz_slate-400 py-16 md:w-[80vw]">
       <div className="text-center text-sm font-semibold uppercase tracking-[0.05em] text-signoz_vanilla-400">
         Trusted by the <span className="text-signoz_vanilla-100">best platform teams</span>
       </div>
-      <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-16 gap-y-8 px-4">
+      <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-16 gap-y-10 px-4">
         {TRUSTED_BY_LOGOS.map((logo, index) => (
           <div key={index} className="flex h-12 items-center justify-center">
             <Image
@@ -136,12 +133,12 @@ const TrustedByTeams: React.FC = () => {
 
 const HighGrowthTeams: React.FC = () => {
   return (
-    <section className="relative mx-auto max-w-8xl overflow-hidden border !border-b-0 !border-t-0 border-dashed border-signoz_slate-400 md:w-[80vw]">
+    <section className="relative mx-auto max-w-8xl overflow-hidden border !border-b-0 border-dashed border-signoz_slate-400 pt-14 md:w-[80vw]">
       <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 text-center">
         <div className="flex flex-col items-center gap-14 text-2xl font-medium leading-[3.25rem] text-signoz_sienna-100">
           <div className="flex flex-col items-center gap-4">
             <h2 className="text-center text-4xl font-semibold text-signoz_vanilla-100">
-              <span className="text-[#FF3B23]">#1</span> Observability Platform for{' '}
+              <span className="text-signoz_cherry-500">#1</span> Observability Platform for{' '}
               <br className="hidden md:block" /> High-Growth Engineering Teams
             </h2>
             <div className="text-center text-base text-signoz_vanilla-100">
@@ -158,27 +155,36 @@ const HighGrowthTeams: React.FC = () => {
   )
 }
 
-const BetterChoiceBanner: React.FC = () => {
+const ObservabilityLandscape: React.FC = () => {
   return (
     <SectionLayout
       variant="bordered"
-      className="flex flex-col items-center justify-center gap-10 !px-0 !py-20"
+      className="flex flex-col items-center justify-center gap-10 !px-8 !py-20 md:!px-0"
     >
       <h2 className="mb-6 text-center text-4xl text-signoz_vanilla-100">
         Observability Landscape is changing. <br /> Are you Ready?
       </h2>
-      <IconTitleDescriptionCardGrid
-        cards={OBSERABILITY_LANDSCAPE_CARDS}
-        variant="lg"
-        className="md:grid-cols-4"
-      />
+      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-3">
+        {OBSERABILITY_LANDSCAPE_CARDS.map((card, index) => (
+          <Card key={index} className="h-full" variant="aqua">
+            <div className="flex h-full flex-col items-start gap-4 px-8 py-6">
+              {card.title}
+              {card.description && (
+                <div className="m-0 w-full text-left text-sm text-signoz_vanilla-400">
+                  {card.description}
+                </div>
+              )}
+            </div>
+          </Card>
+        ))}
+      </div>
     </SectionLayout>
   )
 }
 
 const NumbersThatSpeak: React.FC = () => {
   return (
-    <div className="border-y-1 border-dashed border-signoz_slate-400 bg-signoz_ink-500 py-16">
+    <div className="border-y-1 border-dashed border-signoz_slate-400 bg-signoz_ink-500 py-12">
       <div className="mx-auto my-8 max-w-4xl p-6">
         <h2 className="my-4 text-center text-4xl font-semibold text-signoz_vanilla-100">
           Numbers that speak for themselves
@@ -189,7 +195,7 @@ const NumbersThatSpeak: React.FC = () => {
         cards={NUMBERS_THAT_SPEAK_CARDS}
         layoutVariant={'no-border'}
         variant="combined"
-        className="px-6"
+        className="!px-24"
       />
     </div>
   )
@@ -201,11 +207,12 @@ const EnterpriseObservability: React.FC = () => {
   return (
     <SectionLayout
       variant="bordered"
-      className="flex flex-col items-center justify-center gap-6 !px-0 !py-16"
+      className="flex flex-col items-center justify-center gap-6 !px-8 !py-20 md:!px-0"
     >
       <h2 className="mx-auto mb-6 max-w-4xl text-center text-4xl font-semibold text-signoz_vanilla-100">
         Enterprise Observability that scales with you.
-        <br /> <span className="text-[#FF3B23]">No Pricing Shocks. Guaranteed.</span>
+        <br />
+        <span className="text-signoz_cherry-500">No Pricing Shocks. Guaranteed.</span>
       </h2>
       <p className="mx-auto max-w-2xl text-center text-base text-signoz_vanilla-100">
         30 minutes with a SigNoz Observability Expert. We will show you what your stack looks like
@@ -214,22 +221,22 @@ const EnterpriseObservability: React.FC = () => {
       <div className="flex flex-col items-center justify-center gap-4">
         <div className="flex flex-col items-center justify-center gap-3 md:flex-row">
           <Button
-            to="/teams/"
-            variant="default"
-            rounded="full"
-            className="flex-center flex !w-fit items-center gap-2"
-          >
-            Get Started - Free
-            <ArrowRight size={14} />
-          </Button>
-          <Button
             isButton
-            variant="secondary"
+            variant="default"
             rounded="full"
             className="flex-center flex !w-fit items-center gap-2"
             onClick={openModal}
           >
             Book a demo
+            <ArrowRight size={14} />
+          </Button>
+          <Button
+            to="/teams/"
+            variant="secondary"
+            rounded="full"
+            className="flex-center flex !w-fit items-center gap-2"
+          >
+            Get Started - Free
             <ArrowRight size={14} />
           </Button>
         </div>
@@ -241,13 +248,107 @@ const EnterpriseObservability: React.FC = () => {
   )
 }
 
+const GettingStarted: React.FC = () => {
+  return (
+    <SectionLayout
+      variant="bordered"
+      className="flex flex-col items-center justify-center gap-10 !border-b-1 !border-t-1 !px-8 !py-20 md:!px-0"
+    >
+      <h2 className="mb-6 text-center text-4xl text-signoz_vanilla-100">
+        Getting Started with SigNoz
+      </h2>
+      <IconTitleDescriptionCardGrid
+        cards={GETTING_STARTED_CARDS}
+        variant="lg"
+        className="md:grid-cols-3"
+      />
+    </SectionLayout>
+  )
+}
+
+const PricingToScale: React.FC = () => {
+  return (
+    <SectionLayout
+      variant="bordered"
+      className="flex flex-col items-center justify-center gap-10 !px-8 !py-20 md:!px-0"
+    >
+      <div>
+        <h2 className="mb-4 text-center text-4xl text-signoz_vanilla-100">
+          Pricing to scale your business, <br className="hidden md:block" /> not slow you down
+        </h2>
+        <p className="text-center text-base text-signoz_vanilla-400">
+          We have 2 deployment options - Cloud and Self-Managed. <br className="hidden md:block" />{' '}
+          Almost all our features are available on both. For more details, see below
+        </p>
+      </div>
+      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-2">
+        <Card variant={'gradient'}>
+          <div className="m-6 flex flex-grow flex-col">
+            <h3 className="text-2xl font-bold text-signoz_vanilla-100">Enterprise Cloud</h3>
+            <p className="text-base text-signoz_vanilla-400">
+              SigNoz hosts everything - ClickHouse cluster, the ingestion pipeline, the dashboards,
+              the storage. You get zero ops overhead, SOC 2 / HIPAA compliance, and you're live in
+              minutes.
+            </p>
+            <TrackingLink
+              href="/enterprise-cloud/"
+              clickType="Secondary CTA"
+              clickName="Enterprise Cloud Button"
+              clickLocation="Enterprise Pricing"
+              clickText="Enterprise Cloud"
+            >
+              <Button
+                isButton
+                variant="default"
+                rounded="full"
+                className="flex-center flex !w-fit items-center gap-2"
+                // onClick={openModal}
+              >
+                Enterprise Cloud
+                <ArrowRight size={14} />
+              </Button>
+            </TrackingLink>
+          </div>
+        </Card>
+        <Card variant={'gradient'}>
+          <div className="m-6 flex flex-grow flex-col">
+            <h3 className="text-2xl font-bold text-signoz_vanilla-100">Enterprise Self-Hosted</h3>
+            <p className="text-base text-signoz_vanilla-400">
+              Self-host with support contract from SigNoz Team. Run SigNoz in your infrastructure
+              and get support from SigNoz team.
+            </p>
+            <TrackingLink
+              href="/enterprise-self-hosted/"
+              clickType="Secondary CTA"
+              clickName="Enterprise Self-Hosted Button"
+              clickLocation="Enterprise Pricing"
+              clickText="Enterprise Self-Hosted"
+            >
+              <Button
+                isButton
+                variant="default"
+                rounded="full"
+                className="flex-center flex !w-fit items-center gap-2"
+                // onClick={openModal}
+              >
+                Enterprise Self-Hosted
+                <ArrowRight size={14} />
+              </Button>
+            </TrackingLink>
+          </div>
+        </Card>
+      </div>
+    </SectionLayout>
+  )
+}
+
 const EnterpriseDemoPage: React.FC = () => {
   return (
     <BookADemoModalProvider>
-      <FeaturePageLayout>
+      <FeaturePageLayout showProductNav={false}>
         <Header />
         <TrustedByTeams />
-        <BetterChoiceBanner />
+        <ObservabilityLandscape />
 
         <SectionLayout variant="bordered" className="!px-0">
           <HighGrowthTeams />
@@ -259,6 +360,9 @@ const EnterpriseDemoPage: React.FC = () => {
             }}
             showOverlay={false}
           />
+
+          <GettingStarted />
+          <PricingToScale />
 
           <NumbersThatSpeak />
           <EnterpriseObservability />

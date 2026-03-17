@@ -24,15 +24,6 @@ const SourceLink: React.FC<{ href: string }> = ({ href }) => (
 
 export const OBSERABILITY_LANDSCAPE_CARDS = [
   {
-    title: <span className="text-4xl font-bold">85%</span>,
-    description: (
-      <div className="flex min-h-24 flex-col items-start justify-between">
-        OpenTelemetry Adoption is accelerating
-        <SourceLink href="https://grafana.com/" />
-      </div>
-    ),
-  },
-  {
     title: <span className="text-4xl font-bold">99%</span>,
     description: (
       <div className="flex min-h-24 flex-col items-start justify-between">
@@ -62,43 +53,19 @@ export const OBSERABILITY_LANDSCAPE_CARDS = [
 ]
 
 export const TRUSTED_BY_LOGOS = [
-  {
-    src: '/svgs/icons/lovart.svg',
-    alt: 'Lovart',
-  },
-  {
-    src: '/svgs/icons/sarvam.svg',
-    alt: 'Sarvam',
-  },
-  {
-    src: '/svgs/icons/blaxel.svg',
-    alt: 'Blaxel',
-  },
-  {
-    src: '/svgs/icons/salient.svg',
-    alt: 'Salient',
-  },
-  {
-    src: '/img/case_study/logos/shaped-logo.svg',
-    alt: 'Shaped',
-  },
-  {
-    src: '/svgs/icons/tavus.svg',
-    alt: 'Tavus',
-  },
-  {
-    src: '/svgs/icons/inkeep.svg',
-    alt: 'Inkeep',
-  },
-  {
-    src: '/svgs/icons/drivetrain.svg',
-    alt: 'Drivetrain',
-  },
+  { src: '/svgs/icons/eltropy.svg', alt: 'Eltropy' },
+  { src: '/svgs/icons/omnicell.svg', alt: 'Omnicell' },
+  { src: '/img/users/salesforce.svg', alt: 'Salesforce' },
+  { src: '/img/users/comcast.svg', alt: 'Comcast' },
+  { src: '/svgs/icons/parallel-ai.svg', alt: 'Parallel AI' },
+  { src: '/svgs/icons/blackforestlabs.svg', alt: 'Blackforest Labs' },
+  { src: '/svgs/icons/blaxel.svg', alt: 'Blaxel' },
+  { src: '/svgs/icons/sarvam.svg', alt: 'sarvam logo' },
 ]
 
 export const NUMBERS_THAT_SPEAK_CARDS = [
   {
-    icon: <div className="text-4xl font-bold text-[#FF3B23]">50%</div>,
+    icon: <div className="text-4xl font-bold text-signoz_cherry-500">50%</div>,
     title: 'Reduction in MTTR and TCO',
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
@@ -116,7 +83,7 @@ export const NUMBERS_THAT_SPEAK_CARDS = [
     ),
   },
   {
-    icon: <div className="text-4xl font-bold text-[#FF3B23]">10 TB+/Day</div>,
+    icon: <div className="text-4xl font-bold text-signoz_cherry-500">10 TB+/Day</div>,
     title: 'Daily Ingest — Single Deployment',
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
@@ -134,7 +101,7 @@ export const NUMBERS_THAT_SPEAK_CARDS = [
     ),
   },
   {
-    icon: <div className="text-4xl font-bold text-[#FF3B23]">1,000s</div>,
+    icon: <div className="text-4xl font-bold text-signoz_cherry-500">1,000s</div>,
     title: 'Engineering Teams in Production',
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
@@ -152,11 +119,11 @@ export const HIGH_GROWTH_TEAMS_CARDS = [
   {
     description: (
       <Image
-        src="/img/unified-observability/unified-observability-unified-observabilty-with-signoz.webp"
-        alt="Unified Observability with SigNoz"
-        width={820}
-        height={540}
-        className="rounded-xl shadow-2xl"
+        src="/img/unified-observability/unified-observability-unified-vs-fragmented.webp"
+        alt="Unified vs Fragmented Observability"
+        width={1200}
+        height={600}
+        className="rounded-lg shadow-2xl"
       />
     ),
   },
@@ -221,11 +188,11 @@ export const HIGH_GROWTH_TEAMS_CARDS = [
   {
     description: (
       <Image
-        src="/img/blog/2025/06/otel-framework.webp"
+        src="/img/comparisons/2024/10/opentelemetry-vs-cloudwatch-image.webp"
         alt="OpenTelemetry Framework"
         width={1200}
         height={675}
-        className="rounded-xl"
+        className="rounded-lg"
       />
     ),
   },
@@ -363,5 +330,41 @@ export const HIGH_GROWTH_TEAMS_CARDS = [
   },
   {
     description: <SourcesTabsGrid />,
+  },
+]
+
+export const GETTING_STARTED_CARDS = [
+  {
+    title: 'Analyze, Migrate, Instrument OTel',
+    description: (
+      <div className="flex min-h-24 flex-col items-start justify-between">
+        Analyze current stack; use our connectors to migrate fast. Add OTel SDK to your services —
+        any language, any framework. Auto-instrumentation covers most stacks out of the box. No
+        vendor lock-in, minimal learning curve
+        <SourceLink href="https://grafana.com/" />
+      </div>
+    ),
+  },
+  {
+    title: 'Use SigNoz Cloud or host in your infrastructure',
+    description: (
+      <div className="flex min-h-24 flex-col items-start justify-between">
+        SigNoz Cloud is fully managed, SOC 2 compliant, and is live in minutes. If you want to run
+        in your infra - Self-host via Helm chart runs in your own VPC or air-gapped environment. Or
+        you can bring your own cloud.
+        <SourceLink href="https://dimensionalreserach.com" />
+      </div>
+    ),
+  },
+  {
+    title: 'Observability Experts and Support Plans - 24 x 7',
+    description: (
+      <div className="flex min-h-24 flex-col items-start justify-between">
+        Engineers with deep, experience across the full observability stack — OpenTelemetry,
+        distributed tracing, log pipeline design, cost governance. Support aligns to your business
+        outcomes: reduced MTTR, high cardinality, low TCO
+        <SourceLink href="https://dimensionalreserach.com" />
+      </div>
+    ),
   },
 ]
