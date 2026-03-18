@@ -17,7 +17,7 @@ The **Routing Connector** solves this by selectively routing telemetry based on 
 - Send telemetry from specific services to **different backends**.
 - Isolate traffic by environment or team.
 
-For connector basics, see the [OpenTelemetry connector documentation](https://opentelemetry.io/docs/collector/components/connector/).
+For connector basics, see the <a href="https://opentelemetry.io/docs/collector/components/connector/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry connector documentation</a>.
 
 ## Simple Example: Segregating Services
 
@@ -82,8 +82,11 @@ service:
       receivers: [routing]
       exporters: [otlp/signoz]
 ```
+Verify these values:
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint)
+- `<your-default-key>`, `<your-payments-key>`, `<your-search-key>`: SigNoz [ingestion keys](https://signoz.io/docs/ingestion/signoz-cloud/keys/) for each account
 
-## Best practice for “multiple services in ingestion”
+## Best practice for Multiple-Service Ingestion
 
 Usually, all services should send to the same OTLP receiver, and each service must set a distinct `service.name`. Then the Collector can:
 1. **Fan-out:** Keep all services together and send them to multiple exporters.
