@@ -906,6 +906,12 @@ const docsSideNav = [
             route:
               '/docs/opentelemetry-collection-agents/opentelemetry-collector/why-to-use-collector',
           },
+          {
+            type: 'doc',
+            label: 'Routing Connector',
+            route:
+              '/docs/opentelemetry-collection-agents/opentelemetry-collector/routing-connector',
+          },
         ],
       },
     ],

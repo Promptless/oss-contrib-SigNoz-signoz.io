@@ -1,0 +1,132 @@
+---
+date: 2026-03-17
+id: routing-connector
+title: Routing connector
+description: Learn how to separate telemetry from multiple services using a single OpenTelemetry Collector and send it to different destinations or ingestion keys.
+doc_type: howto
+---
+
+## Overview
+
+A common challenge when using a single OpenTelemetry Collector is segregation. If multiple services send telemetry to one Collector, they often share the same ingestion key and backend destination. 
+
+The **Routing Connector** solves this by selectively routing telemetry based on resource attributes (like `service.name` or `tenant.id`). This allows you to:
+- Use **different ingestion keys** for different services.
+- Send telemetry from specific services to **different backends**.
+- Isolate traffic by environment or team.
+
+For connector basics, see the [OpenTelemetry connector documentation](https://opentelemetry.io/docs/collector/components/connector/).
+
+## Simple Example: Segregating Services
+
+In this scenario, all services send to one OTLP receiver, but the `payments` and `search` services are routed to separate backends (or different SigNoz accounts) while everything else goes to a default SigNoz instance.
+
+```yaml
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 512
+  batch:
+
+connectors:
+  routing:
+    default_pipelines: [traces/default]
+    table:
+      - context: resource
+        condition: resource.attributes["service.name"] == "payments"
+        pipelines: [traces/payments]
+      - context: resource
+        condition: resource.attributes["service.name"] == "search"
+        pipelines: [traces/search]
+
+exporters:
+  otlp/signoz:
+    endpoint: ingest.<region>.signoz.cloud:443
+    headers:
+      "signoz-ingestion-key": "${DEFAULT_KEY}"
+
+  otlp/vendor-payments:
+    endpoint: ingest.<region>.signoz.cloud:443
+    headers:
+      "signoz-ingestion-key": "${PAYMENTS_KEY}"
+
+  otlp/vendor-search:
+    endpoint: ingest.<region>.signoz.cloud:443
+    headers:
+      "signoz-ingestion-key": "${SEARCH_KEY}"
+
+service:
+  pipelines:
+    traces/incoming:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [routing]
+
+    traces/payments:
+      receivers: [routing]
+      exporters: [otlp/vendor-payments]
+
+    traces/search:
+      receivers: [routing]
+      exporters: [otlp/vendor-search]
+
+    traces/default:
+      receivers: [routing]
+      exporters: [otlp/signoz]
+```
+
+## Best practice for “multiple services in ingestion”
+
+Usually, all services should send to the same OTLP receiver, and each service must set a distinct `service.name`. Then the Collector can:
+1. **Fan-out:** Keep all services together and send them to multiple exporters.
+2. **Route:** Direct traffic based on `service.name`, `deployment.environment`, `tenant.id`, or other resource attributes.
+
+<Admonition type="tip">
+In practice, route using resource attributes such as:
+- `service.name`
+- `service.namespace`
+- `deployment.environment`
+- custom tenant attribute like `tenant.id`
+</Admonition>
+
+## Fan-Out vs Routing
+
+Start with fan-out when every service should go to every backend. Switch to the routing connector when some telemetry needs different destinations or different downstream processing.
+
+| Pattern | Use it when | Configuration |
+| :--- | :--- | :--- |
+| **Fan-out** | Every service goes to every backend | List multiple exporters in one pipeline |
+| **Routing connector** | Services or tenants need different destinations | Use `routing` connector to bridge pipelines |
+
+## Configuration Reference
+
+The settings below summarize the current <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/connector/routingconnector/README.md" target="_blank" rel="noopener noreferrer nofollow">routing connector README</a>.
+
+| Setting | Description |
+| :--- | :--- |
+| `table` | **Required.** The routing table that contains the matching rules. |
+| `table.context` | The OTTL context (`resource`, `span`, `metric`, `log`, etc.). Default is `resource`. |
+| `table.condition` | The OTTL condition for the route (e.g., `resource.attributes["service.name"] == "payments"`). |
+| `table.action` | `move` (default) routes matched data out. `copy` sends a copy and keeps evaluating later rules. |
+| `table.pipelines` | **Required.** The pipelines to receive telemetry when the rule matches. |
+| `default_pipelines` | Pipelines used when none of the rules match. |
+| `error_mode` | Controls errors: `propagate` (default), `ignore`, or `silent`. |
+
+## Troubleshooting
+
+### Wrong OTTL context
+Use `context: resource` for resource attributes such as `service.name`. Use `context: span` for span fields like `status.code`.
+
+### Missing `default_pipelines`
+If nothing matches and `default_pipelines` is missing, unmatched telemetry is dropped. Always include a default pipeline unless you intentionally want to drop data.
+
+## Next Steps
+
+- [Collector configuration reference](https://signoz.io/docs/opentelemetry-collection-agents/opentelemetry-collector/configuration/) — Review receivers, processors, and exporters.
+- [Switch to Collector](https://signoz.io/docs/opentelemetry-collection-agents/opentelemetry-collector/switch-to-collector/) — Move apps to a central Collector before you add routing.
