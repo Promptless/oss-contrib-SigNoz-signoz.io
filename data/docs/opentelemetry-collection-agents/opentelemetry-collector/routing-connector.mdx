@@ -23,7 +23,7 @@ For connector basics, see the <a href="https://opentelemetry.io/docs/collector/c
 
 In this scenario, all services send to one OTLP receiver, but the `payments` and `search` services are routed to separate backends (or different SigNoz accounts) while everything else goes to a default SigNoz instance.
 
-```yaml
+```yaml:otel-collector-config.yaml
 receivers:
   otlp:
     protocols:
