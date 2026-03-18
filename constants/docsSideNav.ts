@@ -1766,6 +1766,11 @@ const docsSideNav = [
                 route: '/docs/metrics-management/fly-metrics',
                 label: 'Fly.io metrics',
               },
+              {
+                type: 'doc',
+                route: '/docs/metrics-management/keda-metrics',
+                label: 'KEDA Metrics',
+              },
             ],
           },
           {
