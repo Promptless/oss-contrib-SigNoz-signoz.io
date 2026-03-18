@@ -355,13 +355,19 @@ const EnterpriseDemoPage: React.FC = () => {
         <SectionLayout variant="bordered" className="!px-0">
           <HighGrowthTeams />
 
-          <CustomerStoriesSection
-            tracking={{
-              clickName: 'Enterprise Demo Customer Stories Button',
-              clickLocation: 'Enterprise Demo Testimonials',
-            }}
-            showOverlay={false}
-          />
+          <div className="flex flex-col items-center justify-center gap-6 pt-12">
+            <h2 className="mb-6 text-center text-4xl text-signoz_vanilla-100">
+              What our Customers have to Say
+            </h2>
+            <CustomerStoriesSection
+              tracking={{
+                clickName: 'Enterprise Demo Customer Stories Button',
+                clickLocation: 'Enterprise Demo Testimonials',
+              }}
+              showOverlay={false}
+              showFeaturedCaseStudy={false}
+            />
+          </div>
           <PricingToScale />
 
           <GettingStarted />

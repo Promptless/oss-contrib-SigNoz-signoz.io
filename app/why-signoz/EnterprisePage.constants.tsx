@@ -408,9 +408,9 @@ export const GETTING_STARTED_CARDS = [
     ),
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
-        Engineers with deep, experience across the full observability stack — OpenTelemetry,
-        distributed tracing, log pipeline design, cost governance. Support aligns to your business
-        outcomes: reduced MTTR, high cardinality, low TCO
+        Engineers with deep experience across observability stacks — OpenTelemetry, distributed
+        tracing, log pipeline design, cost governance. Support aligns to your business outcomes:
+        reduced MTTR, high cardinality, low TCO
         <TrackingLink
           href="/enterprise-support/"
           clickType="button"
