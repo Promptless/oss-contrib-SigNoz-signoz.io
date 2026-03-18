@@ -9,26 +9,21 @@ export const ENTERPRISE_DEMO_HUBSPOT_DATA = {
   formId: 'a908efee-9ec5-4969-9ca4-6e91d0a32b8a',
 }
 
-const SourceLink: React.FC<{ href: string }> = ({ href }) => (
-  <Link
-    href={href}
-    className="mt-1 block text-xs text-signoz_vanilla-400 underline decoration-signoz_slate-400 underline-offset-2 hover:text-signoz_robin-400"
-    target="_blank"
-    rel="noopener noreferrer"
-    prefetch={false}
-  >
-    Source
-    <ArrowRight size={14} className="inline-block" />
-  </Link>
-)
-
 export const OBSERVABILITY_LANDSCAPE_CARDS = [
   {
     title: <span className="text-2xl font-bold">99%</span>,
     description: (
       <div className="flex flex-col items-start justify-between gap-2">
         Businesses actively reducing observability costs
-        <SourceLink href="https://www.gartner.com/en" />
+        <Link
+          href={'https://www.gartner.com/en'}
+          className="mt-1 block text-xs text-signoz_vanilla-400 underline decoration-signoz_slate-400 underline-offset-2 hover:text-signoz_robin-400"
+          target="_blank"
+          rel="noopener noreferrer"
+          prefetch={false}
+        >
+          Source - https://www.gartner.com/en
+        </Link>
       </div>
     ),
   },
@@ -37,7 +32,15 @@ export const OBSERVABILITY_LANDSCAPE_CARDS = [
     description: (
       <div className="flex flex-col items-start justify-between gap-2">
         Teams cut costs with tool consolidation
-        <SourceLink href="https://dimensionalreserach.com" />
+        <Link
+          href={'https://dimensionalresearch.com'}
+          className="mt-1 block text-xs text-signoz_vanilla-400 underline decoration-signoz_slate-400 underline-offset-2 hover:text-signoz_robin-400"
+          target="_blank"
+          rel="noopener noreferrer"
+          prefetch={false}
+        >
+          Source - https://dimensionalresearch.com
+        </Link>
       </div>
     ),
   },
@@ -46,7 +49,17 @@ export const OBSERVABILITY_LANDSCAPE_CARDS = [
     description: (
       <div className="flex flex-col items-start justify-between gap-2">
         Engineering teams hit unexpected observability overages regularly
-        <SourceLink href="https://dimensionalreserach.com" />
+        <Link
+          href={
+            'https://futurecio.tech/gartner-says-security-vendor-consolidation-to-improve-risk-posture/'
+          }
+          className="mt-1 block text-xs text-signoz_vanilla-400 underline decoration-signoz_slate-400 underline-offset-2 hover:text-signoz_robin-400"
+          target="_blank"
+          rel="noopener noreferrer"
+          prefetch={false}
+        >
+          Source - https://futurecio.tech/
+        </Link>
       </div>
     ),
   },

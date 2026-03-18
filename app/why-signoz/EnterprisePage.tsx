@@ -316,20 +316,6 @@ const PricingToScale: React.FC = () => {
             <h3 className="text-2xl font-bold text-signoz_vanilla-100">
               Enterprise Self-Hosted / BYOC
             </h3>
-            <div className="my-2 flex items-center gap-2">
-              <span className="text-signoz_cherry-500">Custom</span>{' '}
-              <TrackingLink
-                href="/contact-us/"
-                clickType="Secondary CTA"
-                clickName="Custom Contact Us Button"
-                clickLocation="Why SigNoz Pricing Self Hosted Section"
-                clickText="Custom Contact Us"
-              >
-                <Button variant="secondary" rounded="full" isButton>
-                  Contact Us
-                </Button>
-              </TrackingLink>
-            </div>
             <p className="text-base text-signoz_vanilla-400">
               SigNoz deploys and manages the SigNoz stack inside your AWS/GCP/Azure account. You own
               the infrastructure, SigNoz operates it. Your data never leaves your VPC.
@@ -376,9 +362,9 @@ const EnterpriseDemoPage: React.FC = () => {
             }}
             showOverlay={false}
           />
+          <PricingToScale />
 
           <GettingStarted />
-          <PricingToScale />
 
           <NumbersThatSpeak />
           <EnterpriseObservability />
