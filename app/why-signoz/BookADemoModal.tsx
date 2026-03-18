@@ -35,6 +35,7 @@ export function BookADemoModalProvider({ children }: { children: React.ReactNode
                 <PricingForm
                   portalId={ENTERPRISE_DEMO_HUBSPOT_DATA.portalId}
                   formId={ENTERPRISE_DEMO_HUBSPOT_DATA.formId}
+                  formName="Book a demo form"
                 />
               </HubspotProvider>
             </ModalBody>
