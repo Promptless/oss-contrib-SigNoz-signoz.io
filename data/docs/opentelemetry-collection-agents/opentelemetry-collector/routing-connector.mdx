@@ -49,17 +49,17 @@ connectors:
 
 exporters:
   otlp/signoz:
-    endpoint: ingest.<region>.signoz.cloud:443
+    endpoint: 'ingest.<region>.signoz.cloud:443'
     headers:
       "signoz-ingestion-key": "${DEFAULT_KEY}"
 
   otlp/vendor-payments:
-    endpoint: ingest.<region>.signoz.cloud:443
+    endpoint: 'ingest.<region>.signoz.cloud:443'
     headers:
       "signoz-ingestion-key": "${PAYMENTS_KEY}"
 
   otlp/vendor-search:
-    endpoint: ingest.<region>.signoz.cloud:443
+    endpoint: 'ingest.<region>.signoz.cloud:443'
     headers:
       "signoz-ingestion-key": "${SEARCH_KEY}"
 
