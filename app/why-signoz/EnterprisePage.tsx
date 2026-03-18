@@ -293,7 +293,7 @@ const PricingToScale: React.FC = () => {
               minutes.
             </p>
             <TrackingLink
-              href="/pricing/"
+              href="/pricing/#teams"
               clickType="Secondary CTA"
               clickName="View Pricing Button"
               clickLocation="Why SigNoz Pricing Cloud Section"
@@ -321,7 +321,7 @@ const PricingToScale: React.FC = () => {
               the infrastructure, SigNoz operates it. Your data never leaves your VPC.
             </p>
             <TrackingLink
-              href="/pricing/"
+              href="/pricing/#enterprise"
               clickType="Secondary CTA"
               clickName="View Pricing Button"
               clickLocation="Why SigNoz Pricing Self Hosted Section"
