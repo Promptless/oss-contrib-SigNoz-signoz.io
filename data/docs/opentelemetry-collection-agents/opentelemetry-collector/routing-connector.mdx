@@ -82,6 +82,7 @@ service:
       receivers: [routing]
       exporters: [otlp/signoz]
 ```
+
 Verify these values:
 - `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint)
 - `<your-default-key>`, `<your-payments-key>`, `<your-search-key>`: SigNoz [ingestion keys](https://signoz.io/docs/ingestion/signoz-cloud/keys/) for each account
@@ -123,13 +124,18 @@ The settings below summarize the current <a href="https://github.com/open-teleme
 | `default_pipelines` | Pipelines used when none of the rules match. |
 | `error_mode` | Controls errors: `propagate` (default), `ignore`, or `silent`. |
 
+<details>
+<ToggleHeading>
 ## Troubleshooting
+</ToggleHeading>
 
 ### Wrong OTTL context
 Use `context: resource` for resource attributes such as `service.name`. Use `context: span` for span fields like `status.code`.
 
 ### Missing `default_pipelines`
 If nothing matches and `default_pipelines` is missing, unmatched telemetry is dropped. Always include a default pipeline unless you intentionally want to drop data.
+
+</details>
 
 ## Next Steps
 
