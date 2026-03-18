@@ -11,7 +11,7 @@ import {
   HIGH_GROWTH_TEAMS_CARDS,
   NUMBERS_THAT_SPEAK_CARDS,
   TRUSTED_BY_LOGOS,
-  OBSERABILITY_LANDSCAPE_CARDS,
+  OBSERVABILITY_LANDSCAPE_CARDS,
   GETTING_STARTED_CARDS,
 } from './EnterprisePage.constants'
 import TrackingLink from '@/components/TrackingLink'
@@ -165,14 +165,14 @@ const ObservabilityLandscape: React.FC = () => {
         Observability Landscape is changing. <br /> Are you Ready?
       </h2>
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-3">
-        {OBSERABILITY_LANDSCAPE_CARDS.map((card, index) => (
+        {OBSERVABILITY_LANDSCAPE_CARDS.map((card, index) => (
           <Card key={index} className="group h-full" variant="aqua">
             <div className="flex h-full flex-col items-start gap-4 px-8 py-6">
               <span className="inline-block bg-[linear-gradient(to_right,rgba(78,116,248)_50%,#ffffff_50%)] bg-[length:200%_100%] bg-clip-text bg-right text-transparent transition-[background-position] duration-300 ease-out group-hover:bg-left">
                 {card.title}
               </span>
               {card.description && (
-                <div className="m-0 w-full text-left text-sm text-signoz_vanilla-400">
+                <div className="m-0 w-full text-left text-xs text-signoz_vanilla-400">
                   {card.description}
                 </div>
               )}
@@ -293,20 +293,19 @@ const PricingToScale: React.FC = () => {
               minutes.
             </p>
             <TrackingLink
-              href="/enterprise-cloud/"
+              href="/pricing/"
               clickType="Secondary CTA"
-              clickName="Enterprise Cloud Button"
-              clickLocation="Enterprise Pricing"
-              clickText="Enterprise Cloud"
+              clickName="View Pricing Button"
+              clickLocation="Why SigNoz Pricing Cloud Section"
+              clickText="View Pricing"
             >
               <Button
                 isButton
                 variant="default"
                 rounded="full"
                 className="flex-center flex !w-fit items-center gap-2"
-                // onClick={openModal}
               >
-                Enterprise Cloud
+                View Pricing
                 <ArrowRight size={14} />
               </Button>
             </TrackingLink>
@@ -314,26 +313,41 @@ const PricingToScale: React.FC = () => {
         </Card>
         <Card variant={'gradient'}>
           <div className="m-6 flex flex-grow flex-col">
-            <h3 className="text-2xl font-bold text-signoz_vanilla-100">Enterprise Self-Hosted</h3>
+            <h3 className="text-2xl font-bold text-signoz_vanilla-100">
+              Enterprise Self-Hosted / BYOC
+            </h3>
+            <div className="my-2 flex items-center gap-2">
+              <span className="text-signoz_cherry-500">Custom</span>{' '}
+              <TrackingLink
+                href="/contact-us/"
+                clickType="Secondary CTA"
+                clickName="Custom Contact Us Button"
+                clickLocation="Why SigNoz Pricing Self Hosted Section"
+                clickText="Custom Contact Us"
+              >
+                <Button variant="secondary" rounded="full" isButton>
+                  Contact Us
+                </Button>
+              </TrackingLink>
+            </div>
             <p className="text-base text-signoz_vanilla-400">
-              Self-host with support contract from SigNoz Team. Run SigNoz in your infrastructure
-              and get support from SigNoz team.
+              SigNoz deploys and manages the SigNoz stack inside your AWS/GCP/Azure account. You own
+              the infrastructure, SigNoz operates it. Your data never leaves your VPC.
             </p>
             <TrackingLink
-              href="/enterprise-self-hosted/"
+              href="/pricing/"
               clickType="Secondary CTA"
-              clickName="Enterprise Self-Hosted Button"
-              clickLocation="Enterprise Pricing"
-              clickText="Enterprise Self-Hosted"
+              clickName="View Pricing Button"
+              clickLocation="Why SigNoz Pricing Self Hosted Section"
+              clickText="View Pricing"
             >
               <Button
                 isButton
                 variant="default"
                 rounded="full"
                 className="flex-center flex !w-fit items-center gap-2"
-                // onClick={openModal}
               >
-                Enterprise Self-Hosted
+                View Pricing
                 <ArrowRight size={14} />
               </Button>
             </TrackingLink>

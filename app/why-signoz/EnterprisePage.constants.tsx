@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Atom } from 'lucide-react'
 import TrackingLink from '@/components/TrackingLink'
 import { SourcesTabsGrid } from '../log-management/LogManagement'
 export const ENTERPRISE_DEMO_HUBSPOT_DATA = {
@@ -22,29 +22,29 @@ const SourceLink: React.FC<{ href: string }> = ({ href }) => (
   </Link>
 )
 
-export const OBSERABILITY_LANDSCAPE_CARDS = [
+export const OBSERVABILITY_LANDSCAPE_CARDS = [
   {
-    title: <span className="text-4xl font-bold">99%</span>,
+    title: <span className="text-2xl font-bold">99%</span>,
     description: (
-      <div className="flex min-h-24 flex-col items-start justify-between">
+      <div className="flex flex-col items-start justify-between gap-2">
         Businesses actively reducing observability costs
-        <SourceLink href="https://dimensionalreserach.com" />
+        <SourceLink href="https://www.gartner.com/en" />
       </div>
     ),
   },
   {
-    title: <span className="text-4xl font-bold">57%</span>,
+    title: <span className="text-2xl font-bold">57%</span>,
     description: (
-      <div className="flex min-h-24 flex-col items-start justify-between">
+      <div className="flex flex-col items-start justify-between gap-2">
         Teams cut costs with tool consolidation
         <SourceLink href="https://dimensionalreserach.com" />
       </div>
     ),
   },
   {
-    title: <span className="text-4xl font-bold">71%</span>,
+    title: <span className="text-2xl font-bold">71%</span>,
     description: (
-      <div className="flex min-h-24 flex-col items-start justify-between">
+      <div className="flex flex-col items-start justify-between gap-2">
         Engineering teams hit unexpected observability overages regularly
         <SourceLink href="https://dimensionalreserach.com" />
       </div>
@@ -65,7 +65,7 @@ export const TRUSTED_BY_LOGOS = [
 
 export const NUMBERS_THAT_SPEAK_CARDS = [
   {
-    icon: <div className="text-4xl font-bold text-signoz_cherry-500">50%</div>,
+    icon: <div className="text-4xl font-bold text-signoz_cherry-500">45%</div>,
     title: 'Reduction in MTTR and TCO',
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
@@ -87,8 +87,8 @@ export const NUMBERS_THAT_SPEAK_CARDS = [
     title: 'Daily Ingest — Single Deployment',
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
-        ClickHouse at the core handles high-cardinality Kubernetes and AI inference telemetry at any
-        scale.
+        ClickHouse core handles high-cardinality Kubernetes and AI workloads at all scale. 30%
+        higher throughput. Guaranteed
         <Button
           variant="secondary"
           to="/blog/optimizing-log-processing-at-scale/"
@@ -335,7 +335,12 @@ export const HIGH_GROWTH_TEAMS_CARDS = [
 
 export const GETTING_STARTED_CARDS = [
   {
-    title: 'Analyze, Migrate, Instrument OTel',
+    title: (
+      <div className="flex items-center gap-2">
+        <Atom size={16} />
+        Analyze, Migrate, Instrument OTel
+      </div>
+    ),
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
         Analyze current stack; use our connectors to migrate fast. Add OTel SDK to your services —
@@ -356,7 +361,12 @@ export const GETTING_STARTED_CARDS = [
     ),
   },
   {
-    title: 'Use SigNoz Cloud or host in your infrastructure',
+    title: (
+      <div className="flex items-center gap-2">
+        <Atom size={16} />
+        Use SigNoz Cloud or host in your infrastructure
+      </div>
+    ),
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
         SigNoz Cloud is fully managed, SOC 2 compliant, and is live in minutes. If you want to run
@@ -377,7 +387,12 @@ export const GETTING_STARTED_CARDS = [
     ),
   },
   {
-    title: 'Observability Experts and Support Plans - 24 x 7',
+    title: (
+      <div className="flex items-center gap-2">
+        <Atom size={16} />
+        Observability Experts and Support Plans - 24 x 7
+      </div>
+    ),
     description: (
       <div className="flex min-h-36 flex-col items-start justify-between">
         Engineers with deep, experience across the full observability stack — OpenTelemetry,
