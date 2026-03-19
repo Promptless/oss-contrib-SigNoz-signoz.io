@@ -173,8 +173,9 @@ const MetricsCostEstimation = () => {
                           label: 'text-medium',
                           step: 'h-[0.6rem] w-[0.15rem]',
                         }}
-                        renderThumb={(props) => (
+                        renderThumb={({ ref, ...props }) => (
                           <div
+                            ref={ref}
                             {...props}
                             className="group top-1/2 cursor-grab rounded-full border-small border-signoz_vanilla-100 bg-background shadow-medium data-[dragging=true]:cursor-grabbing"
                           >

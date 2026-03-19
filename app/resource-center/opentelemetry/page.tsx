@@ -3,10 +3,9 @@ import { Metadata } from 'next'
 import { fetchMDXContentByPath, MDXContent } from '@/utils/strapi'
 import { fetchAllComparisonsForPage } from '@/utils/cachedData'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
 import { type Comparison } from 'types/transformedContent'
 
-export const revalidate = CMS_REVALIDATE_INTERVAL
+export const revalidate = 86400 // 1 day
 export const dynamic = 'force-static'
 
 export const metadata: Metadata = {

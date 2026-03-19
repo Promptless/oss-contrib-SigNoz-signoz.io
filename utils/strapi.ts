@@ -323,7 +323,17 @@ export const fetchMDXContentByPath = async (
     }
 
     if (!API_URL) {
-      throw new Error('NEXT_PUBLIC_SIGNOZ_CMS_API_URL is not configured')
+      // Return empty result when CMS is not configured (local development)
+      if (path && !fetchAll) {
+        return {
+          data: null as unknown as MDXContent,
+          meta: {},
+        } as MDXContentByIdApiResponse
+      }
+      return {
+        data: [],
+        meta: { pagination: { page: 1, pageSize: 100, pageCount: 0, total: 0 } },
+      } as MDXContentApiResponse
     }
 
     // If fetchAll is true, fetch all pages and combine results

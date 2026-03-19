@@ -84,10 +84,9 @@ import SamplingAggregation from './HighCardinalityData/SamplingAggregation'
 import UsersAnalogy from './HighCardinalityData/UsersAnalogy'
 import Tooltip from './ui/Tooltip'
 import DatabaseTable from './HighCardinalityData/DatabaseTable'
-import dynamic from 'next/dynamic'
-const IncidentCostGraphic = dynamic(() => import('./Blog/IncidentCostGraphic'), { ssr: false })
+import IncidentCostGraphic from './Blog/IncidentCostGraphicClient'
 
-export const components: MDXComponents = {
+export const components = {
   Region,
   region: Region,
   RegionTable,
@@ -172,4 +171,4 @@ export const components: MDXComponents = {
   UsersAnalogy,
   Tooltip,
   DatabaseTable,
-}
+} as MDXComponents

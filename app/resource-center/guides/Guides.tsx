@@ -52,7 +52,7 @@ export default function Guides() {
   const pageNumber = 1
 
   useEffect(() => {
-    if (!window) {
+    if (typeof window === 'undefined') {
       return
     }
 
@@ -60,7 +60,7 @@ export default function Guides() {
       (window.location.hash as GUIDES_TOPICS) || GUIDES_TOPICS.ALL
 
     setActiveItem(activeItemToSet)
-  }, [window])
+  }, [])
 
   const blogs = useMemo(() => {
     if (searchQuery) {

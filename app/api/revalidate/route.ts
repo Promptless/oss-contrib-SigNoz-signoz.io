@@ -28,9 +28,9 @@ export async function POST(request: NextRequest) {
 
     if (revalidateAll) {
       revalidatePath('/', 'layout')
-      revalidateTag('mdx-content-list')
-      revalidateTag('comparisons-list')
-      revalidateTag('mdx-paths')
+      revalidateTag('mdx-content-list', 'default')
+      revalidateTag('comparisons-list', 'default')
+      revalidateTag('mdx-paths', 'default')
 
       results.push({
         path: '/',
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
 
     if (path) {
       revalidatePath(path)
-      revalidateTag(`mdx-content-${path}`)
+      revalidateTag(`mdx-content-${path}`, 'default')
 
       results.push({
         path,
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     if (paths && Array.isArray(paths)) {
       for (const p of paths) {
         revalidatePath(p)
-        revalidateTag(`mdx-content-${p}`)
+        revalidateTag(`mdx-content-${p}`, 'default')
 
         results.push({
           path: p,
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (tag) {
-      revalidateTag(tag)
+      revalidateTag(tag, 'default')
 
       results.push({
         tag,
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
 
     if (tags && Array.isArray(tags)) {
       for (const t of tags) {
-        revalidateTag(t)
+        revalidateTag(t, 'default')
 
         results.push({
           tag: t,
@@ -131,9 +131,9 @@ export async function GET(request: NextRequest) {
 
     if (revalidateAll) {
       revalidatePath('/', 'layout')
-      revalidateTag('mdx-content-list')
-      revalidateTag('comparisons-list')
-      revalidateTag('mdx-paths')
+      revalidateTag('mdx-content-list', 'default')
+      revalidateTag('comparisons-list', 'default')
+      revalidateTag('mdx-paths', 'default')
 
       results.push({
         path: '/',
@@ -145,7 +145,7 @@ export async function GET(request: NextRequest) {
 
     if (path) {
       revalidatePath(path)
-      revalidateTag(`mdx-content-${path}`)
+      revalidateTag(`mdx-content-${path}`, 'default')
 
       results.push({
         path,
@@ -156,7 +156,7 @@ export async function GET(request: NextRequest) {
     }
 
     if (tag) {
-      revalidateTag(tag)
+      revalidateTag(tag, 'default')
 
       results.push({
         tag,

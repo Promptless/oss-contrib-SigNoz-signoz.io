@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import Heading from '../../components/ui/Heading'
 import SubHeading from '../../components/ui/SubHeading'
 import Card from '@/components/Card/card'
@@ -101,9 +101,8 @@ export const SigNozFeatures = () => {
 
             <div className="flex hidden items-center justify-center md:flex">
               {icons.map((icon, index) => (
-                <>
+                <Fragment key={index}>
                   <div
-                    key={index}
                     className={`text-center ${icon.label === 'Dashboards' ? 'homepage-dashboard-icon' : ''}`}
                   >
                     <div className="homepage-border m-auto flex w-fit items-center justify-center rounded-full p-2 sm:p-4">
@@ -116,48 +115,44 @@ export const SigNozFeatures = () => {
                     <p className="m-auto mt-2 text-xs text-signoz_sienna-300">{icon.label}</p>
                   </div>
                   {index !== icons.length - 1 ? <div className="homepage-separator" /> : null}
-                </>
+                </Fragment>
               ))}
             </div>
 
             <div className="flex flex-col gap-6 px-8 md:hidden md:gap-0">
               <div className="flex justify-between">
                 {icons.slice(0, 3).map((icon, index) => (
-                  <>
-                    <div
-                      key={index}
-                      className={`w-[120px] text-center ${icon.label === 'Dashboards' ? 'homepage-dashboard-icon' : ''}`}
-                    >
-                      <div className="homepage-border m-auto flex w-fit items-center justify-center rounded-full p-2 sm:p-4">
-                        <img
-                          src={icon.src}
-                          alt={`${icon.label} Icon`}
-                          className="h-4 w-4 sm:h-6 sm:w-6"
-                        />
-                      </div>
-                      <p className="m-auto mt-2 text-xs text-signoz_sienna-300">{icon.label}</p>
+                  <div
+                    key={index}
+                    className={`w-[120px] text-center ${icon.label === 'Dashboards' ? 'homepage-dashboard-icon' : ''}`}
+                  >
+                    <div className="homepage-border m-auto flex w-fit items-center justify-center rounded-full p-2 sm:p-4">
+                      <img
+                        src={icon.src}
+                        alt={`${icon.label} Icon`}
+                        className="h-4 w-4 sm:h-6 sm:w-6"
+                      />
                     </div>
-                  </>
+                    <p className="m-auto mt-2 text-xs text-signoz_sienna-300">{icon.label}</p>
+                  </div>
                 ))}
               </div>
 
               <div className="flex justify-between">
                 {icons.slice(3, 6).map((icon, index) => (
-                  <>
-                    <div
-                      key={index}
-                      className={`w-[120px] text-center ${icon.label === 'Dashboards' ? 'homepage-dashboard-icon' : ''}`}
-                    >
-                      <div className="homepage-border m-auto flex w-fit items-center justify-center rounded-full p-2 sm:p-4">
-                        <img
-                          src={icon.src}
-                          alt={`${icon.label} Icon`}
-                          className="h-4 w-4 sm:h-6 sm:w-6"
-                        />
-                      </div>
-                      <p className="m-auto mt-2 text-xs text-signoz_sienna-300">{icon.label}</p>
+                  <div
+                    key={index}
+                    className={`w-[120px] text-center ${icon.label === 'Dashboards' ? 'homepage-dashboard-icon' : ''}`}
+                  >
+                    <div className="homepage-border m-auto flex w-fit items-center justify-center rounded-full p-2 sm:p-4">
+                      <img
+                        src={icon.src}
+                        alt={`${icon.label} Icon`}
+                        className="h-4 w-4 sm:h-6 sm:w-6"
+                      />
                     </div>
-                  </>
+                    <p className="m-auto mt-2 text-xs text-signoz_sienna-300">{icon.label}</p>
+                  </div>
                 ))}
               </div>
             </div>

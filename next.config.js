@@ -69,11 +69,7 @@ module.exports = () => {
     reactStrictMode: true,
     productionBrowserSourceMaps: true, // Enable source maps for debugging
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    eslint: {
-      dirs: ['app', 'components', 'layouts', 'scripts'],
-    },
     trailingSlash: true,
-    swcMinify: true,
     images: {
       remotePatterns: getAllowedImageDomains().map((domain) => ({
         protocol: 'https',
@@ -1417,6 +1413,23 @@ module.exports = () => {
           permanent: true,
         },
       ]
+    },
+    async rewrites() {
+      return {
+        beforeFiles: [
+          // Serve the docs sitemap at /docs/sitemap.md (must come before generic .md rewrite)
+          {
+            source: '/docs/sitemap.md',
+            destination: '/docs/sitemap-md',
+          },
+          // Rewrite /docs/*.md URLs to the markdown API endpoint
+          // This allows URLs like /docs/introduction.md to return raw markdown
+          {
+            source: '/docs/:path(.*)\\.md',
+            destination: '/api/docs-markdown/:path/',
+          },
+        ],
+      }
     },
     webpack: (config, options) => {
       config.module.rules.push({

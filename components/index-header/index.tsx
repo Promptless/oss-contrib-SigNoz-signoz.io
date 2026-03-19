@@ -5,8 +5,7 @@ import Button from '@/components/Button/Button'
 import TrackingLink from '@/components/TrackingLink'
 import { VideoModalPlayer } from './VideoModalPlayer'
 
-// Server component with single CTA
-export async function Header() {
+export function Header() {
   const primaryCTA = 'Get Started - Free'
 
   return (

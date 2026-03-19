@@ -34,6 +34,7 @@ export const KNOWN_AGENT_MDX_COMPONENT_NAMES = [
   'DocCardContainer',
   'Figure',
   'HostingDecision',
+  'Image',
   'IntegrationsListicle',
   'K8sInstallationListicle',
   'KeyPointCallout',
@@ -285,6 +286,16 @@ const createKnownComponentStubs = (
       caption ? React.createElement('figcaption', null, caption) : null
     )
   },
+  Image: (props) => {
+    const src = getStringProp(props, 'src')
+    const alt = getStringProp(props, 'alt') || ''
+
+    if (!src) {
+      return React.createElement('p', null, alt || '[Image]')
+    }
+
+    return React.createElement('img', { src, alt })
+  },
   DocCard: (props) => {
     const href = getStringProp(props, 'href')
     const title = getStringProp(props, 'title') || getStringProp(props, 'name')
@@ -409,6 +420,10 @@ export const extractMdxComponentNames = (rawMdx: string): string[] => {
   return Array.from(names)
 }
 
+// Components injected by remark/rehype plugins during MDX compilation that won't
+// appear in raw MDX but will be referenced in compiled output
+const IMPLICIT_MDX_COMPONENT_NAMES = ['Image'] as const
+
 export const buildAgentMdxComponentsForDoc = (doc: Doc, allDocs: Doc[]): DocsComponentMap => {
   const componentNames = extractMdxComponentNames(doc.body.raw)
   const knownStubs = createKnownComponentStubs(allDocs)
@@ -423,10 +438,19 @@ export const buildAgentMdxComponentsForDoc = (doc: Doc, allDocs: Doc[]): DocsCom
     )
   }
 
-  return componentNames.reduce<DocsComponentMap>((accumulator, componentName) => {
+  const components = componentNames.reduce<DocsComponentMap>((accumulator, componentName) => {
     accumulator[componentName] = Object.prototype.hasOwnProperty.call(knownStubs, componentName)
       ? knownStubs[componentName as KnownAgentMdxComponentName]
       : createUnknownComponentStub(componentName)
     return accumulator
   }, {})
+
+  // Add implicit components that are injected during MDX compilation
+  for (const implicitName of IMPLICIT_MDX_COMPONENT_NAMES) {
+    if (!components[implicitName]) {
+      components[implicitName] = knownStubs[implicitName]
+    }
+  }
+
+  return components
 }

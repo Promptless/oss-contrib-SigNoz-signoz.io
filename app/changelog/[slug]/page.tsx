@@ -8,7 +8,8 @@ import { ChangelogByIdApiResponse } from 'utils/strapi'
 
 export const dynamicParams = false
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params
   const changelogId = params.slug.split('-').pop()
   let changelogResponse: ChangelogByIdApiResponse | null = null
   try {

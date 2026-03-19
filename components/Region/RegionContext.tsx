@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState, Suspense } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { QUERY_PARAMS } from '@/constants/queryParams'
 import { ONBOARDING_SOURCE } from '@/constants/globals'
@@ -64,12 +64,29 @@ const FALLBACK_REGIONS: RegionData[] = [
 
 const RegionContext = createContext<RegionContextType | undefined>(undefined)
 
-export const RegionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [regions, setRegions] = useState<RegionData[]>([])
-  const [region, setRegionState] = useState<string | null>(null)
-  const [cloudRegion, setCloudRegionState] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
+interface RegionProviderInnerProps {
+  children: React.ReactNode
+  regions: RegionData[]
+  setRegions: React.Dispatch<React.SetStateAction<RegionData[]>>
+  region: string | null
+  setRegionState: React.Dispatch<React.SetStateAction<string | null>>
+  cloudRegion: string | null
+  setCloudRegionState: React.Dispatch<React.SetStateAction<string | null>>
+  isLoading: boolean
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
 
+function RegionProviderInner({
+  children,
+  regions,
+  setRegions,
+  region,
+  setRegionState,
+  cloudRegion,
+  setCloudRegionState,
+  isLoading,
+  setIsLoading,
+}: RegionProviderInnerProps) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -78,8 +95,15 @@ export const RegionProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     const fetchRegions = async () => {
+      const controlPlaneUrl = process.env.NEXT_PUBLIC_CONTROL_PLANE_URL
+      if (!controlPlaneUrl) {
+        setRegions(FALLBACK_REGIONS)
+        setIsLoading(false)
+        return
+      }
+
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_CONTROL_PLANE_URL}/regions`)
+        const response = await fetch(`${controlPlaneUrl}/regions`)
         const data: RegionResponse = await response.json()
         if (data.status === 'success' && data.data && data.data.length > 0) {
           setRegions(data.data)
@@ -95,7 +119,7 @@ export const RegionProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
 
     fetchRegions()
-  }, [])
+  }, [setRegions, setIsLoading])
 
   useEffect(() => {
     const regionParam = searchParams.get('region')
@@ -129,7 +153,7 @@ export const RegionProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         setCloudRegionState(firstCluster.cloud_region)
       }
     }
-  }, [searchParams, regions])
+  }, [searchParams, regions, isOnboarding, setRegionState, setCloudRegionState])
 
   const setRegion = (newRegion: string | null, newCloudRegion: string | null) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()))
@@ -158,6 +182,44 @@ export const RegionProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     <RegionContext.Provider value={{ regions, region, cloudRegion, setRegion, isLoading }}>
       {children}
     </RegionContext.Provider>
+  )
+}
+
+export const RegionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [regions, setRegions] = useState<RegionData[]>([])
+  const [region, setRegionState] = useState<string | null>(null)
+  const [cloudRegion, setCloudRegionState] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <Suspense
+      fallback={
+        <RegionContext.Provider
+          value={{
+            regions: [],
+            region: null,
+            cloudRegion: null,
+            setRegion: () => {},
+            isLoading: true,
+          }}
+        >
+          {children}
+        </RegionContext.Provider>
+      }
+    >
+      <RegionProviderInner
+        regions={regions}
+        setRegions={setRegions}
+        region={region}
+        setRegionState={setRegionState}
+        cloudRegion={cloudRegion}
+        setCloudRegionState={setCloudRegionState}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+      >
+        {children}
+      </RegionProviderInner>
+    </Suspense>
   )
 }
 

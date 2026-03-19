@@ -421,8 +421,9 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({
         label: 'text-medium',
       }}
       aria-label={ariaLabel}
-      renderThumb={(props) => (
+      renderThumb={({ ref, ...props }) => (
         <div
+          ref={ref}
           {...props}
           className="group top-1/2 cursor-grab rounded-full border-small border-signoz_vanilla-100 bg-background shadow-medium data-[dragging=true]:cursor-grabbing"
           aria-valuetext={value === 0 ? '0' : formatFunc(Number(inputValue))}

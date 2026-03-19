@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { cookies } from 'next/headers'
 import { generateUserHash } from '@/utils/userUtils'
 import ChatbaseClient from './ChatbaseClient'
@@ -25,16 +25,15 @@ export default async function ChatbaseServer({
     return (
       <>
         <ChatbaseCookieSync />
-        <ChatbaseClient
-          className={className}
-          disableFloatingMessages={disableFloatingMessages}
-        />
+        <Suspense fallback={null}>
+          <ChatbaseClient className={className} disableFloatingMessages={disableFloatingMessages} />
+        </Suspense>
       </>
     )
   }
 
   // Get anonymous ID from cookies (set by the client)
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
   const anonymousIdCookie = cookieStore.get('app_anonymous_id')
   const anonymousId = anonymousIdCookie?.value
 
@@ -44,10 +43,9 @@ export default async function ChatbaseServer({
     return (
       <>
         <ChatbaseCookieSync />
-        <ChatbaseClient
-          className={className}
-          disableFloatingMessages={disableFloatingMessages}
-        />
+        <Suspense fallback={null}>
+          <ChatbaseClient className={className} disableFloatingMessages={disableFloatingMessages} />
+        </Suspense>
       </>
     )
   }
@@ -58,12 +56,14 @@ export default async function ChatbaseServer({
   return (
     <>
       <ChatbaseCookieSync />
-      <ChatbaseClient
-        className={className}
-        userId={anonymousId}
-        userHash={userHash}
-        disableFloatingMessages={disableFloatingMessages}
-      />
+      <Suspense fallback={null}>
+        <ChatbaseClient
+          className={className}
+          userId={anonymousId}
+          userHash={userHash}
+          disableFloatingMessages={disableFloatingMessages}
+        />
+      </Suspense>
     </>
   )
 }

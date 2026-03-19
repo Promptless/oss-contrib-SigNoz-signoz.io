@@ -1,7 +1,7 @@
 import { writeFileSync, mkdirSync } from 'fs'
 import path from 'path'
 import siteMetadata from '../data/siteMetadata.js'
-import tagData from '../app/tag-data.json' assert { type: 'json' }
+import tagData from '../app/tag-data.json' with { type: 'json' }
 import {
   allBlogs,
   allDocs,

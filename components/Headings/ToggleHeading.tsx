@@ -33,12 +33,12 @@ const ToggleHeading = ({ children }: { children: React.ReactNode }) => {
   }, [])
 
   const childrenWithProps = React.Children.map(children, (child) => {
-    if (React.isValidElement(child)) {
-      return React.cloneElement(child as React.ReactElement, {
-        className: `toggle-heading ${(child.props as any).className || ''}`,
+    if (React.isValidElement<{ className?: string; style?: React.CSSProperties }>(child)) {
+      return React.cloneElement(child, {
+        className: `toggle-heading ${child.props.className || ''}`,
         style: {
           margin: 0,
-          ...(child.props as any).style,
+          ...child.props.style,
         },
       })
     }

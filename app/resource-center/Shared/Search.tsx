@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Input } from '@headlessui/react'
 import { Search } from 'lucide-react'

@@ -27,7 +27,7 @@ const getOSFromUserAgent = (userAgent: string): string => {
   return 'unknown'
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   // Get or generate anonymous ID
   let anonymousId = req.cookies.get('gb_anonymous_id')?.value
   const shouldSetCookie = !anonymousId
@@ -48,8 +48,7 @@ export function middleware(req: NextRequest) {
   // Get request details
   const pathname = req.nextUrl.pathname
   const referer = req.headers.get('referer') || req.headers.get('referrer') || 'direct'
-  const ip =
-    req.ip || req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown'
+  const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown'
   const vercelIp = ipAddress(req) || 'unknown'
 
   // Log bot requests

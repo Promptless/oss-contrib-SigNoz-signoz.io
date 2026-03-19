@@ -2,7 +2,7 @@
 
 import { Fragment, memo, useCallback, useMemo, useRef, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import { ChevronDown, Copy, Check, ExternalLink } from 'lucide-react'
+import { ChevronDown, Copy, Check, ExternalLink, FileText } from 'lucide-react'
 
 import { cn } from '../../app/lib/utils'
 import { useLogEvent } from '@/hooks/useLogEvent'
@@ -76,6 +76,27 @@ function OpenInAI({
     },
     [logEvent, absolutePageUrl, docSlug]
   )
+
+  const markdownPageUrl = useMemo(() => {
+    // Convert /docs/path/ to /docs/path.md
+    const url = pageUrl.endsWith('/') ? pageUrl.slice(0, -1) : pageUrl
+    return `${url}.md`
+  }, [pageUrl])
+
+  const handleViewAsMarkdown = useCallback(() => {
+    logEvent({
+      eventName: 'Website Click',
+      eventType: 'track',
+      attributes: {
+        clickType: 'button',
+        clickName: 'view_as_markdown',
+        clickLocation: 'docs_header',
+        clickText: 'View as Markdown',
+        docSlug,
+      },
+    })
+    window.open(markdownPageUrl, '_blank', 'noopener,noreferrer')
+  }, [logEvent, markdownPageUrl, docSlug])
 
   const isCopyDisabled = isLoading || !canCopy
 
@@ -165,6 +186,38 @@ function OpenInAI({
                           </span>
                           <span className="text-xs text-signoz_vanilla-400">
                             Copy page as Markdown for LLMs
+                          </span>
+                        </div>
+                      </button>
+                    )}
+                  </Menu.Item>
+
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        type="button"
+                        onClick={handleViewAsMarkdown}
+                        className={cn(
+                          'flex w-full items-start gap-3 px-4 py-3 text-left transition-colors',
+                          active && 'bg-signoz_ink-300'
+                        )}
+                      >
+                        <div className="mt-0.5 flex-shrink-0 text-signoz_vanilla-400">
+                          <FileText size={16} aria-hidden="true" />
+                        </div>
+                        <div className="flex flex-col">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-sm font-medium text-signoz_vanilla-100">
+                              View as Markdown
+                            </span>
+                            <ExternalLink
+                              size={12}
+                              className="text-signoz_vanilla-400"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <span className="text-xs text-signoz_vanilla-400">
+                            Open raw Markdown in new tab
                           </span>
                         </div>
                       </button>

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Slider, Tooltip, SliderValue } from '@nextui-org/react'
@@ -286,8 +288,9 @@ const MonthlyEstimate = () => {
                 base: 'max-w-md',
                 label: 'text-medium',
               }}
-              renderThumb={(props) => (
+              renderThumb={({ ref, ...props }) => (
                 <div
+                  ref={ref}
                   {...props}
                   className="group top-1/2 cursor-grab rounded-full border-small border-signoz_vanilla-100 bg-background shadow-medium data-[dragging=true]:cursor-grabbing"
                 >
@@ -375,8 +378,9 @@ const MonthlyEstimate = () => {
                 base: 'max-w-md',
                 label: 'text-medium',
               }}
-              renderThumb={(props) => (
+              renderThumb={({ ref, ...props }) => (
                 <div
+                  ref={ref}
                   {...props}
                   className="group top-1/2 cursor-grab rounded-full border-small border-signoz_vanilla-100 bg-background shadow-medium data-[dragging=true]:cursor-grabbing"
                 >
@@ -462,8 +466,9 @@ const MonthlyEstimate = () => {
                 base: 'max-w-md',
                 label: 'text-medium',
               }}
-              renderThumb={(props) => (
+              renderThumb={({ ref, ...props }) => (
                 <div
+                  ref={ref}
                   {...props}
                   className="group top-1/2 cursor-grab rounded-full border-small border-signoz_vanilla-100 bg-background shadow-medium data-[dragging=true]:cursor-grabbing"
                 >

@@ -249,12 +249,14 @@ function main() {
   })
 
   // Validate destination existence for internal redirects
+  const appRouteData = collectAppRoutes()
   redirects.forEach(({ source, destination }) => {
     if (!destination || typeof destination !== 'string') return
     const dest = normalizeRoute(destination)
     if (!dest.startsWith('/')) return // external URL; skip
     if (dest.startsWith('/docs')) {
-      if (docRouteExists(dest)) return
+      // Check if it's a docs file or an app route (e.g., /docs/sitemap-md is an app route)
+      if (docRouteExists(dest) || appRouteExists(dest, appRouteData)) return
       // Follow redirect chains for internal routes (up to 10 hops)
       const visited = new Set()
       let current = dest
@@ -267,7 +269,10 @@ function main() {
           break
         }
         visited.add(next)
-        if (next.startsWith('/docs') && docRouteExists(next)) {
+        if (
+          next.startsWith('/docs') &&
+          (docRouteExists(next) || appRouteExists(next, appRouteData))
+        ) {
           resolved = true
           break
         }

@@ -63,7 +63,7 @@ const processCodeChildren = (children: ReactNode, replacements: Replacement[]): 
       return replaceInText(combinedText, replacements)
     }
 
-    return Children.toArray(children.map((child) => processCodeChildren(child, replacements)))
+    return Children.map(children, (child) => processCodeChildren(child, replacements))
   }
 
   if (isValidElement(children)) {

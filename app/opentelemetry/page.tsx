@@ -4,21 +4,17 @@ import { notFound } from 'next/navigation'
 import siteMetadata from '@/data/siteMetadata'
 import { allBlogs } from 'contentlayer/generated'
 
-import BlogArticlePage, {
-  dynamic as blogDynamic,
-  dynamicParams as blogDynamicParams,
-  generateMetadata as generateBlogMetadata,
-} from '../blog/[...slug]/page'
+import BlogArticlePage, { generateMetadata as generateBlogMetadata } from '../blog/[...slug]/page'
 
 const LANDING_PARAMS = { slug: ['what-is-opentelemetry'] }
 const LANDING_CANONICAL = `${siteMetadata.siteUrl}/opentelemetry/`
 const BlogArticlePageWithOptions = BlogArticlePage as any
 
-export const dynamic = blogDynamic
-export const dynamicParams = blogDynamicParams
+export const dynamicParams = false
+export const dynamic = 'force-static'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
-  return generateBlogMetadata({ params: LANDING_PARAMS })
+  return generateBlogMetadata({ params: Promise.resolve(LANDING_PARAMS) })
 }
 
 export default function OpenTelemetryLanding() {
@@ -48,7 +44,7 @@ export default function OpenTelemetryLanding() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <BlogArticlePageWithOptions params={LANDING_PARAMS} suppressStructuredData />
+      <BlogArticlePageWithOptions params={Promise.resolve(LANDING_PARAMS)} suppressStructuredData />
     </>
   )
 }

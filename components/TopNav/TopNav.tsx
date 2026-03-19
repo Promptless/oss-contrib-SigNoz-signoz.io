@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { Button, Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
@@ -223,7 +223,7 @@ const resourcesDropdownItems = {
   ],
 }
 
-export default function TopNav() {
+function TopNavInner() {
   const pathname = usePathname()
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -879,5 +879,13 @@ export default function TopNav() {
 
       {shouldShowTabs ? <Tabs activeTab={activeTab} /> : null}
     </div>
+  )
+}
+
+export default function TopNav() {
+  return (
+    <Suspense fallback={null}>
+      <TopNavInner />
+    </Suspense>
   )
 }

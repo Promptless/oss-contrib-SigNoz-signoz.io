@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Slider, Tooltip } from '@nextui-org/react'
@@ -409,8 +411,9 @@ const MobileEstimate = () => {
                   { value: MAX_VALUE, label: '200TB' },
                 ]}
                 aria-label="Traces data ingestion volume"
-                renderThumb={(props) => (
+                renderThumb={({ ref, ...props }) => (
                   <div
+                    ref={ref}
                     {...props}
                     className="group top-1/2 cursor-grab rounded-full border-small border-signoz_vanilla-100 bg-background shadow-medium data-[dragging=true]:cursor-grabbing"
                   >
@@ -483,8 +486,9 @@ const MobileEstimate = () => {
                   { value: MAX_VALUE, label: '200TB' },
                 ]}
                 aria-label="Logs data ingestion volume"
-                renderThumb={(props) => (
+                renderThumb={({ ref, ...props }) => (
                   <div
+                    ref={ref}
                     {...props}
                     className="group top-1/2 cursor-grab rounded-full border-small border-signoz_vanilla-100 bg-background shadow-medium data-[dragging=true]:cursor-grabbing"
                   >
@@ -557,8 +561,9 @@ const MobileEstimate = () => {
                   { value: MAX_VALUE, label: '200B' },
                 ]}
                 aria-label="Metrics data ingestion volume"
-                renderThumb={(props) => (
+                renderThumb={({ ref, ...props }) => (
                   <div
+                    ref={ref}
                     {...props}
                     className="group top-1/2 cursor-grab rounded-full border-small border-signoz_vanilla-100 bg-background shadow-medium data-[dragging=true]:cursor-grabbing"
                   >

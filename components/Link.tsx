@@ -1,12 +1,14 @@
 'use client'
 
-/* eslint-disable jsx-a11y/anchor-has-content */
 import Link from 'next/link'
 import type { LinkProps } from 'next/link'
-import { AnchorHTMLAttributes, useEffect, useState } from 'react'
+import { AnchorHTMLAttributes, useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
-const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>) => {
+type CustomLinkProps = Omit<LinkProps, 'href'> &
+  AnchorHTMLAttributes<HTMLAnchorElement> & { href?: string }
+
+function CustomLinkInner({ href, ...rest }: CustomLinkProps) {
   const searchParams = useSearchParams()
   const [regionParam, setRegionParam] = useState<string | null>(null)
   const [cloudRegionParam, setCloudRegionParam] = useState<string | null>(null)
@@ -18,10 +20,14 @@ const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnch
     }
   }, [searchParams])
 
+  // Return anchor without href if not provided
+  if (!href) {
+    return <a {...rest} />
+  }
+
   const isInternalLink =
-    (href && (href.startsWith('/') || href.startsWith('.'))) ||
-    (typeof href === 'string' && href.startsWith('https://signoz.io'))
-  const isAnchorLink = href && href.startsWith('#')
+    href.startsWith('/') || href.startsWith('.') || href.startsWith('https://signoz.io')
+  const isAnchorLink = href.startsWith('#')
 
   if (isInternalLink) {
     const isDocsUrl = typeof href === 'string' && href.includes('/docs/')
@@ -49,6 +55,38 @@ const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnch
   }
 
   return <a target="_blank" rel="noopener noreferrer" href={href} {...rest} />
+}
+
+function CustomLinkFallback({ href, ...rest }: CustomLinkProps) {
+  // Fallback renders without region params - they'll be added on hydration
+  if (!href) {
+    return <a {...rest} />
+  }
+
+  const isInternalLink =
+    href.startsWith('/') || href.startsWith('.') || href.startsWith('https://signoz.io')
+  const isAnchorLink = href.startsWith('#')
+
+  if (isInternalLink) {
+    if (href.startsWith('https://signoz.io/')) {
+      return <Link href={href} {...rest} target="_blank" prefetch={false} />
+    }
+    return <Link href={href} {...rest} prefetch={false} />
+  }
+
+  if (isAnchorLink) {
+    return <a href={href} {...rest} />
+  }
+
+  return <a target="_blank" rel="noopener noreferrer" href={href} {...rest} />
+}
+
+const CustomLink = (props: CustomLinkProps) => {
+  return (
+    <Suspense fallback={<CustomLinkFallback {...props} />}>
+      <CustomLinkInner {...props} />
+    </Suspense>
+  )
 }
 
 export default CustomLink
