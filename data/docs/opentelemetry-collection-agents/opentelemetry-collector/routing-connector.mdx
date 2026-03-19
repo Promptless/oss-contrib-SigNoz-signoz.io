@@ -17,11 +17,21 @@ The **Routing Connector** solves this by selectively routing telemetry based on 
 - Send telemetry from specific services to **different backends**.
 - Isolate traffic by environment or team.
 
-For connector basics, see the <a href="https://opentelemetry.io/docs/collector/components/connector/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry connector documentation</a>.
+For connector basics, see the <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/connector/README.md" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry connector documentation</a>.
 
-## Simple Example: Segregating Services
+## Example: Route services to different exporters
 
-In this scenario, all services send to one OTLP receiver, but the `payments` and `search` services are routed to separate backends (or different SigNoz accounts) while everything else goes to a default SigNoz instance.
+In this example, all services send telemetry to one OTLP receiver. The routing connector checks `service.name`, sends `payments` traffic to one exporter, sends `search` traffic to another exporter, and sends everything else to a default exporter.
+
+<Figure
+  src="/img/docs/opentelemetry-collection-agents/routing-connector-flow.svg"
+  alt="Routing connector flow showing payments, search, and other services sending telemetry to one receiver and then being routed to different exporters"
+  caption="The routing connector reads service attributes and sends each service to the matching exporter pipeline"
+/>
+
+Add the following snippets to your existing `otel-collector-config.yaml`.
+
+### 1. Add the receiver and processors
 
 ```yaml:otel-collector-config.yaml
 receivers:
@@ -35,7 +45,11 @@ processors:
     check_interval: 1s
     limit_mib: 512
   batch:
+```
 
+### 2. Add the routing connector
+
+```yaml:otel-collector-config.yaml
 connectors:
   routing:
     default_pipelines: [traces/default]
@@ -46,23 +60,51 @@ connectors:
       - context: resource
         condition: resource.attributes["service.name"] == "search"
         pipelines: [traces/search]
+```
 
+This connector reads `resource.attributes["service.name"]` and maps matching telemetry to a pipeline:
+
+- `payments` goes to `traces/payments`
+- `search` goes to `traces/search`
+- anything else goes to `traces/default`
+
+Here is what the main routing fields mean:
+
+- `table`: the list of routing rules the connector checks.
+- `context`: where the connector should look for fields. Use `resource` when you want to match resource attributes such as `service.name`.
+- `condition`: the OTTL expression that decides whether a rule matches.
+- `pipelines`: the destination pipeline to use when the rule matches.
+- `default_pipelines`: the fallback pipeline to use when no rule matches.
+
+### 3. Add the exporters
+
+You can point each exporter to a different SigNoz account, ingestion key, or backend destination.
+
+```yaml:otel-collector-config.yaml
 exporters:
   otlp/signoz:
-    endpoint: 'ingest.<region>.signoz.cloud:443'
+    endpoint: "ingest.<region>.signoz.cloud:443"
     headers:
-      "signoz-ingestion-key": "${DEFAULT_KEY}"
+      signoz-ingestion-key: "<default-ingestion-key>"
 
   otlp/vendor-payments:
-    endpoint: 'ingest.<region>.signoz.cloud:443'
+    endpoint: "ingest.<region>.signoz.cloud:443"
     headers:
-      "signoz-ingestion-key": "${PAYMENTS_KEY}"
+      signoz-ingestion-key: "<payments-ingestion-key>"
 
   otlp/vendor-search:
-    endpoint: 'ingest.<region>.signoz.cloud:443'
+    endpoint: "ingest.<region>.signoz.cloud:443"
     headers:
-      "signoz-ingestion-key": "${SEARCH_KEY}"
+      signoz-ingestion-key: "<search-ingestion-key>"
+```
+Verify these values:
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint)
+- `<default-ingestion-key>`, `<payments-ingestion-key>`, `<search-ingestion-key>`: SigNoz [ingestion keys](https://signoz.io/docs/ingestion/signoz-cloud/keys/) for each destination
 
+
+### 4. Wire everything in `service.pipelines`
+
+```yaml:otel-collector-config.yaml
 service:
   pipelines:
     traces/incoming:
@@ -83,46 +125,8 @@ service:
       exporters: [otlp/signoz]
 ```
 
-Verify these values:
-- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint)
-- `<your-default-key>`, `<your-payments-key>`, `<your-search-key>`: SigNoz [ingestion keys](https://signoz.io/docs/ingestion/signoz-cloud/keys/) for each account
+The `traces/incoming` pipeline receives all OTLP traffic and sends it to the `routing` connector. Each downstream pipeline then receives only the telemetry that matches its rule and exports it with its own exporter.
 
-## Best practice for Multiple-Service Ingestion
-
-Usually, all services should send to the same OTLP receiver, and each service must set a distinct `service.name`. Then the Collector can:
-1. **Fan-out:** Keep all services together and send them to multiple exporters.
-2. **Route:** Direct traffic based on `service.name`, `deployment.environment`, `tenant.id`, or other resource attributes.
-
-<Admonition type="tip">
-In practice, route using resource attributes such as:
-- `service.name`
-- `service.namespace`
-- `deployment.environment`
-- custom tenant attribute like `tenant.id`
-</Admonition>
-
-## Fan-Out vs Routing
-
-Start with fan-out when every service should go to every backend. Switch to the routing connector when some telemetry needs different destinations or different downstream processing.
-
-| Pattern | Use it when | Configuration |
-| :--- | :--- | :--- |
-| **Fan-out** | Every service goes to every backend | List multiple exporters in one pipeline |
-| **Routing connector** | Services or tenants need different destinations | Use `routing` connector to bridge pipelines |
-
-## Configuration Reference
-
-The settings below summarize the current <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/connector/routingconnector/README.md" target="_blank" rel="noopener noreferrer nofollow">routing connector README</a>.
-
-| Setting | Description |
-| :--- | :--- |
-| `table` | **Required.** The routing table that contains the matching rules. |
-| `table.context` | The OTTL context (`resource`, `span`, `metric`, `log`, etc.). Default is `resource`. |
-| `table.condition` | The OTTL condition for the route (e.g., `resource.attributes["service.name"] == "payments"`). |
-| `table.action` | `move` (default) routes matched data out. `copy` sends a copy and keeps evaluating later rules. |
-| `table.pipelines` | **Required.** The pipelines to receive telemetry when the rule matches. |
-| `default_pipelines` | Pipelines used when none of the rules match. |
-| `error_mode` | Controls errors: `propagate` (default), `ignore`, or `silent`. |
 
 <details>
 <ToggleHeading>
