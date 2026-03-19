@@ -2262,6 +2262,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/mistral-dashboard',
+            label: 'Mistral AI',
+          },
+          {
+            type: 'doc',
             route: '/docs/dashboards/dashboard-templates/mysql',
             label: 'MySQL',
           },
