@@ -2789,6 +2789,11 @@ const docsSideNav = [
         type: 'doc',
       },
       {
+        route: '/docs/mistral-observability',
+        label: 'Mistral AI',
+        type: 'doc',
+      },
+      {
         route: '/docs/ollama-monitoring',
         label: 'Ollama',
         type: 'doc',
