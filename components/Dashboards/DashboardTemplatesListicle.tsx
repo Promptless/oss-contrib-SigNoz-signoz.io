@@ -405,6 +405,18 @@ const DashboardTemplatesData: IconCardData[] = [
     clickName: 'Memcached Dashboard Template',
   },
   {
+    name: 'Mistral AI',
+    href: '/docs/dashboards/dashboard-templates/mistral-dashboard',
+    icon: (
+      <img
+        src="/svgs/icons/LLMMonitoring/mistral-logo.webp"
+        alt="Mistral AI Icon"
+        className="h-7 w-7"
+      />
+    ),
+    clickName: 'Mistral AI Dashboard Template',
+  },
+  {
     name: 'MongoDB',
     href: 'https://github.com/SigNoz/dashboards/tree/main/mongodb',
     icon: <SiMongodb className="h-7 w-7 text-green-600" />,
@@ -505,6 +517,12 @@ const DashboardTemplatesData: IconCardData[] = [
     href: 'https://github.com/SigNoz/dashboards/tree/main/redis',
     icon: <SiRedis className="h-7 w-7 text-red-600" />,
     clickName: 'Redis Dashboard Template',
+  },
+  {
+    name: 'Render',
+    href: '/docs/dashboards/dashboard-templates/render-dashboard',
+    icon: <Cloud className="h-7 w-7 text-purple-400" />,
+    clickName: 'Render Dashboard Template',
   },
   {
     name: 'Semantic Kernel',
