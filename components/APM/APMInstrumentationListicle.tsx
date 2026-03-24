@@ -33,6 +33,7 @@ import {
   SiWordpress,
   SiDeno,
   SiVercel,
+  SiHasura,
 } from 'react-icons/si'
 import IconCardGrid from '../Card/IconCardGrid'
 import { APM_INSTRUMENTATION_ITEMS } from '@/constants/componentItems'
@@ -112,6 +113,7 @@ const ICON_MAP: Record<string, React.ReactNode> = {
       <SiVercel className="h-7 w-7 text-white" />
     </span>
   ),
+  '/docs/integrations/opentelemetry-hasura': <SiHasura className="h-7 w-7 text-blue-600" />,
 }
 
 export default function APMInstrumentationListicle({

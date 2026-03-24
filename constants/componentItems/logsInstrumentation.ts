@@ -39,6 +39,11 @@ export const LOGS_INSTRUMENTATION_ITEMS = {
       href: '/docs/logs-management/send-logs/convex-log-streams-signoz',
       clickName: 'Convex Logs Link',
     },
+    {
+      name: 'Hasura',
+      href: '/docs/integrations/opentelemetry-hasura',
+      clickName: 'Hasura Logs Link',
+    },
   ] satisfies ComponentItem[],
   languages: [
     {

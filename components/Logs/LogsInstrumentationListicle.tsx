@@ -24,6 +24,7 @@ import {
   SiGooglecloud,
   SiMysql,
   SiDeno,
+  SiHasura,
 } from 'react-icons/si'
 import { TbHttpGet, TbBrandOpenSource } from 'react-icons/tb'
 import { FaFileAlt, FaJava, FaWindows } from 'react-icons/fa'
@@ -153,6 +154,7 @@ const ICON_MAP: Record<string, React.ReactNode> = {
     <SiKubernetes className="h-7 w-7 text-blue-500" />
   ),
   '/docs/gcp-monitoring/cloud-run/logging/': <SiGooglecloud className="h-7 w-7 text-blue-500" />,
+  '/docs/integrations/opentelemetry-hasura': <SiHasura className="h-7 w-7 text-blue-600" />,
 }
 
 // AKS uses the same href as EKS but needs a different icon — override for Azure context
