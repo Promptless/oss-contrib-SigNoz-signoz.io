@@ -8,6 +8,8 @@ import type { ReactNode } from 'react'
 import { categoryContainsRoute, normalizeRoute } from './navigation'
 import type { SidebarItem } from './types'
 
+let collapsedKeysCache = new Set<string>()
+
 function collectAllCategoryKeys(nodes: SidebarItem[], trail: string[]): string[] {
   const keys: string[] = []
   for (const node of nodes) {
@@ -41,15 +43,38 @@ export function Sidebar({
   languageSelector,
   persistExpansionKey,
 }: SidebarProps) {
-  const [expanded, setExpanded] = useState<Set<string>>(() =>
-    buildFullyExpandedSet(items, persistExpansionKey)
-  )
+  const [expanded, setExpanded] = useState<Set<string>>(() => {
+    const full = buildFullyExpandedSet(items, persistExpansionKey)
+    collapsedKeysCache.forEach((key) => full.delete(key))
+    return full
+  })
+
   const activeItemRef = useRef<HTMLAnchorElement | null>(null)
   const pendingScrollRef = useRef(false)
   const containerRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
-    setExpanded(buildFullyExpandedSet(items, persistExpansionKey))
+    const allKeys = collectAllCategoryKeys(items, [])
+    collapsedKeysCache = new Set(allKeys.filter((k) => !expanded.has(k)))
+  }, [expanded, items])
+
+  useEffect(() => {
+    setExpanded((prev) => {
+      const next = new Set(prev)
+
+      const markParents = (nodes: SidebarItem[], trail: string[]) => {
+        for (const node of nodes) {
+          if (node.type === 'doc') continue
+          const key = [...trail, node.label].join('>')
+          if (categoryContainsRoute(node, activeRoute)) {
+            next.add(key)
+            markParents(node.items, [...trail, node.label])
+          }
+        }
+      }
+      markParents(items, [])
+      return next
+    })
     pendingScrollRef.current = true
   }, [activeRoute, items, persistExpansionKey])
 
