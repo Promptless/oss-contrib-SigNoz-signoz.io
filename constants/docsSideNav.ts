@@ -1445,7 +1445,7 @@ const docsSideNav = [
           },
           {
             type: 'doc',
-            route: '/docs/userguide/vercel_logs_to_signoz',
+            route: '/docs/userguide/vercel-to-signoz',
             label: 'Vercel',
           },
           {
@@ -3270,6 +3270,11 @@ const docsSideNav = [
         type: 'doc',
         route: '/docs/integrations/supabase',
         label: 'Supabase',
+      },
+      {
+        type: 'doc',
+        route: '/docs/userguide/vercel-to-signoz',
+        label: 'Vercel Traces',
       },
       {
         type: 'doc',
