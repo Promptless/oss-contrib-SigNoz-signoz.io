@@ -143,6 +143,10 @@ async function main() {
           secret,
         }
 
+  if (!baseUrl.startsWith('https://')) {
+    console.warn('⚠️ BASE_URL is not HTTPS — secret may be transmitted insecurely')
+  }
+
   const url = `${baseUrl.replace(/\/$/, '')}/api/revalidate`
   console.log(`🔄 POST ${url} (${decision.mode})`)
 
