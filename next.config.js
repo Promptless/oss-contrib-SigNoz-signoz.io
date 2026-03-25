@@ -458,6 +458,11 @@ module.exports = () => {
           permanent: true,
         },
         {
+          source: '/blog/open-source-log-management/',
+          destination: '/blog/best-open-source-log-management-tools',
+          permanent: true,
+        },
+        {
           source: '/blog/N\\+1-query-distributed-tracing/',
           destination: '/blog/N-1-query-distributed-tracing/',
           permanent: true,
