@@ -1126,6 +1126,11 @@ const docsSideNav = [
             route: '/docs/instrumentation/opentelemetry-cloudflare',
             label: 'Cloudflare Workers',
           },
+          {
+            type: 'doc',
+            route: '/docs/integrations/opentelemetry-hasura',
+            label: 'Hasura',
+          },
           // {
           //   type: 'category',
           //   isExpanded: false,
@@ -1445,13 +1450,18 @@ const docsSideNav = [
           },
           {
             type: 'doc',
-            route: '/docs/userguide/vercel_logs_to_signoz',
+            route: '/docs/userguide/vercel-to-signoz',
             label: 'Vercel',
           },
           {
             type: 'doc',
             route: '/docs/integrations/opentelemetry-neondb',
             label: 'Neon',
+          },
+          {
+            type: 'doc',
+            route: '/docs/integrations/opentelemetry-hasura',
+            label: 'Hasura',
           },
           {
             type: 'doc',
@@ -1787,6 +1797,11 @@ const docsSideNav = [
                 type: 'doc',
                 route: '/docs/integrations/opentelemetry-neondb',
                 label: 'Neon',
+              },
+              {
+                type: 'doc',
+                route: '/docs/integrations/opentelemetry-hasura',
+                label: 'Hasura',
               },
             ],
           },
@@ -3270,6 +3285,16 @@ const docsSideNav = [
         type: 'doc',
         route: '/docs/integrations/supabase',
         label: 'Supabase',
+      },
+      {
+        type: 'doc',
+        route: '/docs/userguide/vercel-to-signoz',
+        label: 'Vercel Traces',
+      },
+      {
+        type: 'doc',
+        route: '/docs/integrations/opentelemetry-hasura',
+        label: 'Hasura',
       },
       {
         type: 'doc',
