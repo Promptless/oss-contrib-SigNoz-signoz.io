@@ -370,7 +370,7 @@
                 {
                   "url": "https://signoz.io/opentelemetry/python-overview/",
                   "language": "Python",
-                  "title": "[Opentelemetry] Overview - Implementing OpenTelemetry in Python applications [Tutorial Series]"
+                  "title": "Overview - Implementing OpenTelemetry in Python applications [Tutorial Series]"
                 },
                 {
                   "url": "https://signoz.io/opentelemetry/setting-up-flask-application/",
@@ -716,7 +716,7 @@
                 },
                 {
                   "url": "https://signoz.io/blog/opentelemetry-visualization/",
-                  "title": "[Blog] Getting Started with OpenTelemetry Visualization - A Practical Guide"
+                  "title": "Getting Started with OpenTelemetry Visualization - A Practical Guide"
                 },
                 {
                   "url": "https://signoz.io/blog/opentelemetry-ui/",
@@ -724,7 +724,7 @@
                 },
                 {
                   "url": "https://signoz.io/comparisons/opentelemetry-grpc-vs-http/",
-                  "title": "OpenTelemetry - gRPC vs HTTP for Efficient Tracing"
+                  "title": "[Comparison] OpenTelemetry - gRPC vs HTTP for Efficient Tracing"
                 },
                 {
                   "url": "https://signoz.io/blog/opentelemetry-agent/",
