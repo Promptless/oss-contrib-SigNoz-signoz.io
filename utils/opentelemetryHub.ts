@@ -26,6 +26,8 @@ type RawHubGroup = {
 type RawHubArticle = {
   url: string
   language?: string
+  /** Optional nav label; when set, avoids relying on CMS or slug-based fallbacks for this link. */
+  title?: string
 }
 
 export type HubNavDoc = {
@@ -106,7 +108,11 @@ function fallbackLabelFromRoute(route: string, contentIndex: ContentIndexItem[])
 
 function articleToDoc(article: RawHubArticle, contentIndex: ContentIndexItem[]): HubNavDoc {
   const route = normalizeRoute(article.url)
-  const title = findContentTitle(route, contentIndex) || fallbackLabelFromRoute(route, contentIndex)
+  const explicitTitle = article.title?.trim()
+  const title =
+    explicitTitle ||
+    findContentTitle(route, contentIndex) ||
+    fallbackLabelFromRoute(route, contentIndex)
 
   return {
     type: 'doc',
