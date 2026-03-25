@@ -214,11 +214,11 @@
             },
             {
               "url": "https://signoz.io/comparisons/opentelemetry-api-vs-sdk/",
-              "title": "[Comparison] OpenTelemetry API vs SDK - Key Differences Explained"
+              "title": "OpenTelemetry API vs SDK - Key Differences Explained"
             },
             {
               "url": "https://signoz.io/blog/opentelemetry-architecture/",
-              "title": "[Blog] OpenTelemetry Architecture - Understanding the design concepts"
+              "title": "OpenTelemetry Architecture - Understanding the design concepts"
             },
             {
               "url": "https://signoz.io/blog/opentelemetry-use-cases/",
@@ -654,7 +654,7 @@
           "articles": [
             {
               "url": "https://signoz.io/blog/is-opentelemetry-a-first-class-citizen-in-your-dashboard-a-datadog-and-newrelic-comparison/",
-              "title": "[Blog] Comparing Datadog and New Relic's support for OpenTelemetry data"
+              "title": "Comparing Datadog and New Relic's support for OpenTelemetry data"
             },
             {
               "url": "https://signoz.io/blog/using-opentelemetry-loki-receiver-to-collect-logs/",
@@ -724,7 +724,7 @@
                 },
                 {
                   "url": "https://signoz.io/comparisons/opentelemetry-grpc-vs-http/",
-                  "title": "[Comparison] OpenTelemetry - gRPC vs HTTP for Efficient Tracing"
+                  "title": "OpenTelemetry - gRPC vs HTTP for Efficient Tracing"
                 },
                 {
                   "url": "https://signoz.io/blog/opentelemetry-agent/",
