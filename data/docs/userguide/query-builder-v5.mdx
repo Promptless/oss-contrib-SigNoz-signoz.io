@@ -397,13 +397,13 @@ Combine multiple queries to perform sophisticated analysis that single queries c
 Trace operators let you combine multiple trace queries to express span relationships within a trace: parent-child hierarchies, co-occurrence, exclusion, and union.
 
 <Admonition type="info">
-**Important: Trace operators return left-hand side spans.** For all operators except OR (`||`), the result set contains spans matching the **left** operand. The right operand acts as a condition/filter. For example, `A => B` returns spans from A that are direct parents of spans matching B, not the B spans themselves.
+**Important: Trace operators return left-hand side spans.** For all operators except OR (`||`), the result set contains spans matching the **left** operand. The right operand acts as a condition/filter. For example, `A => B` returns spans from A that have a direct child matching B, not the B spans themselves.
 </Admonition>
 
 ### Available Trace Operators
 
-- **Direct Descendant** (`=>`): Returns left (A) spans. Spans from A that are **direct parents** of spans matching B.
-- **Indirect Descendant** (`->`): Returns left (A) spans. Spans from A that are **ancestors** (at any depth) of spans matching B.
+- **Has Direct Child** (`=>`): Returns left (A) spans. Spans from A that are **direct parents** of spans matching B.
+- **Has Descendant** (`->`): Returns left (A) spans. Spans from A that are **ancestors** (at any depth) of spans matching B.
 - **AND** (`&&`): Returns left (A) spans. Spans from A in traces that **also contain** spans matching B.
 - **OR** (`||`): Returns **both** A and B spans. **Union** of spans from both A and B (deduplicated).
 - **NOT** (binary, `A NOT B`): Returns left (A) spans. Spans from A in traces that **do not contain** any spans matching B.
@@ -416,11 +416,11 @@ Trace operators let you combine multiple trace queries to express span relations
 - **Max operators**: Up to 10 operators per expression
 - **Operator precedence** (lowest to highest): `->`, `=>`, `&&`, `||`, `NOT`
 
-Use parentheses to override precedence when combining multiple operators.
+For example, `A => B && C` is parsed as `A => (B && C)` because `&&` has higher precedence than `=>`. Use parentheses to override precedence when combining multiple operators.
 
 ### Examples
 
-#### Direct Descendant (`=>`)
+#### Has Direct Child (`=>`)
 
 Find frontend spans that are direct parents of customer service spans:
 - Query A: `service.name = 'frontend'`
@@ -437,10 +437,10 @@ Find frontend spans that are direct parents of customer service spans:
     >
         Your browser does not support the video tag.
     </video>
-    <figcaption><i>Example showing the Direct Descendant Trace Operator</i></figcaption>
+    <figcaption><i>Example showing the Has Direct Child Trace Operator</i></figcaption>
 </figure>
 
-#### Indirect Descendant (`->`)
+#### Has Descendant (`->`)
 
 Find frontend spans that are ancestors (at any depth) of erroring customer service spans:
 - Query A: `service.name = 'frontend'`
@@ -450,7 +450,7 @@ Find frontend spans that are ancestors (at any depth) of erroring customer servi
 
 <figure data-zoomable align='center'>
     <img src="/img/docs/product-features/query-builder/indirect-descedant-operator.webp" alt="SigNoz UI showing Indirect Descendant Trace Operator"/>
-    <figcaption><i>Example showing the Indirect Descendant Trace Operator</i></figcaption>
+    <figcaption><i>Example showing the Has Descendant Trace Operator</i></figcaption>
 </figure>
 
 #### AND (`&&`)
