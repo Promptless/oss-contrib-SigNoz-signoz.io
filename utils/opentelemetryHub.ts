@@ -221,8 +221,12 @@ function getHubIndex(): HubIndex {
   return buildHubIndex()
 }
 
+const ROUTE_ALIASES: Record<string, string> = {
+  '/opentelemetry': '/blog/what-is-opentelemetry',
+}
+
 export function getHubContextForRoute(route: string) {
-  const normalized = normalizeRoute(route)
+  const normalized = ROUTE_ALIASES[normalizeRoute(route)] ?? normalizeRoute(route)
   const { lookup, paths } = getHubIndex()
 
   const match = lookup.get(normalized)
