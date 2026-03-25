@@ -20,8 +20,8 @@ type RawHubGroup = {
 
 type RawHubArticle = {
   url: string
-  /** Required: sidebar label, maintained in `constants/opentelemetry_hub.json`. */
-  title: string
+  /** Sidebar label; if omitted, derived from the last path segment of the URL. */
+  title?: string
   language?: string
 }
 
@@ -69,21 +69,19 @@ function normalizeRoute(route: string) {
   return normalized
 }
 
-function assertArticleTitle(article: RawHubArticle): void {
-  if (!article.title?.trim()) {
-    throw new Error(
-      `OpenTelemetry hub: missing required "title" for url "${article.url}". Run: node scripts/fill-opentelemetry-hub-titles.js`
-    )
-  }
+function fallbackTitleFromRoute(route: string): string {
+  const slug = route.split('/').filter(Boolean).pop() || ''
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
 function articleToDoc(article: RawHubArticle): HubNavDoc {
-  assertArticleTitle(article)
   const route = normalizeRoute(article.url)
+  const explicit = article.title?.trim()
+  const label = explicit || fallbackTitleFromRoute(route)
   return {
     type: 'doc',
     route,
-    label: article.title.trim(),
+    label,
     language: article.language,
   }
 }
