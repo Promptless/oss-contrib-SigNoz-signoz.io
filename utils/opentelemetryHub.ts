@@ -2,9 +2,9 @@ import { unstable_cache } from 'next/cache'
 import hubConfig from '@/constants/opentelemetry_hub.json'
 import { LEARN_CHAPTER_ORDER } from '@/constants/opentelemetryHub'
 import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
-import { allBlogs, allGuides } from 'contentlayer/generated'
-import type { Comparison } from '../types/transformedContent'
-import { fetchAllComparisonsForPage } from './cachedData'
+
+/** Data Cache tag for `unstable_cache` wrapping the hub nav index (JSON-only; no CMS). */
+export const OPENTELEMETRY_HUB_CACHE_TAG = 'opentelemetry-hub-index'
 
 type RawHubPath = {
   key: string
@@ -25,9 +25,9 @@ type RawHubGroup = {
 
 type RawHubArticle = {
   url: string
+  /** Required: sidebar label, maintained in `constants/opentelemetry_hub.json`. */
+  title: string
   language?: string
-  /** Optional nav label; when set, avoids relying on CMS or slug-based fallbacks for this link. */
-  title?: string
 }
 
 export type HubNavDoc = {
@@ -70,70 +70,46 @@ type SerializedHubIndex = {
   paths: HubPathNav[]
 }
 
-type ContentIndexItem = {
-  prefix: string
-  collection: readonly { slug?: string; title?: string }[]
-}
-
 function normalizeRoute(route: string) {
-  // Strip domain if present
   const withoutDomain = route.replace(/^https?:\/\/[^/]+/i, '')
   let normalized = withoutDomain.startsWith('/') ? withoutDomain : `/${withoutDomain}`
-  // Remove trailing slash (not for root)
   if (normalized.length > 1 && normalized.endsWith('/')) {
     normalized = normalized.slice(0, -1)
   }
   return normalized
 }
 
-function findContentTitle(route: string, contentIndex: ContentIndexItem[]) {
-  const normalized = normalizeRoute(route)
-  const matchingCollection = contentIndex.find(({ prefix }) => normalized.startsWith(prefix))
-  if (!matchingCollection) {
-    return null
+function assertArticleTitle(article: RawHubArticle): void {
+  if (!article.title?.trim()) {
+    throw new Error(
+      `OpenTelemetry hub: missing required "title" for url "${article.url}". Run: node scripts/fill-opentelemetry-hub-titles.js`
+    )
   }
-
-  const slug = normalized.replace(matchingCollection.prefix, '')
-  const entry = matchingCollection.collection.find((doc) => doc.slug === slug)
-  return entry?.title || null
 }
 
-function fallbackLabelFromRoute(route: string, contentIndex: ContentIndexItem[]) {
-  const slug = route.split('/').filter(Boolean).pop() || ''
-  return (
-    findContentTitle(route, contentIndex) ||
-    slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
-  )
-}
-
-function articleToDoc(article: RawHubArticle, contentIndex: ContentIndexItem[]): HubNavDoc {
+function articleToDoc(article: RawHubArticle): HubNavDoc {
+  assertArticleTitle(article)
   const route = normalizeRoute(article.url)
-  const explicitTitle = article.title?.trim()
-  const title =
-    explicitTitle ||
-    findContentTitle(route, contentIndex) ||
-    fallbackLabelFromRoute(route, contentIndex)
-
   return {
     type: 'doc',
     route,
-    label: title,
+    label: article.title.trim(),
     language: article.language,
   }
 }
 
-function mapGroupToCategory(group: RawHubGroup, contentIndex: ContentIndexItem[]): HubNavCategory {
+function mapGroupToCategory(group: RawHubGroup): HubNavCategory {
   const items: HubNavItem[] = []
 
   if (group.sections) {
     for (const section of group.sections) {
-      items.push(mapGroupToCategory(section, contentIndex))
+      items.push(mapGroupToCategory(section))
     }
   }
 
   if (group.articles) {
     for (const article of group.articles) {
-      items.push(articleToDoc(article, contentIndex))
+      items.push(articleToDoc(article))
     }
   }
 
@@ -172,24 +148,9 @@ function collectLanguages(items: HubNavItem[], accumulator: Set<string>) {
   }
 }
 
-async function buildHubIndex(comparisons: Comparison[]): Promise<HubIndex> {
+function buildHubIndex(): HubIndex {
   const lookup = new Map<string, HubLookupEntry>()
   const paths: HubPathNav[] = []
-
-  const contentIndex: ContentIndexItem[] = [
-    {
-      prefix: '/blog/',
-      collection: allBlogs,
-    },
-    {
-      prefix: '/comparisons/',
-      collection: comparisons,
-    },
-    {
-      prefix: '/guides/',
-      collection: allGuides,
-    },
-  ]
 
   const sortedPaths = ([...hubConfig.paths] as RawHubPath[]).sort(
     (a: RawHubPath, b: RawHubPath) => {
@@ -218,19 +179,19 @@ async function buildHubIndex(comparisons: Comparison[]): Promise<HubIndex> {
 
     if (chapters) {
       for (const chapter of chapters) {
-        items.push(mapGroupToCategory(chapter, contentIndex))
+        items.push(mapGroupToCategory(chapter))
       }
     }
 
     if (rawPath.sections) {
       for (const section of rawPath.sections) {
-        items.push(mapGroupToCategory(section, contentIndex))
+        items.push(mapGroupToCategory(section))
       }
     }
 
     if (rawPath.articles) {
       for (const article of rawPath.articles) {
-        items.push(articleToDoc(article, contentIndex))
+        items.push(articleToDoc(article))
       }
     }
 
@@ -239,7 +200,6 @@ async function buildHubIndex(comparisons: Comparison[]): Promise<HubIndex> {
     collectLanguages(items, languageSet)
     const languages = Array.from(languageSet)
 
-    // Populate lookup map
     const addToLookup = (entries: HubNavItem[]) => {
       for (const entry of entries) {
         if (entry.type === 'doc') {
@@ -263,16 +223,8 @@ async function buildHubIndex(comparisons: Comparison[]): Promise<HubIndex> {
   return { lookup, paths }
 }
 
-async function fetchAndBuildHubIndex(): Promise<SerializedHubIndex> {
-  let comparisons: Comparison[] = []
-
-  try {
-    comparisons = await fetchAllComparisonsForPage()
-  } catch (e) {
-    console.error('Failed to fetch content for hub index:', e)
-  }
-
-  const { lookup, paths } = await buildHubIndex(comparisons)
+function buildSerializedHubIndex(): SerializedHubIndex {
+  const { lookup, paths } = buildHubIndex()
   return { lookup: Object.fromEntries(lookup), paths }
 }
 
@@ -280,10 +232,14 @@ async function getCachedHubIndex(): Promise<HubIndex> {
   const isProduction = process.env.VERCEL_ENV === 'production'
   const deploymentStatus = isProduction ? 'live' : 'staging'
 
-  const cachedFn = unstable_cache(fetchAndBuildHubIndex, ['hub-index', deploymentStatus], {
-    tags: ['mdx-content-list', 'comparisons-list'],
-    revalidate: CMS_REVALIDATE_INTERVAL,
-  })
+  const cachedFn = unstable_cache(
+    async () => buildSerializedHubIndex(),
+    ['hub-index', deploymentStatus],
+    {
+      tags: [OPENTELEMETRY_HUB_CACHE_TAG],
+      revalidate: CMS_REVALIDATE_INTERVAL,
+    }
+  )
 
   const serialized = await cachedFn()
   return { lookup: new Map(Object.entries(serialized.lookup)), paths: serialized.paths }
