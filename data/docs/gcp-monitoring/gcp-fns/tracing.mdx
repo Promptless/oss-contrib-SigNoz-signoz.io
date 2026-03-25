@@ -1,5 +1,5 @@
 ---
-date: 2026-03-09
+date: 2026-03-25
 id: tracing
 title: Cloud Functions OpenTelemetry Tracing
 description: Send traces from Google Cloud Functions to SigNoz Cloud using OpenTelemetry zero-code auto instrumentation for Node.js.
@@ -68,9 +68,9 @@ npm install --save \
 
 This creates or updates `package.json` and `package-lock.json` with the dependencies used by the examples in this guide.
 
-### Step 4. Update `index.js`.
+### Step 4. Update `index.js`
 
-Use your function handler as usual. No manual tracing code is needed for the default setup.
+Add the `register` import at the top of your entry file. Your handler code stays unchanged -- no manual tracing calls are needed.
 
 ```js:index.js
 'use strict';
@@ -104,16 +104,14 @@ curl "https://<your-cloud-function-url>?message=hello-signoz"
 
 ## Validate
 
-<Admonition type="info">
-If your trace looks like it is missing the first (root) span in SigNoz, you're not doing anything wrong. This is expected on GCP-managed serverless entrypoints.
-
+<KeyPointCallout title="Missing root span in SigNoz? This is expected on GCP serverless." defaultCollapsed={true}>
 Cloud Run/Cloud Functions can generate the incoming request trace context at the platform layer and pass only trace headers (like `traceparent` or `X-Cloud-Trace-Context`) to your function. Your function can continue that trace when headers are present, but the platform-generated root span itself remains in Cloud Trace and is not sent by your app exporter to SigNoz.
 
 In practice, this can show up as:
 
 - A missing root span in SigNoz for some requests.
 - Partial service maps when the upstream/root service exists only in Cloud Trace data.
-</Admonition>
+</KeyPointCallout>
 
 After invoking the function, verify traces in SigNoz:
 
