@@ -32,6 +32,7 @@ import {
   SiDeno,
 } from 'react-icons/si'
 import { FaJava, FaServer, FaDatabase, FaCloud } from 'react-icons/fa'
+import { Zap } from 'lucide-react'
 import { VscGraphLine } from 'react-icons/vsc'
 import IconCardGrid from '../Card/IconCardGrid'
 
@@ -220,6 +221,12 @@ export default function MetricsQuickStartOverview({
             href: '/docs/metrics-management/render-metrics',
             icon: <FaCloud className="h-7 w-7 text-purple-500" />,
             clickName: 'Render Metrics Link',
+          },
+          {
+            name: 'KEDA',
+            href: '/docs/metrics-management/keda-metrics',
+            icon: <Zap className="h-7 w-7 text-purple-500" />,
+            clickName: 'KEDA Metrics Link',
           },
         ]}
         sectionName="Infrastructure Metrics"
