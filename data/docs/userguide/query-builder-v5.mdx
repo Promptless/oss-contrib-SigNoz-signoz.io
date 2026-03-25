@@ -402,8 +402,8 @@ Trace operators let you combine multiple trace queries to express span relations
 
 ### Available Trace Operators
 
-- **Has Direct Child** (`=>`): Returns left (A) spans. Spans from A that are **direct parents** of spans matching B.
-- **Has Descendant** (`->`): Returns left (A) spans. Spans from A that are **ancestors** (at any depth) of spans matching B.
+- **Has Direct Child** (`=>`): Returns left (A) spans. Spans from A that have a **direct child** matching B.
+- **Has Descendant** (`->`): Returns left (A) spans. Spans from A that have a **descendant** (at any depth) matching B.
 - **AND** (`&&`): Returns left (A) spans. Spans from A in traces that **also contain** spans matching B.
 - **OR** (`||`): Returns **both** A and B spans. **Union** of spans from both A and B (deduplicated).
 - **NOT** (binary, `A NOT B`): Returns left (A) spans. Spans from A in traces that **do not contain** any spans matching B.
@@ -415,6 +415,10 @@ Trace operators let you combine multiple trace queries to express span relations
 - **Parentheses**: Use `()` to group sub-expressions, e.g., `(A => B) && (C -> D)`
 - **Max operators**: Up to 10 operators per expression
 - **Operator precedence** (lowest to highest): `->`, `=>`, `&&`, `||`, `NOT`
+
+<Admonition type="note">
+Unlike standard Boolean logic where AND binds tighter than OR, trace operators give `||` higher precedence than `&&`. Use parentheses to make your intent explicit when combining these operators.
+</Admonition>
 
 For example, `A => B && C` is parsed as `A => (B && C)` because `&&` has higher precedence than `=>`. Use parentheses to override precedence when combining multiple operators.
 
