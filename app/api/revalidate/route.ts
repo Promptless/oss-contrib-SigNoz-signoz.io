@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath, revalidateTag } from 'next/cache'
 import { clearPathsCache } from '@/utils/strapi'
 import { getStrapiDocumentCacheTags, parseCmsUrlPath } from '@/utils/cmsRevalidatePaths'
-import { OPENTELEMETRY_HUB_CACHE_TAG } from '@/utils/opentelemetryHub'
 
 type PathInput = string | { urlPath: string; contentKey?: string }
 
@@ -79,7 +78,6 @@ export async function POST(request: NextRequest) {
       revalidatePath('/', 'layout')
       revalidateTag('mdx-content-list')
       revalidateTag('comparisons-list')
-      revalidateTag(OPENTELEMETRY_HUB_CACHE_TAG)
 
       results.push({
         path: '/',
@@ -170,7 +168,6 @@ export async function GET(request: NextRequest) {
       revalidatePath('/', 'layout')
       revalidateTag('mdx-content-list')
       revalidateTag('comparisons-list')
-      revalidateTag(OPENTELEMETRY_HUB_CACHE_TAG)
 
       results.push({
         path: '/',

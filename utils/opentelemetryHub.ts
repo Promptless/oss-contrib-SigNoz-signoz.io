@@ -1,10 +1,5 @@
-import { unstable_cache } from 'next/cache'
 import hubConfig from '@/constants/opentelemetry_hub.json'
 import { LEARN_CHAPTER_ORDER } from '@/constants/opentelemetryHub'
-import { CMS_REVALIDATE_INTERVAL } from '@/constants/cache'
-
-/** Data Cache tag for `unstable_cache` wrapping the hub nav index (JSON-only; no CMS). */
-export const OPENTELEMETRY_HUB_CACHE_TAG = 'opentelemetry-hub-index'
 
 type RawHubPath = {
   key: string
@@ -62,11 +57,6 @@ type HubLookupEntry = {
 
 type HubIndex = {
   lookup: Map<string, HubLookupEntry>
-  paths: HubPathNav[]
-}
-
-type SerializedHubIndex = {
-  lookup: Record<string, HubLookupEntry>
   paths: HubPathNav[]
 }
 
@@ -223,31 +213,19 @@ function buildHubIndex(): HubIndex {
   return { lookup, paths }
 }
 
-function buildSerializedHubIndex(): SerializedHubIndex {
-  const { lookup, paths } = buildHubIndex()
-  return { lookup: Object.fromEntries(lookup), paths }
+/**
+ * Returns the hub index built from `opentelemetry_hub.json`.
+ * No Data Cache / `unstable_cache` — the JSON is a static import baked into the
+ * deploy bundle, so every build or ISR regeneration reads the current version
+ * without cross-deploy staleness.
+ */
+function getHubIndex(): HubIndex {
+  return buildHubIndex()
 }
 
-async function getCachedHubIndex(): Promise<HubIndex> {
-  const isProduction = process.env.VERCEL_ENV === 'production'
-  const deploymentStatus = isProduction ? 'live' : 'staging'
-
-  const cachedFn = unstable_cache(
-    async () => buildSerializedHubIndex(),
-    ['hub-index', deploymentStatus],
-    {
-      tags: [OPENTELEMETRY_HUB_CACHE_TAG],
-      revalidate: CMS_REVALIDATE_INTERVAL,
-    }
-  )
-
-  const serialized = await cachedFn()
-  return { lookup: new Map(Object.entries(serialized.lookup)), paths: serialized.paths }
-}
-
-export async function getHubContextForRoute(route: string) {
+export function getHubContextForRoute(route: string) {
   const normalized = normalizeRoute(route)
-  const { lookup, paths } = await getCachedHubIndex()
+  const { lookup, paths } = getHubIndex()
 
   const match = lookup.get(normalized)
   if (!match) {
