@@ -41,7 +41,7 @@ We will do this in three steps:
   caption="The routing connector reads service attributes and sends each service to the matching exporter pipeline"
 />
 
-Add the following snippets to your existing `otel-collector-config.yaml`. This walkthrough assumes your Collector already has `receivers` and `processors` configured.
+Add the following snippets to your existing [`otel-collector-config.yaml`](https://signoz.io/docs/opentelemetry-collection-agents/opentelemetry-collector/configuration/). This walkthrough assumes your Collector already has `receivers` and `processors` configured.
 
 ### Step 1: Add the routing connector
 
@@ -68,7 +68,7 @@ Here is what the main routing fields mean:
 
 - `table`: the list of routing rules the connector checks.
 - `context`: where the connector should look for fields. Use `resource` when you want to match resource attributes such as `service.name`.
-- `statement`: the OTTL expression that decides whether a rule matches.
+- `statement`: the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/v0.147.0/pkg/ottl/README.md#getting-started" target="_blank" rel="noopener noreferrer nofollow">OTTL expression</a> that decides whether a rule matches.
 - `pipelines`: the destination pipeline to use when the rule matches.
 - `default_pipelines`: the fallback pipeline to use when no rule matches.
 
