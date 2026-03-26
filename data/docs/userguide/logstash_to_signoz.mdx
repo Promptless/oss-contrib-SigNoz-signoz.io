@@ -42,7 +42,7 @@ Add the OpenTelemetry Collector binary to your VM by following the [OTel binary 
 
 Append the following entries to your existing `config.yaml`. Add `tcplog/logstash` under `receivers:`, `otlp` under `exporters:`, and enable both in `service.pipelines.logs:`:
 
-```yaml
+```yaml:config.yaml
 receivers:
   tcplog/logstash:
     max_log_size: 1MiB
@@ -73,7 +73,7 @@ Verify these values:
 
 Add the following `output` block to your Logstash configuration:
 
-```ruby
+```ruby:logstash.conf
 output {
   tcp {
     codec => json_lines # Ensures logs are sent in JSON format line-by-line
