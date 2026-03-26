@@ -464,11 +464,7 @@ export const fetchMDXContentByPath = async (
   }
 }
 
-/**
- * Clears the in-memory `pathsCache` in this Node process only.
- * On serverless (Vercel), each invocation may use a fresh instance; do not rely on this
- * for cross-request invalidation — use `revalidatePath` / `revalidateTag` from `/api/revalidate`.
- */
+// Clear the paths cache (useful for revalidation)
 export const clearPathsCache = (): void => {
   pathsCache = null
   pathsCacheTimestamp = 0

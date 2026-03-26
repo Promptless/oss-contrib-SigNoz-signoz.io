@@ -211,12 +211,6 @@ function buildHubIndex(): HubIndex {
   return { lookup, paths }
 }
 
-/**
- * Returns the hub index built from `opentelemetry_hub.json`.
- * No Data Cache / `unstable_cache` — the JSON is a static import baked into the
- * deploy bundle, so every build or ISR regeneration reads the current version
- * without cross-deploy staleness.
- */
 function getHubIndex(): HubIndex {
   return buildHubIndex()
 }
