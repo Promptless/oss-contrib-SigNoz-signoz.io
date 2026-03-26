@@ -10,9 +10,8 @@ import SectionContainer from '@/components/SectionContainer'
 import ScrollToHashClient from '@/components/ScrollToHashClient'
 import OpenTelemetrySidebarClient from '@/layouts/open-telemetry-hub/OpenTelemetrySidebarClient'
 import OpenTelemetryProgressBar from '@/layouts/open-telemetry-hub/OpenTelemetryProgressBar'
-import { normalizeRoute } from '@/layouts/open-telemetry-hub/navigation'
 import type { HubPathMeta } from '@/layouts/open-telemetry-hub/types'
-import { getHubContextForRoute } from '@/utils/opentelemetryHub'
+import { getHubContextForRoute, resolveHubRoute } from '@/utils/opentelemetryHub'
 import { RegionProvider } from '@/components/Region/RegionContext'
 
 const LANGUAGES_CATEGORY_KEY = 'Language and Frameworks'
@@ -39,7 +38,7 @@ export default function OpenTelemetryHubShellClient({ children }: { children: Re
   }
 
   const { pathKey, items, languages, defaultLanguage, firstRouteByPath } = hubContext
-  const normalizedRoute = normalizeRoute(pathname)
+  const normalizedRoute = resolveHubRoute(pathname)
   const showSidebar = pathKey !== 'quick-start' && items.length > 0
   const orderedPathMeta = orderPathMeta(firstRouteByPath)
   const docClasses = [
