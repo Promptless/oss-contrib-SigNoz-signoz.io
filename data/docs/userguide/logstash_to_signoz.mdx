@@ -40,7 +40,7 @@ Add the OpenTelemetry Collector binary to your VM by following the [OTel binary 
 
 ### Step 2: Configure the tcplog Receiver
 
-Add the following to your `config.yaml`:
+Append the following entries to your existing `config.yaml`. Add `tcplog/logstash` under `receivers:`, `otlp` under `exporters:`, and enable both in `service.pipelines.logs:`:
 
 ```yaml
 receivers:
@@ -57,7 +57,7 @@ exporters:
 service:
   pipelines:
     logs:
-      receivers: [otlp, tcplog/logstash]
+      receivers: [tcplog/logstash]
       processors: [batch]
       exporters: [otlp]
 ```
@@ -71,7 +71,7 @@ Verify these values:
 
 ### Step 3: Update Logstash Configuration
 
-Add the following `output` block to your existing Logstash configuration to forward logs to the OpenTelemetry Collector:
+Add the following `output` block to your Logstash configuration:
 
 ```ruby
 output {
@@ -87,7 +87,14 @@ output {
 
 ### Step 4: Start the Services
 
-Restart the OpenTelemetry Collector and Logstash.
+Restart the OpenTelemetry Collector and Logstash:
+
+```bash
+sudo systemctl restart otelcol-contrib
+sudo systemctl restart logstash
+```
+
+Adjust the service name if you installed the Collector under a different name (e.g., `otelcol`).
 
 </TabItem>
 
@@ -166,7 +173,7 @@ input { syslog { port => 514 } }
 input { stdin { } }
 ```
 
-See the <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" rel="noopener noreferrer nofollow">Logstash input plugins</a> documentation for the full list.
+See the <a href="https://www.elastic.co/docs/reference/logstash/plugins/input-plugins" target="_blank" rel="noopener noreferrer nofollow">Logstash input plugins</a> documentation for the full list.
 </KeyPointCallout>
 
 ### Step 3: Create/Update the Docker Compose file
@@ -179,7 +186,7 @@ x-logging: &default-logging
 
 services:
   otel-collector:
-    image: otel/opentelemetry-collector-contrib:latest
+    image: otel/opentelemetry-collector-contrib:0.148.0
     volumes:
       - ./otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml
     ports:
@@ -221,8 +228,12 @@ docker compose up -d
 Once the services are running:
 
 1. Open SigNoz and navigate to **Logs** > **Logs Explorer**.
-2. Search for logs by filtering on your service or source. Logstash logs should start appearing within a few seconds.
+2. Filter logs by `host.name` or search the `body` field for a known string from your Logstash pipeline (e.g., a log message you expect). Logs should start appearing within a few seconds.
 3. Click on a log entry and verify it contains the expected fields from your Logstash pipeline (e.g., `message`, `host`, any custom fields).
+
+<Admonition type="info">
+  Logstash logs forwarded via `tcplog` do not include `service.name` by default. Use `host.name` or a body keyword as your initial filter. To add `service.name`, use an [OTel log processor](https://signoz.io/docs/logs-pipelines/processors/) or a Logstash `mutate` filter to inject the field before forwarding.
+</Admonition>
 
 ## Transform Logs (Optional)
 
