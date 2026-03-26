@@ -226,7 +226,8 @@ const ROUTE_ALIASES: Record<string, string> = {
 }
 
 export function getHubContextForRoute(route: string) {
-  const normalized = ROUTE_ALIASES[normalizeRoute(route)] ?? normalizeRoute(route)
+  const norm = normalizeRoute(route)
+  const normalized = ROUTE_ALIASES[norm] ?? norm
   const { lookup, paths } = getHubIndex()
 
   const match = lookup.get(normalized)

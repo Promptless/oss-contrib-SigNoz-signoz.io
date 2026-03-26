@@ -94,8 +94,8 @@ export function getFormattedDate(content: HubContentProps['content']) {
 
 /**
  * Content-only hub component. The outer shell (sidebar, header tabs, grid
- * container) lives in `components/OpenTelemetryHubShell.tsx` (mounted in the
- * root layout) so the sidebar persists across all route-segment navigations.
+ * container) lives in `app/(opentelemetry-hub-routes)/layout.tsx` so the
+ * sidebar persists across all route-segment navigations.
  */
 export default function OpenTelemetryHubContent({
   content,
