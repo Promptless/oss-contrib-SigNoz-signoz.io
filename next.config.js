@@ -1,4 +1,5 @@
 const { withContentlayer } = require('next-contentlayer2')
+const { getAllowedImageDomains } = require('./constants/allowedImageDomains')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -74,24 +75,10 @@ module.exports = () => {
     trailingSlash: true,
     swcMinify: true,
     images: {
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'picsum.photos',
-        },
-        {
-          protocol: 'https',
-          hostname: 'signoz.io',
-        },
-        {
-          protocol: 'https',
-          hostname: 'avatars.githubusercontent.com',
-        },
-        {
-          protocol: 'https',
-          hostname: 'storage.googleapis.com',
-        },
-      ],
+      remotePatterns: getAllowedImageDomains().map((domain) => ({
+        protocol: 'https',
+        hostname: domain,
+      })),
     },
     async headers() {
       return [
@@ -420,6 +407,11 @@ module.exports = () => {
           permanent: true,
         },
         {
+          source: '/docs/userguide/vercel_logs_to_signoz/',
+          destination: '/docs/userguide/vercel-to-signoz/',
+          permanent: true,
+        },
+        {
           source: '/blog/signoz-benchmarks/',
           destination: '/blog/pricing-comparison-signoz-vs-datadog-vs-newrelic-vs-grafana/',
           permanent: true,
@@ -463,6 +455,11 @@ module.exports = () => {
         {
           source: '/blog/',
           destination: '/resource-center/blog/',
+          permanent: true,
+        },
+        {
+          source: '/blog/open-source-log-management/',
+          destination: '/blog/best-open-source-log-management-tools',
           permanent: true,
         },
         {
