@@ -1126,6 +1126,11 @@ const docsSideNav = [
             route: '/docs/instrumentation/opentelemetry-cloudflare',
             label: 'Cloudflare Workers',
           },
+          {
+            type: 'doc',
+            route: '/docs/integrations/opentelemetry-hasura',
+            label: 'Hasura',
+          },
           // {
           //   type: 'category',
           //   isExpanded: false,
@@ -1445,13 +1450,18 @@ const docsSideNav = [
           },
           {
             type: 'doc',
-            route: '/docs/userguide/vercel_logs_to_signoz',
+            route: '/docs/userguide/vercel-to-signoz',
             label: 'Vercel',
           },
           {
             type: 'doc',
             route: '/docs/integrations/opentelemetry-neondb',
             label: 'Neon',
+          },
+          {
+            type: 'doc',
+            route: '/docs/integrations/opentelemetry-hasura',
+            label: 'Hasura',
           },
           {
             type: 'doc',
@@ -1792,6 +1802,11 @@ const docsSideNav = [
                 type: 'doc',
                 route: '/docs/integrations/opentelemetry-neondb',
                 label: 'Neon',
+              },
+              {
+                type: 'doc',
+                route: '/docs/integrations/opentelemetry-hasura',
+                label: 'Hasura',
               },
             ],
           },
@@ -2157,6 +2172,11 @@ const docsSideNav = [
                 route: '/docs/dashboards/dashboard-templates/hostmetrics-k8s',
                 label: 'Hostmetrics (K8s)',
               },
+              {
+                type: 'doc',
+                route: '/docs/dashboards/dashboard-templates/hostmetrics-vm',
+                label: 'Hostmetrics (VM)',
+              },
             ],
           },
           {
@@ -2183,12 +2203,37 @@ const docsSideNav = [
               {
                 type: 'doc',
                 route: '/docs/dashboards/dashboard-templates/kubernetes-cluster-metrics',
-                label: 'Kubernetes Cluster Metrics Dashboard',
+                label: 'Kubernetes Cluster Metrics',
+              },
+              {
+                type: 'doc',
+                route: '/docs/dashboards/dashboard-templates/hostmetrics-k8s',
+                label: 'Host Metrics',
+              },
+              {
+                type: 'doc',
+                route: '/docs/dashboards/dashboard-templates/kubernetes-events',
+                label: 'Kubernetes Events',
+              },
+              {
+                type: 'doc',
+                route: '/docs/dashboards/dashboard-templates/kubernetes-pvc',
+                label: 'Kubernetes PVC Metrics',
+              },
+              {
+                type: 'doc',
+                route: '/docs/dashboards/dashboard-templates/kubernetes-pod-metrics-overall',
+                label: 'Kubernetes Pod Metrics (Overall)',
               },
               {
                 type: 'doc',
                 route: '/docs/dashboards/dashboard-templates/kubernetes-pod-metrics-detailed',
                 label: 'Kubernetes Pod Metrics (Detailed)',
+              },
+              {
+                type: 'doc',
+                route: '/docs/dashboards/dashboard-templates/kubernetes-node-metrics-overall',
+                label: 'Kubernetes Node Metrics (Overall)',
               },
               {
                 type: 'doc',
@@ -2234,6 +2279,11 @@ const docsSideNav = [
             type: 'doc',
             route: '/docs/dashboards/dashboard-templates/memcached',
             label: 'Memcached',
+          },
+          {
+            type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/mistral-dashboard',
+            label: 'Mistral AI',
           },
           {
             type: 'doc',
@@ -2299,6 +2349,11 @@ const docsSideNav = [
             type: 'doc',
             route: '/docs/dashboards/dashboard-templates/signoz-ingestion-analysis',
             label: 'SigNoz Ingestion Analysis',
+          },
+          {
+            type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/snowflake',
+            label: 'Snowflake',
           },
           {
             type: 'doc',
@@ -2756,6 +2811,11 @@ const docsSideNav = [
       {
         route: '/docs/mastra-observability',
         label: 'Mastra',
+        type: 'doc',
+      },
+      {
+        route: '/docs/mistral-observability',
+        label: 'Mistral AI',
         type: 'doc',
       },
       {
@@ -3230,6 +3290,16 @@ const docsSideNav = [
         type: 'doc',
         route: '/docs/integrations/supabase',
         label: 'Supabase',
+      },
+      {
+        type: 'doc',
+        route: '/docs/userguide/vercel-to-signoz',
+        label: 'Vercel Traces',
+      },
+      {
+        type: 'doc',
+        route: '/docs/integrations/opentelemetry-hasura',
+        label: 'Hasura',
       },
       {
         type: 'doc',
