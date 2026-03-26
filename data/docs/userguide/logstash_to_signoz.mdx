@@ -1,5 +1,5 @@
 ---
-date: 2026-03-14
+date: 2026-03-24
 title: Send logs from Logstash to SigNoz via OpenTelemetry
 description: Send logs from Logstash to SigNoz using OpenTelemetry Collector.
 doc_type: howto
@@ -132,9 +132,8 @@ Create a `logstash.conf` file with an `input` to receive logs and an `output` to
 
 ```ruby:logstash.conf
 input {
-  file {
-    path => "/var/log/app/*.log"
-    start_position => "beginning"
+  gelf {
+    port => 12201
   }
 }
 
@@ -147,11 +146,11 @@ output {
 }
 ```
 
-- Replace the `input` block with the source that matches your setup. The `file` input above is just an example.
+- The `gelf` input above listens on port `12201` for incoming logs.
 - `otel-collector` is the Docker service name defined in the next step. Docker networking resolves this to the correct container automatically.
 
 <KeyPointCallout title="Other common Logstash inputs" defaultCollapsed="true">
-Replace the `file` input above with whichever source suits your environment:
+While GELF is recommended for Docker, you can replace the input block with whichever source suits your environment:
 
 ```ruby
 # Receive logs from Filebeat agents
@@ -173,6 +172,11 @@ See the <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.
 ### Step 3: Create/Update the Docker Compose file
 
 ```yaml:docker-compose.yaml
+x-logging: &default-logging
+  driver: "gelf"
+  options:
+    gelf-address: "udp://localhost:12201"
+
 services:
   otel-collector:
     image: otel/opentelemetry-collector-contrib:latest
@@ -182,15 +186,26 @@ services:
       - "2256:2256"
 
   logstash:
-    ...
+    image: docker.elastic.co/logstash/logstash:8.17.4
+    ports:
+      - "12201:12201/udp" # GELF input port
     volumes:
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-      - /var/log/app:/var/log/app:ro # Mount the log directory referenced in logstash.conf
     depends_on:
       - otel-collector
+
+  # Example application sending logs to Logstash
+  example-app:
+    image: busybox
+    command: sh -c "while true; do echo 'Hello from example app!'; sleep 5; done"
+    logging: *default-logging
+    depends_on:
+      - logstash
 ```
 
-- Adjust the volume mounts to match the log paths used in your `logstash.conf` input configuration.
+<Admonition>
+  Do **not** apply the `*default-logging` anchor to the `logstash` or `otel-collector` services if they share the same Compose file. Doing so will cause an infinite logging loop where Logstash attempts to ingest its own logs.
+</Admonition>
 
 ### Step 4: Start the Services
 
