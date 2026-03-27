@@ -1,0 +1,839 @@
+---
+date: 2026-03-26
+id: signoz-mcp-server
+
+title: SigNoz MCP Server
+description: Connect AI assistants like Claude Desktop, Cursor, GitHub Copilot, Claude Code, OpenAI Codex, Windsurf, Gemini CLI, VS Code, and Zed to your SigNoz observability data using the MCP (Model Context Protocol) server.
+doc_type: howto
+---
+
+The SigNoz MCP Server implements the <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer nofollow">Model Context Protocol (MCP)</a> — an open standard that lets AI assistants interact with your SigNoz observability data. Query metrics, traces, logs, alerts, and dashboards through natural language.
+
+## Connect to SigNoz's MCP server
+
+<Tabs>
+<TabItem value="cloud" label="SigNoz Cloud" default>
+
+Connect your AI tool to SigNoz Cloud's hosted MCP server. No installation required — just add the URL and authenticate.
+
+```
+https://mcp.<region>.signoz.cloud/mcp
+```
+<Admonition type="note">
+Make sure you select the correct region that matches your SigNoz Cloud account. Using the wrong region will result in authentication failures.
+</Admonition>
+
+- `<region>`: Your SigNoz Cloud region. Find your region under **Settings → Ingestion** in SigNoz, or see the [region reference](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint).
+
+<Tabs>
+<TabItem value="cloud-cursor" label="Cursor" default>
+
+### Install in one click
+
+<MCPInstallButton client="cursor" icon="cursor">Add to Cursor</MCPInstallButton>
+
+### Manual Configuration
+
+Add this configuration to `.cursor/mcp.json`:
+
+```json title=".cursor/mcp.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "url": "https://mcp.<region>.signoz.cloud/mcp"
+    }
+  }
+}
+```
+
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) 
+
+Need help? See the <a href="https://docs.cursor.com/context/model-context-protocol" target="_blank" rel="noopener noreferrer nofollow">Cursor MCP docs ↗</a>
+
+</TabItem>
+<TabItem value="cloud-copilot" label="VS Code / GitHub Copilot">
+
+### Install in one click
+
+<MCPInstallButton client="vscode" icon="vscode">Add to VS Code</MCPInstallButton>
+
+### Manual Configuration
+
+Add this configuration to `.vscode/mcp.json`:
+
+```json title=".vscode/mcp.json"
+{
+  "servers": {
+    "signoz": {
+      "type": "http",
+      "url": "https://mcp.<region>.signoz.cloud/mcp"
+    }
+  }
+}
+```
+
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) 
+
+Need help? See the <a href="https://code.visualstudio.com/docs/copilot/chat/mcp-servers" target="_blank" rel="noopener noreferrer nofollow">VS Code MCP docs ↗</a>
+
+</TabItem>
+<TabItem value="cloud-claude-desktop" label="Claude Desktop">
+
+### Configure
+
+You can add SigNoz Cloud as a **custom connector** in Claude Desktop:
+
+1. Open Claude Desktop.
+2. Go to **Settings** → **Developer** (or **Features** depending on your version).
+3. Click **Add Custom Connector** or **Add Remote MCP Server**.
+4. Enter your SigNoz MCP URL: `https://mcp.<region>.signoz.cloud/mcp`
+
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) 
+
+When prompted, complete the authentication flow.
+
+</TabItem>
+<TabItem value="cloud-claude-code" label="Claude Code">
+
+### Configure
+Run this command to add the SigNoz MCP server:
+
+```bash
+claude mcp add --scope user --transport http signoz https://mcp.<region>.signoz.cloud/mcp
+```
+
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) 
+
+After configuring the MCP server, you need to authenticate. In a terminal run:
+
+```bash
+claude /mcp
+```
+
+Select the **signoz** server and complete the authentication flow.
+
+</TabItem>
+<TabItem value="cloud-codex" label="OpenAI Codex">
+
+### Configure
+
+Run this command to add the SigNoz MCP server:
+
+```bash
+codex mcp add signoz --url https://mcp.<region>.signoz.cloud/mcp
+```
+
+Or add this configuration to `config.toml`:
+
+```toml title="config.toml"
+[mcp_servers.signoz]
+url = "https://mcp.<region>.signoz.cloud/mcp"
+```
+
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) 
+
+After adding the server, authenticate:
+
+```bash
+codex mcp login signoz
+```
+
+Then run `/mcp` inside Codex to verify the connection.
+
+</TabItem>
+<TabItem value="cloud-gemini" label="Gemini CLI">
+
+### Configure
+
+Add the MCP server via CLI:
+
+```bash
+gemini mcp add -t http signoz https://mcp.<region>.signoz.cloud/mcp
+```
+
+Or add this configuration to `~/.gemini/settings.json`:
+
+```json title="settings.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "httpUrl": "https://mcp.<region>.signoz.cloud/mcp"
+    }
+  }
+}
+```
+
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) 
+
+After installation, start Gemini CLI and authenticate:
+
+```
+/mcp auth signoz
+```
+
+</TabItem>
+<TabItem value="cloud-windsurf" label="Windsurf">
+
+### Configure
+
+Add this configuration to `~/.codeium/windsurf/mcp_config.json`:
+
+```json title="mcp_config.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "serverUrl": "https://mcp.<region>.signoz.cloud/mcp"
+    }
+  }
+}
+```
+
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) 
+
+When prompted, complete the authentication flow.
+
+</TabItem>
+<TabItem value="cloud-antigravity" label="Antigravity">
+
+### Configure
+
+1. Open the **MCP Store** via the `...` menu in the agent panel.
+2. Click **Manage MCP Servers**.
+3. Add a new server with the SigNoz MCP URL:
+   `https://mcp.<region>.signoz.cloud/mcp`
+
+Or manually add to `mcp_config.json`:
+
+```json title="mcp_config.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "url": "https://mcp.<region>.signoz.cloud/mcp"
+    }
+  }
+}
+```
+
+- `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) 
+
+After saving the config, it will prompt you to complete the OAuth flow. To edit the config from within Antigravity, click the `...` menu at the top of the Agent pane → **MCP Servers** → **Manage MCP Servers** → **View raw config**.
+
+If you run into authentication issues, open the command palette and run **Authentication: Remove Dynamic Authentication Providers** to clear cached OAuth credentials and re-authenticate.
+
+</TabItem>
+</Tabs>
+
+### Get your API Key
+
+When you add the hosted MCP URL to your client, the MCP client will initiate an authentication flow. You will be prompted to enter:
+1. Your **SigNoz instance URL** (e.g., `https://your-instance.signoz.cloud`)
+2. Your **API key** — go to **Settings → API Keys** in SigNoz to create one (requires **Admin** role)
+
+<Admonition type="warning">
+Only **Admin** users can create API keys. If you don't see the option, contact your workspace administrator.
+</Admonition>
+
+</TabItem>
+<TabItem value="self-hosted" label="Self-Hosted">
+
+For self-hosted SigNoz, you run the MCP server locally. The server supports two transport modes: **Stdio** (local binary, launched by the client) and **HTTP** (standalone server the client connects to over the network).
+
+### Fetch your API key
+
+1. Log in to your SigNoz instance.
+2. Go to **Settings** → **API Keys**.
+3. Click **Create API Key** and copy the generated key.
+
+<Admonition type="warning">
+Only **Admin** users can create API keys. Keep your API key secure — never commit it to version control.
+</Admonition>
+
+### Install the MCP server
+
+<Tabs>
+<TabItem value="download" label="Download Binary (Recommended)" default>
+
+Download the latest binary from <a href="https://github.com/SigNoz/signoz-mcp-server/releases" target="_blank" rel="noopener noreferrer nofollow">GitHub Releases</a>:
+
+```bash
+# macOS (Apple Silicon)
+curl -L https://github.com/SigNoz/signoz-mcp-server/releases/latest/download/signoz-mcp-server_darwin_arm64.tar.gz | tar xz
+
+# macOS (Intel)
+curl -L https://github.com/SigNoz/signoz-mcp-server/releases/latest/download/signoz-mcp-server_darwin_amd64.tar.gz | tar xz
+
+# Linux (amd64)
+curl -L https://github.com/SigNoz/signoz-mcp-server/releases/latest/download/signoz-mcp-server_linux_amd64.tar.gz | tar xz
+```
+
+This extracts a `signoz-mcp-server` binary in the current directory. Move it somewhere on your `PATH` or note the absolute path for the config below.
+
+</TabItem>
+<TabItem value="go-install" label="Go Install">
+
+```bash
+go install github.com/SigNoz/signoz-mcp-server/cmd/server@latest
+```
+
+The binary is installed as `server` to `$GOPATH/bin/` (default: `$HOME/go/bin/server`). You may want to rename it:
+
+```bash
+mv "$(go env GOPATH)/bin/server" "$(go env GOPATH)/bin/signoz-mcp-server"
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker">
+
+```bash
+docker pull signoz/signoz-mcp-server:latest
+```
+
+Run in HTTP mode:
+
+```bash
+docker run -p 8000:8000 \
+  -e TRANSPORT_MODE=http \
+  -e MCP_SERVER_PORT=8000 \
+  -e SIGNOZ_URL=<your-signoz-url> \
+  -e SIGNOZ_API_KEY=<your-api-key> \
+  signoz/signoz-mcp-server:latest
+```
+
+- `<your-signoz-url>`: Your self-hosted SigNoz instance URL (e.g., `http://localhost:3301`)
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+<Admonition type="info">
+Docker always runs in HTTP transport mode. Use the **HTTP** tabs in the client setup below.
+</Admonition>
+
+</TabItem>
+<TabItem value="build-source" label="Build from Source">
+
+```bash
+git clone https://github.com/SigNoz/signoz-mcp-server.git
+cd signoz-mcp-server
+make build
+```
+
+The binary is at `./bin/signoz-mcp-server`.
+
+</TabItem>
+</Tabs>
+
+### Configure your MCP client
+
+<Tabs>
+<TabItem value="sh-cursor" label="Cursor" default>
+
+<Tabs>
+<TabItem value="sh-cursor-stdio" label="Stdio (Recommended)" default>
+
+Add the following to `.cursor/mcp.json` in your project root, or use **Cursor → Settings → Tools & Integrations → + New MCP Server**:
+
+```json title=".cursor/mcp.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "command": "<path-to-binary>/signoz-mcp-server",
+      "args": [],
+      "env": {
+        "SIGNOZ_URL": "<your-signoz-url>",
+        "SIGNOZ_API_KEY": "<your-api-key>",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+</TabItem>
+<TabItem value="sh-cursor-http" label="HTTP">
+
+1. Start the MCP server in HTTP mode:
+
+```bash
+SIGNOZ_URL=<your-signoz-url> \
+SIGNOZ_API_KEY=<your-api-key> \
+TRANSPORT_MODE=http \
+MCP_SERVER_PORT=8000 \
+LOG_LEVEL=info \
+./signoz-mcp-server
+```
+
+2. Add to `.cursor/mcp.json`:
+
+```json title=".cursor/mcp.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "url": "http://localhost:8000/mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="sh-copilot" label="VS Code / GitHub Copilot">
+
+<Tabs>
+<TabItem value="sh-copilot-stdio" label="Stdio (Recommended)" default>
+
+Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) → **`MCP: Open User Configuration`**, then add:
+
+```json title=".vscode/mcp.json"
+{
+  "servers": {
+    "signoz": {
+      "type": "stdio",
+      "command": "<path-to-binary>/signoz-mcp-server",
+      "args": [],
+      "env": {
+        "SIGNOZ_URL": "<your-signoz-url>",
+        "SIGNOZ_API_KEY": "<your-api-key>",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+Open Copilot Chat in **Agent mode** and confirm you trust the server.
+
+</TabItem>
+<TabItem value="sh-copilot-http" label="HTTP">
+
+1. Start the MCP server in HTTP mode.
+2. Add to VS Code MCP config:
+
+```json title=".vscode/mcp.json"
+{
+  "servers": {
+    "signoz": {
+      "type": "http",
+      "url": "http://localhost:8000/mcp"
+    }
+  }
+}
+```
+
+Open Copilot Chat in **Agent mode** and confirm you trust the server.
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="sh-claude-desktop" label="Claude Desktop">
+
+<Tabs>
+<TabItem value="sh-claude-stdio" label="Stdio (Recommended)" default>
+
+Go to **Settings → Developer → Edit Config** and add to `claude_desktop_config.json`:
+
+```json title="claude_desktop_config.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "command": "<path-to-binary>/signoz-mcp-server",
+      "args": [],
+      "env": {
+        "SIGNOZ_URL": "<your-signoz-url>",
+        "SIGNOZ_API_KEY": "<your-api-key>",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+</TabItem>
+<TabItem value="sh-claude-http" label="HTTP">
+
+1. Start the MCP server in HTTP mode:
+
+```bash
+SIGNOZ_URL=<your-signoz-url> \
+SIGNOZ_API_KEY=<your-api-key> \
+TRANSPORT_MODE=http \
+MCP_SERVER_PORT=8000 \
+LOG_LEVEL=info \
+./signoz-mcp-server
+```
+
+2. Add to `claude_desktop_config.json`:
+
+```json title="claude_desktop_config.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "url": "http://localhost:8000/mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="sh-claude-code" label="Claude Code">
+
+<Tabs>
+<TabItem value="sh-claudecode-stdio" label="Stdio (Recommended)" default>
+
+```bash
+claude mcp add --scope user signoz "<path-to-binary>/signoz-mcp-server" \
+  -e SIGNOZ_URL="<your-signoz-url>" \
+  -e SIGNOZ_API_KEY="<your-api-key>" \
+  -e LOG_LEVEL=info
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+<Admonition type="info">
+Use `--scope project` to limit to the current project. Remove with `claude mcp remove signoz`.
+</Admonition>
+
+</TabItem>
+<TabItem value="sh-claudecode-http" label="HTTP">
+
+1. Start the MCP server in HTTP mode.
+2. Add via CLI:
+
+```bash
+claude mcp add --scope user --transport http signoz http://localhost:8000/mcp
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="sh-codex" label="OpenAI Codex">
+
+<Tabs>
+<TabItem value="sh-codex-cli" label="CLI (Recommended)" default>
+
+```bash
+codex mcp add signoz \
+  --env SIGNOZ_URL="<your-signoz-url>" \
+  --env SIGNOZ_API_KEY="<your-api-key>" \
+  --env LOG_LEVEL=info \
+  -- "<path-to-binary>/signoz-mcp-server"
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+</TabItem>
+<TabItem value="sh-codex-config" label="config.toml">
+
+Edit `~/.codex/config.toml` (global) or `.codex/config.toml` (project):
+
+```toml title="config.toml"
+[mcp_servers.signoz]
+command = "<path-to-binary>/signoz-mcp-server"
+args = []
+
+[mcp_servers.signoz.env]
+SIGNOZ_URL = "<your-signoz-url>"
+SIGNOZ_API_KEY = "<your-api-key>"
+LOG_LEVEL = "info"
+```
+
+</TabItem>
+</Tabs>
+
+<KeyPointCallout title="HTTP mode" defaultCollapsed={true}>
+For HTTP mode via CLI or config.toml:
+
+```bash
+codex mcp add signoz --url http://localhost:8000/mcp
+```
+
+```toml
+[mcp_servers.signoz]
+url = "http://localhost:8000/mcp"
+```
+</KeyPointCallout>
+
+</TabItem>
+<TabItem value="sh-windsurf" label="Windsurf">
+
+<Tabs>
+<TabItem value="sh-windsurf-stdio" label="Stdio (Recommended)" default>
+
+Add this configuration to `~/.codeium/windsurf/mcp_config.json`
+
+```json title="mcp_config.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "command": "<path-to-binary>/signoz-mcp-server",
+      "args": [],
+      "env": {
+        "SIGNOZ_URL": "<your-signoz-url>",
+        "SIGNOZ_API_KEY": "<your-api-key>",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+</TabItem>
+<TabItem value="sh-windsurf-http" label="HTTP">
+
+1. Start the MCP server in HTTP mode.
+2. Edit `~/.codeium/windsurf/mcp_config.json`:
+
+```json title="mcp_config.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "serverUrl": "http://localhost:8000/mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="sh-gemini" label="Gemini CLI">
+
+<Tabs>
+<TabItem value="sh-gemini-stdio" label="Stdio (Recommended)" default>
+
+Add to `~/.gemini/settings.json`:
+
+```json title="settings.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "command": "<path-to-binary>/signoz-mcp-server",
+      "args": [],
+      "env": {
+        "SIGNOZ_URL": "<your-signoz-url>",
+        "SIGNOZ_API_KEY": "<your-api-key>",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+</TabItem>
+<TabItem value="sh-gemini-http" label="HTTP">
+
+1. Start the MCP server in HTTP mode.
+2. Add to `~/.gemini/settings.json`:
+
+```json title="settings.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "httpUrl": "http://localhost:8000/mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="sh-zed" label="Zed">
+
+Open Zed settings (`Cmd+,`) and add:
+
+```json title="settings.json"
+{
+  "context_servers": {
+    "signoz": {
+      "command": "<path-to-binary>/signoz-mcp-server",
+      "args": [],
+      "env": {
+        "SIGNOZ_URL": "<your-signoz-url>",
+        "SIGNOZ_API_KEY": "<your-api-key>",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+
+</TabItem>
+<TabItem value="sh-antigravity" label="Antigravity">
+
+<Tabs>
+<TabItem value="sh-antigravity-stdio" label="Stdio (Recommended)" default>
+
+Add to `mcp_config.json` (open via `...` menu → **MCP Servers** → **Manage MCP Servers** → **View raw config**):
+
+```json title="mcp_config.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "command": "<path-to-binary>/signoz-mcp-server",
+      "args": [],
+      "env": {
+        "SIGNOZ_URL": "<your-signoz-url>",
+        "SIGNOZ_API_KEY": "<your-api-key>",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}
+```
+
+- `<path-to-binary>`: Absolute path to the `signoz-mcp-server` binary
+- `<your-signoz-url>`: Your SigNoz instance URL
+- `<your-api-key>`: The API key from [Fetch your API key](#fetch-your-api-key)
+
+</TabItem>
+<TabItem value="sh-antigravity-http" label="HTTP">
+
+1. Start the MCP server in HTTP mode.
+2. Add to `mcp_config.json`:
+
+```json title="mcp_config.json"
+{
+  "mcpServers": {
+    "signoz": {
+      "serverUrl": "http://localhost:8000/mcp"
+    }
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
+## Configuration Reference
+
+Environment variables for the self-hosted MCP server. SigNoz Cloud users do not need to set these.
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `SIGNOZ_URL` | URL of your SigNoz instance | _(required for stdio; optional for http with OAuth)_ |
+| `SIGNOZ_API_KEY` | API key for authenticating with SigNoz | _(required for stdio; optional for http with OAuth)_ |
+| `TRANSPORT_MODE` | Transport protocol: `stdio` or `http` | `stdio` |
+| `MCP_SERVER_PORT` | Port for HTTP server (when `TRANSPORT_MODE=http`) | `8000` |
+| `LOG_LEVEL` | Logging verbosity: `debug`, `info`, `warn`, `error` | `info` |
+| `OAUTH_ENABLED` | Enable OAuth 2.1 authentication (`true`/`false`) | `false` |
+| `OAUTH_TOKEN_SECRET` | Encryption key for OAuth tokens (min 32 bytes) | _(required when `OAUTH_ENABLED=true`)_ |
+| `OAUTH_ISSUER_URL` | Public URL of this MCP server | _(required when `OAUTH_ENABLED=true`)_ |
+| `OAUTH_ACCESS_TOKEN_TTL_MINUTES` | Access token lifetime in minutes | `60` |
+| `OAUTH_REFRESH_TOKEN_TTL_MINUTES` | Refresh token lifetime in minutes | `1440` (24h) |
+| `OAUTH_AUTH_CODE_TTL_SECONDS` | Authorization code lifetime in seconds | `600` (10min) |
+
+
+</TabItem>
+</Tabs>
+
+## Validate
+
+After connecting, verify the server is working:
+
+1. Open your AI assistant.
+2. Ask: _"List all alerts"_ or _"Show me all available services"_.
+3. The assistant should return structured results from your SigNoz instance.
+
+<details>
+<ToggleHeading>
+## Available Tools
+</ToggleHeading>
+
+The MCP server exposes the following tools to your AI assistant:
+
+| Tool | Description |
+|------|-------------|
+| `signoz_list_metrics` | Search and list available metrics |
+| `signoz_query_metrics` | Query metrics with smart aggregation defaults |
+| `signoz_get_field_keys` | Discover available field keys for metrics, traces, or logs |
+| `signoz_get_field_values` | Get possible values for a field key |
+| `signoz_list_alerts` | List all active alerts |
+| `signoz_get_alert` | Get details of a specific alert rule |
+| `signoz_get_alert_history` | Get alert history timeline for a rule |
+| `signoz_list_dashboards` | List all dashboards with summaries |
+| `signoz_get_dashboard` | Get full dashboard configuration |
+| `signoz_create_dashboard` | Create a new dashboard |
+| `signoz_update_dashboard` | Update an existing dashboard |
+| `signoz_list_services` | List services within a time range |
+| `signoz_get_service_top_operations` | Get top operations for a service |
+| `signoz_list_log_views` | List all saved log views |
+| `signoz_get_log_view` | Get details of a saved log view |
+| `signoz_aggregate_logs` | Aggregate logs (count, avg, p99, etc.) with grouping |
+| `signoz_search_logs` | Search logs with flexible filtering |
+| `signoz_aggregate_traces` | Aggregate trace statistics with grouping |
+| `signoz_search_traces` | Search traces with flexible filtering |
+| `signoz_get_trace_details` | Get full trace with all spans |
+| `signoz_execute_builder_query` | Execute a raw Query Builder v5 query |
+
+For detailed parameter reference, see the <a href="https://github.com/SigNoz/signoz-mcp-server?tab=readme-ov-file#available-tools" target="_blank" rel="noopener noreferrer nofollow">GitHub repository README</a>.
+
+</details>
+
+<details>
+<ToggleHeading>
+## Troubleshooting
+</ToggleHeading>
+
+### Tools not appearing in the AI client
+
+- Verify the binary path is correct and the file is executable (self-hosted only).
+- Set `LOG_LEVEL=debug` for detailed server logs.
+
+### Authentication errors
+
+- For SigNoz Cloud: ensure you are using the correct [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint) in the MCP URL.
+- Confirm your API key is valid and has not expired.
+- For self-hosted HTTP mode, ensure the `Authorization` header format is `Bearer <your-api-key>`.
+
+### SigNoz Cloud connection issues
+
+- Verify the region in the URL matches your account (`https://mcp.<region>.signoz.cloud/mcp`).
+- Check your network can reach `mcp.<region>.signoz.cloud`.
+- Make sure you completed the authentication flow when prompted.
+
+### Server not starting (self-hosted HTTP mode)
+
+- Ensure port `8000` is not already in use.
+- Check that `TRANSPORT_MODE=http` is set.
+- Review server logs for startup errors.
+
+</details>
