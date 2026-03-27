@@ -8,24 +8,29 @@ import type { ReactNode } from 'react'
 import { categoryContainsRoute, normalizeRoute } from './navigation'
 import type { SidebarItem } from './types'
 
-let collapsedKeysCache = new Set<string>()
+let expandedKeysCache = new Set<string>()
 
-function collectAllCategoryKeys(nodes: SidebarItem[], trail: string[]): string[] {
-  const keys: string[] = []
-  for (const node of nodes) {
-    if (node.type === 'doc') continue
-    const key = [...trail, node.label].join('>')
-    keys.push(key, ...collectAllCategoryKeys(node.items, [...trail, node.label]))
-  }
-  return keys
-}
-
-function buildFullyExpandedSet(items: SidebarItem[], persistExpansionKey?: string): Set<string> {
-  const expandedSet = new Set<string>(collectAllCategoryKeys(items, []))
+function buildActiveAncestorSet(
+  items: SidebarItem[],
+  activeRoute: string,
+  persistExpansionKey?: string
+): Set<string> {
+  const set = new Set<string>()
   if (persistExpansionKey) {
-    expandedSet.add(persistExpansionKey)
+    set.add(persistExpansionKey)
   }
-  return expandedSet
+  const markParents = (nodes: SidebarItem[], trail: string[]) => {
+    for (const node of nodes) {
+      if (node.type === 'doc') continue
+      const key = [...trail, node.label].join('>')
+      if (categoryContainsRoute(node, activeRoute)) {
+        set.add(key)
+        markParents(node.items, [...trail, node.label])
+      }
+    }
+  }
+  markParents(items, [])
+  return set
 }
 
 interface SidebarProps {
@@ -44,9 +49,23 @@ export function Sidebar({
   persistExpansionKey,
 }: SidebarProps) {
   const [expanded, setExpanded] = useState<Set<string>>(() => {
-    const full = buildFullyExpandedSet(items, persistExpansionKey)
-    collapsedKeysCache.forEach((key) => full.delete(key))
-    return full
+    if (expandedKeysCache.size > 0) {
+      const set = new Set(expandedKeysCache)
+      // Ensure active route ancestors are always expanded
+      const markParents = (nodes: SidebarItem[], trail: string[]) => {
+        for (const node of nodes) {
+          if (node.type === 'doc') continue
+          const key = [...trail, node.label].join('>')
+          if (categoryContainsRoute(node, activeRoute)) {
+            set.add(key)
+            markParents(node.items, [...trail, node.label])
+          }
+        }
+      }
+      markParents(items, [])
+      return set
+    }
+    return buildActiveAncestorSet(items, activeRoute, persistExpansionKey)
   })
 
   const activeItemRef = useRef<HTMLAnchorElement | null>(null)
@@ -54,9 +73,8 @@ export function Sidebar({
   const containerRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
-    const allKeys = collectAllCategoryKeys(items, [])
-    collapsedKeysCache = new Set(allKeys.filter((k) => !expanded.has(k)))
-  }, [expanded, items])
+    expandedKeysCache = new Set(expanded)
+  }, [expanded])
 
   useEffect(() => {
     setExpanded((prev) => {
@@ -160,8 +178,12 @@ export function Sidebar({
               </div>
               <span className="truncate">{node.label}</span>
             </div>
-            {isExpanded && node.items.length > 0 && (
-              <div className="mt-1 border-l border-gray-700/50 pl-3">
+            {node.items.length > 0 && (
+              <div
+                className={`border-l border-gray-700/50 pl-3 ${
+                  isExpanded ? 'mt-1' : 'h-0 overflow-hidden'
+                }`}
+              >
                 {renderItems(node.items, [...trail, node.label])}
               </div>
             )}
