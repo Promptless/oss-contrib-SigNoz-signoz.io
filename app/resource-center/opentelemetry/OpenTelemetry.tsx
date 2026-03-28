@@ -9,7 +9,8 @@ import BlogPostCard from '../Shared/BlogPostCard'
 import SearchInput from '../Shared/Search'
 import React from 'react'
 import { filterData } from 'app/utils/common'
-import { Frown } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowUpRight, Frown } from 'lucide-react'
 import { type Comparison } from 'types/transformedContent'
 
 type HubDoc = CoreContent<Blog | Comparison | Guide | MDXContent>
@@ -107,6 +108,14 @@ const OpenTelemetryPageHeader: React.FC<OpenTelemetryPageHeaderProps> = ({ onSea
       <p className="my-4 w-full text-lg leading-8 tracking-normal text-gray-700 dark:text-stone-300 max-md:max-w-full">
         Articles on OpenTelemetry concepts, implementation, and its use cases.
       </p>
+
+      <Link
+        href="/opentelemetry/why-is-opentelemetry-needed/"
+        className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-signoz_slate-300 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-signoz_sakura-400 hover:text-signoz_sakura-500 dark:border-signoz_slate-400 dark:text-stone-200 dark:hover:text-signoz_sakura-400"
+      >
+        Start here: why OpenTelemetry is needed
+        <ArrowUpRight className="h-4 w-4" />
+      </Link>
 
       <SearchInput placeholder={'Search for a blog...'} onSearch={onSearch} />
     </section>

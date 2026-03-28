@@ -49,15 +49,15 @@ export const WhyOpenTelemetry = () => {
               Kubernetes being more active.
             </p>
             <TrackingLink
-              href="/opentelemetry/#why-developers-choose-opentelemetry"
+              href="/opentelemetry/why-is-opentelemetry-needed/"
               clickType="Secondary CTA"
-              clickName="Why Developers choose OpenTelemetry Link"
-              clickText="Learn why Developers choose OpenTelemetry"
+              clickName="Why OpenTelemetry Needed Link"
+              clickText="Learn why teams need OpenTelemetry"
               clickLocation="Why OpenTelemetry Section"
               className="mb-3 mt-3 flex h-10 items-center justify-center gap-1.5 rounded-full border border-signoz_slate-200 bg-signoz_slate-400 px-4 py-2 text-[10px] font-medium leading-5 text-white shadow-[0_0_20px_0_rgba(242,71,105,0.20)] sm:text-sm"
             >
               <BookOpen className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-              Learn why Developers choose OpenTelemetry
+              Learn why teams need OpenTelemetry
               <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
             </TrackingLink>
           </div>
