@@ -2997,7 +2997,12 @@ const docsSideNav = [
           {
             type: 'doc',
             route: '/docs/aws-monitoring/lambda/lambda-logs',
-            label: 'Logs',
+            label: 'Logs (S3)',
+          },
+          {
+            type: 'doc',
+            route: '/docs/aws-monitoring/lambda/lambda-logs-otel-extension',
+            label: 'Logs (OTel Extension)',
           },
           {
             type: 'doc',
