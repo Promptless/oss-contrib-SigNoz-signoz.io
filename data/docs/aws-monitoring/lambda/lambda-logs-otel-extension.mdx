@@ -21,14 +21,11 @@ Most steps are identical. Replace the `endpoint` in the exporter with your SigNo
 
 ## How it works
 
-```
-Lambda function
-  └── Extension Layer (OTel Collector)
-        ├── telemetryapi receiver  ← subscribes to Lambda Telemetry API
-        ├── batch processor
-        ├── decouple processor     ← decouples export from execution path
-        └── otlphttp exporter      → SigNoz
-```
+<Figure
+  src="/img/docs/aws-monitoring/lambda/lambda-otel-extension-architecture.svg"
+  caption="Architecture of OTel Collector Extension Layer for Lambda logs"
+  alt="Architecture of OTel Collector Extension Layer for Lambda logs"
+/>
 
 When the Lambda function initialises, the OTel Collector starts inside the extension layer and registers with Lambda's Telemetry API. Lambda pushes logs and platform events to the collector. The decouple processor buffers the logs and exports them later. The Lambda function does not wait for the network call to SigNoz.
 
@@ -133,8 +130,21 @@ Deploy your updated Lambda function and invoke it. The collector initialises on 
 Logs appear with a delay. The decouple processor transmits buffered telemetry at the start of the next invocation or during the Lambda shutdown phase, creating a lag between function execution and log arrival in SigNoz.
 </Admonition>
 
+<Figure
+  src="/img/docs/aws-monitoring/lambda/lambda-sample-logs.webp"
+  caption="Sample logs in SigNoz"
+  alt="Sample logs in SigNoz"
+/>
+
+<Figure
+  src="/img/docs/aws-monitoring/lambda/lambda-sample-log-detailed.webp"
+  caption="Sample log details in SigNoz"
+  alt="Sample log details in SigNoz"
+/>
+
 <details>
 <ToggleHeading>
+
 ## Troubleshooting
 </ToggleHeading>
 

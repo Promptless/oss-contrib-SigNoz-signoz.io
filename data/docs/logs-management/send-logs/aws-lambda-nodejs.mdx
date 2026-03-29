@@ -135,80 +135,21 @@ arn:aws:lambda:us-east-1:184161586896:layer:opentelemetry-nodejs-0_19_0:1
 </TabItem>
 <TabItem value="infrastructure" label="Infrastructure Logging (No Code)">
 
-This method captures everything written to `stdout` and `stderr` (e.g., `console.log`) as well as AWS Platform logs (REPORT, START, END). It requires zero code changes.
+This method captures everything written to `stdout` and `stderr` (e.g., `console.log`) as well as AWS Platform logs (`REPORT`, `START`, `END`). It requires zero code changes and works by running an OTel Collector as a Lambda extension layer that subscribes to Lambda's Telemetry API.
 
-### Step 1: Create a Collector Configuration File
+See the dedicated guide for full setup steps:
 
-By default, the OpenTelemetry layer exports to AWS backends. To send logs to SigNoz and enable the [`telemetryapi`](https://github.com/open-telemetry/opentelemetry-lambda/blob/main/collector/receiver/telemetryapireceiver/README.md) receiver (which captures Lambda logs), you must provide a custom configuration.
-
-Go to AWS Lambda Console, in your Lambda function, go to **Code** tab and create a file named `collector.yaml` in the root of your function code:
-
-```yaml:collector.yaml
-receivers:
-  telemetryapi:
-    types: ["function", "platform"] # Filter options: platform, function, extension
-
-exporters:
-  otlphttp:
-    endpoint: https://ingest.<region>.signoz.cloud:443
-    headers:
-      signoz-ingestion-key: <SIGNOZ_INGESTION_KEY>
-
-processors:
-  batch:
-  decouple: # Required for Lambda - allows function to return while data is still being exported
-
-service:
-  pipelines:
-    logs:
-      receivers: [telemetryapi]
-      processors: [batch, decouple]
-      exporters: [otlphttp]
-```
-
-You can remove the `types` field if you want to capture all types of logs including platform, function and extension logs.
-
-<Admonition type="note">
-The `OPENTELEMETRY_COLLECTOR_CONFIG_URI` supports local paths (e.g. `/var/task/collector.yaml`), HTTP/HTTPS URIs, and S3 URIs. If using a local file, ensure it is included in your deployment package (root directory).
-</Admonition>
-
-### Step 2: Add OpenTelemetry Lambda Layer
-
-1.  Navigate to your function in the [AWS Console](https://console.aws.amazon.com/lambda/).
-2.  Scroll to the **Layers** section and click **Add a layer**.
-3.  Select **Specify an ARN**.
-4.  Enter the ARN from [OpenTelemetry Lambda Layers](https://github.com/open-telemetry/opentelemetry-lambda/releases), look for the `layer-collector` release.
-
-**Example ARN (Node.js, x86_64, us-east-1):**
-
-```text
-arn:aws:lambda:us-east-1:184161586896:layer:opentelemetry-collector-amd64-0_19_0:1
-```
-
-### Step 3: Configure Environment Variables
-
-Navigate to **Configuration** > **Environment Variables** and configure the collector setup:
-
-| Key                                  | Value                      | Description                                                                                 |
-| ------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------- |
-| `OPENTELEMETRY_COLLECTOR_CONFIG_URI` | `/var/task/collector.yaml` | **Crucial**: Points to your custom config file. Supports local path, HTTP/HTTPS, or S3 URI. |
-| `OTEL_SERVICE_NAME`                  | `<service_name>`           | A name for your Lambda service.                                                             |
-
-<Admonition type="note">
-If S3 URI is used, ensure the S3 bucket is accessible from the Lambda function by creating relevant IAM roles and permissions.
-</Admonition>
+**[Send AWS Lambda logs to SigNoz using the OTel Collector Extension Layer](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs-otel-extension/)**
 
 </TabItem>
 </Tabs>
 
 ## Validate
 
-1.  Trigger your Lambda function (e.g., using a Test event in the AWS Console).
-2.  Go to the SigNoz Logs Explorer.
-3.  Filter by `service.name`.
-4.  **Result**:
-    - **Application Logging**: You should see your specific log attributes (e.g., `custom.attribute`).
-    - **Infrastructure Logging**: You should see your standard console output (e.g., `Hello World`) and AWS Platform logs (`REPORT RequestId: ...`).
+1. Trigger your Lambda function (e.g., using a Test event in the AWS Console).
+2. Go to the SigNoz Logs Explorer.
+3. Filter by `service.name`.
+4. You should see your structured log records with the custom attributes you set (e.g., `custom.attribute`).
 
 <details>
 <ToggleHeading>
@@ -219,17 +160,23 @@ If S3 URI is used, ensure the S3 bucket is accessible from the Lambda function b
 
 ### Logs not appearing in SigNoz
 
-- **Check Config URI**: Ensure `OPENTELEMETRY_COLLECTOR_CONFIG_URI` matches exactly where your `collector.yaml` is deployed (usually `/var/task/collector.yaml`).
-- **Check Region**: Ensure the endpoint region matches your SigNoz account region.
-- **Check CloudWatch**: Look at the AWS CloudWatch logs for your Lambda function. The OpenTelemetry layer output starts with "OpenTelemetry Collector". If you see errors there, it usually indicates connection issues or bad config.
+- **Check endpoint and key**: Verify `OTEL_EXPORTER_OTLP_ENDPOINT` points to the correct SigNoz region and that `OTEL_EXPORTER_OTLP_HEADERS` contains a valid ingestion key.
+- **Check CloudWatch**: Open CloudWatch Logs for your Lambda function and look for OTel SDK output. Errors here usually indicate a misconfigured endpoint or a missing/wrong ingestion key.
+- **Check layer version**: Ensure the OTel Lambda layer ARN matches your function's runtime and architecture.
+
+### Logs missing attributes
+
+- Confirm you are passing a `resource` with `service.name` when initialising the SDK.
+- Verify `OTEL_SERVICE_NAME` is set if you rely on the environment variable instead of a code-level resource.
 
 ### "Task timed out" error
 
-- **Increase Timeout**: Data transmission can take a moment. Increase your Lambda function's timeout setting (e.g., to 30 seconds or 1 minute) if it's too short.
+- Increase your Lambda function's timeout (e.g., to 30 seconds) to allow the SDK time to flush spans and logs before the function exits.
 
 </details>
 
 ## Related Guides
 
+- [Send AWS Lambda logs via OTel Collector Extension Layer](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs-otel-extension/)
 - [Send Logs via S3 Forwarder](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs/)
 - [AWS Lambda Integration](https://signoz.io/docs/integrations/aws/lambda/)
