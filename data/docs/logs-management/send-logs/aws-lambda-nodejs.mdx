@@ -1,10 +1,12 @@
 ---
 date: 2026-03-26
 title: Send logs from AWS Lambda Node.js functions to SigNoz
-description: Learn how to send logs from AWS Lambda Node.js functions to SigNoz using OpenTelemetry auto-instrumentation.
+description: Learn how to send structured logs and correlated traces from AWS Lambda Node.js functions to SigNoz using the OpenTelemetry SDK.
 id: aws-lambda-nodejs
 doc_type: howto
 ---
+
+import GetHelp from '@/components/shared/get-help.md'
 
 This guide walks through instrumenting your AWS Lambda Node.js function to emit structured logs to SigNoz using the OpenTelemetry SDK. You will add the OTel Lambda Layer and call `logger.emit` directly in your code for fine-grained, attribute-rich log records.
 
@@ -88,7 +90,7 @@ zip -r deploy.zip .
 
 ### Step 4: Upload to AWS Lambda
 
-1.  Navigate to your function in the [AWS Console](https://console.aws.amazon.com/lambda/).
+1.  Navigate to your function in the <a href="https://console.aws.amazon.com/lambda/" target="_blank" rel="noopener noreferrer nofollow">AWS Console</a>.
 2.  Go to the **Code** tab.
 3.  Choose **Upload from** -> **.zip file** and upload your `deploy.zip`.
 
@@ -116,7 +118,7 @@ This layer provides the OpenTelemetry Node.js Extension for AWS Lambda with auto
 1.  Go to the **Layers** section of your function.
 2.  Click **Add a layer**.
 3.  Select **Specify an ARN**.
-4.  Enter the ARN for your region and architecture, check the latest release from [OpenTelemetry Lambda Layers](https://github.com/open-telemetry/opentelemetry-lambda/releases) for the most current layer ARN for your region and architecture.
+4.  Enter the ARN for your region and architecture. Find the latest ARN on the <a href="https://github.com/open-telemetry/opentelemetry-lambda/releases" target="_blank" rel="noopener noreferrer nofollow">opentelemetry-lambda releases page</a>.
 
 **Example ARN (Node.js, x86_64, us-east-1):**
 
@@ -160,3 +162,7 @@ arn:aws:lambda:us-east-1:184161586896:layer:opentelemetry-nodejs-0_20_0:1
 - [Send AWS Lambda logs via OTel Collector Extension Layer](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs-otel-extension/)
 - [Send Logs via S3 Forwarder](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs/)
 - [AWS Lambda Integration](https://signoz.io/docs/integrations/aws/lambda/)
+
+## Get Help
+
+<GetHelp />
