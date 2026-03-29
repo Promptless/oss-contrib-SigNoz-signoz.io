@@ -1,20 +1,17 @@
 ---
 date: 2026-03-26
-title: Send traces and logs from AWS Lambda Node.js functions to SigNoz
-description: Learn how to send traces and logs from AWS Lambda Node.js functions to SigNoz using OpenTelemetry auto-instrumentation.
+title: Send logs from AWS Lambda Node.js functions to SigNoz
+description: Learn how to send logs from AWS Lambda Node.js functions to SigNoz using OpenTelemetry auto-instrumentation.
 id: aws-lambda-nodejs
 doc_type: howto
 ---
 
-## Overview
-
-This guide explains how to instrument your AWS Lambda Node.js functions with OpenTelemetry to send logs directly to SigNoz. There are two primary approaches:
-
-1.  **Application Logging**: Modifying your function code to send structured logs (best for business events).
-2.  **Infrastructure Logging**: Collecting all `stdout`/`stderr` and platform logs automatically via an extension (best for full observability without code changes).
+This guide walks through instrumenting your AWS Lambda Node.js function to emit structured logs to SigNoz using the OpenTelemetry SDK. You will add the OTel Lambda Layer and call `logger.emit` directly in your code for fine-grained, attribute-rich log records.
 
 <Admonition type="info">
-This guide covers the **direct OpenTelemetry instrumentation** method using the OTel Lambda Layer. If you prefer to collect logs via CloudWatch Logs and S3, please refer to the [AWS Lambda Logs via S3](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs/) guide.
+**Want zero-code log collection instead?** If you want to capture all `console.log`, `stdout`/`stderr`, and AWS Platform logs (`START`, `END`, `REPORT`) without any code changes, use the [OTel Collector Extension Layer guide](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs-otel-extension/) instead.
+
+If you prefer routing logs via CloudWatch Logs and S3, see the [AWS Lambda Logs via S3](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs/) guide.
 </Admonition>
 
 ## Prerequisites
@@ -27,11 +24,6 @@ Most steps are identical. To adapt this guide, update the endpoint and remove th
 </KeyPointCallout>
 
 ## Steps
-
-<Tabs>
-<TabItem value="application" label="Application Logging (SDK)" default>
-
-This method sends specific, structured application logs using the OpenTelemetry API. It provides fine-grained control over log attributes but requires code modification.
 
 ### Step 1: Add Required Dependencies
 
@@ -111,7 +103,7 @@ OTEL_EXPORTER_OTLP_HEADERS=signoz-ingestion-key=<SIGNOZ_INGESTION_KEY>
 OTEL_SERVICE_NAME=<service_name>
 ```
 
-Replace the placeholders:
+Verify these values:
 
 - `<region>`: Your SigNoz Cloud [region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint).
 - `<SIGNOZ_INGESTION_KEY>`: Your [SigNoz Ingestion Key](https://signoz.io/docs/ingestion/signoz-cloud/keys/).
@@ -129,20 +121,8 @@ This layer provides the OpenTelemetry Node.js Extension for AWS Lambda with auto
 **Example ARN (Node.js, x86_64, us-east-1):**
 
 ```text
-arn:aws:lambda:us-east-1:184161586896:layer:opentelemetry-nodejs-0_19_0:1
+arn:aws:lambda:us-east-1:184161586896:layer:opentelemetry-nodejs-0_20_0:1
 ```
-
-</TabItem>
-<TabItem value="infrastructure" label="Infrastructure Logging (No Code)">
-
-This method captures everything written to `stdout` and `stderr` (e.g., `console.log`) as well as AWS Platform logs (`REPORT`, `START`, `END`). It requires zero code changes and works by running an OTel Collector as a Lambda extension layer that subscribes to Lambda's Telemetry API.
-
-See the dedicated guide for full setup steps:
-
-**[Send AWS Lambda logs to SigNoz using the OTel Collector Extension Layer](https://signoz.io/docs/aws-monitoring/lambda/lambda-logs-otel-extension/)**
-
-</TabItem>
-</Tabs>
 
 ## Validate
 
