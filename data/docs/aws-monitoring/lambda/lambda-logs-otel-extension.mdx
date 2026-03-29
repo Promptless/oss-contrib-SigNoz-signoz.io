@@ -8,7 +8,7 @@ doc_type: howto
 
 import GetHelp from '@/components/shared/get-help.md'
 
-Collect AWS Lambda logs by running an OpenTelemetry Collector instance as a Lambda extension layer. The collector registers with Lambda's [Telemetry API](https://docs.aws.amazon.com/lambda/latest/dg/telemetry-api.html) to receive logs. You do not need to change your function code.
+Collect AWS Lambda logs by running an OpenTelemetry Collector instance as a Lambda extension layer. The collector registers with Lambda's <a href="https://docs.aws.amazon.com/lambda/latest/dg/telemetry-api.html" target="_blank" rel="noopener noreferrer nofollow">Telemetry API</a> to receive logs. You do not need to change your function code.
 
 <KeyPointCallout title="Using self-hosted SigNoz?" defaultCollapsed="true">
 Most steps are identical. Replace the `endpoint` in the exporter with your SigNoz host and remove the `signoz-ingestion-key` header. See [Cloud → Self-Hosted](https://signoz.io/docs/ingestion/cloud-vs-self-hosted/#cloud-to-self-hosted).
@@ -93,6 +93,7 @@ Verify these values:
 - `<your-ingestion-key>`: Your SigNoz [ingestion key](https://signoz.io/docs/ingestion/signoz-cloud/keys/)
 
 <Admonition type="note">
+  - `otlp_grpc` requires Collector v0.145.0 or later (bundled in recent Lambda layer releases). If you use an older layer, replace `otlp_grpc` with `otlp`.
   - You can add resource attributes in the `resource` processor to enrich your logs with metadata. Adjust the `service.name` and `deployment.environment` values as needed.
   - You can add type of logs to export by adding types field to `telemetryapi` receiver. By default, it receives all logs and platform events. For example, to receive only `function` logs, use:
     ```yaml
