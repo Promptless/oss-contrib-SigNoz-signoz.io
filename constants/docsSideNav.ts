@@ -2307,6 +2307,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/n8n-dashboard',
+            label: 'n8n Cloud',
+          },
+          {
+            type: 'doc',
             route: '/docs/dashboards/dashboard-templates/ollama-dashboard',
             label: 'Ollama',
           },
