@@ -2834,6 +2834,11 @@ const docsSideNav = [
         type: 'doc',
       },
       {
+        route: '/docs/n8n-monitoring',
+        label: 'n8n Cloud',
+        type: 'doc',
+      },
+      {
         route: '/docs/ollama-monitoring',
         label: 'Ollama',
         type: 'doc',
