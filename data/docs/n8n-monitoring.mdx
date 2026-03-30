@@ -2,7 +2,7 @@
 date: 2026-03-30
 id: n8n-monitoring-with-opentelemetry
 title: n8n Monitoring & Observability with OpenTelemetry
-description: Monitoring and observability for n8n usage and performance with OpenTelemetry instrumentation to send traces, logs, and metrics to SigNoz
+description: Monitoring and observability for n8n usage and performance with OpenTelemetry instrumentation to send traces to SigNoz
 doc_type: howto
 ---
 
@@ -54,7 +54,7 @@ N8N_API_KEY=n8n_api_xxxxxxxxxxxxx
 OTEL_EXPORTER_OTLP_ENDPOINT=https://ingest.<region>.signoz.cloud:443/v1/traces
 
 # Required: Your SigNoz ingestion key
-OTEL_EXPORTER_OTLP_HEADERS=signoz-ingestion-key=your_signoz_key_here
+OTEL_EXPORTER_OTLP_HEADERS=signoz-ingestion-key=<your-ingestion-key>
 
 # Optional: Service name in traces (default: n8n-cloud)
 OTEL_SERVICE_NAME=n8n-cloud
@@ -125,7 +125,7 @@ python poller.py
 
 Your n8n usage should now automatically emit traces.
 
-You should be able to view traces in Signoz Cloud under the traces tab:
+You should be able to view traces in SigNoz Cloud under the traces tab:
 
 <Figure
   src="/img/docs/llm/n8n/n8n-traces.webp"
@@ -158,14 +158,13 @@ If you don't see your telemetry data:
 
 ## Next Steps
 
-You can also check out our custom n8n dashboard [here](https://signoz.io/docs/dashboards/dashboard-templates/n8n-dashboard/) which provides specialized visualizations for monitoring your n8n usage in applications. The dashboard includes pre-built charts specifically tailored for LLM usage, along with import instructions to get started quickly.
+Check out the [n8n dashboard template](https://signoz.io/docs/dashboards/dashboard-templates/n8n-dashboard/) for specialized visualizations of your n8n workflow performance. The dashboard includes pre-built charts for workflow monitoring, along with import instructions to get started quickly.
 
 <Figure
   src="/img/docs/llm/n8n/n8n-dashboard.webp"
   alt="n8n Dashboard"
   caption="n8n Dashboard Template"
 />
-
 
 <details>
 <ToggleHeading>
