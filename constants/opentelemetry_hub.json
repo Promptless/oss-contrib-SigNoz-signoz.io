@@ -214,7 +214,7 @@
             },
             {
               "url": "https://signoz.io/comparisons/opentelemetry-api-vs-sdk/",
-              "title": "OpenTelemetry API vs SDK - Key Differences Explained"
+              "title": "[Comparison] OpenTelemetry API vs SDK - Key Differences Explained"
             },
             {
               "url": "https://signoz.io/blog/opentelemetry-architecture/",
@@ -724,7 +724,7 @@
                 },
                 {
                   "url": "https://signoz.io/comparisons/opentelemetry-grpc-vs-http/",
-                  "title": "OpenTelemetry - gRPC vs HTTP for Efficient Tracing"
+                  "title": "[Comparison] OpenTelemetry - gRPC vs HTTP for Efficient Tracing"
                 },
                 {
                   "url": "https://signoz.io/blog/opentelemetry-agent/",
@@ -766,7 +766,7 @@
                 },
                 {
                   "url": "https://signoz.io/comparisons/opentelemetry-events-vs-logs/",
-                  "title": "OpenTelemetry Events vs Logs - Key Differences Explained"
+                  "title": "[Comparison] OpenTelemetry Events vs Logs - Key Differences Explained"
                 }
               ]
             },
@@ -780,7 +780,7 @@
                 },
                 {
                   "url": "https://signoz.io/comparisons/opentelemetry-traces-vs-metrics/",
-                  "title": "OpenTelemetry - Comparing Traces vs Metrics for Monitoring"
+                  "title": "[Comparison] OpenTelemetry - Comparing Traces vs Metrics for Monitoring"
                 },
                 {
                   "url": "https://signoz.io/blog/opentelemetry-histogram/",
@@ -810,19 +810,19 @@
                 },
                 {
                   "url": "https://signoz.io/comparisons/opentelemetry-collector-vs-agent/",
-                  "title": "OpenTelemetry Collector vs Agent - Key Differences Explained"
+                  "title": "[Comparison] OpenTelemetry Collector vs Agent - Key Differences Explained"
                 },
                 {
                   "url": "https://signoz.io/comparisons/opentelemetry-collector-vs-fluentbit/",
-                  "title": "OpenTelemetry Collector vs. Fluentbit - Key Differences"
+                  "title": "[Comparison] OpenTelemetry Collector vs. Fluentbit - Key Differences"
                 },
                 {
                   "url": "https://signoz.io/guides/opentelemetry-collector-vs-exporter/",
-                  "title": "OpenTelemetry Collector vs Exporter - Key Differences Explained"
+                  "title": "[Guide] OpenTelemetry Collector vs Exporter - Key Differences Explained"
                 },
                 {
                   "url": "https://signoz.io/blog/opentelemetry-collector-contrib/",
-                  "title": "The Comprehensive Guide to OTel Collector Contrib"
+                  "title": "[Blog] The Comprehensive Guide to OTel Collector Contrib"
                 },
                 {
                   "url": "https://signoz.io/blog/parsing-logs-with-the-opentelemetry-collector/",
