@@ -8,6 +8,26 @@ import type { ReactNode } from 'react'
 import { categoryContainsRoute, normalizeRoute } from './navigation'
 import type { SidebarItem } from './types'
 
+let collapsedKeysCache = new Set<string>()
+
+function collectAllCategoryKeys(nodes: SidebarItem[], trail: string[]): string[] {
+  const keys: string[] = []
+  for (const node of nodes) {
+    if (node.type === 'doc') continue
+    const key = [...trail, node.label].join('>')
+    keys.push(key, ...collectAllCategoryKeys(node.items, [...trail, node.label]))
+  }
+  return keys
+}
+
+function buildFullyExpandedSet(items: SidebarItem[], persistExpansionKey?: string): Set<string> {
+  const expandedSet = new Set<string>(collectAllCategoryKeys(items, []))
+  if (persistExpansionKey) {
+    expandedSet.add(persistExpansionKey)
+  }
+  return expandedSet
+}
+
 interface SidebarProps {
   items: SidebarItem[]
   activeRoute: string
@@ -23,25 +43,38 @@ export function Sidebar({
   languageSelector,
   persistExpansionKey,
 }: SidebarProps) {
-  const [expanded, setExpanded] = useState<Set<string>>(new Set())
+  const [expanded, setExpanded] = useState<Set<string>>(() => {
+    const full = buildFullyExpandedSet(items, persistExpansionKey)
+    collapsedKeysCache.forEach((key) => full.delete(key))
+    return full
+  })
+
   const activeItemRef = useRef<HTMLAnchorElement | null>(null)
   const pendingScrollRef = useRef(false)
   const containerRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
-    const expandedSet = new Set<string>(persistExpansionKey ? [persistExpansionKey] : [])
-    const markParents = (nodes: SidebarItem[], trail: string[]) => {
-      for (const node of nodes) {
-        if (node.type === 'doc') continue
-        const key = [...trail, node.label].join('>')
-        if (categoryContainsRoute(node, activeRoute)) {
-          expandedSet.add(key)
-          markParents(node.items, [...trail, node.label])
+    const allKeys = collectAllCategoryKeys(items, [])
+    collapsedKeysCache = new Set(allKeys.filter((k) => !expanded.has(k)))
+  }, [expanded, items])
+
+  useEffect(() => {
+    setExpanded((prev) => {
+      const next = new Set(prev)
+
+      const markParents = (nodes: SidebarItem[], trail: string[]) => {
+        for (const node of nodes) {
+          if (node.type === 'doc') continue
+          const key = [...trail, node.label].join('>')
+          if (categoryContainsRoute(node, activeRoute)) {
+            next.add(key)
+            markParents(node.items, [...trail, node.label])
+          }
         }
       }
-    }
-    markParents(items, [])
-    setExpanded(expandedSet)
+      markParents(items, [])
+      return next
+    })
     pendingScrollRef.current = true
   }, [activeRoute, items, persistExpansionKey])
 
@@ -108,14 +141,17 @@ export function Sidebar({
 
         const key = [...trail, node.label].join('>')
         const isExpanded = expanded.has(key)
+        const containsActive = categoryContainsRoute(node, activeRoute)
 
         return (
           <li key={key} className="group mx-2 my-1">
             <div
               className={`flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ${
-                isExpanded
+                containsActive
                   ? 'bg-blue-500/10 text-blue-400'
-                  : 'text-gray-200 hover:bg-gray-800/50 hover:text-white'
+                  : isExpanded
+                    ? 'bg-gray-800/30 text-gray-200 hover:bg-gray-800/50 hover:text-white'
+                    : 'text-gray-200 hover:bg-gray-800/50 hover:text-white'
               }`}
               onClick={() => toggle(key)}
             >
