@@ -1,18 +1,20 @@
 import React from 'react'
-import { cookies } from 'next/headers'
 import GrowthBookClientProvider from '@/components/GrowthBookClientProvider'
 
-export async function GrowthBookProvider({ children }: { children: React.ReactNode }) {
-  // Read the anonymous ID from the cookie (populated by middleware)
-  const cookieStore = cookies()
-  const anonymousId: string = cookieStore.get('gb_anonymous_id')?.value || 'unknown'
-
-  // Prepare the data to pass to the client component
-  const growthBookData = {
-    apiHost: process.env.GROWTHBOOK_API_HOST || process.env.NEXT_PUBLIC_GROWTHBOOK_API_HOST,
-    clientKey: process.env.GROWTHBOOK_CLIENT_KEY || process.env.NEXT_PUBLIC_GROWTHBOOK_CLIENT_KEY,
-    anonymousId,
-  }
-
-  return <GrowthBookClientProvider data={growthBookData}>{children}</GrowthBookClientProvider>
+// Synchronous server component — no cookies() call, so every page remains
+// statically cacheable at the CDN. The anonymous ID is read client-side from
+// the cookie that AnonymousIdSetter writes after mount.
+export function GrowthBookProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <GrowthBookClientProvider
+      data={{
+        apiHost: process.env.GROWTHBOOK_API_HOST || process.env.NEXT_PUBLIC_GROWTHBOOK_API_HOST,
+        clientKey:
+          process.env.GROWTHBOOK_CLIENT_KEY || process.env.NEXT_PUBLIC_GROWTHBOOK_CLIENT_KEY,
+        anonymousId: '',
+      }}
+    >
+      {children}
+    </GrowthBookClientProvider>
+  )
 }

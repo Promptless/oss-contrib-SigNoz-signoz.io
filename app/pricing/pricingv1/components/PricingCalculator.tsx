@@ -2,7 +2,7 @@
 
 // TODO: file too large
 import type React from 'react'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { PricingRangeSlider } from '@/components/ui/PricingRangeSlider'
 import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
@@ -248,55 +248,56 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({
     }
   }, [])
 
-  // Handle slider changes
-  const handleChangeTraces = (value: number | number[]) => {
+  // Handle slider changes — useCallback stabilises references so Radix slider
+  // primitives do not re-render on every unrelated state update.
+  const handleChangeTraces = useCallback((value: number | number[]) => {
     const numValue = typeof value === 'number' ? value : value[0]
     if (isNaN(numValue)) return
     setTracesValue(numValue)
     setInputTracesValue(linearToLog(numValue, MIN_LOG_VALUE, MAX_VALUE).toString())
-  }
+  }, [])
 
-  const handleChangeLogs = (value: number | number[]) => {
+  const handleChangeLogs = useCallback((value: number | number[]) => {
     const numValue = typeof value === 'number' ? value : value[0]
     if (isNaN(numValue)) return
     setLogsValue(numValue)
     setInputLogsValue(linearToLog(numValue, MIN_LOG_VALUE, MAX_VALUE).toString())
-  }
+  }, [])
 
-  const handleChangeMetrics = (value: number | number[]) => {
+  const handleChangeMetrics = useCallback((value: number | number[]) => {
     const numValue = typeof value === 'number' ? value : value[0]
     if (isNaN(numValue)) return
     setMetricsValue(numValue)
     setInputMetricsValue(linearToLog(numValue, MIN_VALUE, MAX_VALUE).toString())
-  }
+  }, [])
 
   // Handle direct input changes
-  const handleInputTracesChange = (value: string) => {
+  const handleInputTracesChange = useCallback((value: string) => {
     setInputTracesValue(value)
     const numValue = Number(value)
     if (isNaN(numValue) || numValue < 0) return
     const linearValue =
       numValue === 0 ? 0 : logToLinear(Math.min(numValue, MAX_VALUE), MIN_LOG_VALUE, MAX_VALUE)
     setTracesValue(linearValue)
-  }
+  }, [])
 
-  const handleInputLogsChange = (value: string) => {
+  const handleInputLogsChange = useCallback((value: string) => {
     setInputLogsValue(value)
     const numValue = Number(value)
     if (isNaN(numValue) || numValue < 0) return
     const linearValue =
       numValue === 0 ? 0 : logToLinear(Math.min(numValue, MAX_VALUE), MIN_LOG_VALUE, MAX_VALUE)
     setLogsValue(linearValue)
-  }
+  }, [])
 
-  const handleInputMetricsChange = (value: string) => {
+  const handleInputMetricsChange = useCallback((value: string) => {
     setInputMetricsValue(value)
     const numValue = Number(value)
     if (isNaN(numValue) || numValue < 0) return
     const linearValue =
       numValue === 0 ? 0 : logToLinear(Math.min(numValue, MAX_VALUE), MIN_LOG_VALUE, MAX_VALUE)
     setMetricsValue(linearValue)
-  }
+  }, [])
 
   // Copy link to clipboard
   const copyLinkToClipboard = () => {

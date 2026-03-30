@@ -711,6 +711,7 @@ const SigNozVsDatadogV2 = () => {
                     alt="Enhance observability of messaging queues with OTel powered correlated trace and metrics"
                     width={800}
                     height={400}
+                    priority
                     className="mb-2 rounded-lg border border-gray-800 bg-gray-900/50 p-2 transition-transform duration-300 hover:scale-[1.02]"
                   />
                   <figcaption className="text-sm text-gray-400">

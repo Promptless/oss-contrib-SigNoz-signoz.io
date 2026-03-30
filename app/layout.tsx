@@ -107,7 +107,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ></iframe>
         </noscript>
 
-        <AnonymousIdSetter />
+        <Suspense fallback={null}>
+          <AnonymousIdSetter />
+        </Suspense>
 
         <ThemeProviders>
           <GrowthBookProvider>

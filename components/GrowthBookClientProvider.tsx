@@ -2,6 +2,8 @@
 
 import React, { createContext, useEffect, useState, useRef, useCallback } from 'react'
 import { GrowthBook } from '@growthbook/growthbook'
+import Cookies from 'js-cookie'
+import { ANONYMOUS_ID_COOKIE } from '../hooks/useAnonymousId'
 
 // Type for the context value
 export type GrowthBookContextValue = {
@@ -64,9 +66,10 @@ export default function GrowthBookClientProvider({ children, data }: GrowthBookP
         // Initialize with a timeout to prevent blocking for too long
         await gb.init({ timeout: 1000 })
 
-        // Set attributes for the user
+        // Set attributes for the user — fall back to cookie if anonymousId
+        // was not passed server-side (e.g. when GrowthBookProvider is static)
         gb.setAttributes({
-          id: data.anonymousId,
+          id: data.anonymousId || Cookies.get(ANONYMOUS_ID_COOKIE) || 'unknown',
         })
 
         // Mark as initialized to trigger any dependent effects
@@ -85,7 +88,7 @@ export default function GrowthBookClientProvider({ children, data }: GrowthBookP
         gbRef.current = null
       }
     }
-  }, [data.apiHost, data.clientKey, data.anonymousId])
+  }, [data.apiHost, data.clientKey])
 
   return <GrowthBookContext.Provider value={contextValue}>{children}</GrowthBookContext.Provider>
 }

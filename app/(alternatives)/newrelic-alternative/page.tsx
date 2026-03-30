@@ -1,5 +1,9 @@
-import SigNozVSNewRelicV2 from './SigNozVsNewRelicV2'
+import dynamic from 'next/dynamic'
 import siteMetadata from '@/data/siteMetadata'
+
+const SigNozVSNewRelicV2 = dynamic(() => import('./SigNozVsNewRelicV2'), {
+  loading: () => <div className="min-h-screen bg-signoz_ink-500" />,
+})
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

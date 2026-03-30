@@ -23,7 +23,11 @@ export const metadata: Metadata = {
 export default function LaunchWeekPage() {
   return (
     <>
-      <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" />
+      <Script
+        id="luma-checkout"
+        src="https://embed.lu.ma/checkout-button.js"
+        strategy="lazyOnload"
+      />
       <MainSection />
     </>
   )
