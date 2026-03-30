@@ -27,9 +27,9 @@ Most steps are identical. Replace the `endpoint` in the exporter with your SigNo
   alt="Architecture of OTel Collector Extension Layer for Lambda logs"
 />
 
-When the Lambda function initialises, the OTel Collector starts inside the extension layer and registers with Lambda's Telemetry API. Lambda pushes logs and platform events to the collector. The decouple processor buffers the logs and exports them later. The Lambda function does not wait for the network call to SigNoz.
+When a Lambda function initializes, the OpenTelemetry Collector starts as an extension layer and registers with the Lambda Telemetry API. As the function executes, Lambda automatically pushes logs and platform events to the collector.
 
-The **decouple processor** separates telemetry transmission from the function's execution path. It exports logs during the next invocation or at shutdown. Telemetry delivery does not add to your billable duration.
+To ensure telemetry export doesn't impact your function's performance or billable duration, the collector uses a **decouple processor**. This processor buffers logs in memory and separates telemetry transmission from the function's main execution path. Because the function doesn't wait for network calls to SigNoz to complete, the buffered logs are asynchronously sent in the background during the next invocation or shutdown phase.
 
 ## Setting up OTel Collector extension layer for Lambda logs
 
@@ -154,6 +154,7 @@ Logs appear with a delay. The decouple processor transmits buffered telemetry at
 - Verify the `OPENTELEMETRY_COLLECTOR_CONFIG_URI` environment variable is set and points to the correct path.
 - Check CloudWatch Logs for the Lambda function's log group — the extension layer logs its own startup and any config errors there.
 - Confirm the layer ARN matches your function's architecture (`amd64` vs `arm64`) and region.
+- `otlp_grpc` requires Collector v0.145.0 or later (bundled in recent Lambda layer releases). If you use an older layer, replace `otlp_grpc` with `otlp` in your collector configuration.
 
 **Cold-start latency increased**
 
