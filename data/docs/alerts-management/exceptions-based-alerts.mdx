@@ -1,13 +1,62 @@
 ---
-date: 2024-06-06
+date: 2026-03-30
 id: exceptions-based-alerts
-
-title: Exceptions based alerts 
+title: Exceptions based alerts
+description: Create alerts based on exceptions and errors in your traces to detect failures and errors in your applications.
 ---
 
-An Exceptions-based alert in SigNoz allows you to define conditions based on exception data, triggering alerts when these conditions are met. Here's a breakdown of the various sections and options available when configuring an Exceptions-based alert:
+An Exceptions-based alert in SigNoz allows you to define conditions based on exception data, triggering alerts when these conditions are met.
 
-## Step 1: Define the Metric Using Clickhouse Query
+## Creating an Exceptions-based Alert
+
+When you click **"New Alert"** in SigNoz, you'll first see an alert type selection page with 5 options. Select **"Exceptions-based Alert"** to proceed with creating an exceptions-based alert.
+
+<Admonition type="info">
+SigNoz offers two alert creation experiences:
+- **New Alert Creation Experience** (default): A streamlined, step-by-step interface
+- **Classic Experience**: The previous alert creation workflow, available via the "Switch to Classic Experience" button
+</Admonition>
+
+## New Alert Creation Workflow
+
+The new alert creation experience guides you through these main steps:
+
+### Step 1: Enter Alert Details
+- **Alert Rule Name**: Enter a descriptive name for your alert rule
+- **Add Labels**: (Optional) Add labels for categorization and organization
+
+### Step 2: Define the Query
+Select your data source and configure the query:
+- **Exceptions tab** (default for exceptions-based alerts): Use the Exceptions Query Builder to filter exceptions and configure aggregations
+- **Query Builder**: Visual interface to filter exception data and define conditions
+- **ClickHouse Query**: Write raw SQL queries for exception data
+
+### Step 3: Configure Alert Conditions and Thresholds
+
+Define when your alert should trigger:
+
+- **Condition**: Choose the logical operator (Above, Below, Equal to, Not equal to)
+- **Match Type**: Specify how the condition must hold over the evaluation window
+- **Threshold**: Set the value to compare against
+- **Evaluation Window**: Specify how long the condition must be true before triggering
+
+#### Advanced Options
+
+- **Alert Frequency**: How often SigNoz checks the condition
+- **Notification for missing data points**: Trigger an alert if no data is received
+- **Minimum Data Points in Result Group**: Ensure enough data points before alerting
+
+### Step 4: Configure Notification Settings
+
+- **Severity**: Choose the alert level (Warning, Critical, etc.)
+- **Alert Description**: (Optional) Add a detailed description
+- **Notification Channels**: Select where to send alerts (Slack, PagerDuty, Email, etc.)
+
+## Classic Alert Creation Workflow
+
+If you prefer the previous step-by-step alert creation interface, click **"Switch to Classic Experience"** in the top-right corner of the alert creation page.
+
+## Step 1: Define the Metric Using Clickhouse Query (Classic UI)
 In this step, you define the Clickhouse query to retrieve the exception data and set conditions for triggering the alert. The following elements are available:
 
 - **Clickhouse Query**: A field to write a Clickhouse SQL query that selects and aggregates exception data. The query should define the exception type, time range, and other necessary conditions.
@@ -16,18 +65,12 @@ In this step, you define the Clickhouse query to retrieve the exception data and
 
 - **Having**: Apply conditions to filter the results further based on aggregate value.
 
-<figure data-zoomable align='center'>
-    <img src="/img/docs/alerts/alerts-exceptions-based-1.webp" alt="Using Clickhouse Query to define metrics"/>
-    <figcaption><i>Using Clickhouse Query to define metrics</i></figcaption>
-</figure>
-
-
-## Step 2: Define Alert Conditions
+## Step 2: Define Alert Conditions (Classic UI)
 
 In this step, you define the specific conditions for triggering the alert, as well as the frequency of checking those conditions.
 The condition configuration of an alert in SigNoz consists of 5 core parts:
 
-### Query
+#### Query
     
    An alert can consist of multiple queries and formulas. But only 1 of them can be put into consideration while determining the alert condition.
     
@@ -41,10 +84,10 @@ The condition configuration of an alert in SigNoz consists of 5 core parts:
     
    You can use query `C` as the evaluation target to trigger alerts based on error rate.
     
-### Condition
-    
-   This defines the logical condition to check against the selected query’s value.
-    
+#### Condition
+
+   This defines the logical condition to check against the selected query's value.
+
    | Operator | Description | Example Usage |
    | --- | --- | --- |
    | `Above` | Triggers if the value is greater than | CPU usage `Above 90` (%) |
@@ -52,10 +95,10 @@ The condition configuration of an alert in SigNoz consists of 5 core parts:
    | `Equal to` | Triggers if the value is exactly equal | Request count `Equal to 0` |
    | `Not equal to` | Triggers if the value is not equal | Instance status `Not Equal to 1` |
 
-### Match Type
-    
+#### Match Type
+
    Specifies how the condition must hold over the evaluation window. This allows for flexible evaluation logic.
-    
+
    | Match Type | Description | Example Use Case |
    | --- | --- | --- |
    | `at least once` | Trigger if condition matches even once in the window | Detect spikes or brief failures |
@@ -64,45 +107,45 @@ The condition configuration of an alert in SigNoz consists of 5 core parts:
    | `in total` | Evaluate the total sum over the window | Total errors `Above 100` |
    | `last` | Only the last data point is evaluated | Used when only latest status matters |
 
-### Evaluation Window (For)
-    
+#### Evaluation Window (For)
+
    Specifies how long the condition must be true before the alert is triggered.
-    
+
    e.g. `For 5 minutes` = The condition must remain true continuously for 5 minutes before the alert is triggered.
-    
+
    This helps reduce false positives due to short-lived spikes.
-    
-### Threshold
-    
+
+#### Threshold
+
    This is the value you are comparing the query result against.
-    
+
    e.g. If you choose `Condition = Above` and set `Threshold = 500`, the alert will fire when the query result exceeds 500.
-    
-### Threshold Unit
-    
+
+#### Threshold Unit
+
    Specifies the unit of the threshold, such as:
-    
+
    - ms (milliseconds) for latency
    - % for CPU usage
    - Count for request totals
-    
+
    Helps interpret the threshold in the correct context and also for correct scaling while comparing 2 values.
-    
-### Advanced Options
+
+#### Advanced Options
 
 In addition, there are 3 more advanced options:
 
-### Alert Frequency
+#### Alert Frequency
    - How frequently SigNoz evaluates the alert condition.
    - Default is `1 min`
    - e.g. If set to `1 min` the alert will run once every minute.
 
-### Notification for missing data points
+#### Notification for missing data points
    - Triggers an alert if **no data is received** for the configured time period.
    - Useful for services where consistent data is expected.
    - E.g. If set to `5 minutes`, and no metric data is received during that period, the alert will fire.
 
-### Minimum Data Points in Result Group
+#### Minimum Data Points in Result Group
    - Ensures the alert condition is evaluated only when there's enough data for statistical significance.
    - Helps avoid false alerts due to missing or sparse data points.
    - E.g. If set to `3`, the query must return at least 3 data points in the evaluation window for the alert to be considered.
@@ -112,17 +155,16 @@ In addition, there are 3 more advanced options:
     <figcaption><i>Define the alert conditions </i></figcaption>
 </figure>
 
-
-## Step 3: Alert Configuration
+## Step 3: Alert Configuration (Classic UI)
 In this step, you set the alert's metadata, including severity, name, and description:
 
-### Severity
+#### Severity
 Set the severity level for the alert (e.g., "Warning" or "Critical").
 
-### Alert Name
+#### Alert Name
 A field to name the alert for easy identification.
 
-### Alert Description
+#### Alert Description
 
 Add a detailed description for the alert, explaining its purpose and trigger conditions.
 
@@ -132,23 +174,18 @@ You can incorporate result attributes in the alert descriptions to make the aler
 
 **Example**: If you have a query that has the attribute `service.name` in the group by clause then to use it in the alert description, you will use `$service.name`.
 
-#### Slack alert format
+##### Slack alert format
 
 Using [advanced slack formatting](https://api.slack.com/reference/surfaces/formatting#advanced) is supported if you are using Slack as a notification channel.
 
-### Labels
+#### Labels
 A field to add static labels or tags for categorization. Labels should be added in key value pairs. First enter key (avoid space in key) and set value.
 
-### Notification channels
+#### Notification channels
 A field to choose the [notification channels](https://signoz.io/docs/setup-alerts-notification) from those configured in the Alert Channel settings.
 
-### Test Notification
+#### Test Notification
 A button to test the alert to ensure that it works as expected.
-
-<figure data-zoomable align='center'>
-    <img src="/img/docs/alerts/alerts-exceptions-based-3.webp" alt="Configure the alert"/>
-    <figcaption><i>Setting the alert metadata </i></figcaption>
-</figure>
 
 ## Examples
 
@@ -177,7 +214,7 @@ The ClickHouse Query would look like:
 - **Severity**: "Warning"
 - **Notification Channels**: signoz-slack-alerts (Slack channel)
 
-<figure data-zoomable align='center'>
+<figure data-zoomable align="center">
     <img src="/img/docs/product-features/alerts/alerts-exceptions-based.gif" alt="A gif of Exceptions Based alerts example in SigNoz"/>
     <figcaption><i>Exceptions Based Alert Example </i></figcaption>
 </figure>

@@ -1,11 +1,11 @@
 ---
-date: 2025-08-05
+date: 2026-03-30
 id: apdex-alerts
-
 title: Creating Alerts based on Apdex Score
+description: Create alerts based on Apdex (Application Performance Index) scores to monitor user satisfaction and application performance against response time thresholds.
 ---
 
-Apdex stands for Application Performance Index. It is a industry standard way to measuring the end user’s satisfaction based on the response times of the requests made by their applications and services, in comparison to a pre-determined threshold `T`.
+Apdex stands for Application Performance Index. It is a industry standard way to measuring the end user's satisfaction based on the response times of the requests made by their applications and services, in comparison to a pre-determined threshold `T`.
 
 Each request can be put into one of these three categories:
 
@@ -43,9 +43,9 @@ This cumulative structure means each `le` value contains all requests less than 
 
 We can create an alert for evaluating Apdex score using a PromQL Query.
 
-Let’s assume our threshold to be 2000 ms.
+Let's assume our threshold to be 2000 ms.
 
-<figure data-zoomable align='center'>
+<figure data-zoomable align="center">
     <img src="/img/docs/alerts/apdex-alert-1.webp" alt="Alert condition"/>
     <figcaption><i>Alert Condition</i></figcaption>
 </figure>
@@ -87,7 +87,7 @@ So the Apdex score becomes:
 
 An Apdex score of 0.8 is consider good. So we can configure our alert to trigger whenever the value crossed the threshold of 0.8 during the last 5 minutes.
 
-<figure data-zoomable align='center'>
+<figure data-zoomable align="center">
     <img src="/img/docs/alerts/apdex-alert-2.webp" alt="Alert configuration"/>
     <figcaption><i>Alert Configuration</i></figcaption>
 </figure>

@@ -1,41 +1,41 @@
 ---
-date: 2024-06-06
+date: 2026-03-30
 id: planned-maintenance
-
-title: Planned Maintenance/Downtime
+title: Planned Downtime
+description: Learn how to create and manage planned downtime windows in SigNoz to silence alerts during scheduled maintenance periods.
 ---
 
 
 ## Overview
 
-Use planned maintenance to schedule maintenance windows for your services. This helps you to avoid alerting during maintenance windows and to resume alerts after the maintenance window is over. The alert evaluation is paused during the maintenance window.
+Use planned downtime to schedule downtime windows for your services. This helps you to avoid alerting during downtime windows and to resume alerts after the downtime window is over. The alert evaluation is paused during the downtime window.
 
-## Create a Maintenance Window
+## Create a Downtime Window
 
-To create a maintenance window, navigate to the **Configuration** tab in the **Alerts** section. Click on the **`+ New downtime`** button at the top right corner and fill in the details.
+To create a downtime window, navigate to the **Configuration** tab in the **Alerts** section. Click on the **`+ New downtime`** button at the top right corner and fill in the details.
 
-### Types of maintenance windows
+### Types of downtime windows
 
-SigNoz supports two types of maintenance schedules:
+SigNoz supports two types of downtime schedules:
 
-- **One-time**: A maintenance window that is scheduled at a specific time for a fixed duration.
-- **Recurring**: A maintenance window that is scheduled at a specific time and repeats at a regular interval. Optionally, you can specify an end date for the maintenance window.
+- **One-time**: A downtime window that is scheduled at a specific time for a fixed duration.
+- **Recurring**: A downtime window that is scheduled at a specific time and repeats at a regular interval. Optionally, you can specify an end date for the downtime window.
 
-### One-time Maintenance Window
+### One-time Downtime Window
 
-<figure data-zoomable align='center'>
-    <img src="/img/docs/product-features/alerts/one-time.png" alt="one-time maintenance window"/>
-    <figcaption><i>One-time maintenance window</i></figcaption>
+<figure data-zoomable align="center">
+    <img src="/img/docs/product-features/alerts/one-time.png" alt="one-time downtime window"/>
+    <figcaption><i>One-time downtime window</i></figcaption>
 </figure>
 
-Create a one-time maintenance window by clicking on the **`+ New downtime`** button at the top right corner. Since this is a one-time maintenance window, leave the *Repeats every* field with default value `Does not repeat`.
+Create a one-time downtime window by clicking on the **`+ New downtime`** button at the top right corner. Since this is a one-time downtime window, leave the *Repeats every* field with default value `Does not repeat`.
 
-The following fields are required to create a one-time maintenance window:
+The following fields are required to create a one-time downtime window:
 
-- **Name**: A descriptive name for the maintenance window.
-- **Start Time**: The start time of the maintenance window in the selected timezone.
-- **End Time**: The end time of the maintenance window in the selected timezone.
-- **Timezone**: The timezone of the maintenance window. This is the timezone in which the maintenance window is scheduled.
+- **Name**: A descriptive name for the downtime window.
+- **Start Time**: The start time of the downtime window in the selected timezone.
+- **End Time**: The end time of the downtime window in the selected timezone.
+- **Timezone**: The timezone of the downtime window. This is the timezone in which the downtime window is scheduled.
 
 Example:
 
@@ -45,43 +45,43 @@ End time: 2024-08-01 23:00:00
 Timezone: America/New_York
 ```
 
-This means that the maintenance window is scheduled for 22:00:00 to 23:00:00 in the America/New_York timezone.
+This means that the downtime window is scheduled for 22:00:00 to 23:00:00 in the America/New_York timezone.
 
 The following fields are optional:
 
-- **Silence Alerts**: The alerts that are silenced during the maintenance window. If nothing is selected, all alerts are silenced.
+- **Silence Alerts**: The alerts that are silenced during the downtime window. If nothing is selected, all alerts are silenced.
 
-### Recurring Maintenance Window
+### Recurring Downtime Window
 
-<figure data-zoomable align='center'>
-    <img src="/img/docs/product-features/alerts/recurring-daily.png" alt="recurring maintenance window"/>
-    <figcaption><i>Recurring maintenance window</i></figcaption>
+<figure data-zoomable align="center">
+    <img src="/img/docs/product-features/alerts/recurring-daily.png" alt="recurring downtime window"/>
+    <figcaption><i>Recurring downtime window</i></figcaption>
 </figure>
 
-Create a recurring maintenance window by clicking on the **`+ New downtime`** button at the top right corner. Since this is a recurring maintenance window, select the *Repeats every* field with the desired repetition type.
+Create a recurring downtime window by clicking on the **`+ New downtime`** button at the top right corner. Since this is a recurring downtime window, select the *Repeats every* field with the desired repetition type.
 
 There are three types of repetition types available:
 
-- **Daily**: The maintenance window repeats every day.
-- **Weekly**: The maintenance window repeats every week on a specific day(s) of the week. The weekly repetition type allows you to select the days of the week on which the maintenance window repeats.
-- **Monthly**: The maintenance window repeats every month on a specific day of the month.
+- **Daily**: The downtime window repeats every day.
+- **Weekly**: The downtime window repeats every week on a specific day(s) of the week. The weekly repetition type allows you to select the days of the week on which the downtime window repeats.
+- **Monthly**: The downtime window repeats every month on a specific day of the month.
 
-The following fields are required to create a recurring maintenance window:
+The following fields are required to create a recurring downtime window:
 
-- **Name**: A descriptive name for the maintenance window.
-- **Start Time**: The start time of the maintenance window.
-- **Duration**: The duration of the maintenance window.
-- **Timezone**: The timezone of the maintenance window.
+- **Name**: A descriptive name for the downtime window.
+- **Start Time**: The start time of the downtime window.
+- **Duration**: The duration of the downtime window.
+- **Timezone**: The timezone of the downtime window.
 - **Repeats every**: The type of repetition.
 
 The following fields are optional:
 
-- **Ends**: The end date of the maintenance window.
-- **Silence Alerts**: The alerts that are silenced during the maintenance window. If nothing is selected, all alerts are silenced.
+- **Ends**: The end date of the downtime window.
+- **Silence Alerts**: The alerts that are silenced during the downtime window. If nothing is selected, all alerts are silenced.
 
 Examples:
 
-1. Daily maintenance window that repeats every day for 1 hour starting from 22:00:00 in the America/New_York timezone.
+1. Daily downtime window that repeats every day for 1 hour starting from 22:00:00 in the America/New_York timezone.
 
 ```
 Start time: 2024-08-01 22:00:00
@@ -90,7 +90,7 @@ Duration: 1 hour
 Timezone: America/New_York
 ```
 
-2. Weekly maintenance window that repeats every week on Monday for 1 hour starting from 22:00:00 in the America/New_York timezone.
+2. Weekly downtime window that repeats every week on Monday for 1 hour starting from 22:00:00 in the America/New_York timezone.
 
 ```
 Start time: 2024-08-01 22:00:00
@@ -100,7 +100,7 @@ Duration: 1 hour
 Timezone: America/New_York
 ```
 
-3. Monthly maintenance window that repeats every month on the 12th day of the month for 1 hour starting from 22:00:00 in the America/New_York timezone.
+3. Monthly downtime window that repeats every month on the 12th day of the month for 1 hour starting from 22:00:00 in the America/New_York timezone.
 
 ```
 Start time: 2024-08-12 22:00:00

@@ -2620,7 +2620,7 @@ const docsSideNav = [
       {
         type: 'doc',
         route: '/docs/alerts-management/planned-maintenance',
-        label: 'Planned Maintenance',
+        label: 'Planned Downtime',
       },
       {
         type: 'doc',
