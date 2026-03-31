@@ -1,0 +1,175 @@
+---
+date: 2026-03-30
+id: admonition-component-preview
+title: Admonition component preview
+description: Internal preview page for Admonition types and size variants (sm / lg).
+doc_type: reference
+---
+
+# Admonition component preview
+
+Sample body for each callout: `inline code`, and a [link to SigNoz](https://signoz.io/docs/).
+
+---
+
+## Size `sm` (default)
+
+### `type="note"`
+
+<Admonition type="note" title="Custom note title">
+  Note body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="info"`
+
+<Admonition type="info">
+  Info body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="tip"`
+
+<Admonition type="tip">
+  Tip body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="warning"`
+
+<Admonition type="warning">
+  Warning body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="danger"`
+
+<Admonition type="danger">
+  Danger body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="important"`
+
+<Admonition type="important">
+  Important body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### Default (no `type` — gray)
+
+<Admonition>
+  Omitted `type` uses the legacy gray default. `code` and [links](https://signoz.io/docs/) still themed.
+</Admonition>
+
+### With fenced `pre` block
+
+<Admonition type="info" title="Code block inside admonition">
+  Run:
+
+  ```bash
+  echo "hello from pre"
+  ```
+</Admonition>
+
+---
+
+## Size `lg` (`variant="lg"`)
+
+### `type="note"`
+
+<Admonition type="note" variant="lg" title="Custom note title">
+  Note body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="info"`
+
+<Admonition type="info" variant="lg">
+  Info body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="tip"`
+
+<Admonition type="tip" variant="lg">
+  Tip body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="warning"`
+
+<Admonition type="warning" variant="lg">
+  Warning body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="danger"`
+
+<Admonition type="danger" variant="lg">
+  Danger body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### `type="important"`
+
+<Admonition type="important" variant="lg">
+  Important body with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+### Default (no `type` — gray)
+
+<Admonition variant="lg">
+  Omitted `type` uses the legacy gray default. `code` and [links](https://signoz.io/docs/) still themed.
+</Admonition>
+
+### With fenced `pre` block
+
+<Admonition type="info" variant="lg" title="Code block inside admonition">
+  Run:
+
+  ```bash
+  echo "hello from pre"
+  ```
+</Admonition>
+
+---
+
+## Collapsible (`collapsible`)
+
+Default state is **expanded**. Click the header to toggle.
+
+### `collapsible` — starts expanded
+
+<Admonition type="note" collapsible title="Collapsible note (starts open)">
+  This note is collapsible. Click the header to collapse it. `inline code` and [a link](https://signoz.io/docs/) still work.
+</Admonition>
+
+<Admonition type="tip" collapsible>
+  A collapsible tip. The chevron rotates to indicate state.
+</Admonition>
+
+<Admonition type="warning" collapsible>
+  A collapsible warning with `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+<Admonition type="danger" collapsible>
+  A collapsible danger admonition.
+</Admonition>
+
+<Admonition type="important" collapsible>
+  A collapsible important admonition.
+</Admonition>
+
+### `collapsible defaultCollapsed` — starts collapsed
+
+<Admonition type="info" collapsible defaultCollapsed title="Collapsed by default — click to expand">
+  You expanded me! `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+<Admonition type="warning" collapsible defaultCollapsed>
+  This warning starts collapsed.
+</Admonition>
+
+### Collapsible `lg` variant
+
+<Admonition type="note" variant="lg" collapsible title="Large collapsible note">
+  Large variant, collapsible, starts expanded. `inline code` and [a link](https://signoz.io/docs/).
+</Admonition>
+
+<Admonition type="tip" variant="lg" collapsible defaultCollapsed title="Large collapsible tip — starts collapsed">
+  Large variant, collapsible, starts collapsed.
+
+  ```bash
+  echo "code block inside collapsible"
+  ```
+</Admonition>
