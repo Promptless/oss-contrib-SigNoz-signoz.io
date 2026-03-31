@@ -1,25 +1,26 @@
 import 'css/prism.css'
+
 import { components } from '@/components/MDXComponents'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allGuides, allAuthors } from 'contentlayer/generated'
-import type { Authors, Guide } from 'contentlayer/generated'
+import { allBlogs, allAuthors } from 'contentlayer/generated'
+import type { Authors, Blog } from 'contentlayer/generated'
 import OpenTelemetryLayout from '@/layouts/OpenTelemetryLayout'
-import OpenTelemetryHubLayout from '@/layouts/OpenTelemetryHubLayout'
-import GuidesLayout from '@/layouts/GuidesLayout'
+import OpenTelemetryHubContent from '@/layouts/OpenTelemetryHubLayout'
+import BlogLayout from '@/layouts/BlogLayout'
+import NewsroomLayout from '@/layouts/NewsroomLayout'
+import PageFeedback from '@/components/PageFeedback/PageFeedback'
 import { getHubContextForRoute } from '@/utils/opentelemetryHub'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
-import { SidebarIcons } from '@/components/sidebar-icons/icons'
 import React from 'react'
-import GrafanaVsSigNozFloatingCard from '@/components/GrafanaVsSigNoz/GrafanaVsSigNozFloatingCard'
-import Button from '@/components/ui/Button'
 
-const defaultLayout = 'GuidesLayout'
+const defaultLayout = 'BlogLayout'
 const layouts = {
   OpenTelemetryLayout,
-  GuidesLayout,
+  BlogLayout,
+  NewsroomLayout,
 }
 
 export const dynamicParams = false
@@ -31,7 +32,7 @@ export async function generateMetadata({
   params: { slug: string[] }
 }): Promise<Metadata | undefined> {
   const slug = decodeURI(params.slug.join('/'))
-  const post = allGuides.find((p) => p.slug === slug)
+  const post = allBlogs.find((p) => p.slug === slug)
 
   if (!post) {
     return notFound()
@@ -50,6 +51,7 @@ export async function generateMetadata({
   if (post.image) {
     imageList = typeof post.image === 'string' ? [post.image] : post.image
   }
+
   const ogImages = imageList.map((img) => {
     return {
       url: img.includes('http') ? img : siteMetadata.siteUrl + img,
@@ -81,24 +83,25 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  const paths = allGuides.map((p) => ({ slug: p.slug?.split('/') }))
+  const paths = allBlogs.map((p) => ({ slug: p.slug?.split('/') }))
 
   return paths
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
+export default async function Page(props: { params: { slug: string[] } }) {
+  const { params } = props
+  const suppressStructuredData = (props as { suppressStructuredData?: boolean })
+    .suppressStructuredData
   const slug = decodeURI(params.slug.join('/'))
-  const currentRoute = `/guides/${slug}`
-  const isGrafanaOrPrometheusArticle =
-    slug.toLowerCase().includes('grafana') || slug.toLowerCase().includes('prometheus')
+  const currentRoute = `/blog/${slug}`
   // Filter out drafts in production
-  const sortedCoreContents = allCoreContent(sortPosts(allGuides))
+  const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
   if (postIndex === -1) {
     return notFound()
   }
 
-  const post = allGuides.find((p) => p.slug === slug) as Guide
+  const post = allBlogs.find((p) => p.slug === slug) as Blog
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
@@ -112,51 +115,32 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   if (hubContext) {
     return (
       <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <div className="container mx-auto">
-          <Button
-            variant={'ghost'}
-            to={`/resource-center/guides/`}
-            className="ml-3.5 mt-10 hover:bg-transparent"
-          >
-            <span className="flex items-center">
-              <SidebarIcons.ArrowLeft />
-              <span className="pl-1.5 text-sm">Back to Guides</span>
-            </span>
-          </Button>
-        </div>
-
-        <OpenTelemetryHubLayout
+        {!suppressStructuredData && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+        )}
+        <OpenTelemetryHubContent
           content={mainContent}
           authorDetails={authorDetails}
           authors={authorList}
           toc={post.toc}
-          navItems={hubContext.items}
-          currentHubPath={hubContext.pathKey}
-          pathMeta={hubContext.firstRouteByPath}
-          defaultLanguage={hubContext.defaultLanguage}
-          availableLanguages={hubContext.languages}
-          currentRoute={currentRoute}
+          showSidebar={hubContext.pathKey !== 'quick-start' && hubContext.items.length > 0}
         >
           <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
-        </OpenTelemetryHubLayout>
-
-        {/* Render GrafanaVsSigNozFloatingCard if the slug contains Grafana or Prometheus */}
-        {isGrafanaOrPrometheusArticle && <GrafanaVsSigNozFloatingCard />}
+        </OpenTelemetryHubContent>
       </>
     )
   }
 
-  // Choose layout based on slug or post layout
   let layoutName = post.layout || defaultLayout
-  if (slug.includes('opentelemetry')) {
+  if (post.is_newsroom) {
+    layoutName = 'NewsroomLayout'
+  } else if (slug.includes('opentelemetry')) {
     layoutName = 'OpenTelemetryLayout'
   } else {
-    layoutName = 'GuidesLayout'
+    layoutName = 'BlogLayout'
   }
 
   // @ts-ignore
@@ -164,24 +148,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <div className="container mx-auto">
-        <Button
-          variant={'ghost'}
-          to={`/resource-center/guides/`}
-          className="ml-3.5 mt-10 hover:bg-transparent"
-        >
-          <span className="flex items-center">
-            <SidebarIcons.ArrowLeft />
-            <span className="pl-1.5 text-sm">Back to Guides</span>
-          </span>
-        </Button>
-      </div>
-
+      {!suppressStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
       <Layout
         content={mainContent}
         authorDetails={authorDetails}
@@ -189,10 +161,11 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         toc={post.toc}
       >
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        {/* NewsroomLayout is the only layout that needs inline PageFeedback here
+            because it doesn't extend ArticleLayout, which handles feedback placement internally
+            for BlogLayout and OpenTelemetryLayout. */}
+        {layoutName === 'NewsroomLayout' && <PageFeedback />}
       </Layout>
-
-      {/* Render GrafanaVsSigNozFloatingCard if the slug contains Grafana or Prometheus */}
-      {isGrafanaOrPrometheusArticle && <GrafanaVsSigNozFloatingCard />}
     </>
   )
 }
