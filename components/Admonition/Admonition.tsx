@@ -14,7 +14,6 @@ type AdmonitionTheme = {
   title: string
   bodyMuted: string
   icon: (size: 'sm' | 'lg') => React.ReactNode
-  // iconBox: string
 }
 
 const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
@@ -34,7 +33,6 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
         aria-hidden
       />
     ),
-    // iconBox: 'bg-signoz_robin-500/[0.15] text-signoz_robin-300',
   },
   tip: {
     root: [
@@ -52,7 +50,6 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
         aria-hidden
       />
     ),
-    // iconBox: 'bg-signoz_forest-500/[0.15] text-signoz_forest-300',
   },
   warning: {
     root: [
@@ -70,7 +67,6 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
         aria-hidden
       />
     ),
-    // iconBox: 'bg-signoz_amber-500/[0.15] text-signoz_amber-300',
   },
   danger: {
     root: [
@@ -88,7 +84,6 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
         aria-hidden
       />
     ),
-    // iconBox: 'bg-signoz_cherry-500/[0.15] text-signoz_cherry-300',
   },
   info: {
     root: [
@@ -106,7 +101,6 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
         aria-hidden
       />
     ),
-    // iconBox: 'bg-signoz_robin-500/[0.15] text-signoz_robin-300',
   },
   important: {
     root: [
@@ -121,7 +115,6 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     icon: (size) => (
       <Info className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-violet-200')} aria-hidden />
     ),
-    // iconBox: 'bg-violet-500/[0.15] text-violet-300',
   },
   default: {
     root: [
@@ -136,7 +129,6 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     icon: (size) => (
       <Info className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-zinc-200')} aria-hidden />
     ),
-    // iconBox: 'bg-zinc-500/[0.15] text-zinc-300',
   },
 }
 
