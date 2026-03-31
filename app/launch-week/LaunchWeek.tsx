@@ -63,7 +63,7 @@ const MainSection: React.FC = () => {
             <a
               href="https://lu.ma/signoz-launch-week"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               id="launch-page-subscribe"
             >
               <div className="flex items-center gap-1.5">

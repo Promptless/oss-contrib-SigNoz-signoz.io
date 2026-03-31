@@ -276,7 +276,7 @@ export const HIGH_GROWTH_TEAMS_CARDS = [
           clickText="Learn more"
           href="https://trust.signoz.io/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="opacity-60 hover:opacity-100"
         >
           <Image
@@ -294,7 +294,7 @@ export const HIGH_GROWTH_TEAMS_CARDS = [
           clickText="Learn more"
           href="https://trust.signoz.io/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="rounded-full opacity-60 shadow-[0px_0_40px_0_rgba(255,255,255,0.27)] transition-opacity hover:opacity-100"
         >
           <Image

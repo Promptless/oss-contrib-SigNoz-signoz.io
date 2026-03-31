@@ -135,7 +135,7 @@ export default function Enterprise() {
         {/* Enterprise Cloud */}
         <div className="border-dashed-container flex flex-row">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-            <div className="flex-1 flex-col items-start border-b-1 border-r-0 border-dashed border-signoz_slate-300 px-8 py-8 md:border-b-0 md:border-r md:border-dashed">
+            <div className="border-b-1 flex-1 flex-col items-start border-r-0 border-dashed border-signoz_slate-300 px-8 py-8 md:border-b-0 md:border-r md:border-dashed">
               <div className="mt-3 text-xl font-bold">Enterprise Cloud</div>
 
               <div className="mt-4 text-lg font-normal">
@@ -358,7 +358,7 @@ export default function Enterprise() {
                     <a
                       href="https://www.uber.com/blog/logging/"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                     >
                       Uber
                     </a>{' '}
@@ -366,7 +366,7 @@ export default function Enterprise() {
                     <a
                       href="https://blog.cloudflare.com/log-analytics-using-clickhouse/"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                     >
                       Cloudflare
                     </a>
