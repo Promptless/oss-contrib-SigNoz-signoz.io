@@ -8,7 +8,7 @@ image: /img/blog/common/trace-view-2025.webp
 keywords: [opentelemetry,opentelemetry python,distributed tracing,observability,python monitoring,python instrumentation,signoz]
 ---
 
-OpenTelemetry is a vendor-agnostic instrumentation library under [CNCF](https://www.cncf.io/) — the organization hosting projects that are the backbone of modern-day cloud-native systems. Over the years, OTel (as OpenTelemetry is conveniently known) has been adopted widely by the developer community and is being used by organisations of all sizes.
+OpenTelemetry is a vendor-agnostic instrumentation library under <a href="https://www.cncf.io/" target="_blank" rel="noopener noreferrer nofollow">CNCF</a> — the organization hosting projects that are the backbone of modern-day cloud-native systems. Over the years, OTel (as OpenTelemetry is conveniently known) has been adopted widely by the developer community and is being used by organisations of all sizes.
 
 Teams are increasingly using it to standardise telemetry (traces, metrics, and logs) data collection and management across languages, frameworks, and environments. In this practical guide, we’ll walk through everything you need to know to use OpenTelemetry in Python application — how it works, how to instrument Python applications, and how to send telemetry to an OpenTelemetry-compatible backend like SigNoz.
 
@@ -16,7 +16,7 @@ Teams are increasingly using it to standardise telemetry (traces, metrics, and l
 
 [OpenTelemetry](https://signoz.io/why-opentelemetry/) emerged as a single project after the merging of OpenCensus (from Google) and OpenTracing (from Uber) into a single project. It seeks to unify the fragmented observability ecosystem and provide users with a vendor-agnostic pipeline to any compatible observability platform. This would enable telemetry signals to become a built-in feature of cloud-native software applications.
 
-OpenTelemetry supports all popular programming languages and has a vast number of [Python libraries](https://opentelemetry.io/ecosystem/registry/?s=python) to integrate into your applications. Python features robust integration with OpenTelemetry because of its immense popularity and use in all industries. Let’s understand how OTel works in more detail.
+OpenTelemetry supports all popular programming languages and has a vast number of <a href="https://opentelemetry.io/ecosystem/registry/?s=python" target="_blank" rel="noopener noreferrer nofollow">Python libraries</a> to integrate into your applications. Python features robust integration with OpenTelemetry because of its immense popularity and use in all industries. Let’s understand how OTel works in more detail.
 
 ### How Does OpenTelemetry Instrumentation Work with Python?
 
@@ -56,7 +56,7 @@ We’ll be using SigNoz as the observability backend of choice for receiving and
 There are the main prerequisites to getting started:
 
 - A [SigNoz Cloud Account](https://signoz.io/teams/)
-- Python 3.8 or later ([Download the latest version here](https://www.python.org/downloads/))
+- Python 3.8 or later (<a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer nofollow">Download the latest version here</a>)
 - A locally running MongoDB instance (find detailed instructions below)
 
 ### Step 1: Setting Up SigNoz
@@ -69,7 +69,7 @@ As discussed previously, we will send the application’s emitted telemetry to S
 
 You can skip this step if you have already set up a MongoDB instance on your machine.
 
-The easiest way to run MongoDB locally is to set it up using [Docker](https://docs.docker.com/desktop/). Run the following command to start MongoDB:
+The easiest way to run MongoDB locally is to set it up using <a href="https://docs.docker.com/desktop/" target="_blank" rel="noopener noreferrer nofollow">Docker</a>. Run the following command to start MongoDB:
 
 ```jsx
 docker run --rm --name my-mongo -it -dp 27017:27017 mongo:latest
@@ -77,14 +77,14 @@ docker run --rm --name my-mongo -it -dp 27017:27017 mongo:latest
 
 Alternatively, if you’d like to install it directly on your machine, you can find instructions based on your OS:
 
-- [macOS](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
-- [Linux](https://docs.mongodb.com/manual/administration/install-on-linux/)
-- [Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
-- [Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+- <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="noopener noreferrer nofollow">macOS</a>
+- <a href="https://docs.mongodb.com/manual/administration/install-on-linux/" target="_blank" rel="noopener noreferrer nofollow">Linux</a>
+- <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/" target="_blank" rel="noopener noreferrer nofollow">Windows</a>
+- <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="noopener noreferrer nofollow">Ubuntu</a>
 
 ### Step 3: Preparing the Sample Python Application
 
-We have prepared a sample Flask application [Github repository](https://github.com/SigNoz/sample-flask-app) to get you up-and-running quickly. It is a CRUD TODO application to help you get familiar with OpenTelemetry concepts, and all required packages are part of the `opentelemetry.txt` file.
+We have prepared a sample Flask application <a href="https://github.com/SigNoz/sample-flask-app" target="_blank" rel="noopener noreferrer nofollow">Github repository</a> to get you up-and-running quickly. It is a CRUD TODO application to help you get familiar with OpenTelemetry concepts, and all required packages are part of the `opentelemetry.txt` file.
 
 Access the code locally by running:
 
@@ -115,7 +115,7 @@ The `opentelemetry-exporter-otlp` is a convenience wrapper package to install al
 The `opentelemetry-exporter-otlp-proto-grpc` package installs the gRPC exporter which depends on the `grpcio` package. The installation of `grpcio` may fail on some platforms for various reasons. If you run into such issues, or you don't want to use gRPC, you can install the HTTP exporter instead by installing the `opentelemetry-exporter-otlp-proto-http` package. You need to set the `OTEL_EXPORTER_OTLP_PROTOCOL` environment variable to `http/protobuf` to use the HTTP exporter.
 </KeyPointCallout>
 
-If it hangs while installing the `grpcio` dependency for **`opentelemetry-exporter-otlp`**, follow below steps as suggested in [this stackoverflow link](https://stackoverflow.com/questions/56357794/unable-to-install-grpcio-using-pip-install-grpcio/62500932#62500932).
+If it hangs while installing the `grpcio` dependency for **`opentelemetry-exporter-otlp`**, follow below steps as suggested in <a href="https://stackoverflow.com/questions/56357794/unable-to-install-grpcio-using-pip-install-grpcio/62500932#62500932" target="_blank" rel="noopener noreferrer nofollow">this stackoverflow link</a>.
 
 - `pip3 install --upgrade pip`
 - `python3 -m pip install --upgrade setuptools`
@@ -230,7 +230,7 @@ with tracer.start_as_current_span("validate_data") as span:
 
 Custom metrics derive performance KPIs and measure business-specific health signals. Automatic instrumentation does not measure these values as they require deep insight into an application’s business context, and must be measured manually.
 
-We have used a custom meter to monitor the number of active TODOs in [our sample application](https://github.com/SigNoz/sample-flask-app/blob/master/app.py). The relevant code snippet is as follows:
+We have used a custom meter to monitor the number of active TODOs in <a href="https://github.com/SigNoz/sample-flask-app/blob/master/app.py" target="_blank" rel="noopener noreferrer nofollow">our sample application</a>. The relevant code snippet is as follows:
 
 ```python
 from flask import Flask

@@ -214,7 +214,7 @@ You can change the Threshold value by going to Settings on top-right corner of y
 
 This pane shows details about the database calls that your application makes. The spans should have the following span attributes to be counted in this panel
 
-- `span.kind!=2` which means these are spans of kind anything except `SERVER`. You can read more details on SpanKinds [here](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#spankind)
+- `span.kind!=2` which means these are spans of kind anything except `SERVER`. You can read more details on SpanKinds <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#spankind" target="_blank" rel="noopener noreferrer nofollow">here</a>
 - `db.system` should be present as span attribute
 
 If your services are making DB calls and your Database Call panels show as empty, please make sure that:
@@ -231,7 +231,7 @@ The external calls pane allows you to track the external services your applicati
 
 The spans should have the following span attributes to be counted in this panel
 
-- `span.kind=3` which means these are spans of kind [`CLIENT`](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto#L139). You can read more details on SpanKinds [here](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#spankind)
+- `span.kind=3` which means these are spans of kind [`CLIENT`](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto#L139). You can read more details on SpanKinds <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#spankind" target="_blank" rel="noopener noreferrer nofollow">here</a>
 - One of the following sets of attributes
     * rpc.system, rpc.service, rpc.method
     * rpc.system, net.peer.name, net.peer.port

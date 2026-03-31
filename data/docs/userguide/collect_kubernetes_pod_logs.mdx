@@ -162,7 +162,7 @@ helm -n platform upgrade --install <release-name> signoz/k8s-infra -f override-v
 
 <TabItem value="filter-operator" label="Filter Operator">
 
-To filter logs using [expression](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/types/expression.md), you need to 
+To filter logs using <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/types/expression.md" target="_blank" rel="noopener noreferrer nofollow">expression</a>, you need to 
 modify/create `override-values.yaml` file with the below configuration to customize and override default settings of the [`values.yaml`](https://github.com/SigNoz/charts/blob/main/charts/k8s-infra/values.yaml) file:
 
 
@@ -176,7 +176,7 @@ presets:
         drop_ratio: 1.0
 ```
 
-This filters logs matching the expression and drops them entirely. Learn more about the filter operator [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/filter.md).
+This filters logs matching the expression and drops them entirely. Learn more about the filter operator <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/filter.md" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 Run the below command in the directory containing the `override-values.yaml` file to apply the configuration:
 

@@ -6,7 +6,7 @@ id: k8s-infra-otel-config
 description: Configure the k8s-infra OpenTelemetry collection agent to send Kubernetes metrics, logs, and traces to SigNoz.
 ---
 
-This guide explains how to configure the OpenTelemetry Collectors deployed by the SigNoz [K8s-Infra Helm chart](https://github.com/signoz/charts/tree/main/charts/k8s-infra/README.md). You'll learn how to set up telemetry data collection and enable the collection of metrics, logs, and traces from your Kubernetes cluster.
+This guide explains how to configure the OpenTelemetry Collectors deployed by the SigNoz <a href="https://github.com/signoz/charts/tree/main/charts/k8s-infra/README.md" target="_blank" rel="noopener noreferrer nofollow">K8s-Infra Helm chart</a>. You'll learn how to set up telemetry data collection and enable the collection of metrics, logs, and traces from your Kubernetes cluster.
 
 To install K8s-Infra in your Kubernetes cluster, please check out the [k8s-infra Installation guide](/docs/collection-agents/k8s/k8s-infra/install-k8s-infra)
 
@@ -98,10 +98,10 @@ otelDeployment:
 ```
 
 ## Essential Presets
-SigNoz allows you to use the presets in the k8s-infra Helm chart to easily configure OtelCollector. The following configurations can be set by modifying the `values.yml` in the [k8s-infra Helm chart](https://github.com/signoz/charts/tree/main/charts/k8s-infra/values.yaml).
+SigNoz allows you to use the presets in the k8s-infra Helm chart to easily configure OtelCollector. The following configurations can be set by modifying the `values.yml` in the <a href="https://github.com/signoz/charts/tree/main/charts/k8s-infra/values.yaml" target="_blank" rel="noopener noreferrer nofollow">k8s-infra Helm chart</a>.
 
 <Admonition>
-  The `presets` section in the `values.yaml` file allows you to enable or disable specific configurations. To check the available presets, refer to the [k8s-infra Helm chart documentation](https://github.com/SigNoz/charts/blob/main/charts/k8s-infra/README.md#presets-configuration).
+  The `presets` section in the `values.yaml` file allows you to enable or disable specific configurations. To check the available presets, refer to the <a href="https://github.com/SigNoz/charts/blob/main/charts/k8s-infra/README.md#presets-configuration" target="_blank" rel="noopener noreferrer nofollow">k8s-infra Helm chart documentation</a>.
 </Admonition>
 ### 1. OTLP Exporter
 ```yaml
@@ -329,9 +329,9 @@ The `k8s-infra` chart exposes the full OpenTelemetry Collector configuration via
 
 ### Batch Processor
 
-The [batch processor](https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/batchprocessor/README.md) batches spans, metrics, and logs before export. That reduces connections and improves compression. It supports both size-based and time-based batching.
+The <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/batchprocessor/README.md" target="_blank" rel="noopener noreferrer nofollow">batch processor</a> batches spans, metrics, and logs before export. That reduces connections and improves compression. It supports both size-based and time-based batching.
 
-Configure the batch processor by overriding [otelAgent.config.processors.batch](https://github.com/SigNoz/charts/blob/main/charts/k8s-infra/values.yaml#L953) and [otelDeployment.config.processors.batch](https://github.com/SigNoz/charts/blob/main/charts/k8s-infra/values.yaml#L1325) in your Helm values. Example override:
+Configure the batch processor by overriding <a href="https://github.com/SigNoz/charts/blob/main/charts/k8s-infra/values.yaml#L953" target="_blank" rel="noopener noreferrer nofollow">otelAgent.config.processors.batch</a> and <a href="https://github.com/SigNoz/charts/blob/main/charts/k8s-infra/values.yaml#L1325" target="_blank" rel="noopener noreferrer nofollow">otelDeployment.config.processors.batch</a> in your Helm values. Example override:
 
 ```diff
 otelAgent:

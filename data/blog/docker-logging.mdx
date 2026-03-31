@@ -18,7 +18,7 @@ keywords: [docker logging, container logs, logging drivers, log management, moni
 <script
 type="application/ld+json"
 dangerouslySetInnerHTML={{ __html: JSON.stringify({
-"@context": "[https://schema.org](https://schema.org/)",
+"@context": "<a href="https://schema.org/" target="_blank" rel="noopener noreferrer nofollow">https://schema.org</a>",
 "@type": "TechArticle",
 "headline": "Docker Logging - Types, Configuring Drivers, Best Practices",
 "alternativeHeadline": "Master Docker logging with this comprehensive guide to types, drivers, and best practices",
@@ -256,7 +256,7 @@ Understand [**How to Access and Understand Docker Daemon Logs](https://signoz.io
 
 Container logs can be accessed using the `docker logs` command, followed by the container’s ID or name.
 
-It is used to get all the information logged by a running container. The example below shows JSON logs created by the [hello-world](https://hub.docker.com/_/hello-world) Docker image using json-file driver:
+It is used to get all the information logged by a running container. The example below shows JSON logs created by the <a href="https://hub.docker.com/_/hello-world" target="_blank" rel="noopener noreferrer nofollow">hello-world</a> Docker image using json-file driver:
 
 ```json
 {"log":"Hello there!\\n","stream":"stdout","time":"2022-07-28T22:51:31.549390877Z"}
@@ -278,7 +278,7 @@ This message shows that everything seems to be working correctly.
 
 ```
 
-Here are a few [options](https://docs.docker.com/engine/reference/commandline/logs/#options) in the command that you can use to modify the output of your log:
+Here are a few <a href="https://docs.docker.com/engine/reference/commandline/logs/#options" target="_blank" rel="noopener noreferrer nofollow">options</a> in the command that you can use to modify the output of your log:
 
 ```docker
 docker logs [OPTIONS] <container-id>
@@ -328,7 +328,7 @@ docker service logs [SERVICE_ID or SERVICE_NAME]
 It aggregates and outputs the logs from all containers that are part of the specified service. This is particularly useful for getting a unified view of what's happening across multiple containers that are part of the same service, potentially spread across different nodes in the cluster.
 
 <Admonition>
-he offering from the `docker logs` command may vary based on the Docker version you are using. In case of [Docker Community](https://www.docker.com/community/), `docker logs` can only read logs created by the `json-file`, local, and `journald` drivers whereas in case of [Docker Enterprise](https://docs.docker.com/config/containers/logging/dual-logging/), `docker logs` can read logs created by any logging driver.
+he offering from the `docker logs` command may vary based on the Docker version you are using. In case of <a href="https://www.docker.com/community/" target="_blank" rel="noopener noreferrer nofollow">Docker Community</a>, `docker logs` can only read logs created by the `json-file`, local, and `journald` drivers whereas in case of <a href="https://docs.docker.com/config/containers/logging/dual-logging/" target="_blank" rel="noopener noreferrer nofollow">Docker Enterprise</a>, `docker logs` can read logs created by any logging driver.
 </Admonition>
 
 <LogsPerf />
@@ -579,7 +579,7 @@ But logs are just one aspect of getting insights from your software systems. Mod
 
 SigNoz can help you monitor your application by collecting all types of telemetry data. It correlates all your telemetry data(logs, metrics, and traces) into a single suite of monitoring. It is built to support [OpenTelemetry](https://signoz.io/opentelemetry/) natively. OpenTelemetry is becoming the world standard for instrumenting cloud-native applications.
 
-You can check out [SigNoz GitHub](https://github.com/signoz/signoz) repo:
+You can check out <a href="https://github.com/signoz/signoz" target="_blank" rel="noopener noreferrer nofollow">SigNoz GitHub</a> repo:
 
 ![/img/blog/common/signoz_github.webp](/img/blog/common/signoz_github.webp)
 

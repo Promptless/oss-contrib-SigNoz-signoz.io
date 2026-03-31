@@ -29,7 +29,7 @@ cta_text: "Monitor Sprint Boot with OTel"
     type="application/ld+json"
     dangerouslySetInnerHTML={{
       __html: JSON.stringify({
-        '@context': '[https://schema.org](https://schema.org/)',
+        '@context': '<a href="https://schema.org/" target="_blank" rel="noopener noreferrer nofollow">https://schema.org</a>',
         '@type': 'TechArticle',
         headline: 'Implementing OpenTelemetry in Spring Boot - A Practical Guide',
         alternativeHeadline:
@@ -234,7 +234,7 @@ You need a backend to which you can send the collected data for monitoring and v
 
 For this tutorial, we will use the popular <a href = "https://github.com/SigNoz/spring-petclinic" rel="noopener noreferrer nofollow" target="_blank" >Spring PetClinic application</a> and integrate it with OpenTelemetry.
 
-The Spring PetClinic application is a well-known sample application used to demonstrate the capabilities of the Spring Framework in Java. It is a web application that uses Spring MVC (Model-View-Controller) to handle web requests, manage controllers, and render views. You can read more about it [here](https://spring-petclinic.github.io/).
+The Spring PetClinic application is a well-known sample application used to demonstrate the capabilities of the Spring Framework in Java. It is a web application that uses Spring MVC (Model-View-Controller) to handle web requests, manage controllers, and render views. You can read more about it <a href="https://spring-petclinic.github.io/" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 **Git clone the repository and go to the root folder:**
 
@@ -268,7 +268,7 @@ Once you ensure that your application runs fine, stop it with `ctrl + c` on mac,
 
 ## Step 3: Downloading OpenTelemetry Java Agent JAR
 
-Download the [latest Java agent JAR](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar). You will need the path of this file, so note it down somewhere. You can also use the terminal to get this file using the following command:
+Download the <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar" target="_blank" rel="noopener noreferrer nofollow">latest Java agent JAR</a>. You will need the path of this file, so note it down somewhere. You can also use the terminal to get this file using the following command:
 
 ```bash
 wget https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
@@ -446,7 +446,7 @@ The OpenTelemetry Spring Boot starter is recommended when:
 - You're already using another [Java monitoring](https://signoz.io/guides/monitoring-java-applications/) agent that may conflict with the OpenTelemetry Java agent.
 - You need to configure OpenTelemetry using Spring Boot configuration files which doesn't work with the Java agent.
 
-While the default choice of instrumentation is the OpenTelemetry Java agent, you can use the starter in case it fits your requirement. You can read more about it [here](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/)
+While the default choice of instrumentation is the OpenTelemetry Java agent, you can use the starter in case it fits your requirement. You can read more about it <a href="https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/" target="_blank" rel="noopener noreferrer nofollow">here</a>
 
 ## Advanced OpenTelemetry Techniques for Spring Boot
 

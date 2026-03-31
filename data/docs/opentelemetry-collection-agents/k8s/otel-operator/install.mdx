@@ -10,7 +10,7 @@ import OtelOperatorAutoInstrumentation from '@/components/shared/otel-operator-a
 import OtelOperatorPetClinic from '@/components/shared/otel-operator-pet-clinic.md'
 import OtelOperatorCleanUp from '@/components/shared/otel-operator-cleanup.md'
 
-[OpenTelemetry Operator](https://github.com/open-telemetry/opentelemetry-operator) makes it easier to set up the OpenTelemetry collector and auto-instrument workloads deployed on Kubernetes.
+<a href="https://github.com/open-telemetry/opentelemetry-operator" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Operator</a> makes it easier to set up the OpenTelemetry collector and auto-instrument workloads deployed on Kubernetes.
 
 A Kubernetes operator is a method of packaging, deploying, and managing a Kubernetes application. OpenTelemetry Operator helps a lot in managing OpenTelemetry collectors and enables auto-instrumentation.
 
@@ -21,7 +21,7 @@ Before installing the OpenTelemetry Operator, ensure you have:
 - A running Kubernetes cluster (v1.19 or later recommended)
 - Administrative kubectl access to your cluster
 - SigNoz installed and running ([Installation Guide](https://signoz.io/docs/install/))
-- [cert-manager](https://cert-manager.io/docs/installation/) installed in your cluster
+- <a href="https://cert-manager.io/docs/installation/" target="_blank" rel="noopener noreferrer nofollow">cert-manager</a> installed in your cluster
 
 
 ## Installing the OpenTelemetry Operator
@@ -57,7 +57,7 @@ helm install opentelemetry-operator open-telemetry/opentelemetry-operator \
   --namespace opentelemetry-operator-system
 ```
 
-Check the [OpenTelemetry Operator Helm Chart Documentation](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-operator#install-chart) for advanced configuration options.
+Check the <a href="https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-operator#install-chart" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Operator Helm Chart Documentation</a> for advanced configuration options.
 </TabItem>
 </Tabs>
 
@@ -65,11 +65,11 @@ Once the `opentelemetry-operator` deployment is ready, you can proceed with crea
 
 ## OpenTelemetry Collector
 
-The OpenTelemetry Operator provides a [Custom Resource Definition (CRD) for OpenTelemetry Collectors](https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/api/opentelemetrycollectors.md) with flexible deployment options through the `.Spec.Mode` property. You can deploy collectors as:
+The OpenTelemetry Operator provides a <a href="https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/api/opentelemetrycollectors.md" target="_blank" rel="noopener noreferrer nofollow">Custom Resource Definition (CRD) for OpenTelemetry Collectors</a> with flexible deployment options through the `.Spec.Mode` property. You can deploy collectors as:
 
-The `.Spec.Config` property contains the OpenTelemetry Collector configuration YAML. Explore additional [deployment mode examples](https://github.com/open-telemetry/opentelemetry-operator?tab=readme-ov-file#deployment-modes) in the official repository.
+The `.Spec.Config` property contains the OpenTelemetry Collector configuration YAML. Explore additional <a href="https://github.com/open-telemetry/opentelemetry-operator?tab=readme-ov-file#deployment-modes" target="_blank" rel="noopener noreferrer nofollow">deployment mode examples</a> in the official repository.
 
-OpenTelemetry Operator provides [examples](https://github.com/open-telemetry/opentelemetry-operator?tab=readme-ov-file#deployment-modes) for each deployment mode.
+OpenTelemetry Operator provides <a href="https://github.com/open-telemetry/opentelemetry-operator?tab=readme-ov-file#deployment-modes" target="_blank" rel="noopener noreferrer nofollow">examples</a> for each deployment mode.
 
 <Admonition type="tip">
 To quickly deploy OpenTelemetry Collectors for node-level and cluster-level data collection with SigNoz, you can use our [Configure Guide](/docs/collection-agents/k8s/otel-operator/configure/) which provides ready-to-use DaemonSet and Deployment manifests with pre-configured settings for sending telemetry directly to SigNoz.  

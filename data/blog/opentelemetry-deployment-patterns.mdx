@@ -141,11 +141,11 @@ If you have many clusters or regions that need unified telemetry, use the *multi
 
 *OR*
 
-When you need maximum ingestion throughput and uptime, deploy a load-balanced collector. Put collectors behind a robust [L7 load balancer](https://www.haproxy.com/glossary/what-is-layer-7-load-balancing) so you can autoscale instances on demand. This handles bursts by spreading the load and avoiding any single Collector becoming a bottleneck.
+When you need maximum ingestion throughput and uptime, deploy a load-balanced collector. Put collectors behind a robust <a href="https://www.haproxy.com/glossary/what-is-layer-7-load-balancing" target="_blank" rel="noopener noreferrer nofollow">L7 load balancer</a> so you can autoscale instances on demand. This handles bursts by spreading the load and avoiding any single Collector becoming a bottleneck.
 
 *OR*
 
-If your metrics/trace/log volumes differ greatly, consider splitting pipelines by [signal.](http://signal.Like) Like we mentioned above, run one collector for metrics [allowing many scraper replicas] and another for traces [optimised for tail sampling]. This lets you scale each pipeline to its workload without interference.
+If your metrics/trace/log volumes differ greatly, consider splitting pipelines by <a href="http://signal.Like" target="_blank" rel="noopener noreferrer nofollow">signal.</a> Like we mentioned above, run one collector for metrics [allowing many scraper replicas] and another for traces [optimised for tail sampling]. This lets you scale each pipeline to its workload without interference.
 
 *OR*
 

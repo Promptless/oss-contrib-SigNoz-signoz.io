@@ -66,7 +66,7 @@ SigNoz is an open-source APM that can be self-hosted within your infrastructure.
 
 It is easy to get started with SigNoz. It can be installed on macOS or Linux computers in just three steps by using a simple installation script.
 
-The install script automatically installs Docker Engine on Linux. However, you must manually install [Docker Engine](https://docs.docker.com/engine/install/) on macOS before running the install script.
+The install script automatically installs Docker Engine on Linux. However, you must manually install <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer nofollow">Docker Engine</a> on macOS before running the install script.
 
 ```jsx
 git clone -b main https://github.com/SigNoz/signoz.git
@@ -78,7 +78,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 
 [![Deployment Docs](/img/blog/common/deploy_docker_documentation.webp)](https://signoz.io/docs/install/)
 
-Once installed, you can access SigNoz UI at port 3301 -  [http://localhost:3301](http://localhost:3301/application). You will get a sign-up page. If you’re a first-time user, you can create an account using `Create an account`.
+Once installed, you can access SigNoz UI at port 3301 -  <a href="http://localhost:3301/application" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3301</a>. You will get a sign-up page. If you’re a first-time user, you can create an account using `Create an account`.
 
 <figure data-zoomable align='center'>
     <img src="/img/blog/2022/07/signoz_sign_up_page.webp" alt="Create an account"/>
@@ -157,7 +157,7 @@ You need to make two changes to enable OpenTelemetry Collector to receive Redis 
      The above pipeline sets the Redis data pipeline in which it is received as Redis metrics and exported to be written in ClickHouse, the database used by SigNoz to store telemetry data.
     
 
-You can have a look at the `otel-collector-config.yaml` file on our [GitHub repo](https://github.com/SigNoz/signoz/blob/main/deploy/docker/otel-collector-config.yaml). The final config file along with Redis receiver looks like below:
+You can have a look at the `otel-collector-config.yaml` file on our <a href="https://github.com/SigNoz/signoz/blob/main/deploy/docker/otel-collector-config.yaml" target="_blank" rel="noopener noreferrer nofollow">GitHub repo</a>. The final config file along with Redis receiver looks like below:
 
 <Admonition>
 We have configured the `redis endpoint` for Mac for this demo. You will need to update the endpoint based on your environment.

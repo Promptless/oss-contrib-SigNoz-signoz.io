@@ -8,13 +8,13 @@ description: Enable observability and monitoring in your LangChain and LangGraph
 
 ## Overview
 
-This guide walks you through enabling observability and monitoring for your Python-based [LangChain](https://www.langchain.com/) application and streaming telemetry data to SigNoz Cloud using OpenTelemetry. By the end of this setup, you'll be able to monitor AI-specific operations such as agent reasoning steps, tool invocations, API calls, and intermediate chain executions within LangChain, with detailed spans capturing request durations, tool inputs and outputs, model responses, and metadata throughout the agent’s decision-making process.
+This guide walks you through enabling observability and monitoring for your Python-based <a href="https://www.langchain.com/" target="_blank" rel="noopener noreferrer nofollow">LangChain</a> application and streaming telemetry data to SigNoz Cloud using OpenTelemetry. By the end of this setup, you'll be able to monitor AI-specific operations such as agent reasoning steps, tool invocations, API calls, and intermediate chain executions within LangChain, with detailed spans capturing request durations, tool inputs and outputs, model responses, and metadata throughout the agent’s decision-making process.
 
 Instrumenting your agent workflows with telemetry enables full observability across the reasoning and action pipeline. This is especially valuable when building production-grade AI applications, where insight into agent behavior, latency bottlenecks, tool call performance, and response accuracy is essential. With SigNoz, you can trace each user request end-to-end—from the initial prompt through every intermediate reasoning step, tool execution, and final answer—and continuously improve performance, reliability, and user experience.
 
-To get started, check out our example LangChain trip planner agent with OpenTelemetry-based observability/monitoring (via OpenInference). View the full repository [here](https://github.com/SigNoz/langchain-monitoring-demo).
+To get started, check out our example LangChain trip planner agent with OpenTelemetry-based observability/monitoring (via OpenInference). View the full repository <a href="https://github.com/SigNoz/langchain-monitoring-demo" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
-You can also check out our LangChain SigNoz MCP agent [here](https://github.com/SigNoz/signoz-mcp-demo).
+You can also check out our LangChain SigNoz MCP agent <a href="https://github.com/SigNoz/signoz-mcp-demo" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ You can also check out our LangChain SigNoz MCP agent [here](https://github.com/
 
 ## Instrument your LangChain Python application
 
-To capture detailed telemetry from LangChain/LangGraph without modifying your core application logic, we use [OpenInference](https://arize.com/docs/ax/observe/tracing/configure-tracing-options/instrument-with-openinference-helpers), a community-driven standard that provides pre-built instrumentation for popular AI frameworks like LangChain, built on top of OpenTelemetry. This allows you to trace your LangChain application with minimal configuration.
+To capture detailed telemetry from LangChain/LangGraph without modifying your core application logic, we use <a href="https://arize.com/docs/ax/observe/tracing/configure-tracing-options/instrument-with-openinference-helpers" target="_blank" rel="noopener noreferrer nofollow">OpenInference</a>, a community-driven standard that provides pre-built instrumentation for popular AI frameworks like LangChain, built on top of OpenTelemetry. This allows you to trace your LangChain application with minimal configuration.
 
-Check out detailed instructions on how to set up OpenInference instrumentation in your LangChain application over [here](https://pypi.org/project/openinference-instrumentation-langchain/).
+Check out detailed instructions on how to set up OpenInference instrumentation in your LangChain application over <a href="https://pypi.org/project/openinference-instrumentation-langchain/" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 <Tabs>
 <TabItem value="No Code" label="No Code(Recommended)" default>

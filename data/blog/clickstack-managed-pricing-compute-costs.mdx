@@ -21,7 +21,7 @@ We looked closely at how this pricing works. The storage economics are compellin
 
 ClickStack's managed pricing is built on ClickHouse Cloud's separation of storage and compute. Observability data sits in low-cost object storage while compute is elastic and independent, allowing you to scale ingest and query resources separately.
 
-This architecture is well-established. Snowflake popularized compute-storage separation over a decade ago, and a [Vantage cost analysis](https://vantage.sh/blog/snowflake-vs-clickhouse-cloud-cost) described ClickHouse Cloud's pricing as "much simpler and much more predictable" than Snowflake's. The model itself isn't controversial.
+This architecture is well-established. Snowflake popularized compute-storage separation over a decade ago, and a <a href="https://vantage.sh/blog/snowflake-vs-clickhouse-cloud-cost" target="_blank" rel="noopener noreferrer nofollow">Vantage cost analysis</a> described ClickHouse Cloud's pricing as "much simpler and much more predictable" than Snowflake's. The model itself isn't controversial.
 
 The storage number is genuinely impressive. At less than $0.03/GB/month, retaining a year of observability data becomes economically viable in ways that most managed platforms don't allow. ClickStack's own blog makes this point well: "retention effectively stops being a meaningful cost dimension."
 
@@ -29,7 +29,7 @@ Well, for storage, they're right!
 
 ## The part that gets less attention: "compute"
 
-ClickStack's [managed blog post](https://clickhouse.com/blog/introducing-managed-clickstack-beta) acknowledges that with storage costs effectively solved, "the remaining variable becomes compute." They frame this as a manageable variable, not a problem. But the details reveal an asymmetry between the two compute dimensions.
+ClickStack's <a href="https://clickhouse.com/blog/introducing-managed-clickstack-beta" target="_blank" rel="noopener noreferrer nofollow">managed blog post</a> acknowledges that with storage costs effectively solved, "the remaining variable becomes compute." They frame this as a manageable variable, not a problem. But the details reveal an asymmetry between the two compute dimensions.
 
 **Ingest compute** runs continuously to process incoming data. ClickStack provides a benchmark here, noting that each core can sustain up to 20MB/s of writes, translating to "less than 1 cent per GB" for ingest compute. This is specific and useful, and teams can reasonably estimate their ingest costs from it.
 
@@ -49,11 +49,11 @@ In ClickStack's pricing model, this is also exactly when costs increase. More qu
 
 This creates a perverse incentive where the moment you need observability most, during an outage, a performance degradation, a customer-impacting incident, is the moment your costs are least predictable.
 
-This isn't a theoretical concern. [Altinity](https://altinity.com/alternative-to-clickhouse-cloud/), a company that provides managed ClickHouse services, has observed that ClickHouse Cloud users find per-consumption billing confusing, noting that changing table sort order or tweaking SQL queries can result in unpredictable cost increases. They explicitly position fixed-cost alternatives against this variability.
+This isn't a theoretical concern. <a href="https://altinity.com/alternative-to-clickhouse-cloud/" target="_blank" rel="noopener noreferrer nofollow">Altinity</a>, a company that provides managed ClickHouse services, has observed that ClickHouse Cloud users find per-consumption billing confusing, noting that changing table sort order or tweaking SQL queries can result in unpredictable cost increases. They explicitly position fixed-cost alternatives against this variability.
 
-[Quesma](https://quesma.com/blog/clickhouse-pricing) has documented that ClickHouse Cloud takes approximately 15 minutes to autoscale, and that queries at regular intervals can prevent compute from scaling to zero. This means idle costs may persist even when nobody is actively investigating anything.
+<a href="https://quesma.com/blog/clickhouse-pricing" target="_blank" rel="noopener noreferrer nofollow">Quesma</a> has documented that ClickHouse Cloud takes approximately 15 minutes to autoscale, and that queries at regular intervals can prevent compute from scaling to zero. This means idle costs may persist even when nobody is actively investigating anything.
 
-[Tinybird](https://tinybird.co/blog/tinybird-vs-clickhouse-cloud-cost-comparison) notes that ClickHouse Cloud has four cost dimensions (compute, storage, data transfer, and ClickPipes) and that compute specifically can become "expensive and volatile."
+<a href="https://tinybird.co/blog/tinybird-vs-clickhouse-cloud-cost-comparison" target="_blank" rel="noopener noreferrer nofollow">Tinybird</a> notes that ClickHouse Cloud has four cost dimensions (compute, storage, data transfer, and ClickPipes) and that compute specifically can become "expensive and volatile."
 
 None of this is unique to ClickStack. It's inherent to the ClickHouse Cloud billing model that Managed ClickStack is built on.
 
@@ -66,7 +66,7 @@ But query compute and data transfer/egress costs have no published estimates any
 
 This means a team evaluating Managed ClickStack can estimate storage and ingest costs with reasonable confidence, but has no way to estimate what querying that data will cost. The total cost of ownership is unknowable from publicly available information.
 
-The [Grafana Labs 2025 Observability Survey](https://grafana.com/blog/observability-survey-takeaways) asked 1,255 respondents about their priorities when selecting observability vendors. 75% cited cost as important, and among those concerned about cost, 88% worried about costs being too high while 85% worried about costs being too difficult to predict and budget for.
+The <a href="https://grafana.com/blog/observability-survey-takeaways" target="_blank" rel="noopener noreferrer nofollow">Grafana Labs 2025 Observability Survey</a> asked 1,255 respondents about their priorities when selecting observability vendors. 75% cited cost as important, and among those concerned about cost, 88% worried about costs being too high while 85% worried about costs being too difficult to predict and budget for.
 
 Therefore, unpredictable costs are, by the largest available survey data, one of the top reasons teams switch observability vendors in the first place.
 

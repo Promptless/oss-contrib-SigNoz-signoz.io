@@ -37,7 +37,7 @@ You cannot reduce what you have not measured. Before making any changes, you nee
 
 ### Using AWS Cost Explorer
 
-[AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html) is the fastest way to see your CloudWatch spend by service and usage type.
+<a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html" target="_blank" rel="noopener noreferrer nofollow">AWS Cost Explorer</a> is the fastest way to see your CloudWatch spend by service and usage type.
 
 1. Open **Cost Explorer** in the AWS Console.
 2. Filter by **Service = CloudWatch**.
@@ -94,7 +94,7 @@ Set retention to the minimum your compliance requires: 7 days for debug logs, 30
 
 If you are sending logs to both CloudWatch and another destination, ask whether CloudWatch needs to retain them at all. Use subscription filters to forward logs directly to the final destination and set CloudWatch retention to 1 day. You pay for ingestion either way, but you stop paying for storage.
 
-For log groups that are primarily archival (things you rarely query but need to keep), switch to the [Infrequent Access log class](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html) at \$0.25/GB, half the standard rate. Logs Insights queries still work on this class. What you lose is Live Tail, metric filters, alarming from logs, and data protection, so only use this for log groups where you were never using those features anyway.
+For log groups that are primarily archival (things you rarely query but need to keep), switch to the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html" target="_blank" rel="noopener noreferrer nofollow">Infrequent Access log class</a> at \$0.25/GB, half the standard rate. Logs Insights queries still work on this class. What you lose is Live Tail, metric filters, alarming from logs, and data protection, so only use this for log groups where you were never using those features anyway.
 
 The highest-leverage move is filtering at the source, because the cheapest log is the one you never ingest. Check whether DEBUG-level logs are enabled in production, whether health check requests are being logged on every hit, and whether duplicate logs are being sent from multiple agents or sidecars — all common sources of unnecessary ingestion volume.
 
@@ -108,7 +108,7 @@ Alarms stuck in `INSUFFICIENT_DATA` for weeks are almost certainly pointing at d
 
 The second problem is anomaly detection alarms used where static thresholds would work fine. As we covered in Part 1, each anomaly detection alarm uses 3 metrics internally (the metric plus upper and lower bounds), costing \$0.30/month at standard resolution (3× the standard rate) or \$0.90/month at high resolution. If a metric has stable, well-understood behavior (CPU above 80%, disk above 90%), a static threshold does the same job at a fraction of the cost. Reserve anomaly detection for metrics with genuinely seasonal or unpredictable baselines.
 
-If you have groups of alarms that a human always checks together, consider consolidating them into a single [composite alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html) (\$0.50/month). The underlying metric alarms still exist, but the composite alarm can replace redundant notification alarms and reduce operational noise.
+If you have groups of alarms that a human always checks together, consider consolidating them into a single <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html" target="_blank" rel="noopener noreferrer nofollow">composite alarm</a> (\$0.50/month). The underlying metric alarms still exist, but the composite alarm can replace redundant notification alarms and reduce operational noise.
 
 To verify: count your alarms before and after using `describe-alarms` and compare by type. Anomaly detection replacements show up in the next billing cycle.
 
@@ -128,9 +128,9 @@ If you have tools scraping CloudWatch to feed a separate system, consider switch
 
 VPC Flow Logs, Route 53 resolver query logs, and API Gateway access logs can generate massive volumes. Vended logs are billed per GB delivered, and the effective cost varies by destination because pricing tiers and rates can differ by destination type and region, and destinations like S3 or Firehose add their own service charges. Regardless of destination, you can reduce what gets delivered in the first place.
 
-Consider using [flow log filtering](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) to capture only rejected traffic or specific subnets, and adjusting the aggregation interval based on your actual analysis needs. Every GB you do not generate is a GB you do not pay to deliver or store.
+Consider using <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html" target="_blank" rel="noopener noreferrer nofollow">flow log filtering</a> to capture only rejected traffic or specific subnets, and adjusting the aggregation interval based on your actual analysis needs. Every GB you do not generate is a GB you do not pay to deliver or store.
 
-If you primarily need long-term storage and occasional batch analysis rather than real-time querying, consider routing vended logs to S3 instead of CloudWatch Logs. You will still incur vended-log delivery charges, and S3 adds its own storage and request costs — but [S3 Standard](https://aws.amazon.com/s3/pricing/) storage runs ~\$0.023/GB-month compared to CloudWatch's \$0.03/GB-month, and S3 lifecycle policies can transition old logs to Glacier or Deep Archive for even cheaper archival. Compare totals for your destination and region before committing.
+If you primarily need long-term storage and occasional batch analysis rather than real-time querying, consider routing vended logs to S3 instead of CloudWatch Logs. You will still incur vended-log delivery charges, and S3 adds its own storage and request costs — but <a href="https://aws.amazon.com/s3/pricing/" target="_blank" rel="noopener noreferrer nofollow">S3 Standard</a> storage runs ~\$0.023/GB-month compared to CloudWatch's \$0.03/GB-month, and S3 lifecycle policies can transition old logs to Glacier or Deep Archive for even cheaper archival. Compare totals for your destination and region before committing.
 
 ## Step 3 - Why Optimization Sometimes Fails
 

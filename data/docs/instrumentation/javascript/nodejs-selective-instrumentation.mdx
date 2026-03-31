@@ -38,7 +38,7 @@ export OTEL_NODE_ENABLED_INSTRUMENTATIONS="http,express"
 export OTEL_NODE_DISABLED_INSTRUMENTATIONS="fs,grpc"
 ```
 
-Use library names without the `@opentelemetry/instrumentation-` prefix. See the [full list of supported libraries](https://github.com/open-telemetry/opentelemetry-js-contrib/blob/main/packages/auto-instrumentations-node/README.md#supported-instrumentations).
+Use library names without the `@opentelemetry/instrumentation-` prefix. See the <a href="https://github.com/open-telemetry/opentelemetry-js-contrib/blob/main/packages/auto-instrumentations-node/README.md#supported-instrumentations" target="_blank" rel="noopener noreferrer nofollow">full list of supported libraries</a>.
 
 <Admonition>
 If both variables are set, `OTEL_NODE_ENABLED_INSTRUMENTATIONS` applies first, then `OTEL_NODE_DISABLED_INSTRUMENTATIONS`. A library in both lists will be disabled.

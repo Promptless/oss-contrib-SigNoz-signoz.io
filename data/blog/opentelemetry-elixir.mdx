@@ -52,7 +52,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 
 [![Deployment Docs](/img/blog/common/deploy_docker_documentation.webp)](https://signoz.io/docs/install/)
 
-When you are done installing SigNoz, you can access the UI at [http://localhost:3301](http://localhost:3301/application)
+When you are done installing SigNoz, you can access the UI at <a href="http://localhost:3301/application" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3301</a>
 
 ## Instrumenting an Elixir Phoenix application with OpenTelemetry
 
@@ -92,7 +92,7 @@ config :opentelemetry, :processors,
 
 **Step 3: Initialize telemetry handlers**
 
-As it is documented in the `opentelemetry_phoenix` and `opentelemetry_ecto` [hexdocs.pm](http://hexdocs.pm) pages, we need to initialize both telemetry handlers.
+As it is documented in the `opentelemetry_phoenix` and `opentelemetry_ecto` <a href="http://hexdocs.pm" target="_blank" rel="noopener noreferrer nofollow">hexdocs.pm</a> pages, we need to initialize both telemetry handlers.
 
 ```elixir
 OpentelemetryPhoenix.setup()
@@ -105,7 +105,7 @@ OpentelemetryEcto.setup([:your_app_name, :repo])
 
 You can now monitor your Elixir application with SigNoz. Whether you’re using a Phoenix to create REST APIs or HTML applications, you need to generate some data by interacting with your application.
 
-In this [GitHub repository](https://github.com/SigNoz/elixir_otel_sample) you’ll find an Elixir Phoenix API that exposes a couple of endpoints but we’ll focus on one:  `/api/users` that will return a list of users that are stored on the respective database table.
+In this <a href="https://github.com/SigNoz/elixir_otel_sample" target="_blank" rel="noopener noreferrer nofollow">GitHub repository</a> you’ll find an Elixir Phoenix API that exposes a couple of endpoints but we’ll focus on one:  `/api/users` that will return a list of users that are stored on the respective database table.
 
 If you want to use this sample application, please refer to the README file in the repository in order to make it run locally, or follow the steps mentioned below to run the sample Elixir application.
 
@@ -141,7 +141,7 @@ curl http://localhost:4000/api/users
 
 This should generate some telemetry data, which would be exported to SigNoz [OTEL collector](https://signoz.io/blog/opentelemetry-collector-complete-guide/).
 
-You can access SigNoz UI at [http://localhost:3301/application](http://localhost:3301/application) (after signing up) to see your Elixir Phoenix API being monitored. The other applications that you see are sample applications that come bundled with the installation.
+You can access SigNoz UI at <a href="http://localhost:3301/application" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3301/application</a> (after signing up) to see your Elixir Phoenix API being monitored. The other applications that you see are sample applications that come bundled with the installation.
 
 <figure data-zoomable align='center'>
     <img src="/img/blog/2022/05/elixir_app_signoz_dashboard.webp" alt="Elixir app being monitored on SigNoz dashboard"/>
@@ -193,7 +193,7 @@ curl http://localhost:4000/api/users/something
 
 This will cause an error because this endpoint is expecting an `integer` and not a `string`
 
-You can go to [http://localhost:3301/errors](http://localhost:3301/errors) to check out the errors in your application.
+You can go to <a href="http://localhost:3301/errors" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3301/errors</a> to check out the errors in your application.
 
 <figure data-zoomable align='center'>
     <img src="/img/blog/2022/05/elixir_errors_monitoring.webp" alt="Elixir application error monitoring"/>

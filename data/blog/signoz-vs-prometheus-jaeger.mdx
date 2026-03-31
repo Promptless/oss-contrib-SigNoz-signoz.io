@@ -36,21 +36,21 @@ Observability is the ability to infer the state of internal components given the
 
 Metrics have been in use for long to detect any change in the value of a measured quantity. Like, measuring your footsteps over a day is also a metric. It's good to understand the overall  aggregated state of the measured quantity.
 
-[Prometheus](http://prometheus.io/) is popularly being used as a tool to store, analyze and alert such metrics. Prometheus is a pull-based system that scrapes metrics from targets. Eg, a service exports metrics at `0.0.0.0:8081/metrics`. Prometheus should be able to scrape those metrics on a fixed interval when that endpoint is defined as the target in config.
+<a href="http://prometheus.io/" target="_blank" rel="noopener noreferrer nofollow">Prometheus</a> is popularly being used as a tool to store, analyze and alert such metrics. Prometheus is a pull-based system that scrapes metrics from targets. Eg, a service exports metrics at `0.0.0.0:8081/metrics`. Prometheus should be able to scrape those metrics on a fixed interval when that endpoint is defined as the target in config.
 
 ### Tracing
 
 [Distributed tracing](https://signoz.io/distributed-tracing/) is tracking a request as it goes from one service to another, across process boundaries up to the database, and generating multiple events while doing that. Each request is called a trace and the events are called spans. Trace data is very useful in debugging issues as it contains details about each request.
 
-[Jaeger](https://www.jaegertracing.io/) is the latest distributed [tracing tool](https://signoz.io/blog/distributed-tracing-tools/) open-sourced by Uber.
+<a href="https://www.jaegertracing.io/" target="_blank" rel="noopener noreferrer nofollow">Jaeger</a> is the latest distributed [tracing tool](https://signoz.io/blog/distributed-tracing-tools/) open-sourced by Uber.
 
 ### Logs
 
 We have been using logs for long to debug applications. For an application handling 100s of concurrent connections, logs become difficult to make sense due to missing chronology order and consider browsing logs in a [centralized logging system](https://signoz.io/blog/centralized-logging/) where all applications dump their data at 100Ks log-lines per second.
 
-[Elastic](https://www.elastic.co/) is a popular open-source tool used to collect, search, process & visualize logs. The new thing about logs is **structured logs ** where we assign key-value pair values in log lines and making it much efficient in storage.
+<a href="https://www.elastic.co/" target="_blank" rel="noopener noreferrer nofollow">Elastic</a> is a popular open-source tool used to collect, search, process & visualize logs. The new thing about logs is **structured logs ** where we assign key-value pair values in log lines and making it much efficient in storage.
 
-[Loki by GrafanaLabs](https://grafana.com/oss/loki/) is one such effort in making logs more usable and cost-efficient.
+<a href="https://grafana.com/oss/loki/" target="_blank" rel="noopener noreferrer nofollow">Loki by GrafanaLabs</a> is one such effort in making logs more usable and cost-efficient.
 
 ![tool logos](/img/blog/2021/04/image.webp)Prometheus, Jaeger, Elastic & Loki from left to right
 
@@ -92,7 +92,7 @@ The above image depicts the flow of a request in Uber. They have thousands of se
 
 If something breaks, we would want to know whether downstream services failed or any particular instance was causing the issue or a new deployment is causing the errors.
 
-Distributed tracing comes in very useful in such scenarios. [Here](https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941) is a sample ride-hailing onDemand application that shows the usefulness of distributed tracing.
+Distributed tracing comes in very useful in such scenarios. <a href="https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941" target="_blank" rel="noopener noreferrer nofollow">Here</a> is a sample ride-hailing onDemand application that shows the usefulness of distributed tracing.
 
 You can see individual traces in the Jaeger UI. The number of services this request passed through, the number of spans/events generated, the total time of the trace. You can also filter the traces based on service, duration and tags.
 
@@ -198,7 +198,7 @@ OpenTelemetry Collector then exports those traces to a Kafka topic, `otlp_spans`
 
 Our stream processing applications read from `otlp_spans` kafka topic and flattens the structure of spans to be ingested to databases like Druid. This flattener-processor writes to `flattened_spans` topic in kafka.
 
-The flattened data is then ingested to **Druid \***which is a real-time analytics database\* designed for fast slice-and-dice analytics ([OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) queries) on large data sets. We use streaming ingestion from Kafka to Druid.
+The flattened data is then ingested to **Druid \***which is a real-time analytics database\* designed for fast slice-and-dice analytics (<a href="https://en.wikipedia.org/wiki/Online_analytical_processing" target="_blank" rel="noopener noreferrer nofollow">OLAP</a> queries) on large data sets. We use streaming ingestion from Kafka to Druid.
 
 **Query Service** is the interface between Frontend and Druid. It provides APIs to be consumed by frontend application and queries Druid to fetch data and process data before responding to the frontend.
 
@@ -215,7 +215,7 @@ The flattened data is then ingested to **Druid \***which is a real-time analytic
 
 ## How to start using SigNoz with OpenTelemetry?
 
-[OpenTelemetry](https://opentelemetry.io/) is a vendor-neutral instrumentation framework that provides libraries and tools in various languages to start sending telemetry data compliant to a standard.
+<a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry</a> is a vendor-neutral instrumentation framework that provides libraries and tools in various languages to start sending telemetry data compliant to a standard.
 
 ### To gain observability into your applications you need to follow 2 steps:
 
@@ -225,7 +225,7 @@ The flattened data is then ingested to **Druid \***which is a real-time analytic
 
 ### For example: to instrument your Java application
 
-Download the [OpenTelemetry java instrumentation library](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar) and run the below command:
+Download the <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry java instrumentation library</a> and run the below command:
 
 ```
 OTEL_EXPORTER_OTLP_ENDPOINT="http://<IP of SigNoz Backend>:55680" OTEL_RESOURCE_ATTRIBUTES=service.name=<app_name> java -javaagent:/path/to/opentelemetry-javaagent-all.jar -jar  <myapp>.jar

@@ -18,7 +18,7 @@ Before you begin, ensure you have:
 2. MongoDB Atlas API keys with required permissions:
    - **Public Key** and **Private Key** with access for the corresponding MongoDB Atlas Project
    - **Project Data Access Read Only** role (minimum) for accessing project events and logs
-3. For audit logs: Audit logging [must be enabled](https://www.mongodb.com/docs/atlas/database-auditing/) in your MongoDB Atlas project
+3. For audit logs: Audit logging <a href="https://www.mongodb.com/docs/atlas/database-auditing/" target="_blank" rel="noopener noreferrer nofollow">must be enabled</a> in your MongoDB Atlas project
 
 ## Setup
 
@@ -75,7 +75,7 @@ service:
 - `<region>`: Your [SigNoz Cloud region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint)
 - `<your-ingestion-key>`: Your SigNoz [ingestion key](https://signoz.io/docs/ingestion/signoz-cloud/keys/)
 
-All the available MongoDB Atlas receiver configurations can be found [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver).
+All the available MongoDB Atlas receiver configurations can be found <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ### Step 3: Start the OTel Collector
 
@@ -177,7 +177,7 @@ Here are sample screenshots of the dashboard powered by MongoDB Atlas metrics:
 | mongodbatlas.disk.partition.throughput                                    | Gauge | Bytes/s              | Disk throughput                                                                                         |
 | mongodbatlas.process.cache.ratio                                          | Gauge | number               | Cache ratios represented as (%)                                                                         |
 
-You can refer [this](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver/documentation.md) page for more details about the MongoDB Atlas metrics.
+You can refer <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver/documentation.md" target="_blank" rel="noopener noreferrer nofollow">this</a> page for more details about the MongoDB Atlas metrics.
 
 </details>
 
@@ -236,7 +236,7 @@ service:
 - `<region>`: Your [SigNoz Cloud region](https://signoz.io/docs/ingestion/signoz-cloud/overview/#endpoint)
 - `<your-ingestion-key>`: Your SigNoz [ingestion key](https://signoz.io/docs/ingestion/signoz-cloud/keys/)
 
-All the available MongoDB Atlas receiver configurations can be found [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver).
+All the available MongoDB Atlas receiver configurations can be found <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ### Step 3: Start the OTel Collector
 
@@ -314,7 +314,7 @@ service:
 - `<mongodb-atlas-private-key>` is the private key of your MongoDB Atlas project
 - Set the `<endpoint-ip>` to the IP of your self-hosted SigNoz instance
 
-All the available MongoDB Atlas receiver configurations can be found [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver).
+All the available MongoDB Atlas receiver configurations can be found <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ### Step 3: Start the OTel Collector
 
@@ -416,7 +416,7 @@ Here are sample screenshots of the dashboard powered by MongoDB Atlas metrics:
 | mongodbatlas.disk.partition.throughput                                    | Gauge | Bytes/s              | Disk throughput                                                                                         |
 | mongodbatlas.process.cache.ratio                                          | Gauge | number               | Cache ratios represented as (%)                                                                         |
 
-You can refer [this](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver/documentation.md) page for more details about the MongoDB Atlas metrics.
+You can refer <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver/documentation.md" target="_blank" rel="noopener noreferrer nofollow">this</a> page for more details about the MongoDB Atlas metrics.
 
 </details>
 
@@ -472,7 +472,7 @@ service:
 - `<mongodb-atlas-private-key>` is the private key of your MongoDB Atlas project
 - Set the `<endpoint-ip>` to the IP of your self-hosted SigNoz instance
 
-All the available MongoDB Atlas receiver configurations can be found [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver).
+All the available MongoDB Atlas receiver configurations can be found <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/mongodbatlasreceiver" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ### Step 3: Start the OTel Collector
 
@@ -513,9 +513,9 @@ If you do not see logs in SigNoz:
 2. **Check API key permissions** - ensure your API key has at least `Project Data Ascess Read Only` role
 3. **Review collector logs** for any error messages related to MongoDB Atlas API calls
 4. **Confirm project and cluster names** match exactly with your MongoDB Atlas configuration
-5. **Confirm your cluster type** - Some cluster types do not support logging as mentioned [here](https://www.mongodb.com/docs/atlas/database-auditing/). Ensure you are using the appropriate MongoDB Atlas cluster.
+5. **Confirm your cluster type** - Some cluster types do not support logging as mentioned <a href="https://www.mongodb.com/docs/atlas/database-auditing/" target="_blank" rel="noopener noreferrer nofollow">here</a>. Ensure you are using the appropriate MongoDB Atlas cluster.
 
 ### Metrics Collection Issues
 
 1. **Review collector logs** for any error messages related to MongoDB Atlas API calls
-2. **Confirm your cluster type** - Available metrics depend on user role and cluster type as mentioned [here](https://www.mongodb.com/docs/atlas/review-available-metrics/). Ensure you are using the appropriate MongoDB Atlas cluster, and API key with appropriate role.
+2. **Confirm your cluster type** - Available metrics depend on user role and cluster type as mentioned <a href="https://www.mongodb.com/docs/atlas/review-available-metrics/" target="_blank" rel="noopener noreferrer nofollow">here</a>. Ensure you are using the appropriate MongoDB Atlas cluster, and API key with appropriate role.

@@ -61,7 +61,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 
 [![Deployment Docs](/img/blog/common/deploy_docker_documentation.webp)](https://signoz.io/docs/install/)
 
-When you are done installing SigNoz, you can access the UI at [http://localhost:3301](http://localhost:3301/application)
+When you are done installing SigNoz, you can access the UI at <a href="http://localhost:3301/application" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3301</a>
 
 <figure align="center">
   <img src="/img/blog/2022/02/signoz_dashboard.webp" alt="SigNoz Dashboard" width="100%" />
@@ -72,7 +72,7 @@ When you are done installing SigNoz, you can access the UI at [http://localhost
 
 We will use a sample Golang gRPC application consisting of components such as Go gRPC server, go gRPC Client along with MongoDB.
 
-[Sample Golang gRPC GitHub repo](https://github.com/SigNoz/distributed-tracing-go-grpc-sample)
+<a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample" target="_blank" rel="noopener noreferrer nofollow">Sample Golang gRPC GitHub repo</a>
 
 Our application is a simple Employee Service. Here is the architecture of the application along with OpenTelemetry and Signoz.
 
@@ -118,7 +118,7 @@ Following are the steps to run the sample Golang gRPC application with OpenTelem
 **Step1:
 Clone the sample Golang app repository and go to the root folder**
 
-We will be using a sample go-grpc app in this [GitHub repo](https://github.com/SigNoz/distributed-tracing-go-grpc-sample).
+We will be using a sample go-grpc app in this <a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample" target="_blank" rel="noopener noreferrer nofollow">GitHub repo</a>.
 
 ```jsx
 git clone https://github.com/SigNoz/distributed-tracing-go-grpc-sample.git
@@ -128,7 +128,7 @@ cd distributed-tracing-go-grpc-sample
 **Step 2:**
 **Install the required dependencies**
 
-You can check out the dependencies required from [go.mod](https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/go.mod) file. Install all the required dependencies for the sample application using
+You can check out the dependencies required from <a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/go.mod" target="_blank" rel="noopener noreferrer nofollow">go.mod</a> file. Install all the required dependencies for the sample application using
 
 ```
 go mod tidy
@@ -168,10 +168,10 @@ Consisting of code for the gRPC client and server code that we will be looking a
 
 If you look at the file ***employee_grpc.pb.go*,** you can notice that **structs** and **interfaces** are generated for the client and server implementation.
 
-You can check for the .***proto*** files [here](https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/employee/employee.proto).
+You can check for the .***proto*** files <a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/employee/employee.proto" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 **Step 4: Tracer Config for the gRPC Server, gRPC Client and MongoDB**<br></br>
-In order to instrument our services, we will create a ***[config.go](https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/config/config.go)*** file and use it to instrument the gRPC Server, gRPC Client, and MongoDB.
+In order to instrument our services, we will create a ***<a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/config/config.go" target="_blank" rel="noopener noreferrer nofollow">config.go</a>*** file and use it to instrument the gRPC Server, gRPC Client, and MongoDB.
 
 We need to initialize OpenTelemetry as the first call inside the main function in both gRPC server and client. If your application starts before OpenTelemetry is set up, it can create issues. You can initialize OpenTelemetry by using the code as shown below:
 
@@ -187,7 +187,7 @@ func main() {
 }
 ```
 
-You can check out the configuration in the code sample [here](https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/config/config.go).
+You can check out the configuration in the code sample <a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/config/config.go" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 **Step 5:
 Instrumenting gRPC server and client**
@@ -233,9 +233,9 @@ Instrumenting MongoDB**
 
 But when it comes to instrumentation data for MongoDB, we need to use <a href="https://pkg.go.dev/go.opentelemetry.io/contrib/instrumentation/go.mongodb.org/mongo-driver/mongo/otelmongo" rel="noopener noreferrer nofollow" target="_blank">this OpenTelemetry Go library</a>.
 
-It is already included in the [go.mod](https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/go.mod) file of the sample repo.
+It is already included in the <a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/go.mod" target="_blank" rel="noopener noreferrer nofollow">go.mod</a> file of the sample repo.
 
-When the MongoDB client is initialized, we need to set the monitor through ***otelmongo.NewMonitor()*** method like below which would get the instrumentation data from MongoDB. You can find the code in [server.go](https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/fc29bd1406f2f2d31972cac339dbd578ac080635/server/server.go#L237) file.
+When the MongoDB client is initialized, we need to set the monitor through ***otelmongo.NewMonitor()*** method like below which would get the instrumentation data from MongoDB. You can find the code in <a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/fc29bd1406f2f2d31972cac339dbd578ac080635/server/server.go#L237" target="_blank" rel="noopener noreferrer nofollow">server.go</a> file.
 
 ```jsx
 client, err := mongo.NewClient(options.Client().ApplyURI(mongo_url).SetMonitor(otelmongo.NewMonitor()))
@@ -274,7 +274,7 @@ Do not use `http` or `https` in the IP address. For example, if the IP is 'http:
 
 </Admonition>
 
-You can check the client env [file](https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/client/.env) and server env [file](https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/server/.env) in the sample GitHub repo.
+You can check the client env <a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/client/.env" target="_blank" rel="noopener noreferrer nofollow">file</a> and server env <a href="https://github.com/SigNoz/distributed-tracing-go-grpc-sample/blob/main/server/.env" target="_blank" rel="noopener noreferrer nofollow">file</a> in the sample GitHub repo.
 
 { /* <!-- ![.env files loading in both *server/server.go* and *client/client.go.*](Ashu%20-%20Mon%2092dcf/Untitled%203.webp) --> */}
 
@@ -320,7 +320,7 @@ You need to generate some data to see how traces are captured in the SigNoz dash
 
 Running the client makes a set of CRUD operations in MongoDB such as create Employee, Read Employee, Update Employee and Delete Employee. We have added traces for all these operations so that it generates some monitoring data to be explored on the SigNoz dashboard.
 
-Now, open the SigNoz dashboard in your browser at [http://localhost:3301/dashboard](http://localhost:3301/dashboard). You should now be able to notice ***Go-Grpc-Otel-Server*** in the list of services being monitored on the dashboard.
+Now, open the SigNoz dashboard in your browser at <a href="http://localhost:3301/dashboard" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3301/dashboard</a>. You should now be able to notice ***Go-Grpc-Otel-Server*** in the list of services being monitored on the dashboard.
 
 <figure align="center">
   <img src="/img/blog/2023/08/grpc_monitored_on_signoz.webp" alt="Golang gRPC application monitored in SigNoz" width="100%" />
@@ -364,12 +364,12 @@ You will see the flamegraph of the selected event, which shows how the request t
 
 
 
-SigNoz also provides a detailed view of common [semantic conventions](https://opentelemetry.io/docs/specs/semconv/rpc/grpc/) like rpc service, method, net, status_code etc. The end-to-end tracing of user requests can help you to identify latency issues quickly.
+SigNoz also provides a detailed view of common <a href="https://opentelemetry.io/docs/specs/semconv/rpc/grpc/" target="_blank" rel="noopener noreferrer nofollow">semantic conventions</a> like rpc service, method, net, status_code etc. The end-to-end tracing of user requests can help you to identify latency issues quickly.
 
 **MongoDB Traces and its semantic conventions**<br></br>
 Establishing a sequential flow of the query and info on the time taken by each part of the request can help quickly identify latency issues. For example, you can see details like how much time the find query took. You can also see the related MongoDB query.
 
-It also provides the [semantic_conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/database/README.md) of MongoDB in the below window.
+It also provides the <a href="https://github.com/open-telemetry/semantic-conventions/blob/main/docs/database/README.md" target="_blank" rel="noopener noreferrer nofollow">semantic_conventions</a> of MongoDB in the below window.
 
 { /* <!-- ![Untitled](Ashu%20-%20Mon%2092dcf/Untitled%2010.webp) --> */}
 

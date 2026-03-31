@@ -64,11 +64,11 @@ For Ubuntu users
 sudo apt install redis-server
 ```
 
-You can also checkout [Redis installation guide](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/) for installing Redis on different Operating Systems.
+You can also checkout <a href="https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/" target="_blank" rel="noopener noreferrer nofollow">Redis installation guide</a> for installing Redis on different Operating Systems.
 
 
 **Step 1. Running sample Falcon app**<br></br>
-We will be using the Falcon app at this [Github repo](https://github.com/SigNoz/python-falcon-template). All the required OpenTelemetry packages are contained within the `base.txt` file under `requirements` folder in this sample app. 
+We will be using the Falcon app at this <a href="https://github.com/SigNoz/python-falcon-template" target="_blank" rel="noopener noreferrer nofollow">Github repo</a>. All the required OpenTelemetry packages are contained within the `base.txt` file under `requirements` folder in this sample app. 
 
 
 ```bash
@@ -155,7 +155,7 @@ OTEL_EXPORTER_OTLP_HEADERS="signoz-ingestion-key=SIGNOZ_INGESTION_KEY" \
 OTEL_EXPORTER_OTLP_PROTOCOL=grpc \
 opentelemetry-instrument gunicorn -b 0.0.0.0:8001 --reload src.app
 ```
-And, congratulations! You have instrumented your sample Falcon app. You can check if your app is running or not by hitting the endpoint at [http://localhost:8001/api/v1/test](http://localhost:8001/api/v1/test).
+And, congratulations! You have instrumented your sample Falcon app. You can check if your app is running or not by hitting the endpoint at <a href="http://localhost:8001/api/v1/test" target="_blank" rel="noopener noreferrer nofollow">http://localhost:8001/api/v1/test</a>.
 
 You need to interact with the endpoint to generate some monitoring data. Refresh the endpoint about 10-20 times and check SigNoz dashboard.
 

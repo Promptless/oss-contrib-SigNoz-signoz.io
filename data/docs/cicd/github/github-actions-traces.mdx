@@ -7,13 +7,13 @@ description: Integrate the GitHub Receiver to forward the traces data to SigNoz
 hide_table_of_contents: true
 ---
 
-This document contains instructions on how to get the traces of your GitHub Actions pipeline in SigNoz using [GitHub Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/githubreceiver/README.md).
+This document contains instructions on how to get the traces of your GitHub Actions pipeline in SigNoz using <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/githubreceiver/README.md" target="_blank" rel="noopener noreferrer nofollow">GitHub Receiver</a>.
 
 ## Prerequisites
 
-- Ensure a [Webhook](https://docs.github.com/en/webhooks/using-webhooks/creating-webhooks#creating-a-repository-webhook) is created in the repository with `workflow_run` and `workflow_job` events enabled. Make `content type` as `application/json`.
+- Ensure a <a href="https://docs.github.com/en/webhooks/using-webhooks/creating-webhooks#creating-a-repository-webhook" target="_blank" rel="noopener noreferrer nofollow">Webhook</a> is created in the repository with `workflow_run` and `workflow_job` events enabled. Make `content type` as `application/json`.
 
-- Have a [GitHub Actions workflow](https://docs.github.com/en/actions/writing-workflows/quickstart#creating-your-first-workflow) for your repo.
+- Have a <a href="https://docs.github.com/en/actions/writing-workflows/quickstart#creating-your-first-workflow" target="_blank" rel="noopener noreferrer nofollow">GitHub Actions workflow</a> for your repo.
 
 
 ## Setup

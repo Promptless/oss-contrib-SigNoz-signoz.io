@@ -51,17 +51,17 @@ We have prepared a table to give you a brief overview of the key differences. La
 
 Plugins help any tool extend its functionality. Fluentd and Logstash have a rich ecosystem for plugins, including various input systems (files and TCP/UDP), filters, and output destinations (Elasticsearch, AWS, GCP, etc).
 
-The main difference here is how plugins are managed. Logstash has a single centralized repository where all the plugins are managed. There are 199 plugins under the logstash-plugins [GitHub repo](https://github.com/logstash-plugins).
+The main difference here is how plugins are managed. Logstash has a single centralized repository where all the plugins are managed. There are 199 plugins under the logstash-plugins <a href="https://github.com/logstash-plugins" target="_blank" rel="noopener noreferrer nofollow">GitHub repo</a>.
 
 On the other hand, Fluentd follows a decentralized approach and does not host all the plugins under one single repository. Its official repository hosts only 10 plugins. Yet it has 500 plugins support. 
 
-You can check out Logstash Github repo [here](https://github.com/logstash-plugins) having all Logstash plugins. Here’s an example of [FluentD plugin repo](https://github.com/fluent/fluent-plugins).
+You can check out Logstash Github repo <a href="https://github.com/logstash-plugins" target="_blank" rel="noopener noreferrer nofollow">here</a> having all Logstash plugins. Here’s an example of <a href="https://github.com/fluent/fluent-plugins" target="_blank" rel="noopener noreferrer nofollow">FluentD plugin repo</a>.
 
 ### Memory usage / Performance
 
 Performance can be a subjective point depending totally upon the user’s use case. But it is still found that Logstash consumes more memory of 120 MB than Fluentd’s 40 MB. Now if we consider modern machines, this does not create much difference, but when used across 1000s of machines of infrastructure, it is a big difference of 80*1000, implying 80GB of additional memory use.
 
-But in Logstash, you can avoid this problem by running ElasticBeats instead of running Logstash on a single leaf node. ElasticBeats are resource-efficient, purpose-built log shippers where each Beat focuses on one data source only and does that well. Fluentd uses [Fluent Bit](https://github.com/fluent/fluent-bit), an embeddable low-footprint version of Fluentd written in C. 
+But in Logstash, you can avoid this problem by running ElasticBeats instead of running Logstash on a single leaf node. ElasticBeats are resource-efficient, purpose-built log shippers where each Beat focuses on one data source only and does that well. Fluentd uses <a href="https://github.com/fluent/fluent-bit" target="_blank" rel="noopener noreferrer nofollow">Fluent Bit</a>, an embeddable low-footprint version of Fluentd written in C. 
 
 If you're running small applications, it is recommended to use Fluent-bit. On the other hand, Elastic beats are the lightweight version of Logstash. For smaller workloads, Elasticbeats are preferred. But if your use case involves more data processing apart from data transport, you will need to use both Logstash and Elastic beats.
 
@@ -79,11 +79,11 @@ Fluentd uses a tagging approach, whereas Logstash uses if-then-else statements f
 
 ### Log Parsing
 
-The components for [log parsing](https://signoz.io/guides/log-parsing/) differ tool per tool. Fluentd uses standard [built-in parsers](https://docs.docker.com/config/containers/logging/fluentd/)(JSON, regex, CSV, etc.), and Logstash uses [plugins](https://www.elastic.co/guide/en/logstash/current/filter-plugins.html) for this. This makes Fluentd more favorable over Logstash as we don’t have to deal with any external plugin for this feature.
+The components for [log parsing](https://signoz.io/guides/log-parsing/) differ tool per tool. Fluentd uses standard <a href="https://docs.docker.com/config/containers/logging/fluentd/" target="_blank" rel="noopener noreferrer nofollow">built-in parsers</a>(JSON, regex, CSV, etc.), and Logstash uses <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html" target="_blank" rel="noopener noreferrer nofollow">plugins</a> for this. This makes Fluentd more favorable over Logstash as we don’t have to deal with any external plugin for this feature.
 
 ### Docker support
 
-Docker provides an in-built `fluentd` logging driver. The logging driver sends container logs to the `fluentd` collector as structured log data. In the case of Logstash, an extra agent ([filebeat](https://www.elastic.co/beats/filebeat)) is required on the container to push logs to Logstash.
+Docker provides an in-built `fluentd` logging driver. The logging driver sends container logs to the `fluentd` collector as structured log data. In the case of Logstash, an extra agent (<a href="https://www.elastic.co/beats/filebeat" target="_blank" rel="noopener noreferrer nofollow">filebeat</a>) is required on the container to push logs to Logstash.
 So if you're running your applications with Docker, FluentD is a more natural choice. Logs can be directly shipped to FluentD service from STDOUT. FluentD makes the overall Docker logging architecture less complex, and less risky.
 
 ## When to prefer Fluentd over Logstash or vice-versa

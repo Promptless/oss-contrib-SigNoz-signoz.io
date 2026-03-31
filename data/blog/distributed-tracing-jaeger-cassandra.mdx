@@ -36,12 +36,12 @@ Zipkin and Jaeger are two popular choices for request tracing. Zipkin was origin
 Jaeger was originally built and open-sourced by Uber. Jaeger is a Cloud Native Computing Foundation project.
 
 ![architecture of Jaeger](/img/blog/2020/05/image.webp)Architecture of Jaeger
-**Jaeger Architecture [[Official Doc](https://www.jaegertracing.io/docs/1.17/architecture/)]:**
+**Jaeger Architecture <a href="https://www.jaegertracing.io/docs/1.17/architecture/" target="_blank" rel="noopener noreferrer nofollow">[Official Doc</a>]:**
 
 - [Instrument application](https://signoz.io/docs/instrumentation/) using jaeger client libraries available in multiple languages
 - JaegerClient sends spans to jaeger-agent which is usually deployed as a daemonSet in each host to receive UDP or HTTP spans. If we skip jaeger-agent and send spans directly to jaeger-collector then UDP spans may be missed
 - Jaeger-Agent can be set to batch the span and sample data before sending to the collector which then stores to DB for persistence
-- Jaeger supports Elastic, Cassandra and Kafka as backend databases but there is a [github issue](https://github.com/jaegertracing/jaeger/issues/638) tracking integration of other storage plugins like BadgerKV and InfluxDB
+- Jaeger supports Elastic, Cassandra and Kafka as backend databases but there is a <a href="https://github.com/jaegertracing/jaeger/issues/638" target="_blank" rel="noopener noreferrer nofollow">github issue</a> tracking integration of other storage plugins like BadgerKV and InfluxDB
 - Jaeger Query service enables querying the DB for traces via UI
 
 **Factors on which cost depends:**
@@ -62,18 +62,18 @@ We will share a more detailed analysis of the cost to run Jaeger in-house soon a
 
 ### Set up Jaeger for Kubernetes
 
-We shall install Jaeger from Helm chart. The other recommended way to install Jaeger is using [Jaeger Operator](https://github.com/jaegertracing/helm-charts/tree/master/charts/jaeger-operator) but I find the native Jaeger helm chart easier.
+We shall install Jaeger from Helm chart. The other recommended way to install Jaeger is using <a href="https://github.com/jaegertracing/helm-charts/tree/master/charts/jaeger-operator" target="_blank" rel="noopener noreferrer nofollow">Jaeger Operator</a> but I find the native Jaeger helm chart easier.
 
 Install Prometheus Operator for enabling ServiceMonitor and visualising metrics about Jaeger by running:  `helm install stable/prometheus-operator`
 
 Add JaegerTracing repo to your helm
 `helm repo add jaegertracing https://jaegertracing.github.io/helm-charts`
 
-The below chart will deploy jaeger-agent as a DaemonSet and deploy the jaeger-collector and jaeger-query components as Deployments. Check the helm repo of Jaeger this [Link](https://github.com/jaegertracing/helm-charts/tree/master/charts/jaeger).
+The below chart will deploy jaeger-agent as a DaemonSet and deploy the jaeger-collector and jaeger-query components as Deployments. Check the helm repo of Jaeger this <a href="https://github.com/jaegertracing/helm-charts/tree/master/charts/jaeger" target="_blank" rel="noopener noreferrer nofollow">Link</a>.
 
 We need to modify the values.yaml file:
 
-1. `provisionDataStore.cassandra=true` - This the default value. This will create a new Cassandra cluster. If we wish to use an existing Cassandra cluster check [this](https://github.com/jaegertracing/helm-charts/tree/master/charts/jaeger#installing-the-chart-using-an-existing-cassandra-cluster)
+1. `provisionDataStore.cassandra=true` - This the default value. This will create a new Cassandra cluster. If we wish to use an existing Cassandra cluster check <a href="https://github.com/jaegertracing/helm-charts/tree/master/charts/jaeger#installing-the-chart-using-an-existing-cassandra-cluster" target="_blank" rel="noopener noreferrer nofollow">this</a>
 2. Enable persistence in Cassandra `cassandra.persistence.enabled=true`
 3. Enable serviceMonitor for exposing Jaeger related metrics to Prometheus
 
@@ -83,7 +83,7 @@ enabled: true
 additionalLabels: {release: prometheus}
 ```
 
-4. Enable sample application already instrumented to send metrics to jaeger-agent. Read the full blog post on [this medium blog](https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941). For now, we just need to set `hotrod.enabled=true`
+4. Enable sample application already instrumented to send metrics to jaeger-agent. Read the full blog post on <a href="https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941" target="_blank" rel="noopener noreferrer nofollow">this medium blog</a>. For now, we just need to set `hotrod.enabled=true`
 
 With the new values.yaml file, install Jaeger with the below command:
 ```
@@ -99,7 +99,7 @@ Now wait for Cassandra cluster to get ready. The collector and query service wil
 
 #### More about Cassandra setup in Jaeger
 
-Looking at schema creation script at [Jaeger Repo](https://github.com/jaegertracing/jaeger/blob/master/plugin/storage/cassandra/schema/create.sh#L11), the default retention period of traces in Cassandra is set to 2 days
+Looking at schema creation script at <a href="https://github.com/jaegertracing/jaeger/blob/master/plugin/storage/cassandra/schema/create.sh#L11" target="_blank" rel="noopener noreferrer nofollow">Jaeger Repo</a>, the default retention period of traces in Cassandra is set to 2 days
 
 > TRACE_TTL  - time to live for trace data, in seconds (default: 172800, 2 days)`
 
@@ -193,7 +193,7 @@ username: admin
 password prom-operator
 ```
 
-Go to Dashboards -> import and add id `10001` and choose data source as Prometheus. The publicly available dashboard can be found at [this link](https://grafana.com/grafana/dashboards/10001). You need to generate a sufficient amount of traffic to your sample application to get such graphs. 
+Go to Dashboards -> import and add id `10001` and choose data source as Prometheus. The publicly available dashboard can be found at <a href="https://grafana.com/grafana/dashboards/10001" target="_blank" rel="noopener noreferrer nofollow">this link</a>. You need to generate a sufficient amount of traffic to your sample application to get such graphs. 
 
 These graphs do not correspond to the default installation of HotROD application.
 ![Metrics dashboard](/img/blog/2020/04/Screenshot-2020-04-30-at-9.36.33-PM.webp)Metrics Dashboard for Jaeger Collector
@@ -282,7 +282,7 @@ I am also analyzing the cost of running Jaeger in-house and the price APM vendor
 For any Jaeger/Tracing related queries, I am reachable at:
 
 - ankit@signoz.io
-- [Twitter](https://twitter.com/ankitnayan)
-- [LinkedIn](https://www.linkedin.com/in/ankitnayan/)
+- <a href="https://twitter.com/ankitnayan" target="_blank" rel="noopener noreferrer nofollow">Twitter</a>
+- <a href="https://www.linkedin.com/in/ankitnayan/" target="_blank" rel="noopener noreferrer nofollow">LinkedIn</a>
 
 > On a mission to make observability essential and affordable to every business

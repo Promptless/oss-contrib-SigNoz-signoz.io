@@ -8,7 +8,7 @@ description: Monitoring and observability for DeepSeek API usage and performance
 
 ## Overview
 
-This guide walks you through setting up monitoring and observability for DeepSeek API using [OpenTelemetry](https://opentelemetry.io/) and exporting logs, traces, and metrics to SigNoz. With this integration, you can observe model performance, capture request/response details, and track system-level metrics in SigNoz, giving you real-time visibility into latency, error rates, and usage trends for your DeepSeek applications.
+This guide walks you through setting up monitoring and observability for DeepSeek API using <a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry</a> and exporting logs, traces, and metrics to SigNoz. With this integration, you can observe model performance, capture request/response details, and track system-level metrics in SigNoz, giving you real-time visibility into latency, error rates, and usage trends for your DeepSeek applications.
 
 Instrumenting DeepSeek in your LLM applications with telemetry ensures full observability across your AI workflows, making it easier to debug issues, optimize performance, and understand user interactions. By leveraging SigNoz, you can analyze correlated traces, logs, and metrics in unified dashboards, configure alerts, and gain actionable insights to continuously improve reliability, responsiveness, and user experience.
 
@@ -18,13 +18,13 @@ Instrumenting DeepSeek in your LLM applications with telemetry ensures full obse
   - [SigNoz Cloud account](https://signoz.io/teams/) with an active ingestion key
   - Self-hosted SigNoz instance
 - Internet access to send telemetry data to SigNoz Cloud
-- An [DeepSeek](https://api-docs.deepseek.com/) API account with a working API Key
+- An <a href="https://api-docs.deepseek.com/" target="_blank" rel="noopener noreferrer nofollow">DeepSeek</a> API account with a working API Key
 - For Python: `pip` installed for managing Python packages and _(optional but recommended)_ a Python virtual environment to isolate dependencies
 - For JavaScript: Node.js (version 14 or higher) and `npm` installed for managing Node.js packages
 
 ## Monitoring DeepSeek
 
-The DeepSeek API uses an API format compatible with OpenAI. By modifying the configuration, you can use the OpenAI SDK or softwares compatible with the OpenAI API to access the DeepSeek API. Hence, a similar method to monitor OpenAI APIs can be used for monitoring DeepSeek APIs as well. To read more about this, you can read the [DeepSeek API Docs](https://api-docs.deepseek.com/)
+The DeepSeek API uses an API format compatible with OpenAI. By modifying the configuration, you can use the OpenAI SDK or softwares compatible with the OpenAI API to access the DeepSeek API. Hence, a similar method to monitor OpenAI APIs can be used for monitoring DeepSeek APIs as well. To read more about this, you can read the <a href="https://api-docs.deepseek.com/" target="_blank" rel="noopener noreferrer nofollow">DeepSeek API Docs</a>
 
 <Tabs>
 <TabItem value="python" label="Python" default>

@@ -15,7 +15,7 @@ HashiCorp Nomad is a flexible, enterprise-grade cluster scheduler. Monitoring No
 
 ## Step 1: Enable Nomad Metrics Endpoint
 
-Nomad exposes metrics via a [Prometheus-compatible endpoint](https://developer.hashicorp.com/nomad/docs/configuration/telemetry).  
+Nomad exposes metrics via a <a href="https://developer.hashicorp.com/nomad/docs/configuration/telemetry" target="_blank" rel="noopener noreferrer nofollow">Prometheus-compatible endpoint</a>.  
 Ensure telemetry is enabled in your Nomad agent configuration:
 
 ```hcl
@@ -33,9 +33,9 @@ telemetry {
 }
 ```
 
-The full set of telemetry options (like `prometheus_metrics`, `publish_allocation_metrics`, and `collection_interval`) is documented in Nomad’s [telemetry configuration](https://developer.hashicorp.com/nomad/docs/configuration/telemetry). 
+The full set of telemetry options (like `prometheus_metrics`, `publish_allocation_metrics`, and `collection_interval`) is documented in Nomad’s <a href="https://developer.hashicorp.com/nomad/docs/configuration/telemetry" target="_blank" rel="noopener noreferrer nofollow">telemetry configuration</a>. 
 
-For operational guidance on what to monitor and how to interpret key signals, see the [Nomad monitoring guide](https://developer.hashicorp.com/nomad/docs/monitor). Metric names and labels you’ll see in SigNoz are defined in the [Nomad metrics reference](https://developer.hashicorp.com/nomad/docs/reference/metrics).
+For operational guidance on what to monitor and how to interpret key signals, see the <a href="https://developer.hashicorp.com/nomad/docs/monitor" target="_blank" rel="noopener noreferrer nofollow">Nomad monitoring guide</a>. Metric names and labels you’ll see in SigNoz are defined in the <a href="https://developer.hashicorp.com/nomad/docs/reference/metrics" target="_blank" rel="noopener noreferrer nofollow">Nomad metrics reference</a>.
 
 Once telemetry is enabled, Nomad exposes metrics in Prometheus format from the HTTP API at `/v1/metrics?format=prometheus` (default port `4646`). The Collector configuration below scrapes that endpoint.
 

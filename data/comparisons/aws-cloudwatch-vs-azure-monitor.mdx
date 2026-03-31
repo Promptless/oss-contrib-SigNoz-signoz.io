@@ -110,7 +110,7 @@ KQL supports rich operations: filtering, aggregation, joins, time-series analysi
   caption="KQL queries in Azure Monitor Logs support aggregation, time-series analysis, and inline chart rendering. (Source: Microsoft Azure Docs)"
 />
 
-Azure Monitor can also run KQL queries across multiple Log Analytics workspaces and subscriptions. <Tooltip text="Cross-tenant querying" content="An Azure tenant is a dedicated directory instance, usually representing one organization. Cross-tenant querying lets you search logs across separate organizations' Azure environments — useful for managed-service providers." /> is also possible when you have delegated access through [Azure Lighthouse](https://learn.microsoft.com/en-us/azure/lighthouse/overview) and appropriate RBAC permissions. This is valuable for organizations running centralized operations teams or managed-service providers that need visibility across different business units or customer environments.
+Azure Monitor can also run KQL queries across multiple Log Analytics workspaces and subscriptions. <Tooltip text="Cross-tenant querying" content="An Azure tenant is a dedicated directory instance, usually representing one organization. Cross-tenant querying lets you search logs across separate organizations' Azure environments — useful for managed-service providers." /> is also possible when you have delegated access through <a href="https://learn.microsoft.com/en-us/azure/lighthouse/overview" target="_blank" rel="noopener noreferrer nofollow">Azure Lighthouse</a> and appropriate RBAC permissions. This is valuable for organizations running centralized operations teams or managed-service providers that need visibility across different business units or customer environments.
 
 Azure Monitor Workbooks add another layer, providing shareable visual reports that combine metrics, logs, and parameter-driven queries into a single view. They serve as investigation templates that teams can reuse during incidents.
 
@@ -189,7 +189,7 @@ Cost predictability is one of the most common pain points in practitioner discus
 
 CloudWatch pricing is multi-dimensional. You are billed across several independent axes.
 
-The prices below are for US East (N. Virginia) as of February 2026. CloudWatch pricing is region-specific, so rates differ across AWS regions. Always verify against the [official AWS CloudWatch pricing page](https://aws.amazon.com/cloudwatch/pricing/) for your region.
+The prices below are for US East (N. Virginia) as of February 2026. CloudWatch pricing is region-specific, so rates differ across AWS regions. Always verify against the <a href="https://aws.amazon.com/cloudwatch/pricing/" target="_blank" rel="noopener noreferrer nofollow">official AWS CloudWatch pricing page</a> for your region.
 
 - **Custom metrics:** \$0.30 per metric per month (first 10,000), decreasing at higher volumes. Most basic monitoring metrics sent by AWS services by default are free, but detailed monitoring and custom metrics are billed.
 - **Logs ingestion:** Starts at \$0.50 per GB after the first 5 GB/month free (rates and tiering vary by log type and region).
@@ -221,11 +221,11 @@ Governance practices that help: enforce retention policies on every log group, c
 
 Azure Monitor pricing centers on Log Analytics workspace usage, with additional costs for alerting and other platform features.
 
-Like CloudWatch, Azure Monitor pricing is region-specific. The prices below are approximate pay-as-you-go rates as of February 2026. Always verify against the [official Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/) and use the region filter for your workspace location.
+Like CloudWatch, Azure Monitor pricing is region-specific. The prices below are approximate pay-as-you-go rates as of February 2026. Always verify against the <a href="https://azure.microsoft.com/en-us/pricing/details/monitor/" target="_blank" rel="noopener noreferrer nofollow">official Azure Monitor pricing page</a> and use the region filter for your workspace location.
 
 The major cost components are:
 - **Log ingestion (Analytics Logs):** Billed per GB ingested, with the first 5 GB per billing account per month free. Per-GB rates vary by region, and <Tooltip text="commitment tiers" content="Pre-purchased daily ingestion capacity at a discounted rate. You commit to a minimum daily volume (e.g., 100 GB/day) and get a lower per-GB price compared to pay-as-you-go." /> (starting at 100 GB/day) lower the effective rate.
-- **Log retention:** Analytics Logs include 31 days of retention by default (up to 90 days included when Microsoft Sentinel is enabled, depending on plan and tier). Beyond that, interactive retention (up to 2 years) and long-term retention (up to 12 years) are both billed per GB-month at rates that vary by region. Check the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=monitor) for current rates in your workspace region.
+- **Log retention:** Analytics Logs include 31 days of retention by default (up to 90 days included when Microsoft Sentinel is enabled, depending on plan and tier). Beyond that, interactive retention (up to 2 years) and long-term retention (up to 12 years) are both billed per GB-month at rates that vary by region. Check the <a href="https://azure.microsoft.com/en-us/pricing/calculator/?service=monitor" target="_blank" rel="noopener noreferrer nofollow">Azure pricing calculator</a> for current rates in your workspace region.
 - **Log queries:** Query cost is included for Analytics Logs. Queries on <Tooltip text="Basic and Auxiliary Logs" content="Lower-cost log tiers in Azure Monitor. Basic Logs have cheaper ingestion but charge per query. Auxiliary Logs are the cheapest tier, designed for high-volume, rarely-queried data like verbose debug logs." /> are billed per GB scanned, and querying older or archived data can involve additional restore and search-job charges.
 - **Alerts:** Metric alert rules are priced per monitored time-series. Log search alert rules are priced per evaluation frequency.
 - **Data export:** Exporting data from Log Analytics to Storage or Event Hub has per-GB costs.

@@ -139,7 +139,7 @@ Once you have installed the Apache web server, confirm it is running on the assi
 </figure>
 
 
-Since Apache will be monitored, it has to be configured to expose its metrics. The endpoint at which Apache exposes metrics is [http://localhost:80/server-status?auto](http://localhost/server-status?auto).
+Since Apache will be monitored, it has to be configured to expose its metrics. The endpoint at which Apache exposes metrics is <a href="http://localhost/server-status?auto" target="_blank" rel="noopener noreferrer nofollow">http://localhost:80/server-status?auto</a>.
 
 To expose the metrics, open the Apache configuration file for editing, depending on the environment you are in.
 
@@ -168,7 +168,7 @@ The **`mod_status`** module is an Apache module that provides a web-based view o
 
 This configuration block enables the **`/server-status`** endpoint, and it can only be accessed from the localhost. This is a security measure to ensure that sensitive server status information is not exposed to the public internet. This is where Apache’s server statistics will be displayed.
 
-Replace [example.com](http://example.com) with the correct domain name where you have Apache running. For instance, if you have Apache running on localhost, it will be as below:
+Replace <a href="http://example.com" target="_blank" rel="noopener noreferrer nofollow">example.com</a> with the correct domain name where you have Apache running. For instance, if you have Apache running on localhost, it will be as below:
 
 ```jsx
 <Location "/server-status">
@@ -189,7 +189,7 @@ Replace [example.com](http://example.com) with the correct domain name where you
   sudo apachectl restart
   ```
 
-To view Apache server statistics in your browser, navigate to the domain where Apache is running and add the "/server-status" endpoint to the URL. In this example, since Apache is running on localhost, you can access the statistics by visiting [localhost/server-status](http://localhost/server-status) in your browser.
+To view Apache server statistics in your browser, navigate to the domain where Apache is running and add the "/server-status" endpoint to the URL. In this example, since Apache is running on localhost, you can access the statistics by visiting <a href="http://localhost/server-status" target="_blank" rel="noopener noreferrer nofollow">localhost/server-status</a> in your browser.
 
 <figure data-zoomable align='center'>
     <img className="box-shadowed-image" src="/img/blog/2023/11/apache_server_status.webp" alt="Apache Server Status"/>

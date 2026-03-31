@@ -27,7 +27,7 @@ You can skip this step if the retention setting is default and SigNoz version `>
 
 ### For Docker
 
-* In your [docker-compose.yaml](https://github.com/SigNoz/signoz/blob/76e7de3aeda1f40c11d04f79e5973966b1c21789/deploy/docker/clickhouse-setup/docker-compose.yaml), add the following: 
+* In your <a href="https://github.com/SigNoz/signoz/blob/76e7de3aeda1f40c11d04f79e5973966b1c21789/deploy/docker/clickhouse-setup/docker-compose.yaml" target="_blank" rel="noopener noreferrer nofollow">docker-compose.yaml</a>, add the following: 
   ```
   query-service:
     command:
@@ -37,7 +37,7 @@ You can skip this step if the retention setting is default and SigNoz version `>
         "--use-trace-new-schema=false"
       ]
   ```
-* In your [otel-collector-config.yaml](https://github.com/SigNoz/signoz/blob/76e7de3aeda1f40c11d04f79e5973966b1c21789/deploy/docker/clickhouse-setup/otel-collector-config.yaml), add the following:
+* In your <a href="https://github.com/SigNoz/signoz/blob/76e7de3aeda1f40c11d04f79e5973966b1c21789/deploy/docker/clickhouse-setup/otel-collector-config.yaml" target="_blank" rel="noopener noreferrer nofollow">otel-collector-config.yaml</a>, add the following:
   ```
   exporters:
     clickhousetraces:

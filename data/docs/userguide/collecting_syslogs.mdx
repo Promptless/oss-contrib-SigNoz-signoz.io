@@ -53,7 +53,7 @@ receivers:
 
 This snippet listens for incoming TCP connections on port `54527`. It also uses operators to move messages from `attributes` to `body`. Read more about operators in the [Logs User Guide](https://signoz.io/docs/userguide/logs#operators-for-parsing-and-manipulating-logs).
 
-For additional configurations, see the [Syslog Receiver documentation](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/syslogreceiver).
+For additional configurations, see the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/syslogreceiver" target="_blank" rel="noopener noreferrer nofollow">Syslog Receiver documentation</a>.
 
 ### Step 3: Enable the Receiver in the Pipeline
 
@@ -180,7 +180,7 @@ journalctl -u rsyslog.service -b
 
 ## Next Steps
 
-System logs by default don’t always include robust resource contexts (like container name, exact OS version, or cloud instance IDs). You can use the OpenTelemetry Collector’s [resourcedetection processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/resourcedetectionprocessor) to enrich your system logs.
+System logs by default don’t always include robust resource contexts (like container name, exact OS version, or cloud instance IDs). You can use the OpenTelemetry Collector’s <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/resourcedetectionprocessor" target="_blank" rel="noopener noreferrer nofollow">resourcedetection processor</a> to enrich your system logs.
 
 Additionally, you can:
 - Explore [Log Query and Filtering in SigNoz](https://signoz.io/docs/logs-management/overview/)

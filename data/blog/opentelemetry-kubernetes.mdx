@@ -26,7 +26,7 @@ If you want to experiment, play around or want to explore in a demo environment,
 
 </Admonition>
 
-For our demo, we’ll deploy the [OpenTelemetry Astronomy Shop demo application](https://opentelemetry.io/docs/demo/architecture/) in a minikube cluster, a microservices app instrumented with OpenTelemetry [it generates traces, metrics and logs]. The OTel project provides a [convenient Helm chart for this demo](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo).
+For our demo, we’ll deploy the <a href="https://opentelemetry.io/docs/demo/architecture/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Astronomy Shop demo application</a> in a minikube cluster, a microservices app instrumented with OpenTelemetry [it generates traces, metrics and logs]. The OTel project provides a <a href="https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo" target="_blank" rel="noopener noreferrer nofollow">convenient Helm chart for this demo</a>.
 
 <Admonition type="warning">
 
@@ -36,7 +36,7 @@ The full demo needs ~6 GB of memory, so ensure your Minikube has sufficient reso
 
 ### Prerequisites
 
-Ensure you have [Minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download) running [a single-node Kubernetes cluster] and have `kubectl` and `helm` installed. 
+Ensure you have <a href="https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download" target="_blank" rel="noopener noreferrer nofollow">Minikube</a> running [a single-node Kubernetes cluster] and have `kubectl` and `helm` installed. 
 
 ### Setup
 
@@ -92,7 +92,7 @@ In OTel terms, the DaemonSet collector will include components like,
 
 4/ and a **Kubernetes attributes processor** [to tag all data with k8s metadata]
 
-The [official Helm chart](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) makes it easy to enable these pieces via presets. Let's prepare a values file for the Helm chart [call it otel-collector-daemonset.yaml **].**
+The <a href="https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector" target="_blank" rel="noopener noreferrer nofollow">official Helm chart</a> makes it easy to enable these pieces via presets. Let's prepare a values file for the Helm chart [call it otel-collector-daemonset.yaml **].**
 
 ```bash
 mode: daemonset

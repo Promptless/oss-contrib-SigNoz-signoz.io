@@ -18,7 +18,7 @@ import RetentionInfo from '@/components/shared/retention-info.mdx'
 ## Prerequisites
 
 - A SELinux enabled sytem.
-- [Git client](https://desktop.github.com/)
+- <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer nofollow">Git client</a>
 - Ensure that the ports `8080`, `4317` and `4318` are open on the machine where you install SigNoz.
 
 ## Running Docker in SElinux
@@ -50,14 +50,14 @@ services:
 ```
 
 References:
-- [Configure the SELinux label](https://docs.docker.com/storage/bind-mounts/#configure-the-selinux-label)
-- [Using Docker volumes on SELinux enabled servers](https://prefetch.net/blog/2017/09/30/using-docker-volumes-on-selinux-enabled-servers/)
+- <a href="https://docs.docker.com/storage/bind-mounts/#configure-the-selinux-label" target="_blank" rel="noopener noreferrer nofollow">Configure the SELinux label</a>
+- <a href="https://prefetch.net/blog/2017/09/30/using-docker-volumes-on-selinux-enabled-servers/" target="_blank" rel="noopener noreferrer nofollow">Using Docker volumes on SELinux enabled servers</a>
 
 <Admonition type="info">
 These are the some of the services for which you need to add labels in the docker-compose file:
-- [clickhouse](https://github.com/SigNoz/signoz/blob/6e0b50dd600425724ef52149e55c3505a57a1ff6/deploy/docker/docker-compose.yaml#L96)
-- [signoz](https://github.com/SigNoz/signoz/blob/6e0b50dd600425724ef52149e55c3505a57a1ff6/deploy/docker/docker-compose.yaml#L111)
-- [zookeeper](https://github.com/SigNoz/signoz/blob/6e0b50dd600425724ef52149e55c3505a57a1ff6/deploy/docker/docker-compose.yaml#L81)
+- <a href="https://github.com/SigNoz/signoz/blob/6e0b50dd600425724ef52149e55c3505a57a1ff6/deploy/docker/docker-compose.yaml#L96" target="_blank" rel="noopener noreferrer nofollow">clickhouse</a>
+- <a href="https://github.com/SigNoz/signoz/blob/6e0b50dd600425724ef52149e55c3505a57a1ff6/deploy/docker/docker-compose.yaml#L111" target="_blank" rel="noopener noreferrer nofollow">signoz</a>
+- <a href="https://github.com/SigNoz/signoz/blob/6e0b50dd600425724ef52149e55c3505a57a1ff6/deploy/docker/docker-compose.yaml#L81" target="_blank" rel="noopener noreferrer nofollow">zookeeper</a>
 </Admonition>
 
 ## Install SigNoz 

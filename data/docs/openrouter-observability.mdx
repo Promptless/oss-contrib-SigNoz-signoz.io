@@ -8,7 +8,7 @@ doc_type: howto
 
 ## Overview
 
-This guide walks you through setting up observability and monitoring for OpenRouter using [OpenTelemetry](https://opentelemetry.io/) and exporting traces to SigNoz. With this integration, you can observe and track various metrics for your OpenRouter applications and llm usage.
+This guide walks you through setting up observability and monitoring for OpenRouter using <a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry</a> and exporting traces to SigNoz. With this integration, you can observe and track various metrics for your OpenRouter applications and llm usage.
 
 Monitoring OpenRouter in your AI applications with telemetry ensures full observability across your AI and LLM workflows. By leveraging SigNoz, you can analyze correlated traces, logs, and metrics in unified dashboards, configure alerts, and gain actionable insights to continuously improve reliability, responsiveness, and user experience.
 
@@ -16,18 +16,18 @@ Monitoring OpenRouter in your AI applications with telemetry ensures full observ
 
 - A [SigNoz Cloud account](https://signoz.io/teams/) with an active ingestion key or [Self Hosted SigNoz instance](https://signoz.io/docs/install/self-host/)
 - Internet access to access OpenRouter API and send telemetry data to SigNoz Cloud
-- An [OpenRouter account](https://openrouter.ai/) and OpenRouter API key. You can get it from the <a href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener noreferrer nofollow">OpenRouter API Keys page</a>.
+- An <a href="https://openrouter.ai/" target="_blank" rel="noopener noreferrer nofollow">OpenRouter account</a> and OpenRouter API key. You can get it from the <a href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener noreferrer nofollow">OpenRouter API Keys page</a>.
 
 
 ## Monitoring OpenRouter
 
 ### Step 1: Configure broadcasting traces from OpenRouter to OTel Collector
 
-For more information on setting up traces from OpenRouter refer to the [OpenRouter broadcast guide](https://openrouter.ai/docs/guides/features/broadcast/otel-collector).
+For more information on setting up traces from OpenRouter refer to the <a href="https://openrouter.ai/docs/guides/features/broadcast/otel-collector" target="_blank" rel="noopener noreferrer nofollow">OpenRouter broadcast guide</a>.
 
 #### Enable Broadcast in OpenRouter
 
-Go to [Settings > Observability](https://openrouter.ai/settings/observability) and toggle Enable Broadcast.
+Go to <a href="https://openrouter.ai/settings/observability" target="_blank" rel="noopener noreferrer nofollow">Settings > Observability</a> and toggle Enable Broadcast.
 
 <Figure
   src="/img/docs/llm/openrouter/openrouter-enable-broadcast.webp"
@@ -82,7 +82,7 @@ Your OpenRouter calls should now be traced and sent to SigNoz.
 
 ### Step 2: Use the OpenRouter API
 
-For more information on getting started with OpenRouter in your environment, refer to the [OpenRouter quickstart guide](https://openrouter.ai/docs/quickstart).
+For more information on getting started with OpenRouter in your environment, refer to the <a href="https://openrouter.ai/docs/quickstart" target="_blank" rel="noopener noreferrer nofollow">OpenRouter quickstart guide</a>.
 
 <Tabs>
 <TabItem value="Python" label="Python" default>

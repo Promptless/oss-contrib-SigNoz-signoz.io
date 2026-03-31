@@ -104,7 +104,7 @@ keywords: [OpenTelemetry, Python logging, log filtering, observability, log mana
   />
 </head>
 
-While support for logging in the [OpenTelemetry Python project](https://opentelemetry.io/docs/instrumentation/python/) is listed as 'experimental,' it's completely possible to send logs from your Python application. The Opentelemetry Collector has support for numerous existing logging systems, effectively exporting log data from wherever you were sending logs currently; you can also use the [filelog receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/filelogreceiver) to tail and send logs from files. The only 'experimental' portion of the Python SDK is [sending logs directly from code-level](https://github.com/open-telemetry/opentelemetry-python/blob/d8490c5f557dd7005badeb800095cb51b553c98c/docs/examples/logs/README.rst) instrumentation.
+While support for logging in the <a href="https://opentelemetry.io/docs/instrumentation/python/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Python project</a> is listed as 'experimental,' it's completely possible to send logs from your Python application. The Opentelemetry Collector has support for numerous existing logging systems, effectively exporting log data from wherever you were sending logs currently; you can also use the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/filelogreceiver" target="_blank" rel="noopener noreferrer nofollow">filelog receiver</a> to tail and send logs from files. The only 'experimental' portion of the Python SDK is <a href="https://github.com/open-telemetry/opentelemetry-python/blob/d8490c5f557dd7005badeb800095cb51b553c98c/docs/examples/logs/README.rst" target="_blank" rel="noopener noreferrer nofollow">sending logs directly from code-level</a> instrumentation.
 
 
 
@@ -126,19 +126,19 @@ Critically, while logs have often been considered a data stream separate from tr
 
 While you don't have to report any traces or metrics to be able to send logs, you will need to add OpenTelemetry dependencies to your project, and run the OpenTelemetry agent.
 
-Logging can be sent from an application that has been [automatically instrumented](https://opentelemetry.io/docs/instrumentation/python/automatic/) with the `opentelemetry-bootstrap` command, and there is support for most major Python frameworks to send extensive tracing and metric data without any modification of your code. However, automatic instrumentation will not send any logs, so you'll still need to add code to send logs, or export logs directly to the collector as described in section II.
+Logging can be sent from an application that has been <a href="https://opentelemetry.io/docs/instrumentation/python/automatic/" target="_blank" rel="noopener noreferrer nofollow">automatically instrumented</a> with the `opentelemetry-bootstrap` command, and there is support for most major Python frameworks to send extensive tracing and metric data without any modification of your code. However, automatic instrumentation will not send any logs, so you'll still need to add code to send logs, or export logs directly to the collector as described in section II.
 
-Alternatively, you can [manually add OpenTelemetry to your application](https://opentelemetry.io/docs/instrumentation/python/manual/) along with the code to create an export path for your logger to OpenTelemetry. This exporter will use the OpenTelemetry Protocl (OTLP) to send logs to your collector. In the example application code below, this manual process was used.
+Alternatively, you can <a href="https://opentelemetry.io/docs/instrumentation/python/manual/" target="_blank" rel="noopener noreferrer nofollow">manually add OpenTelemetry to your application</a> along with the code to create an export path for your logger to OpenTelemetry. This exporter will use the OpenTelemetry Protocl (OTLP) to send logs to your collector. In the example application code below, this manual process was used.
 
 ### You will need a collector
 
-This guide won't show in detail how to [install the OpenTelemetry collector](https://opentelemetry.io/docs/collector/getting-started/), suffice to say that you'll need a collector available to send data. Though in a pinch you can send data to a console, it's possible to run a local collector as a docker image, or you can [install SigNoz](https://signoz.io/docs/install/) and get both an OpenTelemetry collector, data store, and observability dashboard. This guide will assume that your collector is available to receive at `localhost:4317`.
+This guide won't show in detail how to <a href="https://opentelemetry.io/docs/collector/getting-started/" target="_blank" rel="noopener noreferrer nofollow">install the OpenTelemetry collector</a>, suffice to say that you'll need a collector available to send data. Though in a pinch you can send data to a console, it's possible to run a local collector as a docker image, or you can [install SigNoz](https://signoz.io/docs/install/) and get both an OpenTelemetry collector, data store, and observability dashboard. This guide will assume that your collector is available to receive at `localhost:4317`.
 
 ## II. Send Logs
 
-The majority of production applications using OpenTelemetry adopted the standard sometime after they were first architected. As such the most common use case is routing an existing log pipeline to the OpenTelemetry collector. This is mainly accomplished with the [Bridge API](https://opentelemetry.io/docs/specs/otel/logs/bridge-api/); intended to connect existing logging with OpenTelemetry. It can be used together with existing logging libraries to automatically inject the trace context in the emitted logs, and provide an easy way to send the logs via OTLP.
+The majority of production applications using OpenTelemetry adopted the standard sometime after they were first architected. As such the most common use case is routing an existing log pipeline to the OpenTelemetry collector. This is mainly accomplished with the <a href="https://opentelemetry.io/docs/specs/otel/logs/bridge-api/" target="_blank" rel="noopener noreferrer nofollow">Bridge API</a>; intended to connect existing logging with OpenTelemetry. It can be used together with existing logging libraries to automatically inject the trace context in the emitted logs, and provide an easy way to send the logs via OTLP.
 
-If you aren't currently sending your logs anywhere, or there's no support for your tool with the bridge API, you can always get your logs by brute force as a file or stdout export - if you have access to read your logging file periodically or tail your logs, you can parse bare files or .csv or json-formatted and send them to the collector. If you cannot parse your logs yourself, another log collection agent, for example [FluentBit](https://signoz.io/docs/userguide/fluentbit_to_signoz/), can collect the logs, [then send the logs](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/master/receiver/fluentforwardreceiver) to OpenTelemetry Collector.
+If you aren't currently sending your logs anywhere, or there's no support for your tool with the bridge API, you can always get your logs by brute force as a file or stdout export - if you have access to read your logging file periodically or tail your logs, you can parse bare files or .csv or json-formatted and send them to the collector. If you cannot parse your logs yourself, another log collection agent, for example [FluentBit](https://signoz.io/docs/userguide/fluentbit_to_signoz/), can collect the logs, <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/master/receiver/fluentforwardreceiver" target="_blank" rel="noopener noreferrer nofollow">then send the logs</a> to OpenTelemetry Collector.
 
 Currently, only the OpenTelemetry Java project sends logs automatically without any special work. But you can manually send logs with the Python SDK as well as a few others.
 
@@ -213,7 +213,7 @@ You can run this flask application with a simple `flask run` and send it request
 
 ## III: Configure the Collector
 
-If you take a look at a default collector configuration in `otel-collector-config.yaml`, you'll see the framework for configuring how we ingest, process, and emit data. More detail is in the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/configuration/). In the SigNoz repository you’ll find the configuration for the collector in [/deploy/docker/otel-collector-config.yaml](https://github.com/SigNoz/signoz/blob/main/deploy/docker/otel-collector-config.yaml) If running the collector as a docker image you can edit this file to filter what logs are being stored after being received by the collector.
+If you take a look at a default collector configuration in `otel-collector-config.yaml`, you'll see the framework for configuring how we ingest, process, and emit data. More detail is in the <a href="https://opentelemetry.io/docs/collector/configuration/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry documentation</a>. In the SigNoz repository you’ll find the configuration for the collector in <a href="https://github.com/SigNoz/signoz/blob/main/deploy/docker/otel-collector-config.yaml" target="_blank" rel="noopener noreferrer nofollow">/deploy/docker/otel-collector-config.yaml</a> If running the collector as a docker image you can edit this file to filter what logs are being stored after being received by the collector.
 
 After editing this file, you’ll need to restart the collector. If using Docker, the command would be `docker restart signoz-otel-collector`
 
@@ -245,7 +245,7 @@ In my case, my logging was getting clogged up by docker containers I was running
 
 ## IV: Transform and filter log attributes
 
-With the unneeded logs filtered out, we can start transforming and filtering our logs data. This is done by transforming data, using the [OpenTelemetry Transformation Language (OTTL)](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/ottl/README.md). It’s not necessary or practical to learn all the ins and outs of this language, but let’s start with a simple bit of processing that adds some useful attributes.
+With the unneeded logs filtered out, we can start transforming and filtering our logs data. This is done by transforming data, using the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/ottl/README.md" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Transformation Language (OTTL)</a>. It’s not necessary or practical to learn all the ins and outs of this language, but let’s start with a simple bit of processing that adds some useful attributes.
 
 ### Transform attributes
 
@@ -337,7 +337,7 @@ For most applications, a hybrid approach works best: use automatic instrumentati
 
 In the future, as OpenTelemetry grows into the de facto standard for all observability in microservice architectures, logs will be a part of a cohesive 'braid' of telemetry signals. Offering structured information on events with included unstructured components, logs will help tell the detailed story of individual events within your application.
 
-Today, prepare for the future by learning the process of collecting and processing logs in Python with OpenTelemetry. For further reading, see the [OpenTelemetry processor operations](https://opentelemetry.io/docs/collector/transforming-telemetry/) documentation.
+Today, prepare for the future by learning the process of collecting and processing logs in Python with OpenTelemetry. For further reading, see the <a href="https://opentelemetry.io/docs/collector/transforming-telemetry/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry processor operations</a> documentation.
 
 
 ## FAQs

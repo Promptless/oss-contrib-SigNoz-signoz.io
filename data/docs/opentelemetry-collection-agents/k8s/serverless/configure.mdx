@@ -47,7 +47,7 @@ kubectl apply -f aws-observability-namespace.yaml
 
 ### 2. FluentBit Configuration
 
-Create a `ConfigMap` with a Fluent Conf data value to ship container logs to a destination. Fluent Conf is a fast and lightweight log processor configuration language used by Fluent Bit to route container logs to a log destination of your choice. For more information, see [Configuration](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file) in the Fluent Bit documentation.
+Create a `ConfigMap` with a Fluent Conf data value to ship container logs to a destination. Fluent Conf is a fast and lightweight log processor configuration language used by Fluent Bit to route container logs to a log destination of your choice. For more information, see <a href="https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/configuration-file" target="_blank" rel="noopener noreferrer nofollow">Configuration</a> in the Fluent Bit documentation.
 
 <Admonition type="warning">
 AWS validates against following configuration for Fluent Bit:
@@ -55,7 +55,7 @@ AWS validates against following configuration for Fluent Bit:
 - `[FILTER]`, `[OUTPUT]`, and `[PARSER]` are supposed to be specified under each corresponding key. For example, `[FILTER]` must be under `filters.conf`. You can have one or more `[FILTER]` sections under `filters.conf`. The `[OUTPUT]` and `[PARSER]` sections should also be under their corresponding keys. By specifying multiple `[OUTPUT]` sections, you can route your logs to different destinations at the same time.
 - Fargate validates against the following supported outputs: `es`, `firehose`, `kinesis_firehose`, `cloudwatch`, `cloudwatch_logs`, and `kinesis`.
 
-For more details, check out the [AWS Managed Fargate Log Router Documentation](https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html#fargate-logging-log-router-configuration).
+For more details, check out the <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html#fargate-logging-log-router-configuration" target="_blank" rel="noopener noreferrer nofollow">AWS Managed Fargate Log Router Documentation</a>.
 </Admonition>
 
 <Tabs default='cloudwatch'>
@@ -64,7 +64,7 @@ For more details, check out the [AWS Managed Fargate Log Router Documentation](h
 
 Since AWS Fargate does not allow the use of either `fluent-forward` or `OpenTelemetry` output, we will be using the `CloudWatch` output to ship the logs to CloudWatch and then ingest logs from there to the OpenTelemetry Collector. 
 
-The following Fluent Bit configuration uses the [Kubernetes Filter](https://docs.fluentbit.io/manual/data-pipeline/filters/kubernetes):
+The following Fluent Bit configuration uses the <a href="https://docs.fluentbit.io/manual/data-pipeline/filters/kubernetes" target="_blank" rel="noopener noreferrer nofollow">Kubernetes Filter</a>:
 
 ```yaml:fluentbit-config-map.yaml
 kind: ConfigMap
@@ -138,7 +138,7 @@ Depending on the output you've configured in Fluent Bit, configure the OpenTelem
 <Tabs default="cloudwatch">
 <TabItem label="CloudWatch" value="cloudwatch">
 
-We will be using the [awscloudwatchreceiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/awscloudwatchreceiver) to ingest logs from AWS CloudWatch into the OpenTelemetry Collector. If you've opted for a different output in Fluent Bit, such as Kinesis or Firehose, you can use other receivers made available by the OpenTelemetry community.
+We will be using the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/awscloudwatchreceiver" target="_blank" rel="noopener noreferrer nofollow">awscloudwatchreceiver</a> to ingest logs from AWS CloudWatch into the OpenTelemetry Collector. If you've opted for a different output in Fluent Bit, such as Kinesis or Firehose, you can use other receivers made available by the OpenTelemetry community.
 
 Add the following to your OpenTelemetry Collector ConfigMap created during installation:
 ```yaml:otel-agent-sidecar-ConfigMap
@@ -163,7 +163,7 @@ service:
 
 </TabItem>
 </Tabs>
-After creating the ConfigMap, we need to set up AWS credentials for the OpenTelemetry Collector to get logs from CloudWatch. We will use this [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPSimplesetup.html?utm_source=chatgpt.com#CloudWatch-SetupIAMPermissionsonpremises) to set up the required credentials.
+After creating the ConfigMap, we need to set up AWS credentials for the OpenTelemetry Collector to get logs from CloudWatch. We will use this <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPSimplesetup.html?utm_source=chatgpt.com#CloudWatch-SetupIAMPermissionsonpremises" target="_blank" rel="noopener noreferrer nofollow">documentation</a> to set up the required credentials.
 
 1. Create an IAM OIDC identity provider for your cluster using the following command:
 
@@ -171,7 +171,7 @@ After creating the ConfigMap, we need to set up AWS credentials for the OpenTele
 eksctl utils associate-iam-oidc-provider --cluster ${CLUSTER_NAME} --region ${REGION} --approve
 ```
 
-2. Assign IAM roles to the Kubernetes service account for the OTel Collector using the following command. We will be using the [CloudWatchReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchReadOnlyAccess.html) policy to get the logs from CloudWatch:
+2. Assign IAM roles to the Kubernetes service account for the OTel Collector using the following command. We will be using the <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchReadOnlyAccess.html" target="_blank" rel="noopener noreferrer nofollow">CloudWatchReadOnlyAccess</a> policy to get the logs from CloudWatch:
 
 ```shell
 eksctl create iamserviceaccount \

@@ -151,7 +151,7 @@ To understand how Log pipelines work, let’s get a brief overview of SigNoz arc
 
 ### Managing OTel Configurations with OpAMP
 
-In the SigNoz UI, when a new log pipeline is saved, the query service communicates with the SigNoz OTel Collector via the **OpAMP server** to update its configuration. OpAMP, which stands for OpenAgent Management Protocol, facilitates the transmission of rules for transforming incoming logs from SigNoz UI to SigNoz OTel collector. OpAMP can also be used for several other [use cases](https://opentelemetry.io/docs/specs/opamp/).
+In the SigNoz UI, when a new log pipeline is saved, the query service communicates with the SigNoz OTel Collector via the **OpAMP server** to update its configuration. OpAMP, which stands for OpenAgent Management Protocol, facilitates the transmission of rules for transforming incoming logs from SigNoz UI to SigNoz OTel collector. OpAMP can also be used for several other <a href="https://opentelemetry.io/docs/specs/opamp/" target="_blank" rel="noopener noreferrer nofollow">use cases</a>.
 
 The integration of an OpAMP server within our query service allows it to direct the SigNoz OTel Collector on the necessary configurations. This ensures that any new log pipeline created by a user in the SigNoz UI is promptly applied to the incoming logs by the collector.
 

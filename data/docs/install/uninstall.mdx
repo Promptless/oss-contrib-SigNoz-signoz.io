@@ -39,7 +39,7 @@ To uninstall SigNoz deployed on Kubernetes using Helm, follow these steps:
     helm -n <namespace> uninstall "<release-name>"
     ```
 
-    Refer to the [Helm docs](https://helm.sh/docs/helm/helm_uninstall/) for more details on the `helm uninstall` command.
+    Refer to the <a href="https://helm.sh/docs/helm/helm_uninstall/" target="_blank" rel="noopener noreferrer nofollow">Helm docs</a> for more details on the `helm uninstall` command.
 
 2.  **Delete ClickHouse CRD Resources:**
     If you are using ClickHouse managed by SigNoz, you might need to manually remove finalizers from ClickHouse CRD resources to ensure their complete deletion.

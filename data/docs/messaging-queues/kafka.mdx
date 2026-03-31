@@ -84,8 +84,8 @@ Before you begin, ensure the following prerequisites are met:
 1. **Java Development Kit (JDK)**: Ensure that JDK 8 or higher is installed on your system.
 2. **Apache Kafka**: Kafka should be installed and running for your environment.
 3. **Kafka Producer and Consumer Applications**: You will need Kafka producer and consumer applications in Java (Support for other languages will be added soon).
-4. **Kafka Client Library**: Make sure the Kafka client libraries are included in your project. You can find the official Kafka client libraries from Apache [here](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients).
-5. **OpenTelemetry Java Agent**: Download the OpenTelemetry Java auto-instrumentation agent JAR. Follow the setup guide from the official OpenTelemetry documentation [here](https://opentelemetry.io/docs/zero-code/java/agent/getting-started/) or directly download the latest agent JAR from [here](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar).
+4. **Kafka Client Library**: Make sure the Kafka client libraries are included in your project. You can find the official Kafka client libraries from Apache <a href="https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients" target="_blank" rel="noopener noreferrer nofollow">here</a>.
+5. **OpenTelemetry Java Agent**: Download the OpenTelemetry Java auto-instrumentation agent JAR. Follow the setup guide from the official OpenTelemetry documentation <a href="https://opentelemetry.io/docs/zero-code/java/agent/getting-started/" target="_blank" rel="noopener noreferrer nofollow">here</a> or directly download the latest agent JAR from <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 Once these are set up, you will be ready to proceed with Kafka monitoring and instrumentation.
 
@@ -113,7 +113,7 @@ This guide follows these primary steps:
 
 #### 1.1 Kafka Installation
 
-[Download the latest](https://kafka.apache.org/quickstart#quickstart_download) Kafka release and extract it.
+<a href="https://kafka.apache.org/quickstart#quickstart_download" target="_blank" rel="noopener noreferrer nofollow">Download the latest</a> Kafka release and extract it.
 
 For example, if the latest release is `2.13-3.7.0` then you can extract it using the follwing command:
 ```bash
@@ -126,7 +126,7 @@ cd kafka_2.13-3.7.0
 
 #### 1.2 Start Kafka 
 
-Kafka can be started using ZooKeeper or [KRaft](https://kafka.apache.org/quickstart#quickstart_startserver). We will use ZooKeeper:
+Kafka can be started using ZooKeeper or <a href="https://kafka.apache.org/quickstart#quickstart_startserver" target="_blank" rel="noopener noreferrer nofollow">KRaft</a>. We will use ZooKeeper:
 
 ```bash
 bin/zookeeper-server-start.sh config/zookeeper.properties
@@ -237,7 +237,7 @@ wget https://github.com/open-telemetry/opentelemetry-java-instrumentation/releas
 
 #### 2.2 (Optional) Configure OpenTelemetry Java Agent
 
-Refer to the [OpenTelemetry Java Agent configurations](https://opentelemetry.io/docs/zero-code/java/agent/) for advanced setup options.
+Refer to the <a href="https://opentelemetry.io/docs/zero-code/java/agent/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Java Agent configurations</a> for advanced setup options.
 
 
 ### Step 3: Java Producer-Consumer App Setup
@@ -283,7 +283,7 @@ Set up the OpenTelemetry Collector to collect JMX metrics from Kafka and spans f
 Download the JMX metrics collector necessary for Kafka metrics collection. 
 
 You can download the latest `.jar file` for the opentelemetry jmx metrics using 
-this [release link](https://github.com/open-telemetry/opentelemetry-java-contrib/releases).
+this <a href="https://github.com/open-telemetry/opentelemetry-java-contrib/releases" target="_blank" rel="noopener noreferrer nofollow">release link</a>.
 
 4.2 **Install the OpenTelemetry Collector**
 

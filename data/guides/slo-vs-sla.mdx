@@ -20,7 +20,7 @@ The Google SRE team defines these three concepts with clear boundaries helping y
 
 ### Service Level Indicators
 
-An **SLI**, according to the [Google SRE Book](https://sre.google/sre-book/service-level-objectives/), is "a carefully defined quantitative measure of some aspect of the level of service that is provided." In simpler terms, it's any metric that tells you how well your service is performing.
+An **SLI**, according to the <a href="https://sre.google/sre-book/service-level-objectives/" target="_blank" rel="noopener noreferrer nofollow">Google SRE Book</a>, is "a carefully defined quantitative measure of some aspect of the level of service that is provided." In simpler terms, it's any metric that tells you how well your service is performing.
 
 Common SLIs include latency (how long it takes to return a response), availability (the fraction of time the service is usable), error rate (the proportion of requests that fail), and throughput (requests per second the system can handle). The key is choosing SLIs that reflect what users actually experience. Server-side latency is easier to measure than client-side latency, but client-side latency is what users feel.
 
@@ -34,7 +34,7 @@ SLOs are internal targets that guide engineering priorities and help teams decid
 
 ### Service Level Agreements
 
-An **SLA** is a contract with consequences. The [Google SRE Book](https://sre.google/sre-book/service-level-objectives/) puts it simply: "SLAs are an explicit or implicit contract with your users that includes consequences of meeting (or missing) the SLOs they contain."
+An **SLA** is a contract with consequences. The <a href="https://sre.google/sre-book/service-level-objectives/" target="_blank" rel="noopener noreferrer nofollow">Google SRE Book</a> puts it simply: "SLAs are an explicit or implicit contract with your users that includes consequences of meeting (or missing) the SLOs they contain."
 
 The consequences are usually financial—service credits or refunds but they can also affect contract renewal or reputation. While SLAs are often associated with external customer contracts, many organizations use internal SLAs between teams or departments. An internal SLA between your platform team and product teams can formalize expectations and accountability without external customers involved.
 
@@ -52,7 +52,7 @@ The relationship works like this: you set SLOs stricter than your SLA commitment
 
 ## Real-World Example: AWS EC2 SLA
 
-AWS provides a documented example of how SLAs work in practice. The [AWS Compute SLA](https://aws.amazon.com/compute/sla/) for EC2 includes two separate commitments.
+AWS provides a documented example of how SLAs work in practice. The <a href="https://aws.amazon.com/compute/sla/" target="_blank" rel="noopener noreferrer nofollow">AWS Compute SLA</a> for EC2 includes two separate commitments.
 
 For EC2 instances deployed across two or more Availability Zones in the same region, AWS commits to 99.99% monthly uptime. For a single EC2 instance, the commitment drops to 99.5% uptime.
 

@@ -10,7 +10,7 @@ keywords: [mcp servers, observability, mcp, mcp servers for observability]
 ---
 
 
-Recently, I read a [blog](https://www.honeycomb.io/blog/its-the-end-of-observability-as-we-know-it-and-i-feel-fine) titled “**It’s The End Of Observability As We Know It (And I Feel Fine)”,** which discussed MCP servers in observability and how these systems would potentially be the “end of observability”.  
+Recently, I read a <a href="https://www.honeycomb.io/blog/its-the-end-of-observability-as-we-know-it-and-i-feel-fine" target="_blank" rel="noopener noreferrer nofollow">blog</a> titled “**It’s The End Of Observability As We Know It (And I Feel Fine)”,** which discussed MCP servers in observability and how these systems would potentially be the “end of observability”.  
 As someone who has spun up an MCP server for an observability backend [SigNoz] and as someone who has been in the space for a while, I certainly do not think so. 
 This is my honest, raw take on why MCP servers for observability may not be worth the hype, if it’s hyped at all, subject to moot, of course.
 
@@ -35,7 +35,7 @@ For those who are not familiar, MCP, originally developed by Anthropic, is an op
 <Figure 
   src="/img/blog/2025/07/mcp-usb-c.webp"
   alt="MCP is analogous to USB-C"
-  caption="MCP is analogous to USB-C. PC: [Norah Sakal’s blog](https://norahsakal.com/blog/mcp-vs-api-model-context-protocol-explained/)"
+  caption="MCP is analogous to USB-C. PC: <a href="https://norahsakal.com/blog/mcp-vs-api-model-context-protocol-explained/" target="_blank" rel="noopener noreferrer nofollow">Norah Sakal’s blog</a>"
 />
 
 
@@ -63,7 +63,7 @@ Here’s a quick demo of a very basic MCP server I spun up for [SigNoz](https://
 ## MCP servers for observability may not be the holy grail it is hyped to be
 
 Let me get to the crux of this blog.
-I would like to draw an analogy (or parallelism?) between [P vs NP problems](https://en.wikipedia.org/wiki/P_versus_NP_problem) from my automata theory lectures and the role of MCP servers in the observability space. 
+I would like to draw an analogy (or parallelism?) between <a href="https://en.wikipedia.org/wiki/P_versus_NP_problem" target="_blank" rel="noopener noreferrer nofollow">P vs NP problems</a> from my automata theory lectures and the role of MCP servers in the observability space. 
 Here’s my two cents,
 
 - **(P)** refers to problems that can be solved quickly by a computer.
@@ -79,7 +79,7 @@ Let’s examine this in greater detail.
 Usually, if the issue is familiar to the LLM, if it knows of it and there is sufficient context for it in the LLM’s training data, it’s insanely good at reaching the correct hypotheses quickly. That is, when the *problem space overlaps with the LLM’s knowledge base*. 
 For example, a pod *CrashLoopBackOff* due to the wrong image pull or memory limit can be easily spotted by an LLM.
 However, when the issue is novel, the chances of an LLM getting RCA right today are close to zero. Let me back up my argument with facts. 
-Here’s the citation from a conference paper, “[AIOps for Reliability: Evaluating Large Language Models for Automated Root Cause Analysis in Chaos Engineering](https://link.springer.com/chapter/10.1007/978-3-031-97564-6_25?error=cookies_not_supported&code=d42d431d-85f3-4cc6-983c-e539b5ff43f4#:~:text=few,structured%20guidance%20for%20reliable%20RCA)”,
+Here’s the citation from a conference paper, “<a href="https://link.springer.com/chapter/10.1007/978-3-031-97564-6_25?error=cookies_not_supported&amp;code=d42d431d-85f3-4cc6-983c-e539b5ff43f4#:~:text=few,structured%20guidance%20for%20reliable%20RCA" target="_blank" rel="noopener noreferrer nofollow">AIOps for Reliability: Evaluating Large Language Models for Automated Root Cause Analysis in Chaos Engineering</a>”,
 
 > *We simulate eight real-world failure scenarios in a controlled e-commerce environment and assess LLMs’ performance in zero-shot and few-shot settings compared with Site Reliability Engineers. While LLMs can identify common failure patterns, their accuracy is highly dependent on prompt engineering. In zero-shot settings, models achieve moderate accuracy (44–58%), often misattributing harmless load spikes as security threats. However, few-shot prompting improves performance (60–74% accuracy), suggesting that LLMs require structured guidance for reliable RCA.*
 > 
@@ -132,7 +132,7 @@ In theory, the agent should pick the correct path, but in practice, each step ca
 
 ### No Real World Model
 
-Let’s look at this [recent study from MIT](https://arxiv.org/pdf/2406.03689). An LLM was trained with text on the NYC city map. 
+Let’s look at this <a href="https://arxiv.org/pdf/2406.03689" target="_blank" rel="noopener noreferrer nofollow">recent study from MIT</a>. An LLM was trained with text on the NYC city map. 
 
 The model was perfectly capable of providing *near-perfect driving directions in New York City*, yet it hadn’t learned a correct map of NYC. When the researchers introduced a slight change [closing some roads for a hypothetical detour], the model’s navigation performance **plummeted** because its hidden “mental map” was full of errors.
 

@@ -31,19 +31,19 @@ In this blog, we explain how we enable high availability Prometheus using Cortex
 
 The **ingester** service is responsible for writing sample data to long-term storage backends (DynamoDB, S3, Cassandra, etc.).
 
-Samples from each timeseries are built up in "chunks" in memory inside each ingester, then flushed to the [chunk store](https://github.com/cortexproject/cortex/blob/master/docs/architecture.md#chunk-store). By default each chunk is up to 12 hours long.
+Samples from each timeseries are built up in "chunks" in memory inside each ingester, then flushed to the <a href="https://github.com/cortexproject/cortex/blob/master/docs/architecture.md#chunk-store" target="_blank" rel="noopener noreferrer nofollow">chunk store</a>. By default each chunk is up to 12 hours long.
 
 If an ingester process crashes or exits abruptly, all the data that has not yet been flushed will be lost. Cortex is usually configured to hold multiple (typically 3) replicas of each timeseries to mitigate this risk.
 
-A [hand-over process](https://github.com/cortexproject/cortex/blob/master/docs/architecture.md) manages the state when ingesters are added, removed or replaced.
+A <a href="https://github.com/cortexproject/cortex/blob/master/docs/architecture.md" target="_blank" rel="noopener noreferrer nofollow">hand-over process</a> manages the state when ingesters are added, removed or replaced.
 
 #### Write de-amplification
 
-Ingesters store the last 12 hours worth of samples in order to perform **write de-amplification**, i.e. batching and compressing samples for the same series and flushing them out to the [chunk store](https://github.com/cortexproject/cortex/blob/master/docs/architecture.md#chunk-store). Under normal operations, there should be _many_ orders of magnitude fewer operations per second (OPS) worth of writes to the chunk store than to the ingesters.
+Ingesters store the last 12 hours worth of samples in order to perform **write de-amplification**, i.e. batching and compressing samples for the same series and flushing them out to the <a href="https://github.com/cortexproject/cortex/blob/master/docs/architecture.md#chunk-store" target="_blank" rel="noopener noreferrer nofollow">chunk store</a>. Under normal operations, there should be _many_ orders of magnitude fewer operations per second (OPS) worth of writes to the chunk store than to the ingesters.
 
 Write de-amplification is the main source of Cortex's low total cost of ownership (TCO).
 
-> You can read more about the different components of Cortex [here](https://github.com/cortexproject/cortex/blob/master/docs/architecture.md).
+> You can read more about the different components of Cortex <a href="https://github.com/cortexproject/cortex/blob/master/docs/architecture.md" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ## Features of Cortex
 
@@ -251,7 +251,7 @@ helm install stable/grafana --name=grafana-robot \
 
 You can pre-provision dashboards for Cortex performance or you can copy json files to dashboard manually and save them.
 
-Dashboard links and instructions can be found at [official Cortex github repo](https://github.com/cortexproject/cortex/tree/1dd96fd35d120bb45ce793a8799e43c14a50ac84/production/dashboards).
+Dashboard links and instructions can be found at <a href="https://github.com/cortexproject/cortex/tree/1dd96fd35d120bb45ce793a8799e43c14a50ac84/production/dashboards" target="_blank" rel="noopener noreferrer nofollow">official Cortex github repo</a>.
 
 ![Cortex write dashboard](/img/blog/2019/11/Screenshot-2019-11-30-at-2.59.13-PM.webp)Cortex Write Dashboard
 
@@ -271,8 +271,8 @@ We can set validation limits in the distributor to check:
 
 Before you make Cortex [production-ready](https://signoz.io/guides/production-readiness-checklist/), you should go through the below docs to understand the functionality better.
 
-- [Cortex Arguments Explained](https://github.com/cortexproject/cortex/blob/874d48958ce436b3c71c37b01c0269aa41552d83/docs/configuration/arguments.md)
-- [Running Cortex in Production](https://cortexmetrics.io/docs/blocks-storage/production-tips//)
+- <a href="https://github.com/cortexproject/cortex/blob/874d48958ce436b3c71c37b01c0269aa41552d83/docs/configuration/arguments.md" target="_blank" rel="noopener noreferrer nofollow">Cortex Arguments Explained</a>
+- <a href="https://cortexmetrics.io/docs/blocks-storage/production-tips//" target="_blank" rel="noopener noreferrer nofollow">Running Cortex in Production</a>
 
 [![SigNoz GitHub repo](/img/blog/common/signoz_github.webp)](https://github.com/SigNoz/signoz)
 
@@ -281,7 +281,7 @@ Before you make Cortex [production-ready](https://signoz.io/guides/production-re
 We provide managed Cortex as a Service. Reach out to us on [Signoz Website](https://signoz.io/) or DM me to try out the community edition. For any Prometheus related queries, I am reachable at:
 
 - ankit@signoz.io
-- [Twitter](https://twitter.com/ankitnayan)
-- [LinkedIn](https://www.linkedin.com/in/ankitnayan/)
+- <a href="https://twitter.com/ankitnayan" target="_blank" rel="noopener noreferrer nofollow">Twitter</a>
+- <a href="https://www.linkedin.com/in/ankitnayan/" target="_blank" rel="noopener noreferrer nofollow">LinkedIn</a>
 
 > On a mission to make monitoring essential and affordable to every business

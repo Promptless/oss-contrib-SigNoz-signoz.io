@@ -134,15 +134,15 @@ In order to see how Jaeger is used for distributed tracing, let's run the demo a
 
 Steps to run HotRod application with Jaeger:
 
-1. The recommended way to run Jaeger is with a Docker image. If you don't have docker installed, install it from the [official Docker website](https://docs.docker.com/engine/install/).
+1. The recommended way to run Jaeger is with a Docker image. If you don't have docker installed, install it from the <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer nofollow">official Docker website</a>.
 
-2. The HotRod application is implemented in Go, so you need to [install Go](https://golang.org/doc/install). 
+2. The HotRod application is implemented in Go, so you need to <a href="https://golang.org/doc/install" target="_blank" rel="noopener noreferrer nofollow">install Go</a>. 
 
 3. Run Jaeger backend as an all-in-one Docker image with the following command:
    ```jsx
    docker run -d -p6831:6831/udp -p16686:16686 jaegertracing/all-in-one:latest
    ```
-   Once the container starts, you will be able to access Jaeger's UI at [http://localhost:16686/search](http://localhost:16686/search)
+   Once the container starts, you will be able to access Jaeger's UI at <a href="http://localhost:16686/search" target="_blank" rel="noopener noreferrer nofollow">http://localhost:16686/search</a>
 
 4. Clone Jaeger's GitHub repo in local and change directory
    ```jsx

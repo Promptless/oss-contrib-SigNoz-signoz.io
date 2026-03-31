@@ -31,7 +31,7 @@ Every pipeline run can become a trace, and important KPIs can be emitted as metr
 
 ## How OpenTelemetry Captures GitHub Actions Data
 
-To make GitHub Actions observable with OTel, we leverage a component of the OTel Collector known as the [*GitHub Receiver*](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/githubreceiver). This receiver can do some very cool things like,
+To make GitHub Actions observable with OTel, we leverage a component of the OTel Collector known as the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/githubreceiver" target="_blank" rel="noopener noreferrer nofollow">*GitHub Receiver*</a>. This receiver can do some very cool things like,
 
 1. **Ingest GitHub workflow events as traces:** GitHub can send events [via webhooks] whenever workflows run or jobs execute. The GitHub Receiver accepts these events and converts them into trace data.
 2. **Scrape GitHub metrics via the API:** The same receiver can use GitHub's APIs [GraphQL and REST] to scrape repository and workflow-related metrics. This includes information like *repository size, star count, open pull requests, issue counts, contributor statistics*, and more.
@@ -58,7 +58,7 @@ On the GitHub side of things, you'll need to set up a webhook on your repository
 
 We will configure the Collector to listen for these events on a specific URL. You'll also need a secret token for the webhook [a random string] to secure it; the Collector will use the same secret to validate incoming events. 
 
-For metrics, if you want to scrape data from the GitHub API, you'll need an access token with permissions to read repo and workflow data. You can read this [guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) to understand how to get your personal access token.
+For metrics, if you want to scrape data from the GitHub API, you'll need an access token with permissions to read repo and workflow data. You can read this <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic" target="_blank" rel="noopener noreferrer nofollow">guide</a> to understand how to get your personal access token.
 
 <Figure src="/img/blog/2025/06/github-settings.webp" alt="Configure your GitHub webhook" caption="Configure your GitHub webhook" />
 
@@ -194,7 +194,7 @@ This launches the OpenTelemetry Collector with our configuration. It will start 
 
 ### Step 7: Send Data to a Backend
 
-You can configure your collector to send data to any backend you choose by adding it to the exporters field. We are sending data to SigNoz for this example, [you can find the instructions here](https://www.reddit.com/r/opensource/comments/zlkb6y/we_are_framasoft_we_develop_peertube_and_promote/).
+You can configure your collector to send data to any backend you choose by adding it to the exporters field. We are sending data to SigNoz for this example, <a href="https://www.reddit.com/r/opensource/comments/zlkb6y/we_are_framasoft_we_develop_peertube_and_promote/" target="_blank" rel="noopener noreferrer nofollow">you can find the instructions here</a>.
 [![Get Started - Free CTA](/img/launch_week/try-signoz-cloud-blog-cta.png)](https://signoz.io/teams/) 
 
 ### Step 8: View Incoming Data
@@ -207,7 +207,7 @@ In [SigNoz](https://signoz.io/docs/introduction/), you can view traces from your
 
 <Figure src="/img/blog/2025/06/github-traces.webp" alt="Traces from github actions" caption="Traces from github actions" />
 
-To view metrics in SigNoz, you can use this [dashboard](https://github.com/SigNoz/dashboards/blob/main/cicd/cicd.json).
+To view metrics in SigNoz, you can use this <a href="https://github.com/SigNoz/dashboards/blob/main/cicd/cicd.json" target="_blank" rel="noopener noreferrer nofollow">dashboard</a>.
 
 <Figure src="/img/blog/2025/06/github-metrics.gif" alt="CI/ CD metrics, including Repository health, DORA metics, Pipeline health etc" caption="CI/ CD metrics, including Repository health, DORA metics, Pipeline health etc" />
 

@@ -85,7 +85,7 @@ This processor uses the OpenTelemetry Transformation Language [OTTL] to match co
 </Admonition>
 
 Some of the most common places where you can use filtering are to remove the telemetry data generated from periodic health checks and 
-[synthetic monitoring](https://smartbear.com/learn/performance-monitoring/what-is-synthetic-monitoring/) [if any].
+<a href="https://smartbear.com/learn/performance-monitoring/what-is-synthetic-monitoring/" target="_blank" rel="noopener noreferrer nofollow">synthetic monitoring</a> [if any].
 
 Let’s look at an example.
 
@@ -119,7 +119,7 @@ service:
 ```
 
 After restarting the collector, we will no longer see traces from the health check calls. You can explore many more examples of filters from 
-the [OTel Github Docs for filterprocessor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/filterprocessor#examples).
+the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/filterprocessor#examples" target="_blank" rel="noopener noreferrer nofollow">OTel Github Docs for filterprocessor</a>.
 
 ### Dropping Logs based on Severity Level
 
@@ -180,9 +180,9 @@ Sampling can be used when a system may have an operation that is *valuable to mo
 
 Sampling is divided into 3 types based on the time at which sampling takes place [if sampling decision should be made ASAP or after considering most spans]
 
-1. [Tail-sampling](https://opentelemetry.io/docs/concepts/sampling/#tail-sampling)
-2. [Head-sampling](https://opentelemetry.io/docs/concepts/sampling/#head-sampling)
-3. [Probablistic sampling](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/probabilisticsamplerprocessor)
+1. <a href="https://opentelemetry.io/docs/concepts/sampling/#tail-sampling" target="_blank" rel="noopener noreferrer nofollow">Tail-sampling</a>
+2. <a href="https://opentelemetry.io/docs/concepts/sampling/#head-sampling" target="_blank" rel="noopener noreferrer nofollow">Head-sampling</a>
+3. <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/probabilisticsamplerprocessor" target="_blank" rel="noopener noreferrer nofollow">Probablistic sampling</a>
 </Admonition>
 
 Let’s do sampling [tail-based sampling] in our OTel collector for the GET requests for the home page of a website. 

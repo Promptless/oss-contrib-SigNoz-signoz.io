@@ -39,7 +39,7 @@ Right from the installation stage… something feels amiss when trying to use [O
 
 Out of all these articles, only one mentions an _actual use case_ for OpenTelemetry: AWS’s excellent OpenTelemetry Layer for Lambda. Even that single guide still ends with steering the user to use DataDog’s proprietary Lambda instrumentation instead. Otherwise everything seems to be about reporting OpenTelemetry data that you’ve already set up. The overall message seems to be: if you insist on using OpenTelemetry, we can accept the data. For new services, Datadog never recommends adding OpenTelemetry.
 
-While the message of ‘we will accept OpenTelemetry data but don’t want to encourage OpenTelemetry adoption’ is only implicit in the documentation, in private Datadog [was recently revealed to be acting against the adoption of OpenTelemetry](https://www.theregister.com/2023/02/02/datadog_opentelemetry_tool_dorman/). While Datadog is happy to accept OpenTelemetry data, the org actively acts to prevent Datadog data from being part of an OpenTelemetry ecosystem.
+While the message of ‘we will accept OpenTelemetry data but don’t want to encourage OpenTelemetry adoption’ is only implicit in the documentation, in private Datadog <a href="https://www.theregister.com/2023/02/02/datadog_opentelemetry_tool_dorman/" target="_blank" rel="noopener noreferrer nofollow">was recently revealed to be acting against the adoption of OpenTelemetry</a>. While Datadog is happy to accept OpenTelemetry data, the org actively acts to prevent Datadog data from being part of an OpenTelemetry ecosystem.
 
 ### OpenTelemetry data in Datadog: What's working
 
@@ -77,7 +77,7 @@ These disconnects will make it harder to 'zoom in' on traces that look interesti
 
 ### Limitations: missing annotations
 
-One piece of tracing that appears to be un-implemented in Datadog is events within traces. A [Span Event](https://opentelemetry.io/docs/concepts/signals/traces/#span-events) can be thought of as a structured log message (or annotation) on a Span, and they can be added to a trace with a simple call.
+One piece of tracing that appears to be un-implemented in Datadog is events within traces. A <a href="https://opentelemetry.io/docs/concepts/signals/traces/#span-events" target="_blank" rel="noopener noreferrer nofollow">Span Event</a> can be thought of as a structured log message (or annotation) on a Span, and they can be added to a trace with a simple call.
 
 ```python
 def do_roll():
@@ -124,7 +124,7 @@ Our uniquely named `/rolldice` isn't listed. This is also true for proprietary D
 
 ## OpenTelemetry in New Relic
 
-In stark contrast to Datadog, the New Relic team does a great job of documenting a happy path for OpenTelemetry data. One route is clearly deprecated, while the other clearly documented. And both automatic and manual instrumentation are clearly documented with an example repo that works on the first run (except for one line which, at least for me, [needed to be fixed](https://github.com/newrelic/newrelic-opentelemetry-examples/blob/e2e7b735fba05f53147587867355f5e37ae45fc3/getting-started-guides/python/Uninstrumented/app.py#L6)). I was reporting OTel data to New Relic in less than an hour, a great onboarding experience.
+In stark contrast to Datadog, the New Relic team does a great job of documenting a happy path for OpenTelemetry data. One route is clearly deprecated, while the other clearly documented. And both automatic and manual instrumentation are clearly documented with an example repo that works on the first run (except for one line which, at least for me, <a href="https://github.com/newrelic/newrelic-opentelemetry-examples/blob/e2e7b735fba05f53147587867355f5e37ae45fc3/getting-started-guides/python/Uninstrumented/app.py#L6" target="_blank" rel="noopener noreferrer nofollow">needed to be fixed</a>). I was reporting OTel data to New Relic in less than an hour, a great onboarding experience.
 
 Once data is reporting, the experience again shows significant gaps between OpenTelemetry and proprietary data.
 

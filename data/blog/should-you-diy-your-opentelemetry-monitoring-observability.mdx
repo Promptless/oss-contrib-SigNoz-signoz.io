@@ -23,11 +23,11 @@ This is not the first time I’ve seen conversations about using Postgres, Maria
 
 ## Generic databases vs. the right tool
 
-One of the first responses that comes in on this thread mentions that [Clickhouse provides better performance for observability](https://clickhouse.com/docs/en/concepts/why-clickhouse-is-so-fast) queries than Postgres. CNCF ambassador and member of Dynatrace Adam Gardener gives a good synopsis:
+One of the first responses that comes in on this thread mentions that <a href="https://clickhouse.com/docs/en/concepts/why-clickhouse-is-so-fast" target="_blank" rel="noopener noreferrer nofollow">Clickhouse provides better performance for observability</a> queries than Postgres. CNCF ambassador and member of Dynatrace Adam Gardener gives a good synopsis:
 
 > There are paid-for vendor solutions who invest massively on how to do this properly and at scale. They’ve spent years learning about tracing, how to do it, store it and analyze it properly. I see little benefit of re-inventing the wheel. Just because you can, doesn’t mean you should.
 
-When it’s time to see your data in a dashboard, again you won’t want to use Postgres to store your data. Matthew Macdonald-Wallace of [Contino.io](http://contino.io/) offers a great consideration
+When it’s time to see your data in a dashboard, again you won’t want to use Postgres to store your data. Matthew Macdonald-Wallace of <a href="http://contino.io/" target="_blank" rel="noopener noreferrer nofollow">Contino.io</a> offers a great consideration
 
 > If you want Grafana to talk to your proposed PostgreSQL solution, you will need to make sure that the data is in the correct format as well, because it needs to be able to "see" specific attributes on the data in order to build any kind of service map/node graph etc.
 
@@ -69,6 +69,6 @@ In our dev and QA space, the situation is largely reversed: we have a smaller nu
 
 ## Open source options can help!
 
-There are several projects built specifically to receive and process OpenTelemetry data, without having to start from scratch. One of these is [SigNoz](https://github.com/signoz/signoz).
+There are several projects built specifically to receive and process OpenTelemetry data, without having to start from scratch. One of these is <a href="https://github.com/signoz/signoz" target="_blank" rel="noopener noreferrer nofollow">SigNoz</a>.
 
 SigNoz is a complete solution to the need for ‘out of the box’ observability tooling for storing, analyzing, and displaying your data. SigNoz uses ClickHouse as its datastore, as mentioned above that means great performance for observability data. That means you can host your own OpenTelemetry endpoint without needing to lock into a closed-source SaaS tool. If you want to use open tools but don’t want the headache of running your own data storage for observability, consider SigNoz cloud, our latest offering that takes the self hosting off your plate. <a href="https://signoz.io/teams/" rel="noopener noreferrer nofollow" target="_blank" >Sign up to demo our cloud tool today</a>!

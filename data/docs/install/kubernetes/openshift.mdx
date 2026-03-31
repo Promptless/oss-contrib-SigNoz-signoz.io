@@ -12,13 +12,13 @@ import Admonition from '@/components/Admonition/Admonition'
 
 ## Overview
 
-[OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is Red Hat’s enterprise Kubernetes distribution, known for its built-in security layers such as Security Context Constraints (SCCs). Deploying SigNoz here keeps that hardening intact while adding end-to-end observability.
+<a href="https://www.redhat.com/en/technologies/cloud-computing/openshift" target="_blank" rel="noopener noreferrer nofollow">OpenShift</a> is Red Hat’s enterprise Kubernetes distribution, known for its built-in security layers such as Security Context Constraints (SCCs). Deploying SigNoz here keeps that hardening intact while adding end-to-end observability.
 
-This guide walks you through creating the necessary SCC, installing SigNoz with the official [Helm](https://github.com/signoz/charts) chart, and verifying the deployment, so you can start collecting logs, metrics, and traces from your OpenShift workloads in just a few steps.
+This guide walks you through creating the necessary SCC, installing SigNoz with the official <a href="https://github.com/signoz/charts" target="_blank" rel="noopener noreferrer nofollow">Helm</a> chart, and verifying the deployment, so you can start collecting logs, metrics, and traces from your OpenShift workloads in just a few steps.
 
 ## Prerequisites
 
-- An existing [OpenShift cluster](https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.2/html/manage_cluster/creating-a-cluster)  
+- An existing <a href="https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.2/html/manage_cluster/creating-a-cluster" target="_blank" rel="noopener noreferrer nofollow">OpenShift cluster</a>  
 - Either the `oc` or `kubectl` CLI is configured and authenticated  
 - Kubernetes `v1.22` or newer (architectures: `x86_64`, `amd64`, `arm64`)  
 - Helm `v3.8` or newer  
@@ -35,7 +35,7 @@ This guide walks you through creating the necessary SCC, installing SigNoz with 
 
 ### Step 1: Configure Security Context Constraints (SCC)
 
-OpenShift enforces [Security Context Constraints (SCCs)](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html-single/authentication_and_authorization/index#managing-pod-security-policies) to control what actions pods can perform and what resources they can access, similar to how RBAC controls user permissions. 
+OpenShift enforces <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html-single/authentication_and_authorization/index#managing-pod-security-policies" target="_blank" rel="noopener noreferrer nofollow">Security Context Constraints (SCCs)</a> to control what actions pods can perform and what resources they can access, similar to how RBAC controls user permissions. 
 
 SCCs let administrators define a pod's security conditions for admission and running in the cluster. SCCs consists following key settings:
 
@@ -98,7 +98,7 @@ kubectl apply -f signoz_scc.yaml
 
 #### Helm Installation
 
-The SigNoz Helm [chart](https://github.com/SigNoz/charts) will install the following components into your Kubernetes cluster:
+The SigNoz Helm <a href="https://github.com/SigNoz/charts" target="_blank" rel="noopener noreferrer nofollow">chart</a> will install the following components into your Kubernetes cluster:
 
 - SigNoz
 - SigNoz Collector
@@ -120,10 +120,10 @@ global:
 clickhouse:
   installCustomStorageClass: true
 ```
-You can find an exhaustive list of the parameters [here](https://github.com/SigNoz/charts/tree/main/charts/signoz#configuration).
+You can find an exhaustive list of the parameters <a href="https://github.com/SigNoz/charts/tree/main/charts/signoz#configuration" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 <Admonition type="info">
-For OpenShift cluster, you need to set up the [storageclasses](https://docs.redhat.com/en/documentation/red_hat_openshift_container_storage/4.6/html-single/managing_and_allocating_storage_resources/index) with a compatible provisioner
+For OpenShift cluster, you need to set up the <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_container_storage/4.6/html-single/managing_and_allocating_storage_resources/index" target="_blank" rel="noopener noreferrer nofollow">storageclasses</a> with a compatible provisioner
 
 </Admonition>
 

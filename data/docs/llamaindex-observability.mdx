@@ -8,11 +8,11 @@ description: Enable observability and monitoring in your LlamaIndex application 
 
 ## Overview
 
-This guide walks you through enabling observability and monitoring for your Python-based [LlamaIndex](https://www.llamaindex.ai/) application and streaming telemetry data to SigNoz Cloud using OpenTelemetry. By the end of this setup, you'll be able to monitor AI-specific operations such as document ingestion, document retrieval, user querying, text generation, and user feedback within LlamaIndex, with detailed spans capturing request durations, node and query inputs, model outputs, retrieval scores, metadata, and intermediate steps throughout the pipeline.
+This guide walks you through enabling observability and monitoring for your Python-based <a href="https://www.llamaindex.ai/" target="_blank" rel="noopener noreferrer nofollow">LlamaIndex</a> application and streaming telemetry data to SigNoz Cloud using OpenTelemetry. By the end of this setup, you'll be able to monitor AI-specific operations such as document ingestion, document retrieval, user querying, text generation, and user feedback within LlamaIndex, with detailed spans capturing request durations, node and query inputs, model outputs, retrieval scores, metadata, and intermediate steps throughout the pipeline.
 
 Instrumenting your RAG workflows with telemetry enables full observability across the retrieval and generation pipeline. This is especially valuable when building production-grade developer-facing tools, where insight into model behavior, latency bottlenecks, and retrieval accuracy is essential. With SigNoz, you can trace each user question end-to-end, from prompt to response, and continuously improve performance and reliability.
 
-To get started, check out our example LlamaIndex RAG Q&A bot, complete with OpenTelemetry-based monitoring (via OpenInference). View the full repository [here](https://github.com/SigNoz/llamaindex-rag-opentelemetry-demo).
+To get started, check out our example LlamaIndex RAG Q&A bot, complete with OpenTelemetry-based monitoring (via OpenInference). View the full repository <a href="https://github.com/SigNoz/llamaindex-rag-opentelemetry-demo" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ To get started, check out our example LlamaIndex RAG Q&A bot, complete with Open
 
 ## Instrument your LlamaIndex application
 
-To capture detailed telemetry from LlamaIndex without modifying your core application logic, we use [OpenInference](https://arize.com/docs/ax/learn/tracing-concepts/what-is-openinference), a community-driven standard that provides pre-built instrumentation for popular AI frameworks like LlamaIndex, built on top of OpenTelemetry. This allows you to trace your LlamaIndex application with minimal configuration.
+To capture detailed telemetry from LlamaIndex without modifying your core application logic, we use <a href="https://arize.com/docs/ax/learn/tracing-concepts/what-is-openinference" target="_blank" rel="noopener noreferrer nofollow">OpenInference</a>, a community-driven standard that provides pre-built instrumentation for popular AI frameworks like LlamaIndex, built on top of OpenTelemetry. This allows you to trace your LlamaIndex application with minimal configuration.
 
-Check out detailed instructions on how to set up OpenInference instrumentation in your LlamaIndex application over [here](https://pypi.org/project/openinference-instrumentation-llama-index/).
+Check out detailed instructions on how to set up OpenInference instrumentation in your LlamaIndex application over <a href="https://pypi.org/project/openinference-instrumentation-llama-index/" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 <Tabs>
 <TabItem value="No Code" label="No Code(Recommended)" default>

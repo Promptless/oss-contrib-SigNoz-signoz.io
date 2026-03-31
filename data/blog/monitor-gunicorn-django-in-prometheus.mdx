@@ -26,7 +26,7 @@ eksctl create cluster --name prod --version 1.13 --nodegroup-name standard-worke
 
 ### Setup Prometheus and Grafana using Helm
 
-Follow this [link](https://catalog.workshops.aws/running-batch-on-eks/en-US/exercises/calculate-pi/setup-prometheus-grafana) to set up prometheus and grafana in EKS cluster
+Follow this <a href="https://catalog.workshops.aws/running-batch-on-eks/en-US/exercises/calculate-pi/setup-prometheus-grafana" target="_blank" rel="noopener noreferrer nofollow">link</a> to set up prometheus and grafana in EKS cluster
 
 also add 
 ```
@@ -56,7 +56,7 @@ Now you can access the prometheus expression browser at `http://localhost:9090`
 
 ### Details of Django application
 
-I have set up a sample django application at this [Repo](https://github.com/ankitnayan/django_sample_project) which exposes a few endpoints:
+I have set up a sample django application at this <a href="https://github.com/ankitnayan/django_sample_project" target="_blank" rel="noopener noreferrer nofollow">Repo</a> which exposes a few endpoints:
 
 1. /polls/2xx_success/ returns 200 status code
 2. /polls/4xx_not_found/ returns 404 status code
@@ -136,21 +136,21 @@ Prometheus inherits many of Borgmon's assumptions about its environment. In part
 
 These assumptions break in many non-Google deployments, particularly in the Python world. Here it is common (e.g. using  <a href="https://www.djangoproject.com/" rel="noopener noreferrer nofollow">Django</a> or <a href="http://flask.pocoo.org/" rel="noopener noreferrer nofollow">Flask</a> to run under a <a href="https://wsgi.readthedocs.io/en/latest/what.html" rel="noopener noreferrer nofollow">WSGI</a>  application server that spreads requests across multiple workers, each of which is a  **process**  rather than a thread.
 
-In a naive deployment of the Prometheus  [Python client](https://github.com/prometheus/client_python)  for a Flask app running under uWSGI, each request from the Prometheus server to  */metrics*  can hit a different worker process, each of which exports its own counters, histograms, etc.
+In a naive deployment of the Prometheus  <a href="https://github.com/prometheus/client_python" target="_blank" rel="noopener noreferrer nofollow">Python client</a>  for a Flask app running under uWSGI, each request from the Prometheus server to  */metrics*  can hit a different worker process, each of which exports its own counters, histograms, etc.
 
 ### Various ways to export metrics to prometheus
 
 #### Statsd Exporter
 
-Instead of Prometheus scraping our Python web application directly, we will let each worker process push its metrics to a certain “bridge” application, which will then convert these individual data points into [aggregated metrics](https://signoz.io/docs/metrics-management/types-and-aggregation/). These aggregated metrics will then be converted into [Prometheus metrics](https://signoz.io/guides/what-are-the-4-types-of-metrics-in-prometheus/) when Prometheus queries the bridge. This “bridge” application here is the  [statsd exporter](https://github.com/prometheus/statsd_exporter).
+Instead of Prometheus scraping our Python web application directly, we will let each worker process push its metrics to a certain “bridge” application, which will then convert these individual data points into [aggregated metrics](https://signoz.io/docs/metrics-management/types-and-aggregation/). These aggregated metrics will then be converted into [Prometheus metrics](https://signoz.io/guides/what-are-the-4-types-of-metrics-in-prometheus/) when Prometheus queries the bridge. This “bridge” application here is the  <a href="https://github.com/prometheus/statsd_exporter" target="_blank" rel="noopener noreferrer nofollow">statsd exporter</a>.
 
-**Multi Process Mode of python client**[Link](https://github.com/prometheus/client_python#multiprocess-mode-gunicorn)
-The prometheus python client has a multi-processing mode which essentially creates a shared prometheus registry and shares it among all the processes and hence the [aggregation](https://github.com/prometheus/client_python/blob/master/prometheus_client/multiprocess.py) happens at the application level. When, prometheus scrapes the application instance, no matter which worker responds to the scraping request, the metrics reported back describes the application’s behaviour, rather than the worker responding.
+**Multi Process Mode of python client**<a href="https://github.com/prometheus/client_python#multiprocess-mode-gunicorn" target="_blank" rel="noopener noreferrer nofollow">Link</a>
+The prometheus python client has a multi-processing mode which essentially creates a shared prometheus registry and shares it among all the processes and hence the <a href="https://github.com/prometheus/client_python/blob/master/prometheus_client/multiprocess.py" target="_blank" rel="noopener noreferrer nofollow">aggregation</a> happens at the application level. When, prometheus scrapes the application instance, no matter which worker responds to the scraping request, the metrics reported back describes the application’s behaviour, rather than the worker responding.
 
 {/* <!-- This [blog](blog) from MetricFire  explains how to set up native python client for _nginx + uwsgi + Flask_ apps --> */}
 
-**Django Prometheus** library [Link](https://github.com/korfuri/django-prometheus)
-The Django prometheus client adopts an approach where you basically have each [worker listening](https://github.com/korfuri/django-prometheus/blob/master/documentation/exports.md) on a unique port for prometheus’s scraping requests. Thus, for prometheus, each of these workers are different targets as if they were running on different instances of the application.
+**Django Prometheus** library <a href="https://github.com/korfuri/django-prometheus" target="_blank" rel="noopener noreferrer nofollow">Link</a>
+The Django prometheus client adopts an approach where you basically have each <a href="https://github.com/korfuri/django-prometheus/blob/master/documentation/exports.md" target="_blank" rel="noopener noreferrer nofollow">worker listening</a> on a unique port for prometheus’s scraping requests. Thus, for prometheus, each of these workers are different targets as if they were running on different instances of the application.
 
 ## Running gunicorn with statsd
 
@@ -367,7 +367,7 @@ I hope this blog helps you setup metrics in prometheus for gunicorn and django s
 
 [![SigNoz GitHub repo](/img/blog/common/signoz_github.webp)](https://github.com/SigNoz/signoz)
 
-For any Prometheus related query reach me out on [Twitter](https://twitter.com/ankitnayan) or mail me at `ankit@signoz.io`
+For any Prometheus related query reach me out on <a href="https://twitter.com/ankitnayan" target="_blank" rel="noopener noreferrer nofollow">Twitter</a> or mail me at `ankit@signoz.io`
 
 #### Below blogs were helpful in understanding and implementing the concepts:
 

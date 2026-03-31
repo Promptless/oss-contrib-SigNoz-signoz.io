@@ -68,7 +68,7 @@ Here’s the architecture of the sample application along with OpenTelemetry and
 ### Pre-requisites
 
 - Node JS 14 or newer<br></br>
-  Download the [latest version](https://nodejs.org/en/download/).
+  Download the <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreferrer nofollow">latest version</a>.
 - MySql 8
 - SigNoz
 
@@ -76,7 +76,7 @@ Here’s the architecture of the sample application along with OpenTelemetry and
 
 SigNoz can be installed on macOS or Linux computers in just three steps by using a simple install script.
 
-The install script automatically installs Docker Engine on Linux. However, on macOS, you must manually install [Docker Engine](https://docs.docker.com/engine/install/) before running the install script.
+The install script automatically installs Docker Engine on Linux. However, on macOS, you must manually install <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer nofollow">Docker Engine</a> before running the install script.
 
 ```jsx
 git clone -b main https://github.com/SigNoz/signoz.git
@@ -88,7 +88,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 
 [![Deployment Docs](/img/blog/common/deploy_docker_documentation.webp)](https://signoz.io/docs/install/)
 
-When you are done installing SigNoz, you can access the UI at [http://localhost:3301](http://localhost:3301/application)
+When you are done installing SigNoz, you can access the UI at <a href="http://localhost:3301/application" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3301</a>
 
 <figure data-zoomable align='center'>
     <img className="box-shadowed-image"
@@ -102,7 +102,7 @@ When you are done installing SigNoz, you can access the UI at [http://localhost
 
 ### Installing MySql
 
-Download MySQL community version from [here](https://dev.mysql.com/downloads/mysql/) based on your operating system.
+Download MySQL community version from <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener noreferrer nofollow">here</a> based on your operating system.
 
 Once installation is complete, run the below commands to create a database for our sample nodejs app.
 
@@ -112,14 +112,14 @@ mysql> create database signoz;
 mysql> use signoz;
 ```
 
-If you have MySQL already installed and is configured with a password, you might need to update the password in the sample app [here](https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/d34e63d3bf6c996c020a58a05d84a39132934e5d/src/model/index.ts#L6).
+If you have MySQL already installed and is configured with a password, you might need to update the password in the sample app <a href="https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/d34e63d3bf6c996c020a58a05d84a39132934e5d/src/model/index.ts#L6" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ### Running sample application
 
 Below are the steps to run the sample nodejs application with OpenTelemetry:
 
 1. **Clone sample nodejs app repository and go to the root folder**<br></br>
-   We will be using a sample nodejs app at this [GitHub repo](https://github.com/SigNoz/distributed-tracing-nodejs-sample).
+   We will be using a sample nodejs app at this <a href="https://github.com/SigNoz/distributed-tracing-nodejs-sample" target="_blank" rel="noopener noreferrer nofollow">GitHub repo</a>.
 
    ```jsx
    git clone git@github.com:SigNoz/distributed-tracing-nodejs-sample.git
@@ -153,7 +153,7 @@ Below are the steps to run the sample nodejs application with OpenTelemetry:
    const { sdk } = init("order-service"); // provide service name to view in signoz dashboard
    ```
 
-   You can check out the code sample [here](https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/main/src/tracer.ts).
+   You can check out the code sample <a href="https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/main/src/tracer.ts" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 4. **Setting up SigNoz as the [OpenTelemetry backend](https://signoz.io/blog/opentelemetry-backend/)**<br></br>
    We have set up environment variables required by OpenTelemetry in the `scripts` section of `package.json`.
@@ -172,7 +172,7 @@ Below are the steps to run the sample nodejs application with OpenTelemetry:
     ...
    ```
 
-   You can check the file [here](https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/main/package.json).
+   You can check the file <a href="https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/main/package.json" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
    If you have installed SigNoz on your local machine, then your endpoint is `127.0.0.1:4318`.
 
@@ -196,7 +196,7 @@ Below are the steps to run the sample nodejs application with OpenTelemetry:
    PAYMENT_PORT = 8080;
    ```
 
-   You can check the [file](https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/main/.env) in the cloned repo.
+   You can check the <a href="https://github.com/SigNoz/distributed-tracing-nodejs-sample/blob/main/.env" target="_blank" rel="noopener noreferrer nofollow">file</a> in the cloned repo.
 
 <figure data-zoomable align='center'>
     <img className="box-shadowed-image"
@@ -239,7 +239,7 @@ npm install -g serve
 serve -l 5000 ui
 ```
 
-This will run the app UI on port 5000. Open the UI at [http://localhost:5000/](http://localhost:5000/).
+This will run the app UI on port 5000. Open the UI at <a href="http://localhost:5000/" target="_blank" rel="noopener noreferrer nofollow">http://localhost:5000/</a>.
 
 <figure data-zoomable align='center'>
     <img className="box-shadowed-image"

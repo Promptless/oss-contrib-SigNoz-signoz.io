@@ -31,7 +31,7 @@ Set up OTel Collector to send traces to SigNoz if you have not already. The OTel
 
 ## Process of scrubbing PII data
 
-OpenTelemetry Collector provides a powerful [transform processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/transformprocessor/README.md) to filter or modify sensitive data before it's sent to SigNoz. We'll use this processor to scrub PII data from our traces.
+OpenTelemetry Collector provides a powerful <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/transformprocessor/README.md" target="_blank" rel="noopener noreferrer nofollow">transform processor</a> to filter or modify sensitive data before it's sent to SigNoz. We'll use this processor to scrub PII data from our traces.
 
 ### Sample trace
 
@@ -66,7 +66,7 @@ This trace contains an attribute that we want to scrub: IP address of client.
 
 ## Configuring the transform processor
 
-To scrub PII data, we're going to use a transform processor in the OpenTelemetry Collector configuration. Transform processor works by using regular expressions for scrubbing the data, you can find more about regular expressions [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions). Here's an example of how we can use the transform processor:
+To scrub PII data, we're going to use a transform processor in the OpenTelemetry Collector configuration. Transform processor works by using regular expressions for scrubbing the data, you can find more about regular expressions <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions" target="_blank" rel="noopener noreferrer nofollow">here</a>. Here's an example of how we can use the transform processor:
 
 ```yaml
 processors:
@@ -105,7 +105,7 @@ After applying the transform processor and restarting OpenTelemetry Collector, t
 
 As you can see, the IP address is no longer visible as it has been scrubbed out by the OpenTelemetry Collector before the data was sent to SigNoz.
 
-Learn more about Transform processor [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/transformprocessor/README.md).
+Learn more about Transform processor <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/transformprocessor/README.md" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ## Get Help
 

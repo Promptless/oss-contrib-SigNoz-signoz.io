@@ -112,7 +112,7 @@ Here is what typically happens when high-cardinality labels are introduced:
 
 1. You add a label like `user_id` to a metric
 2. Each unique user ID creates a new time series
-3. Assuming each time series requires ~3-4 KB of memory ([source](https://www.robustperception.io/why-does-prometheus-use-so-much-ram/))
+3. Assuming each time series requires ~3-4 KB of memory (<a href="https://www.robustperception.io/why-does-prometheus-use-so-much-ram/" target="_blank" rel="noopener noreferrer nofollow">source</a>)
 4. With 1 million users, that is 3-4 GB of RAM, just for one metric
 5. The container runs out of memory and gets killed (OOM)
 
@@ -138,7 +138,7 @@ This is extremely fast for low-cardinality queries like `status=200`. The databa
 
 The problem: this index must fit in memory. With 10 million unique `user_id` values, the index itself consumes gigabytes of RAM before you even store any actual data. When memory runs out, the database crashes.
 
-Note: InfluxDB introduced [TSI](https://docs.influxdata.com/influxdb/v1/concepts/time-series-index/) specifically to move the time-series index to disk (memory-mapped) and reduce RAM as the limiting factor, though high series cardinality can still hurt performance and memory.
+Note: InfluxDB introduced <a href="https://docs.influxdata.com/influxdb/v1/concepts/time-series-index/" target="_blank" rel="noopener noreferrer nofollow">TSI</a> specifically to move the time-series index to disk (memory-mapped) and reduce RAM as the limiting factor, though high series cardinality can still hurt performance and memory.
 
 ### Row-Oriented Databases (PostgreSQL, MySQL)
 

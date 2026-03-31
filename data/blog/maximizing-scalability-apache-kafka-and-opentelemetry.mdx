@@ -9,7 +9,7 @@ image: /img/blog/2023/10/c2c-cover.jpg
 hide_table_of_contents: false
 keywords: [Kafka,OpenTelemetry]
 ---
-On a recent thread on the [CNCF Slack’s OTel Collector channel](https://slack.cncf.io/), a user asked a question that shone a light on a topic I don't think has been effectively discussed elsewhere.
+On a recent thread on the <a href="https://slack.cncf.io/" target="_blank" rel="noopener noreferrer nofollow">CNCF Slack’s OTel Collector channel</a>, a user asked a question that shone a light on a topic I don't think has been effectively discussed elsewhere.
 
 
 
@@ -24,7 +24,7 @@ This article will discuss both multi-collector architecture and how Apache Kafka
     <figcaption><i>Doesn't collector tiering make more sense, generally, than using a queue?</i></figcaption>
 </figure>
 
-(Big thank you to [Martin](https://www.linkedin.com/in/martin-thwaites-ab445120) for always being there with a helpful answer.)
+(Big thank you to <a href="https://www.linkedin.com/in/martin-thwaites-ab445120" target="_blank" rel="noopener noreferrer nofollow">Martin</a> for always being there with a helpful answer.)
 
 ## What the Collector Does
 
@@ -65,7 +65,7 @@ In the Slack thread above, the proposed solution was to use something like a Kaf
     <figcaption><i>In this new version, a Kafka queue receives data from collectors near the edge. Services could also publish directly to Kafka. Collector C reads the data from the queue, using the OTel Kafka Receiver.</i></figcaption>
 </figure>
 
-To learn more about the options for receiving data from Kafka, see the [Kafka receiver in the OpenTelemetry Collector Contrib repository](https://cloud-native.slack.com/archives/C01N6P7KR6W/p1690203259803679).
+To learn more about the options for receiving data from Kafka, see the <a href="https://cloud-native.slack.com/archives/C01N6P7KR6W/p1690203259803679" target="_blank" rel="noopener noreferrer nofollow">Kafka receiver in the OpenTelemetry Collector Contrib repository</a>.
 
 ## YAML Configuration for Intermediate Collectors
 

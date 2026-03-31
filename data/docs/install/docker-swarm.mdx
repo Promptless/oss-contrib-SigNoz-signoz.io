@@ -24,10 +24,10 @@ This section provides information on installing SigNoz on Docker Swarm.
 {/* <!-- This section should focus on SigNoz, hence we could assume that Docker Swarm is already installed, similar to the Docker Standalone or Kubernetes sections. Not sure why we show to initialize a swarm or add more nodes here.  --> */}
 
 - A Linux or macOS machine. Microsoft Windows is not officially supported.
-- [Docker Engine](https://docs.docker.com/get-docker/). A minimum of 4GB of memory
+- <a href="https://docs.docker.com/get-docker/" target="_blank" rel="noopener noreferrer nofollow">Docker Engine</a>. A minimum of 4GB of memory
 must be allocated to each Docker node.
-- [Docker Compose](https://docs.docker.com/compose/install/)
-- [Git client](https://desktop.github.com/)
+- <a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener noreferrer nofollow">Docker Compose</a>
+- <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer nofollow">Git client</a>
 
 ## Install SigNoz on Docker Swarm
 
@@ -55,7 +55,7 @@ Please use non-root user (mainly for Git repository cloning), otherwise you may 
 
 3. _(Optional)_ You can use the `docker swarm join` command to add more nodes to the swarm.
     Note that the node you added in the previous step is the manager. For details, see the
-    [Docker Swarm Join](https://docs.docker.com/engine/reference/commandline/swarm_join/)
+    <a href="https://docs.docker.com/engine/reference/commandline/swarm_join/" target="_blank" rel="noopener noreferrer nofollow">Docker Swarm Join</a>
     page of the Docker documentation.
 
 4. Deploy SigNoz by entering the `docker stack deploy` command and specifying the following:
@@ -110,7 +110,7 @@ Please use non-root user (mainly for Git repository cloning), otherwise you may 
 
 ## Scale Up SigNoz Cluster
 
-SigNoz uses the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) to ingest data.
+SigNoz uses the <a href="https://github.com/open-telemetry/opentelemetry-collector" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Collector</a> to ingest data.
 By default, the instructions in the [Install SigNoz on Docker Swarm](/docs/install/docker-swarm) document create
 three replicas, and each replica can handle 50K spans per second. To handle an increased load, perform the following steps:
 

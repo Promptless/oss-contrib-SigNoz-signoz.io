@@ -27,7 +27,7 @@ Before starting, ensure you have:
 
 ### Step 1: Create OAuth 2.0 Credentials in Google Cloud
 
-1. Visit the [Google Cloud Console → Credentials](https://console.cloud.google.com/apis/credentials)
+1. Visit the <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer nofollow">Google Cloud Console → Credentials</a>
 2. Select or create a **project** for SigNoz
 3. Click **Create credentials → OAuth client ID → Web application**
 4. Add an **Authorized redirect URI**:
@@ -83,7 +83,7 @@ You can restrict SigNoz access to specific Google Workspace groups and use group
 
 #### 5.1: Create a Service Account
 
-1. Go to [Google Cloud Console → IAM & Admin → Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
+1. Go to <a href="https://console.cloud.google.com/iam-admin/serviceaccounts" target="_blank" rel="noopener noreferrer nofollow">Google Cloud Console → IAM & Admin → Service Accounts</a>
 2. Click **Create Service Account**
 3. Give it a name (e.g., `signoz-group-sync`) and click **Create and Continue**
 4. Skip the optional steps and click **Done**
@@ -100,7 +100,7 @@ You can restrict SigNoz access to specific Google Workspace groups and use group
 
 #### 5.3: Authorize Scopes in Google Workspace Admin
 
-1. Go to [Google Workspace Admin Console → Security → API Controls → Domain-wide Delegation](https://admin.google.com/ac/owl/domainwidedelegation)
+1. Go to <a href="https://admin.google.com/ac/owl/domainwidedelegation" target="_blank" rel="noopener noreferrer nofollow">Google Workspace Admin Console → Security → API Controls → Domain-wide Delegation</a>
 2. Click **Add new**
 3. Enter the service account **Client ID**
 4. Add the following OAuth scope:
@@ -111,7 +111,7 @@ You can restrict SigNoz access to specific Google Workspace groups and use group
 
 #### 5.4: Enable the Admin SDK API
 
-1. Go to [Google Cloud Console → APIs & Services → Library](https://console.cloud.google.com/apis/library)
+1. Go to <a href="https://console.cloud.google.com/apis/library" target="_blank" rel="noopener noreferrer nofollow">Google Cloud Console → APIs & Services → Library</a>
 2. Search for **Admin SDK API**
 3. Click **Enable**
 

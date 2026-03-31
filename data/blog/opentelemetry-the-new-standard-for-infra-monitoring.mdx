@@ -36,7 +36,7 @@ Beyond just individual hosts, OpenTelemetry has also made it easy to monitor **K
 Combined with its ability to **scrape [Prometheus endpoints](https://signoz.io/guides/prometheus-metrics-endpoint/)** and forward logs, OpenTelemetry offers a unified infrastructure monitoring whether you're running bare metal, VMs, or Kubernetes. This also means that if your system already exposes Prometheus-format metrics [as many existing apps and exporters do], adopting OpenTelemetry becomes much easier. You can just reuse your existing instrumentation and incrementally route that data through OTel pipelines easily without ripping everything out.
 
 <Admonition>
-The [Prometheus receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/prometheusreceiver) of the OTel collector allows you to collect metrics from any software that exposes [Prometheus metrics](https://signoz.io/guides/what-are-the-4-types-of-metrics-in-prometheus/). It serves as a drop-in replacement for Prometheus to scrape your services.
+The <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/prometheusreceiver" target="_blank" rel="noopener noreferrer nofollow">Prometheus receiver</a> of the OTel collector allows you to collect metrics from any software that exposes [Prometheus metrics](https://signoz.io/guides/what-are-the-4-types-of-metrics-in-prometheus/). It serves as a drop-in replacement for Prometheus to scrape your services.
 </Admonition>
 
 
@@ -49,7 +49,7 @@ One concern teams often have is that, adopting a new monitoring framework will b
 <Admonition>
 Host metrics provide granular visibility into the physical or virtual server's resource utilisation and health status. Every host system in your environment - whether physical machines, virtual machines [VMs], cloud instances, or containerised nodes collects these metrics directly from its local operating system. The OpenTelemetry hostmetrics receiver collects metrics on CPU, memory, disk, network, paging, swap, and system performance.
 
-For more information about the metrics collected by the hostmetrics receiver, see documentation [**here**](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/hostmetricsreceiver/README.md).
+For more information about the metrics collected by the hostmetrics receiver, see documentation <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/hostmetricsreceiver/README.md" target="_blank" rel="noopener noreferrer nofollow">**here**</a>.
 </Admonition>
 
 ### Step 1 - Setup OpenTelemetry Collector on Your VM
@@ -147,7 +147,7 @@ Key attributes include:
 - `host.name`: Hostname of the system.
 - `k8s.pod.name`: Name of the Kubernetes pod.
 
-Check [here](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/resource/README.md) for more attributes.
+Check <a href="https://github.com/open-telemetry/semantic-conventions/blob/main/docs/resource/README.md" target="_blank" rel="noopener noreferrer nofollow">here</a> for more attributes.
 
 Resource attributes add metadata to telemetry data, describing the entity producing the data. By attaching these attributes to all telemetry data, OTel ensures accurate attribution and facilitates correlation across different data types.
 

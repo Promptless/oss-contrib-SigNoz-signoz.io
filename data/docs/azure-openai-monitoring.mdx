@@ -8,7 +8,7 @@ description: Monitoring and observability for Azure OpenAI API usage and perform
 
 ## Overview
 
-This guide walks you through setting up monitoring and observability for Azure OpenAi API using [OpenTelemetry](https://opentelemetry.io/) and exporting logs, traces, and metrics to SigNoz. With this integration, you can observe model performance, capture request/response details, and track system-level metrics in SigNoz, giving you real-time visibility into latency, error rates, and usage trends for your Azure OpenAi applications.
+This guide walks you through setting up monitoring and observability for Azure OpenAi API using <a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry</a> and exporting logs, traces, and metrics to SigNoz. With this integration, you can observe model performance, capture request/response details, and track system-level metrics in SigNoz, giving you real-time visibility into latency, error rates, and usage trends for your Azure OpenAi applications.
 
 Many developers choose Azure OpenAI over regular OpenAI for enterprise-grade features including enhanced security and compliance certifications, private network integration with Azure Virtual Networks, regional data residency options, integration with Azure Active Directory for identity management, dedicated capacity with provisioned throughput, and seamless integration with other Azure services. These capabilities make Azure OpenAI particularly valuable for organizations with strict regulatory requirements or those already invested in the Azure ecosystem.
 
@@ -20,13 +20,13 @@ Instrumenting Azure OpenAi in your LLM applications with telemetry ensures full 
   - [SigNoz Cloud account](https://signoz.io/teams/) with an active ingestion key
   - Self-hosted SigNoz instance
 - Internet access to send telemetry data to SigNoz Cloud
-- An [Microsoft Azure](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account/) account with an OpenAI resource deployed and working API Key
+- An <a href="https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account/" target="_blank" rel="noopener noreferrer nofollow">Microsoft Azure</a> account with an OpenAI resource deployed and working API Key
 - For Python: `pip` installed for managing Python packages and _(optional but recommended)_ a Python virtual environment to isolate dependencies
 - For JavaScript: Node.js (version 14 or higher) and `npm` installed for managing Node.js packages
 
 ## Monitoring Azure OpenAI
 
-The Azure OpenAI API uses an API format compatible with OpenAI. By modifying the configuration, you can use the OpenAI SDK or softwares compatible with the OpenAI API to access the Azure OpenAI API. Hence, a similar method to monitor OpenAI APIs can be used for monitoring Azure OpenAI APIs as well. To read more about this, you can read the [Azure OpenAI API Docs](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses?tabs=python-key)
+The Azure OpenAI API uses an API format compatible with OpenAI. By modifying the configuration, you can use the OpenAI SDK or softwares compatible with the OpenAI API to access the Azure OpenAI API. Hence, a similar method to monitor OpenAI APIs can be used for monitoring Azure OpenAI APIs as well. To read more about this, you can read the <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses?tabs=python-key" target="_blank" rel="noopener noreferrer nofollow">Azure OpenAI API Docs</a>
 
 <Tabs>
 <TabItem value="python" label="Python" default>

@@ -74,7 +74,7 @@ Of these, the last two are more insightful, they are also specific to kafka in a
 **[JMX Metrics](https://signoz.io/guides/jmx-monitoring/)**
 Kafka exposes a comprehensive set of metrics through Java Management Extensions (JMX), providing insights into the health and performance of brokers, producers, and consumers. These metrics include indicators such as `UnderReplicatedPartitions`, `BytesInPerSec`, and `RequestHandlerAvgIdlePercent`, which are crucial for monitoring broker performance, partition health, and I/O pressure.
 
-The OTel collector offers a [JMX receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/jmxreceiver) that works in conjunction with the OTel [JMX Metric Gatherer](https://github.com/open-telemetry/opentelemetry-java-contrib/blob/main/jmx-metrics/README.md). This setup allows for the collection of Kafka metrics and their conversion into the OpenTelemetry Protocol (OTLP) format for further analysis.
+The OTel collector offers a <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/jmxreceiver" target="_blank" rel="noopener noreferrer nofollow">JMX receiver</a> that works in conjunction with the OTel <a href="https://github.com/open-telemetry/opentelemetry-java-contrib/blob/main/jmx-metrics/README.md" target="_blank" rel="noopener noreferrer nofollow">JMX Metric Gatherer</a>. This setup allows for the collection of Kafka metrics and their conversion into the OpenTelemetry Protocol (OTLP) format for further analysis.
 This also requires a few changes to your config, but not your code. Let’s say you have spun up a kafka docker instance, you will have to update the config to include some of these env variables. These changes essentially ask the kafka instance to expose jmx metrics at a specified port, which is later scraped by our OTel collector.
 Changes in the docker-compose under kafka container:
 
@@ -109,7 +109,7 @@ receivers:
 
 **Kafka Metrics**
 
-The [Kafka Metrics Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/kafkametricsreceiver/README.md) is a component of the OpenTelemetry Collector Contrib module designed to collect metrics directly from Kafka brokers. It focuses mainly on high-level operational metrics, including:
+The <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/kafkametricsreceiver/README.md" target="_blank" rel="noopener noreferrer nofollow">Kafka Metrics Receiver</a> is a component of the OpenTelemetry Collector Contrib module designed to collect metrics directly from Kafka brokers. It focuses mainly on high-level operational metrics, including:
 
 - **Broker Metrics**: e.g., broker uptime, request rates.
 - **Topic Metrics**: e.g., message rates, partition counts.

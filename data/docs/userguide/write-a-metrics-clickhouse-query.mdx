@@ -187,7 +187,7 @@ Querying the metrics is done in two steps. First, we query the time series table
 We use the JOIN operation to join the two tables. The JOIN operation is done on the fingerprint column. The JOIN operation is done on the cluster level. This means that the JOIN operation is done on the data nodes and not on the aggregator nodes. This is done to reduce the amount of data that needs to be transferred between the nodes. This works because the data is sharded based on the `env`, `temporality`, `metric_name`, `fingerprint` columns hence all the data for a particular metric and fingerprint will be present on the same node.
 
 <Admonition>
-The queries should have a result column with the name `value` and a column with type [DateTime](https://clickhouse.com/docs/en/sql-reference/data-types/datetime) for the graphs to work.
+The queries should have a result column with the name `value` and a column with type <a href="https://clickhouse.com/docs/en/sql-reference/data-types/datetime" target="_blank" rel="noopener noreferrer nofollow">DateTime</a> for the graphs to work.
 </Admonition>
 
 ### Example queries

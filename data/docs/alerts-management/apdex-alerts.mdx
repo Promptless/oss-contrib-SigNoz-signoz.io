@@ -61,7 +61,7 @@ The query can be broken into 3 parts:
 1. `Satisfied Requests` - Requests that were completed within 250ms
     
     ```tsx
-    sum(rate({"http.server.duration.bucket","le"="250"}[5m])) by ("[service.name](http://service.name/)")
+    sum(rate({"http.server.duration.bucket","le"="250"}[5m])) by ("<a href="http://service.name/" target="_blank" rel="noopener noreferrer nofollow">service.name</a>")
     ```
     
 2. `Tolerating Requet` - Requests that were were completed within 250ms to 1000ms.

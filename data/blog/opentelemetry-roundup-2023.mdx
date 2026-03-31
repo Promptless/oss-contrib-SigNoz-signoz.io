@@ -15,9 +15,9 @@ OpenTelemetry has brought a sea change in the world of observability. The idea o
 
 ![Cover Image](/img/blog/2024/01/otel-roundup.webp)
 
-This idea seems to have resonated with the developer and devops communities. OpenTelemetry has become the [2nd most active](https://www.cncf.io/blog/2023/01/11/a-look-at-the-2022-velocity-of-cncf-linux-foundation-and-top-30-open-source-projects/) CNCF project after Kubernetes and is seeing participation from many big companies like AWS, Google, Microsoft, Splunk, etc.
+This idea seems to have resonated with the developer and devops communities. OpenTelemetry has become the <a href="https://www.cncf.io/blog/2023/01/11/a-look-at-the-2022-velocity-of-cncf-linux-foundation-and-top-30-open-source-projects/" target="_blank" rel="noopener noreferrer nofollow">2nd most active</a> CNCF project after Kubernetes and is seeing participation from many big companies like AWS, Google, Microsoft, Splunk, etc.
 
-If you think about it, it makes sense. It helps companies be more future-proof and prevent scenarios like [this](https://news.ycombinator.com/item?id=38861354), where users are left scrambling for alternatives when a proprietary product, which is a core part of their infrastructure, is suddenly shut down.
+If you think about it, it makes sense. It helps companies be more future-proof and prevent scenarios like <a href="https://news.ycombinator.com/item?id=38861354" target="_blank" rel="noopener noreferrer nofollow">this</a>, where users are left scrambling for alternatives when a proprietary product, which is a core part of their infrastructure, is suddenly shut down.
 
 <figure data-zoomable align='center'>
     <img className="box-shadowed-image" src="/img/blog/2024/01/opentelemetry-growth.png" alt="OpenTelemetry is the 2nd most active CNCF project after Kubernetes"/>
@@ -27,11 +27,11 @@ If you think about it, it makes sense. It helps companies be more future-proof a
 
 As a founder and maintainer of an OpenTelemetry native project (SigNoz) we are part of many conversations with users and customers trying to implement OpenTelemetry in the wild. I thought I would sit down and note the current state of OpenTelemetry as we enter 2024.
 
-We also run [OTEL APAC End user group](https://opentelemetry.io/community/end-user/discussion-group/) meetup, so we hear many user stories on challenges they face as they try to adopt OpenTelemetry in their orgs.
+We also run <a href="https://opentelemetry.io/community/end-user/discussion-group/" target="_blank" rel="noopener noreferrer nofollow">OTEL APAC End user group</a> meetup, so we hear many user stories on challenges they face as they try to adopt OpenTelemetry in their orgs.
 
 ### OpenTelemetry is getting more adoption & becoming more mature
 
-- Enterprise-scale companies like [EBay](https://innovation.ebayinc.com/tech/engineering/why-and-how-ebay-pivoted-to-opentelemetry/), [Canva](https://www.canva.dev/blog/engineering/tag/opentelemetry/) are moving to OpenTelemetry
+- Enterprise-scale companies like <a href="https://innovation.ebayinc.com/tech/engineering/why-and-how-ebay-pivoted-to-opentelemetry/" target="_blank" rel="noopener noreferrer nofollow">EBay</a>, <a href="https://www.canva.dev/blog/engineering/tag/opentelemetry/" target="_blank" rel="noopener noreferrer nofollow">Canva</a> are moving to OpenTelemetry
 
 - People are able to handle massive scale with OpenTelemetry. Even with our experience with SigNoz customers and users, we have seen users easily send in the order of ~10-50TB/day logs and traces via OpenTelemetry SDKs and collectors, and it scales seamlessly.
 
@@ -61,7 +61,7 @@ As I mentioned, we also run OpenTelemetry APAC meetup group. Some of the key the
 
 2. **Optimizing the value generated and cost involved**
 
-    Once the applications are instrumented, the next question is how to optimize between the value generated and the cost involved. Generally, people want to implement some filtering mechanism of logs (e.g excluding healthcheck endpoints) or do sampling for traces. Esp. for [tail based sampling](https://opentelemetry.io/docs/concepts/sampling/#tail-sampling) for traces, people have many questions around how to do it correctly.
+    Once the applications are instrumented, the next question is how to optimize between the value generated and the cost involved. Generally, people want to implement some filtering mechanism of logs (e.g excluding healthcheck endpoints) or do sampling for traces. Esp. for <a href="https://opentelemetry.io/docs/concepts/sampling/#tail-sampling" target="_blank" rel="noopener noreferrer nofollow">tail based sampling</a> for traces, people have many questions around how to do it correctly.
 
 3. **Evagelization within the org**
 
@@ -69,7 +69,7 @@ As I mentioned, we also run OpenTelemetry APAC meetup group. Some of the key the
 
     As a community, we need to publish more success stories of organizations becoming successful with OTel and how they achieved it.
 
-    Other common questions were around confusion in understanding that OTel is just focused on getting telemetry data, and you still need a backend/visualization tool to get insight from this data. Here's a [video](https://www.youtube.com/watch?v=K5fs55i4T9c) trying to address the question of the difference between OpenTelemetry and observability backends.
+    Other common questions were around confusion in understanding that OTel is just focused on getting telemetry data, and you still need a backend/visualization tool to get insight from this data. Here's a <a href="https://www.youtube.com/watch?v=K5fs55i4T9c" target="_blank" rel="noopener noreferrer nofollow">video</a> trying to address the question of the difference between OpenTelemetry and observability backends.
 
 ### Learnings from SigNoz users and customers
 
@@ -100,7 +100,7 @@ As we encounter many users and customers using [SigNoz](https://signoz.io/docs/i
 
     We have seen many customers use `filterprocessor` in OTel collector to optimise their metrics cost. This was seamless and gave better control to users on which metrics to send. Also, OTel collector gives more controls over metrics and [spans](https://signoz.io/blog/distributed-tracing-span/) they want to send. For example, you can choose which type of metrics you want to send for `hostmetrics` receiver. Most proprietary agents don’t give this flexibility to users.
 
-    _Better control_: We have seen customers use include and exclude instrumentation of Java classes using [annotation](https://opentelemetry.io/docs/instrumentation/java/automatic/annotations/) very easily.
+    _Better control_: We have seen customers use include and exclude instrumentation of Java classes using <a href="https://opentelemetry.io/docs/instrumentation/java/automatic/annotations/" target="_blank" rel="noopener noreferrer nofollow">annotation</a> very easily.
 
 6. **Using Tracing for performance testing**
 
@@ -108,11 +108,11 @@ As we encounter many users and customers using [SigNoz](https://signoz.io/docs/i
 
 7. **More and more projects emitting telemetry in OTLP format**
 
-    Open source products have started support for emitting telemetry data in OTLP format so that it can be used to better understand their performance. Some examples of such projects are [ClickHouse](https://clickhouse.com/docs/en/operations/opentelemetry#tracing-the-clickhouse-itself), [Hasura](https://hasura.io/docs/latest/observability/opentelemetry/), [Traefik](https://doc.traefik.io/traefik/master/observability/tracing/opentelemetry/), etc.
+    Open source products have started support for emitting telemetry data in OTLP format so that it can be used to better understand their performance. Some examples of such projects are <a href="https://clickhouse.com/docs/en/operations/opentelemetry#tracing-the-clickhouse-itself" target="_blank" rel="noopener noreferrer nofollow">ClickHouse</a>, <a href="https://hasura.io/docs/latest/observability/opentelemetry/" target="_blank" rel="noopener noreferrer nofollow">Hasura</a>, <a href="https://doc.traefik.io/traefik/master/observability/tracing/opentelemetry/" target="_blank" rel="noopener noreferrer nofollow">Traefik</a>, etc.
 
 8. **Using OTEL OpAMP framework for logs pipeline**
 
-    We are amongst the early adopters of the [OpAMP](https://opentelemetry.io/docs/specs/opamp/). It enables our customers to do operations with logs attributes from the UI. The logs pipelines UI provides the ability to create and manage the processors. SigNoz provides an easy-to-use UI to create and manage the processors which our users love, and OpAMP was a big part of successfully implementing it.
+    We are amongst the early adopters of the <a href="https://opentelemetry.io/docs/specs/opamp/" target="_blank" rel="noopener noreferrer nofollow">OpAMP</a>. It enables our customers to do operations with logs attributes from the UI. The logs pipelines UI provides the ability to create and manage the processors. SigNoz provides an easy-to-use UI to create and manage the processors which our users love, and OpAMP was a big part of successfully implementing it.
 
     <figure data-zoomable align='center'>
         <img className="box-shadowed-image" src="/img/blog/2024/01/opamp-signoz.png" alt="Logs Pipeline architecture using OpAMP"/>
@@ -130,17 +130,17 @@ As we encounter many users and customers using [SigNoz](https://signoz.io/docs/i
 
     Tools like <a href="https://github.com/kubeshop/tracetest">Tracetest</a> & <a href="https://github.com/traceloop/openllmetry"> OpenLLMetry </a> were released, which leverage standardised data model of OTel to derive insights. We think the standardization of data formats will lead to an ecosystem of tools that go beyond observability into other areas like testing, performance, security, etc.
 
-- **Stable release of the Metrics [API](https://github.com/open-telemetry/opentelemetry-go/blob/main/CHANGELOG.md#11600390-2023-05-18) and [SDK](https://github.com/open-telemetry/opentelemetry-go/blob/main/CHANGELOG.md#11900420007-2023-09-28) in the Go implementation**
+- **Stable release of the Metrics <a href="https://github.com/open-telemetry/opentelemetry-go/blob/main/CHANGELOG.md#11600390-2023-05-18" target="_blank" rel="noopener noreferrer nofollow">API</a> and <a href="https://github.com/open-telemetry/opentelemetry-go/blob/main/CHANGELOG.md#11900420007-2023-09-28" target="_blank" rel="noopener noreferrer nofollow">SDK</a> in the Go implementation**
 
 - **OpAMP**
 
-    [Open Agent Management Protocol](https://github.com/open-telemetry/opamp-spec) (OpAMP) is a network protocol for remote management of large fleets of data collection Agents. The spec is currently in Beta stage but lots of progress was made in 2023 to make it ready for production usage. As mentioned above, we at SigNoz have also leveraged it to make our logs pipelines module.
+    <a href="https://github.com/open-telemetry/opamp-spec" target="_blank" rel="noopener noreferrer nofollow">Open Agent Management Protocol</a> (OpAMP) is a network protocol for remote management of large fleets of data collection Agents. The spec is currently in Beta stage but lots of progress was made in 2023 to make it ready for production usage. As mentioned above, we at SigNoz have also leveraged it to make our logs pipelines module.
 
 - **14 new receivers and 8 exporters were added in [OTel](https://signoz.io/opentelemetry/) Collector in 2023**
 
     Some interesting ones are:
 
-    `datadog-receiver` : Famous receiver merged after it was sabotaged by [DataDog.](https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/5836#issuecomment-1404724926)
+    `datadog-receiver` : Famous receiver merged after it was sabotaged by <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/5836#issuecomment-1404724926" target="_blank" rel="noopener noreferrer nofollow">DataDog.</a>
 
     `gitproviderreceiver` : Allows receiving git events. This way users can measure dev productivity, aligning with DORA.
 
@@ -156,15 +156,15 @@ As we encounter many users and customers using [SigNoz](https://signoz.io/docs/i
 
 1. **Profiling as a new signal**
 
-A [new repo](https://github.com/open-telemetry/opentelemetry-proto-profile/pull/3) for profiling was created with details like the vision doc and some example code. The progress is slow with last PR merged ~4 months back, but it would be exciting to have profiling added as a signal in Otel so that it could be easily correlated with metrics, traces and logs.
+A <a href="https://github.com/open-telemetry/opentelemetry-proto-profile/pull/3" target="_blank" rel="noopener noreferrer nofollow">new repo</a> for profiling was created with details like the vision doc and some example code. The progress is slow with last PR merged ~4 months back, but it would be exciting to have profiling added as a signal in Otel so that it could be easily correlated with metrics, traces and logs.
 
 2. **Query Standardization working group**
 
-There is a [WG under TAG observability](https://github.com/cncf/tag-observability/blob/main/working-groups/query-standardization.md) in CNCF, which is working on query standardization. The working group is not specifically under [OpenTelemetry project](https://signoz.io/blog/opentelemetry-apm/), as the scope of Otel is confined to generating telemetry data - but how this working group progresses would be interesting to see. If successful, this would help standardize the query language different observability backends use for creating dashboards and alerts, and potentially enable porting of queries across backends.
+There is a <a href="https://github.com/cncf/tag-observability/blob/main/working-groups/query-standardization.md" target="_blank" rel="noopener noreferrer nofollow">WG under TAG observability</a> in CNCF, which is working on query standardization. The working group is not specifically under [OpenTelemetry project](https://signoz.io/blog/opentelemetry-apm/), as the scope of Otel is confined to generating telemetry data - but how this working group progresses would be interesting to see. If successful, this would help standardize the query language different observability backends use for creating dashboards and alerts, and potentially enable porting of queries across backends.
 
 3. **[CI/CD Observability](https://signoz.io/blog/cicd-observability-with-opentelemetry/) working group**
 
-The [OpenTelemetry proposal](https://github.com/open-telemetry/oteps/pull/223/files?short_path=ed19fed#diff-ed19feda8141bff5ed96c91b5112b89956ff17f12b82f9954504f3906f2eb33d) focuses on enhancing CI/CD observability by establishing standard semantic conventions for telemetry data from CI/CD tools. This initiative aims to reduce the Lead Time for Changes, a critical DevOps metric. It suggests a four-stage observability process: Collect, Store, Visualize, and Alert, with OpenTelemetry providing a unified approach for data collection.
+The <a href="https://github.com/open-telemetry/oteps/pull/223/files?short_path=ed19fed#diff-ed19feda8141bff5ed96c91b5112b89956ff17f12b82f9954504f3906f2eb33d" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry proposal</a> focuses on enhancing CI/CD observability by establishing standard semantic conventions for telemetry data from CI/CD tools. This initiative aims to reduce the Lead Time for Changes, a critical DevOps metric. It suggests a four-stage observability process: Collect, Store, Visualize, and Alert, with OpenTelemetry providing a unified approach for data collection.
 
 4. **OpenTelemetry Protocol with Apache Arrow**
 
@@ -174,13 +174,13 @@ The [OpenTelemetry proposal](https://github.com/open-telemetry/oteps/pull/223/fi
 </figure>
 
 
-There have been [some efforts](https://opentelemetry.io/blog/2023/otel-arrow/) in Opentelemetry community to include Apache Arrow as the data format for OTLP. This integration reduces telemetry data traffic by a factor of 10 after compression, offering a 40% improvement over the best existing OpenTelemetry Protocol (OTLP) configurations with [Zstandard (zstd)](http://www.zstd.net/) compression enabled. As a result, this new protocol emerges as an optimal choice for transporting telemetry data over the Internet. This project is currently in [Beta stage](https://github.com/open-telemetry/otel-arrow?tab=readme-ov-file), with some active development happening.
+There have been <a href="https://opentelemetry.io/blog/2023/otel-arrow/" target="_blank" rel="noopener noreferrer nofollow">some efforts</a> in Opentelemetry community to include Apache Arrow as the data format for OTLP. This integration reduces telemetry data traffic by a factor of 10 after compression, offering a 40% improvement over the best existing OpenTelemetry Protocol (OTLP) configurations with <a href="http://www.zstd.net/" target="_blank" rel="noopener noreferrer nofollow">Zstandard (zstd)</a> compression enabled. As a result, this new protocol emerges as an optimal choice for transporting telemetry data over the Internet. This project is currently in <a href="https://github.com/open-telemetry/otel-arrow?tab=readme-ov-file" target="_blank" rel="noopener noreferrer nofollow">Beta stage</a>, with some active development happening.
 
 5. **OpenTelemetry Transform Language (OTTL)**
 
 The [OpenTelemetry Collector](https://signoz.io/blog/opentelemetry-collector-complete-guide/) is a convenient place to transform data before sending it to a vendor or other systems. This is frequently done for data quality, governance, cost, and security reasons.
 
-Processors available in Otel Collector support dozens of different transformations on metric, span and log data. The [OTTL](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/ottl/README.md) is a language for transforming [open telemetry](https://signoz.io/opentelemetry/) data. This will help users in writing processing operations in a SQL-like declarative language in `transform` processor rather than specific syntaxes.
+Processors available in Otel Collector support dozens of different transformations on metric, span and log data. The <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/ottl/README.md" target="_blank" rel="noopener noreferrer nofollow">OTTL</a> is a language for transforming [open telemetry](https://signoz.io/opentelemetry/) data. This will help users in writing processing operations in a SQL-like declarative language in `transform` processor rather than specific syntaxes.
 
 ### Conclusion
 

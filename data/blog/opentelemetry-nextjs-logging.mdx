@@ -47,7 +47,7 @@ Traditional logging is fine for local development, but production needs more:
 
 With OpenTelemetry and SigNoz, you can achieve all of this. You'll be able to see errors and logs in one place, correlate them with traces, and analyze rich metadata like `userId`, URL, and performance timings.
 
-Note: You can find the full code for any code snippet shown in this guide in the [OpenTelemetry NextJS Sample repository here](https://github.com/yuvraajsj18/nextjs-observability-demo).
+Note: You can find the full code for any code snippet shown in this guide in the <a href="https://github.com/yuvraajsj18/nextjs-observability-demo" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry NextJS Sample repository here</a>.
 
 ## Step 0 – Where we’re starting from
 
@@ -335,7 +335,7 @@ Here's how this logger works:
 
 ## Step 6 – Optional: Pino console logger (`lib/pino-logger.ts`)
 
-While sending logs to SigNoz is great, you _also_ want to see structured, human-readable logs in your console during local development. [Pino](https://github.com/pinojs/pino) is a popular, high-performance logger for Node.js. This optional step creates a Pino-based logger that _also_ injects trace context.
+While sending logs to SigNoz is great, you _also_ want to see structured, human-readable logs in your console during local development. <a href="https://github.com/pinojs/pino" target="_blank" rel="noopener noreferrer nofollow">Pino</a> is a popular, high-performance logger for Node.js. This optional step creates a Pino-based logger that _also_ injects trace context.
 
 Create `lib/pino-logger.ts`:
 
@@ -769,7 +769,7 @@ export default function LogsDemoPage() {
 
 This page component does two things:
 
-1.  **`serverLogAction`:** This is a Next.js [Server Action](https://www.google.com/search?q=https://nextjs.org/docs/app/building-your-application/routing/server-actions). When the form is submitted, this function runs _on the server_. We use our `logger` to emit `info` and `error` logs. These logs will be sent _directly_ from the server to the OTLP collector, complete with trace context.
+1.  **`serverLogAction`:** This is a Next.js <a href="https://www.google.com/search?q=https://nextjs.org/docs/app/building-your-application/routing/server-actions" target="_blank" rel="noopener noreferrer nofollow">Server Action</a>. When the form is submitted, this function runs _on the server_. We use our `logger` to emit `info` and `error` logs. These logs will be sent _directly_ from the server to the OTLP collector, complete with trace context.
 2.  **Rendering:** It renders the page and includes the `<ClientPanel />`, which handles triggering the browser-side logs.
 
 <Figure

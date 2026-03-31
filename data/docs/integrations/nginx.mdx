@@ -130,7 +130,7 @@ service:
       exporters: [otlp/nginx-logs]
 ```
 
-**Note:** If you are using a [custom Nginx log format](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/#setting-up-the-access-log), adjust the regex used
+**Note:** If you are using a <a href="https://docs.nginx.com/nginx/admin-guide/monitoring/logging/#setting-up-the-access-log" target="_blank" rel="noopener noreferrer nofollow">custom Nginx log format</a>, adjust the regex used
 for parsing logs in the receivers named `filelog/nginx-access-logs` and `filelog/nginx-error-logs` in the collector config.
 
 ### Step 2: Set Environment Variables

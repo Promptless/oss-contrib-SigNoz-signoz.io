@@ -84,7 +84,7 @@ Before we get to implementing tracing, let's understand it's vocabulary (pretty 
 
 ### Trace format
 
-The native and recommended format for OpenTelemetry traces is [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) (The OpenTelemetry Protocol).
+The native and recommended format for OpenTelemetry traces is <a href="https://opentelemetry.io/docs/specs/otel/protocol/" target="_blank" rel="noopener noreferrer nofollow">OTLP</a> (The OpenTelemetry Protocol).
 
 OTLP is a high-performance, binary format designed to efficiently transmit all telemetry data—including traces, metrics, and logs.
 When carrying trace data, its structure is a direct representation of the concepts of a trace.
@@ -190,7 +190,7 @@ the span. Here are different types of span kinds:
   more specific in nature. They are the queryable *index* for your traces, allowing you to ask intuitive
   questions like, *Show me all traces for user.id = 'abc-123' that had an http.status_code >= 500.*
 
-  OpenTelemetry provides [Semantic Conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/), which are standardized names for attributes (e.g., http.method, db.statement). Using
+  OpenTelemetry provides <a href="https://opentelemetry.io/docs/concepts/semantic-conventions/" target="_blank" rel="noopener noreferrer nofollow">Semantic Conventions</a>, which are standardized names for attributes (e.g., http.method, db.statement). Using
   these conventions is highly recommended as it lets observability backends to provide better analysis and visualizations.
 
 ### Events

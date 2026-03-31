@@ -9,7 +9,7 @@ At SigNoz we store our data on ClickHouse. In this documentation, we will go thr
 
 ## Logs Schema V2
 
-If we check the schema of the logs table in clickhouse this is what it looks like. The table was created with respect to the [OpenTelemetry Logs Data Model](https://opentelemetry.io/docs/specs/otel/logs/data-model/)
+If we check the schema of the logs table in clickhouse this is what it looks like. The table was created with respect to the <a href="https://opentelemetry.io/docs/specs/otel/logs/data-model/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Logs Data Model</a>
 
 ```sql
 (
@@ -53,14 +53,14 @@ Any query that we write will be written for the `distributed_logs_v2` table. If 
 
 |  NAME  | DESCRIPTION  |
 |---|---|
-|**timestamp** | Time when the log line was generated at the source. The default value is the time at which it is received and it can be changed using the [time parser](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/time_parser.md).|
+|**timestamp** | Time when the log line was generated at the source. The default value is the time at which it is received and it can be changed using the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/time_parser.md" target="_blank" rel="noopener noreferrer nofollow">time parser</a>.|
 |**observed_timestamp** | Time when the log line is observed at the collection system. It is automatically added by the collector. |
-|**id** | It is a [ksuid](https://github.com/segmentio/ksuid), it helps us in paginating and sorting log lines. It is automatically added by the collector.|
-|**trace_id** | Trace ID of the log line. [W3C Trace Context](https://www.w3.org/TR/trace-context/#trace-id). It can be filled using [trace parser](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/trace_parser.md).|
-|**span_id** | Span ID for the log line or set of log lines that are part of a particular processing span. It can be filled using [trace parser](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/trace_parser.md).|
-|**trace_flags** | Trace Flag of the log line.  [W3C Trace Context](https://www.w3.org/TR/trace-context/#trace-flags). It can be filled using [trace parser](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/trace_parser.md).|
-|**severity_text** | It is the log level. eg:- `info` . It can be filled using [severity parser](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/severity_parser.md).|
-|**severity_number** | Numerical value of the [severity_text](https://opentelemetry.io/docs/specs/otel/logs/data-model/#field-severitynumber). It can be filled using [severity parser](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/severity_parser.md).|
+|**id** | It is a <a href="https://github.com/segmentio/ksuid" target="_blank" rel="noopener noreferrer nofollow">ksuid</a>, it helps us in paginating and sorting log lines. It is automatically added by the collector.|
+|**trace_id** | Trace ID of the log line. <a href="https://www.w3.org/TR/trace-context/#trace-id" target="_blank" rel="noopener noreferrer nofollow">W3C Trace Context</a>. It can be filled using <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/trace_parser.md" target="_blank" rel="noopener noreferrer nofollow">trace parser</a>.|
+|**span_id** | Span ID for the log line or set of log lines that are part of a particular processing span. It can be filled using <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/trace_parser.md" target="_blank" rel="noopener noreferrer nofollow">trace parser</a>.|
+|**trace_flags** | Trace Flag of the log line.  <a href="https://www.w3.org/TR/trace-context/#trace-flags" target="_blank" rel="noopener noreferrer nofollow">W3C Trace Context</a>. It can be filled using <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/trace_parser.md" target="_blank" rel="noopener noreferrer nofollow">trace parser</a>.|
+|**severity_text** | It is the log level. eg:- `info` . It can be filled using <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/severity_parser.md" target="_blank" rel="noopener noreferrer nofollow">severity parser</a>.|
+|**severity_number** | Numerical value of the <a href="https://opentelemetry.io/docs/specs/otel/logs/data-model/#field-severitynumber" target="_blank" rel="noopener noreferrer nofollow">severity_text</a>. It can be filled using <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/stanza/docs/operators/severity_parser.md" target="_blank" rel="noopener noreferrer nofollow">severity parser</a>.|
 |**body** | The body/message of the log record.|
 |**resources_string** | [Deprecated]All the resource attributes are stored in this map. |
 |**resource** | All the resource attributes are stored in this JSON column. |

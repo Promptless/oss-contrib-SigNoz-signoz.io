@@ -22,14 +22,14 @@ Prometheus is undoubtedly growing as the native monitoring tool for Kubernetes. 
 
 Prometheus is undoubtedly growing as the native monitoring tool for Kubernetes. We have been using Prometheus to collect metrics about our infrastructure for a long time and there are plenty of dashboards available to get the dashboards up fast. For some time, I have been wondering why there aren't out of box application metrics, something like node-exporter for infrastructure metrics.
 
-Let me explain you with an example. Installing kube-state metrics and node-exporter in your instance sends a lot of metrics about that instance to Prometheus. If the [metric labels](https://signoz.io/guides/what-are-prometheus-labels/) are consistent then you can get the dashboard by using publicly available Grafana dashboards, such as **[Kubernetes Capacity Planning](https://grafana.com/grafana/dashboards/5499).**
+Let me explain you with an example. Installing kube-state metrics and node-exporter in your instance sends a lot of metrics about that instance to Prometheus. If the [metric labels](https://signoz.io/guides/what-are-prometheus-labels/) are consistent then you can get the dashboard by using publicly available Grafana dashboards, such as **<a href="https://grafana.com/grafana/dashboards/5499" target="_blank" rel="noopener noreferrer nofollow">Kubernetes Capacity Planning</a>.**
 
 This dashboard includes graphs for CPU usage, memory usage, disk IO, network usage, etc. Everything is ready in a few minutes.
 
 But when we want to monitor our applications, we need to attach exporters to every application, instrument metrics which you want to monitor and build custom dashboards for it.* I was quite surprised to see the exporter metrics so limited in capacity to mostly show just RPS and Latency without proper labeling. *Comparing it to the capabilities that the monitoring tool NewRelic provides, we can see it has to go a long way.
 
 We recently open-sourced our observability platform on Github
-[ Check it here ](https://github.com/SigNoz/signoz)
+<a href="https://github.com/SigNoz/signoz" target="_blank" rel="noopener noreferrer nofollow"> Check it here </a>
 
 Hence, I built a tool to give a try to extend the APM capabilities of Prometheus. Let me begin by showing some features.
 
@@ -186,7 +186,7 @@ Skip all steps and change your [Prometheus config](https://signoz.io/guides/what
 Reach out to us on [Signoz Website](https://signoz.io/) or DM me. For any Prometheus related queries, I am reachable at:
 
 - ankit@signoz.io
-- [Twitter](https://twitter.com/ankitnayan)
-- [LinkedIn](https://www.linkedin.com/in/ankitnayan/)
+- <a href="https://twitter.com/ankitnayan" target="_blank" rel="noopener noreferrer nofollow">Twitter</a>
+- <a href="https://www.linkedin.com/in/ankitnayan/" target="_blank" rel="noopener noreferrer nofollow">LinkedIn</a>
 
 > On a mission to make monitoring essential and affordable to every business

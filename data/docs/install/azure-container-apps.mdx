@@ -11,8 +11,8 @@ Before starting, ensure you have:
 
 1. **Azure CLI** installed and authenticated (`az login`)
 2. **Permissions** to:
-   - Create [Container Apps environments](https://learn.microsoft.com/azure/container-apps/environment)
-   - Create [storage accounts and file shares](https://learn.microsoft.com/azure/container-apps/storage-mounts?pivots=azure-files)
+   - Create <a href="https://learn.microsoft.com/azure/container-apps/environment" target="_blank" rel="noopener noreferrer nofollow">Container Apps environments</a>
+   - Create <a href="https://learn.microsoft.com/azure/container-apps/storage-mounts?pivots=azure-files" target="_blank" rel="noopener noreferrer nofollow">storage accounts and file shares</a>
 3. **Azure CLI version** 2.62 or higher
 
 ---
@@ -21,13 +21,13 @@ Before starting, ensure you have:
 
 ### 1. Install Container Apps Extension
 
-Install the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and add the Container Apps extension:
+Install the <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli" target="_blank" rel="noopener noreferrer nofollow">Azure CLI</a> and add the Container Apps extension:
 
 ```bash
 az extension add --name containerapp
 ```
 
-For detailed setup instructions, refer to the [getting started guide](https://learn.microsoft.com/azure/container-apps/get-started?tabs=bash#setup).
+For detailed setup instructions, refer to the <a href="https://learn.microsoft.com/azure/container-apps/get-started?tabs=bash#setup" target="_blank" rel="noopener noreferrer nofollow">getting started guide</a>.
 
 ### 2. Configure Environment Variables
 
@@ -43,7 +43,7 @@ ENV_NAME=signoz
 FILE_SHARE_NAME=signoz
 ```
 
-> **Note**: The storage account name must be globally unique, contain only lowercase letters and numbers, and be between 3-24 characters. See [supported regions](https://learn.microsoft.com/azure/container-apps/quotas#region-availability) for available locations.
+> **Note**: The storage account name must be globally unique, contain only lowercase letters and numbers, and be between 3-24 characters. See <a href="https://learn.microsoft.com/azure/container-apps/quotas#region-availability" target="_blank" rel="noopener noreferrer nofollow">supported regions</a> for available locations.
 
 ### 3. Create Resource Group and Container Apps Environment
 
@@ -67,7 +67,7 @@ az containerapp env create \
 
 ### 4. Create Storage Account and File Share
 
-ClickHouse requires persistent storage for configuration files. Learn more about [Azure Files with Container Apps](https://learn.microsoft.com/azure/container-apps/storage-mounts?pivots=azure-files):
+ClickHouse requires persistent storage for configuration files. Learn more about <a href="https://learn.microsoft.com/azure/container-apps/storage-mounts?pivots=azure-files" target="_blank" rel="noopener noreferrer nofollow">Azure Files with Container Apps</a>:
 
 ```bash
 # Create storage account

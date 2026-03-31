@@ -31,7 +31,7 @@ It’s common for teams to combine these signals depending on their needs.
 
 **Prometheus: Widely used for Golang Monitoring**
 
-[Prometheus](https://signoz.io/guides/how-does-prometheus-work/) is another of the most common tools for monitoring a Go application. [Surveys](https://go.dev/blog/survey2023-h2-results) show that a majority of Go services in production rely on Prometheus for monitoring runtime and business-level metrics. Many Go services expose their metrics on a `/metrics` endpoint in the Prometheus format, which is scraped by the Prometheus server at regular intervals. This setup has become a standard pattern in the Go ecosystem. 
+[Prometheus](https://signoz.io/guides/how-does-prometheus-work/) is another of the most common tools for monitoring a Go application. <a href="https://go.dev/blog/survey2023-h2-results" target="_blank" rel="noopener noreferrer nofollow">Surveys</a> show that a majority of Go services in production rely on Prometheus for monitoring runtime and business-level metrics. Many Go services expose their metrics on a `/metrics` endpoint in the Prometheus format, which is scraped by the Prometheus server at regular intervals. This setup has become a standard pattern in the Go ecosystem. 
 
 **Prometheus Monitoring Limitations** 
 
@@ -44,19 +44,19 @@ Prometheus mainly focuses on metrics and doesn’t handle distributed tracing or
 Now, let’s dive into the practical setup. Below is a step-by-step guide to instrument a real-world Go service using OpenTelemetry.
 
 ## Set Up Monitoring in Go Applications using OpenTelemetry
-Follow the steps below to monitor your Go application with OpenTelemetry. In this article, we are using a sample [E-commerce Go Application](https://github.com/aayush-signoz/go-otel-ecommerce.git) demonstrating:
+Follow the steps below to monitor your Go application with OpenTelemetry. In this article, we are using a sample <a href="https://github.com/aayush-signoz/go-otel-ecommerce.git" target="_blank" rel="noopener noreferrer nofollow">E-commerce Go Application</a> demonstrating:
 
-- **HTTP REST APIs** with [Gin](https://github.com/gin-gonic/gin)  
+- **HTTP REST APIs** with <a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener noreferrer nofollow">Gin</a>  
 - **SQLite** as the database  
 - **Redis** for caching  
 - **OpenTelemetry** observability (Traces, Metrics, Logs)  
 
 ### Step 1: Prerequisites
 
-- **[Go installed (v1.23+)](https://go.dev/doc/install)**: Required to build and run the Go application.
-- **[Git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**: Needed to clone the sample repository.
-- **[SQLite installed](https://www.sqlite.org/download.html)**: The sample app uses SQLite as its database.
-- **[Redis installed](https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/)** *(optional but recommended)*: Enables caching and helps demonstrate Redis monitoring.
+- **<a href="https://go.dev/doc/install" target="_blank" rel="noopener noreferrer nofollow">Go installed (v1.23+)</a>**: Required to build and run the Go application.
+- **<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="noopener noreferrer nofollow">Git installed</a>**: Needed to clone the sample repository.
+- **<a href="https://www.sqlite.org/download.html" target="_blank" rel="noopener noreferrer nofollow">SQLite installed</a>**: The sample app uses SQLite as its database.
+- **<a href="https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/" target="_blank" rel="noopener noreferrer nofollow">Redis installed</a>** *(optional but recommended)*: Enables caching and helps demonstrate Redis monitoring.
 - **[SigNoz Cloud](https://signoz.io/teams/)**: A destination for your telemetry data (we will use SigNoz Cloud for the examples, but the concepts apply to any OTLP-compliant backend).
 
 ### Step 2: Get a Sample Go Application
@@ -295,7 +295,7 @@ The function above wires OpenTelemetry logging into the application. It configur
 - `Returns Shutdown()`: ensures logs are sent before exit. 
 </KeyPointCallout>
 
-After adding all of the above components (Imports, initTracer, initMeter, initLogger) in `otel.go`, the content of the file should match the configuration of [otel.go](https://github.com/aayush-signoz/go-otel-ecommerce/blob/main/telemetry/otel.go) present in the sample repository.
+After adding all of the above components (Imports, initTracer, initMeter, initLogger) in `otel.go`, the content of the file should match the configuration of <a href="https://github.com/aayush-signoz/go-otel-ecommerce/blob/main/telemetry/otel.go" target="_blank" rel="noopener noreferrer nofollow">otel.go</a> present in the sample repository.
 
 ### Step 5: Initialize Tracing, Metrics & Logging in `main.go`
 
@@ -314,7 +314,7 @@ We now wire everything together by initializing the telemetry components at the 
 
 The above code initializes OpenTelemetry tracing, logging, and metrics for the application, and ensures that all pending telemetry data is adequately flushed when the program exits.
 
-After adding all of the above integrations in `main.go`, it should look like [this](https://github.com/aayush-signoz/go-otel-ecommerce/blob/main/main.go). 
+After adding all of the above integrations in `main.go`, it should look like <a href="https://github.com/aayush-signoz/go-otel-ecommerce/blob/main/main.go" target="_blank" rel="noopener noreferrer nofollow">this</a>. 
 
 ### Step 6: Declare Environment Variables
 
@@ -414,7 +414,7 @@ OTEL_SERVICE_NAME=goApp INSECURE_MODE=false REDIS_ADDR=<REDIS-ADDRESS>  OTEL_EXP
   caption="App running"
 />
 
-You can find the complete code under the `main` branch of the [sample GitHub repository](https://github.com/aayush-signoz/go-otel-ecommerce/#main).
+You can find the complete code under the `main` branch of the <a href="https://github.com/aayush-signoz/go-otel-ecommerce/#main" target="_blank" rel="noopener noreferrer nofollow">sample GitHub repository</a>.
 
 ### Step 9: Interact with the Application to Produce Telemetry Data
 

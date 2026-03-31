@@ -8,7 +8,7 @@ description: Observability and monitoring for LiteLLM usage and performance with
 
 ## Overview
 
-This guide walks you through setting up observability and monitoring for LiteLLM SDK and Proxy Server using [OpenTelemetry](https://opentelemetry.io/) and exporting logs, traces, and metrics to SigNoz. With this integration, you can observe various models performance, capture request/response details, and track system-level metrics in SigNoz, giving you real-time visibility into latency, error rates, and usage trends for your LiteLLM applications.
+This guide walks you through setting up observability and monitoring for LiteLLM SDK and Proxy Server using <a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry</a> and exporting logs, traces, and metrics to SigNoz. With this integration, you can observe various models performance, capture request/response details, and track system-level metrics in SigNoz, giving you real-time visibility into latency, error rates, and usage trends for your LiteLLM applications.
 
 Instrumenting LiteLLM in your AI applications with telemetry ensures full observability across your AI workflows, making it easier to debug issues, optimize performance, and understand user interactions. By leveraging SigNoz, you can analyze correlated traces, logs, and metrics in unified dashboards, configure alerts, and gain actionable insights to continuously improve reliability, responsiveness, and user experience.
 
@@ -16,7 +16,7 @@ Instrumenting LiteLLM in your AI applications with telemetry ensures full observ
 
 - A [SigNoz Cloud account](https://signoz.io/teams/) with an active ingestion key
 - Internet access to send telemetry data to SigNoz Cloud
-- [LiteLLM](https://www.litellm.ai/) SDK or Proxy integration
+- <a href="https://www.litellm.ai/" target="_blank" rel="noopener noreferrer nofollow">LiteLLM</a> SDK or Proxy integration
 - For Python: `pip` installed for managing Python packages and _(optional but recommended)_ a Python virtual environment to isolate dependencies
 
 ## Monitoring LiteLLM
@@ -26,7 +26,7 @@ LiteLLM can be monitored in two ways: using the **LiteLLM SDK** (directly embedd
 <Tabs>
 <TabItem value="LiteLLM SDK" label="LiteLLM SDK" default>
 
-For more detailed info on instrumenting your LiteLLM SDK applications click [here](https://docs.litellm.ai/docs/observability/opentelemetry_integration).
+For more detailed info on instrumenting your LiteLLM SDK applications click <a href="https://docs.litellm.ai/docs/observability/opentelemetry_integration" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 <Tabs>
 <TabItem value="python" label="Python" default>
@@ -83,7 +83,7 @@ response = completion(
 print(response)
 ```
 
-> 📌 Note: LiteLLM supports a [variety of model providers](https://docs.litellm.ai/docs/providers) for LLMs. In this example, we're using OpenAI. Before running this code, ensure that you have set the environment variable `OPENAI_API_KEY` with your generated API key.
+> 📌 Note: LiteLLM supports a <a href="https://docs.litellm.ai/docs/providers" target="_blank" rel="noopener noreferrer nofollow">variety of model providers</a> for LLMs. In this example, we're using OpenAI. Before running this code, ensure that you have set the environment variable `OPENAI_API_KEY` with your generated API key.
 
 **Step 5:** Run your application with auto-instrumentation
 
@@ -299,7 +299,7 @@ response = completion(
 print(response)
 ```
 
-> 📌 Note: LiteLLM supports a [variety of model providers](https://docs.litellm.ai/docs/providers) for LLMs. In this example, we're using OpenAI. Before running this code, ensure that you have set the environment variable `OPENAI_API_KEY` with your generated API key.
+> 📌 Note: LiteLLM supports a <a href="https://docs.litellm.ai/docs/providers" target="_blank" rel="noopener noreferrer nofollow">variety of model providers</a> for LLMs. In this example, we're using OpenAI. Before running this code, ensure that you have set the environment variable `OPENAI_API_KEY` with your generated API key.
 
 </TabItem>
 

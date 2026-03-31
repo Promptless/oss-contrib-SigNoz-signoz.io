@@ -40,7 +40,7 @@ This strategy essentially puts a hard ceiling on trace ingestion. It's ideal for
 
 ## #3. Metrics-from-Traces
 
-You can sample traces aggressively, for example, only keep 5%, but still extract metrics from 100% of them before they're dropped. In practice, this means placing a metrics-generation stage in your telemetry pipeline before the sampling stage. OpenTelemetry makes this possible with components such as [Span Metrics](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/connector/spanmetricsconnector/README.md) and [Service Graph](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/connector/servicegraphconnector/README.md).
+You can sample traces aggressively, for example, only keep 5%, but still extract metrics from 100% of them before they're dropped. In practice, this means placing a metrics-generation stage in your telemetry pipeline before the sampling stage. OpenTelemetry makes this possible with components such as <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/connector/spanmetricsconnector/README.md" target="_blank" rel="noopener noreferrer nofollow">Span Metrics</a> and <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/connector/servicegraphconnector/README.md" target="_blank" rel="noopener noreferrer nofollow">Service Graph</a>.
 
 If we naively sample traces, we also lose information needed for metrics such as request rates, error counts, and latencies. One solution is to tally up metrics before any sampling decisions.
 
@@ -48,7 +48,7 @@ In an OTel Collector, we might chain a SpanMetrics processor in the pipeline, th
 
 ## #4. Byte-Rate Limiting (Throttle by Data Volume)
 
-This refers to sampling based on the size of traces, not just the count. This is an often-overlooked but effective strategy, you set a cap, such as ingesting at most 10 MB of trace data per second. The sampler then makes decisions to stay under that throughput. OpenTelemetry recently added a `bytes_limiting` policy in the [tail-sampling processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/tailsamplingprocessor/README.md) for this.
+This refers to sampling based on the size of traces, not just the count. This is an often-overlooked but effective strategy, you set a cap, such as ingesting at most 10 MB of trace data per second. The sampler then makes decisions to stay under that throughput. OpenTelemetry recently added a `bytes_limiting` policy in the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/tailsamplingprocessor/README.md" target="_blank" rel="noopener noreferrer nofollow">tail-sampling processor</a> for this.
 
 It works by using a token bucket algorithm, which is very common for rate limiting, but the tokens represent bytes. The collector actually measures the size of each trace in bytes, using the protobuf serialised size to accurately account for how much data each trace would consume. You configure a sustained bytes-per-second rate and a burst capacity. For example:
 
@@ -69,7 +69,7 @@ This becomes extremely useful when trace sizes vary a lot. For instance, one req
 
 Adaptive sampling adjusts trace sampling rates in real-time based on live traffic patterns or performance signals. The goal here is to keep overall data volume within budget while dynamically increasing sampling during anomalous events. For instance, you might normally sample only a small percentage of requests, but automatically raise the sample rate when latency or error rates spike beyond an SLO threshold. One strategy is throughput-based adaptation; setting an upper limit on traces per second and letting the system tune the probability to meet that cap. Another is key-based dynamic sampling, where the collector samples frequent events less and rare events more.
 
-Here's an interesting [GitHub thread](https://github.com/open-telemetry/opentelemetry-specification/issues/691).
+Here's an interesting <a href="https://github.com/open-telemetry/opentelemetry-specification/issues/691" target="_blank" rel="noopener noreferrer nofollow">GitHub thread</a>.
 
 <Figure
   src="/img/blog/2026/02/adaptive-sampling-diagram.png"

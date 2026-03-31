@@ -74,7 +74,7 @@ The good news is that you can effectively suppress the generation of these spans
 
 ### #3. Thread name in run-time telemetry
 
-A major source of high-cardinality data occurs in Java runtime metrics like `jvm.network.io` or `jvm.memory.allocation`. Versions 2.10.0, 2.11.0, and 2.13.1 of the agent included the `thread.name` attribute by default in these metrics. In environments that use large thread pools or virtual threads, this creates an unbounded number of unique time series, potentially leading to a [cardinality explosion](https://www.reddit.com/r/sre/comments/1k4h2wi/cardinality_explosion_explained/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button). 
+A major source of high-cardinality data occurs in Java runtime metrics like `jvm.network.io` or `jvm.memory.allocation`. Versions 2.10.0, 2.11.0, and 2.13.1 of the agent included the `thread.name` attribute by default in these metrics. In environments that use large thread pools or virtual threads, this creates an unbounded number of unique time series, potentially leading to a <a href="https://www.reddit.com/r/sre/comments/1k4h2wi/cardinality_explosion_explained/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button" target="_blank" rel="noopener noreferrer nofollow">cardinality explosion</a>. 
 
 <Figure 
   src="/img/blog/2026/02/cardinality-explosion.webp" 
@@ -82,7 +82,7 @@ A major source of high-cardinality data occurs in Java runtime metrics like `jvm
   caption="Cardinality explosion from threads" 
 />
 
-This issue was later corrected; maintainers removed the attribute from default metrics starting with version 2.18.0 (via [PR #14061](https://github.com/open-telemetry/opentelemetry-java-instrumentation/issues/13407)). So, if you are using a previous version make sure you have set proper guardrails or bump up to a later version.
+This issue was later corrected; maintainers removed the attribute from default metrics starting with version 2.18.0 (via <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/issues/13407" target="_blank" rel="noopener noreferrer nofollow">PR #14061</a>). So, if you are using a previous version make sure you have set proper guardrails or bump up to a later version.
 
 ### #5. Duplicate Library Instrumentation
 
@@ -104,7 +104,7 @@ To prevent this, the OpenTelemetry Java Agent suggests using a Span Suppression 
 
 The behaviour is controlled by the following property: `otel.instrumentation.experimental.span-suppression-strategy`
 
-There are three primary strategies used to decide which spans to keep and which to discard, you can read more about that [here](https://opentelemetry.io/docs/zero-code/java/agent/disable/#instrumentation-span-suppression-behavior).
+There are three primary strategies used to decide which spans to keep and which to discard, you can read more about that <a href="https://opentelemetry.io/docs/zero-code/java/agent/disable/#instrumentation-span-suppression-behavior" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 ### #6. Resource attributes
 
@@ -140,7 +140,7 @@ You can disable the generation of these scheduler spans by using system properti
 
 ### #8. SDK Misalignment
 
-Another massive source of enterprise waste occurs when a framework like [Trino](https://trino.io/) initialises its own internal OpenTelemetry SDK instance instead of joining the global instance provided by the Java agent. 
+Another massive source of enterprise waste occurs when a framework like <a href="https://trino.io/" target="_blank" rel="noopener noreferrer nofollow">Trino</a> initialises its own internal OpenTelemetry SDK instance instead of joining the global instance provided by the Java agent. 
 
 This results in two parallel telemetry pipelines running in one JVM doubling memory overhead and network traffic. Because the instances are separate, the valuable business spans from the framework often miss the agent's auto-detected resource attributes like Kubernetes namespace, making the data invisible to standard production queries and hence can become excess or not useful.
 

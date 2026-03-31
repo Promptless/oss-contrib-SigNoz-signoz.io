@@ -15,8 +15,8 @@ Most steps are identical. To adapt this guide, update the endpoint and remove th
 ## Prerequisites
 
 - <a href="https://packagist.org/packages/open-telemetry/exporter-otlp" target="_blank" rel="noopener noreferrer nofollow">PHP 8.1+</a>
-- [PECL](https://pecl.php.net/) package manager
-- [Composer](https://getcomposer.org/) dependency manager
+- <a href="https://pecl.php.net/" target="_blank" rel="noopener noreferrer nofollow">PECL</a> package manager
+- <a href="https://getcomposer.org/" target="_blank" rel="noopener noreferrer nofollow">Composer</a> dependency manager
 - A SigNoz Cloud account or self-hosted SigNoz instance
 
 ## Send traces to SigNoz
@@ -315,7 +315,7 @@ OpenTelemetry PHP provides auto-instrumentation packages for popular frameworks 
         - Debian/Ubuntu: `/etc/php/<php-version>/fpm/pool.d/www.conf`
         - RHEL/CentOS/Amazon Linux: `/etc/php-fpm.d/www.conf`
 
-        See [PHP-FPM pool directives](https://www.php.net/manual/en/install.fpm.configuration.php) for `clear_env` and `env[...]` details.
+        See <a href="https://www.php.net/manual/en/install.fpm.configuration.php" target="_blank" rel="noopener noreferrer nofollow">PHP-FPM pool directives</a> for `clear_env` and `env[...]` details.
 
         Option 1 (simple, less restrictive): allow inherited environment variables for the pool:
 
@@ -513,7 +513,7 @@ For more details, see [Why use the OpenTelemetry Collector?](https://signoz.io/d
 - [Add manual instrumentation](https://signoz.io/docs/instrumentation/php/manual-instrumentation/) for custom spans and attributes
 - [Set up alerts](https://signoz.io/docs/setup-alerts-notification/) for your PHP application
 - [Create dashboards](https://signoz.io/docs/userguide/manage-dashboards/) to visualize metrics
-- Explore [supported PHP instrumentation libraries](https://packagist.org/search/?query=open-telemetry&tags=instrumentation) for automatic instrumentation of additional frameworks and libraries
+- Explore <a href="https://packagist.org/search/?query=open-telemetry&amp;tags=instrumentation" target="_blank" rel="noopener noreferrer nofollow">supported PHP instrumentation libraries</a> for automatic instrumentation of additional frameworks and libraries
 
 **Sample application**:
 - <a href="https://github.com/SigNoz/OpenTelemetry-PHP-example" target="_blank" rel="noopener noreferrer nofollow">PHP sample app with OpenTelemetry</a>

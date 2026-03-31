@@ -15,7 +15,7 @@ Most steps are identical. To adapt this guide, update the endpoint and remove th
 ## Prerequisites
 
 - <a href="https://packagist.org/packages/open-telemetry/sdk" target="_blank" rel="noopener noreferrer nofollow">PHP 8.1+</a>.
-- OpenTelemetry SDK installed via [Composer](https://getcomposer.org/):
+- OpenTelemetry SDK installed via <a href="https://getcomposer.org/" target="_blank" rel="noopener noreferrer nofollow">Composer</a>:
   ```bash
   composer require open-telemetry/sdk open-telemetry/exporter-otlp
   ```
@@ -141,7 +141,7 @@ function handlePayment(float $amount, string $currency): void
 }
 ```
 
-Use [semantic conventions](https://opentelemetry.io/docs/specs/semconv/) for common attributes when possible.
+Use <a href="https://opentelemetry.io/docs/specs/semconv/" target="_blank" rel="noopener noreferrer nofollow">semantic conventions</a> for common attributes when possible.
 
 ## Step 5. Add events
 
@@ -280,4 +280,4 @@ function processBatch(array $itemSpanContexts): void
 
 - [Set up alerts](https://signoz.io/docs/setup-alerts-notification/) for your PHP application
 - [Create dashboards](https://signoz.io/docs/userguide/manage-dashboards/) to visualize your custom spans
-- Explore [supported PHP instrumentation libraries](https://packagist.org/search/?query=open-telemetry&tags=instrumentation) for automatic instrumentation of frameworks and libraries
+- Explore <a href="https://packagist.org/search/?query=open-telemetry&amp;tags=instrumentation" target="_blank" rel="noopener noreferrer nofollow">supported PHP instrumentation libraries</a> for automatic instrumentation of frameworks and libraries

@@ -13,7 +13,7 @@ You don't need ingestion keys for self-hosted/community edition of SigNoz. Inges
 
 ## Overview
 
-SigNoz is designed with an OpenTelemetry-first approach, natively supporting the [OpenTelemetry Protocol](https://github.com/open-telemetry/opentelemetry-proto/blob/main/docs/specification.md). In addition to OpenTelemetry compatibility, SigNoz also provides custom in-house endpoints for enhanced functionality.
+SigNoz is designed with an OpenTelemetry-first approach, natively supporting the <a href="https://github.com/open-telemetry/opentelemetry-proto/blob/main/docs/specification.md" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Protocol</a>. In addition to OpenTelemetry compatibility, SigNoz also provides custom in-house endpoints for enhanced functionality.
 
 ## Get Started
 
@@ -54,7 +54,7 @@ If you are using the signal agnostic environment variable (`OTEL_EXPORTER_OTLP_E
 
 ### OpenTelemetry Collector Configuration
 
-Configure the OpenTelemetry [exporter](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) in your collector configuration file to point to the appropriate SigNoz endpoint.
+Configure the OpenTelemetry <a href="https://opentelemetry.io/docs/specs/otel/protocol/exporter/" target="_blank" rel="noopener noreferrer nofollow">exporter</a> in your collector configuration file to point to the appropriate SigNoz endpoint.
 
 ```yaml
 exporters:
@@ -79,7 +79,7 @@ The mechanism to configure headers will vary, but OpenTelemetry language SDKs ge
 
 ### OpenTelemetry Collector Configuration
 
-Configure the OpenTelemetry [exporter](https://opentelemetry.io/docs/specs/otel/protocol/exporter/) in your collector configuration with the appropriate header values.
+Configure the OpenTelemetry <a href="https://opentelemetry.io/docs/specs/otel/protocol/exporter/" target="_blank" rel="noopener noreferrer nofollow">exporter</a> in your collector configuration with the appropriate header values.
 
 ```yaml
 exporters:
@@ -110,7 +110,7 @@ The following ways of authentication are deprecated:
 
 ### Language SDK Configuration
 
-- OpenTelemetry SDKs generally support setting the following environment variables (see [OpenTelemetry docs](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/) for more info):
+- OpenTelemetry SDKs generally support setting the following environment variables (see <a href="https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry docs</a> for more info):
 
   - `OTEL_BSP_*` for spans
   - `OTEL_METRIC_EXPORT_*` for metrics
@@ -124,7 +124,7 @@ The following ways of authentication are deprecated:
 
 ### OpenTelemetry Collector Configuration
 
-Configure the OpenTelemetry [otlpexporter](https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/otlpexporter/README.md) or [otlphttpexporter](https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/otlphttpexporter/README.md) in your collector configuration with the appropriate values. The defaults of these exporters can be found below:
+Configure the OpenTelemetry <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/otlpexporter/README.md" target="_blank" rel="noopener noreferrer nofollow">otlpexporter</a> or <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/otlphttpexporter/README.md" target="_blank" rel="noopener noreferrer nofollow">otlphttpexporter</a> in your collector configuration with the appropriate values. The defaults of these exporters can be found below:
 
 ```yaml
 exporters:

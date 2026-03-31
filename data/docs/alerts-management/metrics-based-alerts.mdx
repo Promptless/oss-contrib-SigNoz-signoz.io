@@ -143,7 +143,7 @@ You can incorporate result attributes in the alert descriptions to make the aler
 
 #### Slack alert format
 
-Using [advanced slack formatting](https://api.slack.com/reference/surfaces/formatting#advanced) is supported if you are using Slack as a notification channel.
+Using <a href="https://api.slack.com/reference/surfaces/formatting#advanced" target="_blank" rel="noopener noreferrer nofollow">advanced slack formatting</a> is supported if you are using Slack as a notification channel.
 
 ### Labels
 A field to add static labels or tags for categorization. Labels should be added in key value pairs. First enter key (avoid space in key) and set value.
@@ -175,7 +175,7 @@ A button to test the alert to ensure that it works as expected.
     <figcaption><i>Memory usage metric builder query</i></figcaption>
 </figure>
 
-The [`hostmetricsreceiver`](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/hostmetricsreceiver) creates several host system metrics, including [`system_memory_usage`](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/documentation.md#systemmemoryusage), which contains the memory usage for each [state](https://www.kernel.org/doc/Documentation/filesystems/proc.txt) from `/proc/meminfo`. 
+The [`hostmetricsreceiver`](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/hostmetricsreceiver) creates several host system metrics, including [`system_memory_usage`](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/documentation.md#systemmemoryusage), which contains the memory usage for each <a href="https://www.kernel.org/doc/Documentation/filesystems/proc.txt" target="_blank" rel="noopener noreferrer nofollow">state</a> from `/proc/meminfo`. 
 The states can be `free`, `used`, `cached`, etc. We want to alert when the total memory usage of a host exceeds the threshold, so the WHERE clause excludes the `free` state. 
 We calculate the average value for each state and then sum them up by host to get the per-host memory usage. 
 

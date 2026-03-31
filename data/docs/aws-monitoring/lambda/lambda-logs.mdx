@@ -46,7 +46,7 @@ To accomplish the task described, please follow these steps:
 
 2. **Uploading Data to the S3 Bucket:**
 <Admonition type="info">
-Refer [this link](https://aws.amazon.com/blogs/compute/using-aws-lambda-extensions-to-send-logs-to-custom-destinations/) to know how to automatically collect Lambda logs in S3.
+Refer <a href="https://aws.amazon.com/blogs/compute/using-aws-lambda-extensions-to-send-logs-to-custom-destinations/" target="_blank" rel="noopener noreferrer nofollow">this link</a> to know how to automatically collect Lambda logs in S3.
 </Admonition>
    - After creating the bucket, navigate to the S3 Management Console.
    - Click on the **Upload** button.
@@ -239,7 +239,7 @@ Verify the settings and click on `Add` button at bottom right to add this trigge
 
 ### Adding Request Layer
 
-We will be using python's `request` module which is [not included by default](https://aws.amazon.com/blogs/compute/upcoming-changes-to-the-python-sdk-in-aws-lambda/) in Lambda.
+We will be using python's `request` module which is <a href="https://aws.amazon.com/blogs/compute/upcoming-changes-to-the-python-sdk-in-aws-lambda/" target="_blank" rel="noopener noreferrer nofollow">not included by default</a> in Lambda.
 
 To utilize Python's `requests` module within a Lambda function, it's necessary to explicitly add it as a layer. While there may be alternative approaches, it's advisable to adhere to established practices that have been thoroughly tested and proven effective. Therefore, we will proceed with adding `requests` as a layer to ensure reliable functionality within the Lambda environment.
 

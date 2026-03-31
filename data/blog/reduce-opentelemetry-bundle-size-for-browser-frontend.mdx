@@ -36,7 +36,7 @@ Tree-shaking is a build optimisation that removes dead code including modules or
 
 ### Use Modern ESM Imports
 
-All OTel packages support [ES Modules](https://www.w3schools.com/nodejs/nodejs_modules_esm.asp). Import the specific symbols you need rather than importing entire libraries. For example, if you only need the web tracer and the OTLP exporter, you might do:
+All OTel packages support <a href="https://www.w3schools.com/nodejs/nodejs_modules_esm.asp" target="_blank" rel="noopener noreferrer nofollow">ES Modules</a>. Import the specific symbols you need rather than importing entire libraries. For example, if you only need the web tracer and the OTLP exporter, you might do:
 
 ```jsx
 import {WebTracerProvider }from'@opentelemetry/sdk-trace-web';
@@ -64,7 +64,7 @@ If you don’t need, say, user interaction tracking or certain network instrumen
 
 Tree-shaking works best when libraries declare that they have no side effects on import. Many OTel packages now include `sideEffects: false` in their package.json, which helps Web-pack/Rollup know it can safely drop unused exports. 
 
-This was more of an issue in the previous versions. A user noted that manually adding `sideEffects: false` to OTel packages reduced bundle size by ~40KB, and the OTel maintainers addressed this in later releases. You can view the [Github discussions](https://github.com/open-telemetry/opentelemetry-js/issues/2855) here. Using OpenTelemetry JS v1.2+ or v2.x is recommended, as newer versions have improved in this area. In fact, the OTel JS SDK 2.0 [released in 2025] explicitly removed certain patterns [like extensive classes or namespaces] to improve tree-shakability and minification.
+This was more of an issue in the previous versions. A user noted that manually adding `sideEffects: false` to OTel packages reduced bundle size by ~40KB, and the OTel maintainers addressed this in later releases. You can view the <a href="https://github.com/open-telemetry/opentelemetry-js/issues/2855" target="_blank" rel="noopener noreferrer nofollow">Github discussions</a> here. Using OpenTelemetry JS v1.2+ or v2.x is recommended, as newer versions have improved in this area. In fact, the OTel JS SDK 2.0 [released in 2025] explicitly removed certain patterns [like extensive classes or namespaces] to improve tree-shakability and minification.
 
  Upgrading to the latest version can yield a smaller bundle thanks to these optimisations!
 

@@ -92,14 +92,14 @@ On diving deeper into trace details, you find that the Redis call was taking lon
 
 As you can imagine, finding the culprit would need lots of slicing and dicing, group bys, and counts. Being able to ask questions about your observability data. And this is where columnar databases shine.
 
-Recently, Uber also moved from [Elastic to ClickHouse](https://eng.uber.com/logging/) as their database for their logs infra because they found that 60-70% of their logs queries were aggregation queries and columnar databases are designed for such queries and perform much faster.
+Recently, Uber also moved from <a href="https://eng.uber.com/logging/" target="_blank" rel="noopener noreferrer nofollow">Elastic to ClickHouse</a> as their database for their logs infra because they found that 60-70% of their logs queries were aggregation queries and columnar databases are designed for such queries and perform much faster.
 
 At SigNoz, we think a lot about how to provide insights faster to users. Our belief is that a single app that has different types of signals and lets you correlate among them is the best way to do this (rather than installing a set of siloed tools and then making them talk to each other and facing all the issues in setting different systems and creating matching data formats)
 
 - Single app for all telemetry signals
 - Powerful aggregation and correlation capabilities
 
-Here's a [blog](https://www.honeycomb.io/blog/why-observability-requires-distributed-column-store/) by Honeycomb where they talk in detail about why columnar databases are more suited for observability. They focus primarily on tracing and high cardinality, but the point around being able to ask questions from your observability system broadly holds.
+Here's a <a href="https://www.honeycomb.io/blog/why-observability-requires-distributed-column-store/" target="_blank" rel="noopener noreferrer nofollow">blog</a> by Honeycomb where they talk in detail about why columnar databases are more suited for observability. They focus primarily on tracing and high cardinality, but the point around being able to ask questions from your observability system broadly holds.
 
 ### Dashboards or Siri?
 

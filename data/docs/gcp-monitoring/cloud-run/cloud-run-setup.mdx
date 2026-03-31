@@ -13,10 +13,10 @@ We will create a NodeJS frontend application and deploy it on GCP Cloud Run.
 ## Prerequisites
 
 - A server running Ubuntu, along with a non-root user with sudo privileges.
-- Docker installed on the server. You can follow the instructions [here](https://docs.docker.com/engine/install/) to install Docker.
-- Node.js and npm installed. You can follow the instructions on [Downloading and installing NodeJS and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install NodeJS and npm on your machine.
+- Docker installed on the server. You can follow the instructions <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer nofollow">here</a> to install Docker.
+- Node.js and npm installed. You can follow the instructions on <a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm" target="_blank" rel="noopener noreferrer nofollow">Downloading and installing NodeJS and npm</a> to install NodeJS and npm on your machine.
 - A Docker Hub account.
-- gcloud CLI installed on the server. You can follow the instructions on [this page](https://cloud.google.com/sdk/docs/install#deb).
+- gcloud CLI installed on the server. You can follow the instructions on <a href="https://cloud.google.com/sdk/docs/install#deb" target="_blank" rel="noopener noreferrer nofollow">this page</a>.
 - Ensure `gcloud init` is performed.
 - You will need Admin privileges for GCP Artifact Registry and GCP Cloud Run.
 
@@ -108,7 +108,7 @@ router.get('/cars', function(req, res){
 });
 ```
 
-The `router.use` function loads a [middleware function](https://expressjs.com/en/guide/writing-middleware.html) that will log the router’s requests and pass them on to the application’s routes. 
+The `router.use` function loads a <a href="https://expressjs.com/en/guide/writing-middleware.html" target="_blank" rel="noopener noreferrer nofollow">middleware function</a> that will log the router’s requests and pass them on to the application’s routes. 
 These are defined in the subsequent functions, which specify that a GET request to the base project URL should return the `index.html` page, while a GET request to the `/cars` route should return cars.html.
 
 Finally, in the same file, mount the `router` middleware and the application’s static assets and tell the app to listen on port `8080`:

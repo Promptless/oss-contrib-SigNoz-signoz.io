@@ -47,7 +47,7 @@ The biggest gap shows up when you need to debug distributed latency. CloudWatch 
 
 Investigation during incidents also involves context switching. Logs, metrics, alarms, and traces (if you use X-Ray) live in separate sections of the CloudWatch console. Each section has its own query interface and navigation. During an outage, rebuilding your mental model as you jump between these views adds time to resolution.
 
-This is a well-documented frustration among AWS engineers. In [this r/aws thread](https://www.reddit.com/r/aws/comments/1fsyvhr/cloudwatch_logs_are_almost_useless_how_to_get/), the core complaint is not about missing data but about investigation ergonomics at scale. Teams describe jumping across many log groups and streams during incidents, struggling to piece together what happened.
+This is a well-documented frustration among AWS engineers. In <a href="https://www.reddit.com/r/aws/comments/1fsyvhr/cloudwatch_logs_are_almost_useless_how_to_get/" target="_blank" rel="noopener noreferrer nofollow">this r/aws thread</a>, the core complaint is not about missing data but about investigation ergonomics at scale. Teams describe jumping across many log groups and streams during incidents, struggling to piece together what happened.
 
 <Figure src="/img/comparisons/2026/02/aws-x-ray-vs-cloudwatch-reddit-cloudwatch-logs-usability.webp" alt="Reddit thread about CloudWatch Logs usability challenges" caption="A Reddit thread where an AWS engineer describes the friction of investigating issues across CloudWatch Logs at scale." />
 

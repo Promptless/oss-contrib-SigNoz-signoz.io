@@ -31,21 +31,21 @@ Amazon ECS gives you a fully managed control plane for orchestrating containers,
 
 Before you begin, ensure you have the following in place:
 
-- **[AWS CLI v2](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)** installed and configured with appropriate credentials and region.  
+- **<a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html" target="_blank" rel="noopener noreferrer nofollow">AWS CLI v2</a>** installed and configured with appropriate credentials and region.  
 - An **AWS account** with adequate service quotas for:
-  - [Amazon EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes.html) (block storage)
-  - [Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) (compute instances)
-  - [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html) (identity & access management)  
-- **[Amazon ECS cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-cluster.html)** already created, with **Capacity Providers** enabled (EC2 + Auto Scaling Group)  
-  - Read more: [ECS Capacity Providers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html)  
+  - <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes.html" target="_blank" rel="noopener noreferrer nofollow">Amazon EBS</a> (block storage)
+  - <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html" target="_blank" rel="noopener noreferrer nofollow">Amazon EC2</a> (compute instances)
+  - <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html" target="_blank" rel="noopener noreferrer nofollow">IAM</a> (identity & access management)  
+- **<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-cluster.html" target="_blank" rel="noopener noreferrer nofollow">Amazon ECS cluster</a>** already created, with **Capacity Providers** enabled (EC2 + Auto Scaling Group)  
+  - Read more: <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html" target="_blank" rel="noopener noreferrer nofollow">ECS Capacity Providers</a>  
 - **IAM roles** for your tasks:
   - **Task Execution Role** with the managed policy `AmazonECSTaskExecutionRolePolicy`  
-    - Docs: [Creating an ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html)  
+    - Docs: <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html" target="_blank" rel="noopener noreferrer nofollow">Creating an ECS task execution IAM role</a>  
   - **Task Role** for SigNoz containers (attach only the permissions your services need)  
-- **SigNoz container images** (`signoz/*:<version>`) pushed to a registry reachable by ECS (e.g. [Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html) or Docker Hub)  
+- **SigNoz container images** (`signoz/*:<version>`) pushed to a registry reachable by ECS (e.g. <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html" target="_blank" rel="noopener noreferrer nofollow">Amazon ECR</a> or Docker Hub)  
 - A **private S3 bucket** (optional) for storing custom ClickHouse configs or backups  
-- A **Custom AMI** or **[Launch Template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)** (optional) if you need custom kernel settings or plan to use Spot instances  
-- *(Optional)* **[Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html)** or **EBS volumes** attached & mounted on your ECS instances for persistent data (ClickHouse, dashboards, configs)
+- A **Custom AMI** or **<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html" target="_blank" rel="noopener noreferrer nofollow">Launch Template</a>** (optional) if you need custom kernel settings or plan to use Spot instances  
+- *(Optional)* **<a href="https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html" target="_blank" rel="noopener noreferrer nofollow">Amazon EFS</a>** or **EBS volumes** attached & mounted on your ECS instances for persistent data (ClickHouse, dashboards, configs)
 
 > **EBS sizing note**  SigNoz stores metrics/traces in ClickHouse—start with a **gp3** volume (20 GiB, 3 000 IOPS, 125 MiB/s) and monitor usage to scale as needed.
 

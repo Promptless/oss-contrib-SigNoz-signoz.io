@@ -21,7 +21,7 @@ I’d like to write a bit about how Observability costs are significant, how the
 
 SaaS tools to do observability have significant costs for any large-scale user, and no observability tool has a cost of 0. While tools like SigNoz have self-hosted solutions that will cut your Datadog bill down to zero dollars, you still have to consider both the infrastructure costs of hosting your own data backend and the support you’ll need to do on such a tool. Even with the (amazing) open-source options, the cost is never zero when you count implementation effort and storage costs.
 
-While everyone knows that observability costs _something_ I think most people don’t really understand just how expensive it can be. While many organizations may target spending 10% of their Ops budget for full-stack observability, it’s common for observability to be the [second-highest cost after infrastructure](https://devops.com/observability-costs-are-too-damn-high/). Why so expensive? And why so universally? For an object lesson, consider my demo flask app before and after I add OpenTelemetry instrumentation.
+While everyone knows that observability costs _something_ I think most people don’t really understand just how expensive it can be. While many organizations may target spending 10% of their Ops budget for full-stack observability, it’s common for observability to be the <a href="https://devops.com/observability-costs-are-too-damn-high/" target="_blank" rel="noopener noreferrer nofollow">second-highest cost after infrastructure</a>. Why so expensive? And why so universally? For an object lesson, consider my demo flask app before and after I add OpenTelemetry instrumentation.
 
 ```python
 # Acquire a tracer

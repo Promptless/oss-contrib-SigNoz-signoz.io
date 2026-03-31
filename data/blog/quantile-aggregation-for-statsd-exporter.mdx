@@ -69,7 +69,7 @@ To read more about quantile aggregation using summary and histogram in prometheu
 
 We shall apply the histogram approach to aggregate quantile on prometheus. For that we will have to enable statsd-exporter to send metrics in buckets (number of observations falling in each bucket).
 
-Let's try to implement this into our existing project. Checkout branch `quantile_aggregation` from our [**github repo**](https://github.com/ankitnayan/django_sample_project). This contains `config/statsd-mapping.conf` file which includes:
+Let's try to implement this into our existing project. Checkout branch `quantile_aggregation` from our <a href="https://github.com/ankitnayan/django_sample_project" target="_blank" rel="noopener noreferrer nofollow">**github repo**</a>. This contains `config/statsd-mapping.conf` file which includes:
 
 ```
 defaults:
@@ -186,7 +186,7 @@ Add 2 more queries with 1st arg to `histogram_quantile` as 0.9 and 0.99.
 
 ![request percentiles](/img/blog/2019/09/request_percentiles.webp)
 
-To get the 5 slowest endpoints follow blog [Graph top N time series in Grafana](https://www.robustperception.io/graph-top-n-time-series-in-grafana). A slight change will be the Regex expression for the variable. Check mine from the below image.
+To get the 5 slowest endpoints follow blog <a href="https://www.robustperception.io/graph-top-n-time-series-in-grafana" target="_blank" rel="noopener noreferrer nofollow">Graph top N time series in Grafana</a>. A slight change will be the Regex expression for the variable. Check mine from the below image.
 
 ![regex expression](/img/blog/2019/09/Screenshot-2019-09-03-at-7.33.24-PM.webp)
 
@@ -207,4 +207,4 @@ I hope, this blog helped those looking for ways to aggregate percentiles/quantil
 
 ---
 
-**For any Prometheus related query reach me out on [Twitter](https://twitter.com/ankitnayan) or mail me at ankit@signoz.io**
+**For any Prometheus related query reach me out on <a href="https://twitter.com/ankitnayan" target="_blank" rel="noopener noreferrer nofollow">Twitter</a> or mail me at ankit@signoz.io**

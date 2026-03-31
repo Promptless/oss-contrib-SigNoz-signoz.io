@@ -9,7 +9,7 @@ hide_table_of_contents: true
 
 ## Overview
 
-[AKS (Azure Kubernetes Service)](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) is a managed Kubernetes service provided by Microsoft Azure that 
+<a href="https://learn.microsoft.com/en-us/azure/aks/what-is-aks" target="_blank" rel="noopener noreferrer nofollow">AKS (Azure Kubernetes Service)</a> is a managed Kubernetes service provided by Microsoft Azure that 
 simplifies the deployment, management, and operations of Kubernetes clusters.
 
 ## Prerequisites
@@ -40,12 +40,12 @@ This should start sending logs and metrics to SigNoz.
 There are solution to collect metrics and traces without modifying the application code. These solutions come under the category of eBPF Tracing. These solutions are relatively new and are still in the early stages of development.
 
 However, there are some open source projects that export metrics and traces to OpenTelemetry.
-- [Pixie](https://github.com/pixie-io/pixie) 
-- [Hubble](https://github.com/cilium/hubble) 
-- [OpenTelemetry eBPF](https://github.com/open-telemetry/opentelemetry-network)
+- <a href="https://github.com/pixie-io/pixie" target="_blank" rel="noopener noreferrer nofollow">Pixie</a> 
+- <a href="https://github.com/cilium/hubble" target="_blank" rel="noopener noreferrer nofollow">Hubble</a> 
+- <a href="https://github.com/open-telemetry/opentelemetry-network" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry eBPF</a>
 
 For example, Pixie can be configured by following the instructions in the respective repositories.
-[Pixie OpenTelemetry Tutorial](https://docs.px.dev/tutorials/integrations/otel/)
+<a href="https://docs.px.dev/tutorials/integrations/otel/" target="_blank" rel="noopener noreferrer nofollow">Pixie OpenTelemetry Tutorial</a>
 
 ```endpoint=px.otel.Endpoint(
     url='otel-collector.kubelet-otel.svc.cluster.local:4317',

@@ -17,9 +17,9 @@ This document will help you send traces from your GKE cluster to SigNoz.
 
 ## Prerequisites
 
-* A [GKE cluster](https://cloud.google.com/kubernetes-engine)
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) installed to access the GKE cluster
-* [Helm](https://helm.sh/docs/intro/install/) installed
+* A <a href="https://cloud.google.com/kubernetes-engine" target="_blank" rel="noopener noreferrer nofollow">GKE cluster</a>
+* <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/" target="_blank" rel="noopener noreferrer nofollow">kubectl</a> installed to access the GKE cluster
+* <a href="https://helm.sh/docs/intro/install/" target="_blank" rel="noopener noreferrer nofollow">Helm</a> installed
 
 ## Quick Start
 
@@ -306,9 +306,9 @@ This should start sending signals to SigNoz.
 There are solution to collect metrics and traces without modifying the application code. These solutions come under the category of eBPF Tracing. These solutions are relatively new and are still in the early stages of development.
 
 However, there are some open source projects that export metrics and traces to OpenTelemetry.
-- [Pixie](https://github.com/pixie-io/pixie) 
-- [Hubble](https://github.com/cilium/hubble) 
-- [OpenTelemetry eBPF](https://github.com/open-telemetry/opentelemetry-network)
+- <a href="https://github.com/pixie-io/pixie" target="_blank" rel="noopener noreferrer nofollow">Pixie</a> 
+- <a href="https://github.com/cilium/hubble" target="_blank" rel="noopener noreferrer nofollow">Hubble</a> 
+- <a href="https://github.com/open-telemetry/opentelemetry-network" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry eBPF</a>
 
 <Admonition type="note">
 
@@ -320,11 +320,11 @@ In this guide will deploy Pixie in the Kubernetes cluster to fetch traces from t
 
 **Step 1:** Deploy Pixie in the Kubernetes cluster to fetch traces from the cluster.
 
-For eBPF tracing we can use Pixie, which can be configured using the following instructions in this [Documentation](https://docs.px.dev/tutorials/integrations/otel/).
+For eBPF tracing we can use Pixie, which can be configured using the following instructions in this <a href="https://docs.px.dev/tutorials/integrations/otel/" target="_blank" rel="noopener noreferrer nofollow">Documentation</a>.
 
 **Step 2:** Use a custom Data retention script in the OpenTelemetry Pixie plugin to send the data to the SigNoz.
 
-You can refer to this [GitHub repository](https://github.com/isItObservable/pixie/tree/master/pixie%20plugin) for the different custom scripts for the different use cases.
+You can refer to this <a href="https://github.com/isItObservable/pixie/tree/master/pixie%20plugin" target="_blank" rel="noopener noreferrer nofollow">GitHub repository</a> for the different custom scripts for the different use cases.
 
 Use the appropriate export URL in the script. The export URL will receive all the traces captured by Pixie.
 
@@ -376,7 +376,7 @@ Please refer to our [SigNoz Documentation](https://signoz.io/docs/instrumentatio
 
 ## Sample Python Application
 
-We will use a [sample flask app](https://github.com/SigNoz/sample-flask-app).
+We will use a <a href="https://github.com/SigNoz/sample-flask-app" target="_blank" rel="noopener noreferrer nofollow">sample flask app</a>.
 One may need to add packages for enabling instrumentation.
 
 requirements.txt
@@ -547,9 +547,9 @@ If you encounter any issues while setting up logging and metrics for your GKE cl
 
 ## Prerequisites
 
-* A [GKE cluster](https://cloud.google.com/kubernetes-engine)
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) installed to access the GKE cluster
-* [Helm](https://helm.sh/docs/intro/install/) installed
+* A <a href="https://cloud.google.com/kubernetes-engine" target="_blank" rel="noopener noreferrer nofollow">GKE cluster</a>
+* <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/" target="_blank" rel="noopener noreferrer nofollow">kubectl</a> installed to access the GKE cluster
+* <a href="https://helm.sh/docs/intro/install/" target="_blank" rel="noopener noreferrer nofollow">Helm</a> installed
 * [Self-Hosted SigNoz in GKE Cluster](https://signoz.io/docs/install/kubernetes/gcp/) ( If you are hosting SigNoz in Google Kubernetes Engine (GKE), you should refer to the specific guide that outlines the minimum requirements and provides details for the override-values.yaml ) OR if you’re hosting SigNoz on VM, follow [Self-Hosted SigNoz on VM ](https://signoz.io/docs/install/docker/).
 
 ## Quick Start
@@ -847,9 +847,9 @@ This should start sending signals to SigNoz.
 There are solution to collect metrics and traces without modifying the application code. These solutions come under the category of eBPF Tracing. These solutions are relatively new and are still in the early stages of development.
 
 However, there are some open source projects that export metrics and traces to OpenTelemetry.
-- [Pixie](https://github.com/pixie-io/pixie) 
-- [Hubble](https://github.com/cilium/hubble) 
-- [OpenTelemetry eBPF](https://github.com/open-telemetry/opentelemetry-network)
+- <a href="https://github.com/pixie-io/pixie" target="_blank" rel="noopener noreferrer nofollow">Pixie</a> 
+- <a href="https://github.com/cilium/hubble" target="_blank" rel="noopener noreferrer nofollow">Hubble</a> 
+- <a href="https://github.com/open-telemetry/opentelemetry-network" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry eBPF</a>
 
 <Admonition type="note">
 
@@ -861,11 +861,11 @@ In this guide will deploy Pixie in the Kubernetes cluster to fetch traces from t
 
 **Step 1:** Deploy Pixie in the Kubernetes cluster to fetch traces from the cluster.
 
-For eBPF tracing we can use Pixie, which can be configured using the following instructions in this [Documentation](https://docs.px.dev/tutorials/integrations/otel/).
+For eBPF tracing we can use Pixie, which can be configured using the following instructions in this <a href="https://docs.px.dev/tutorials/integrations/otel/" target="_blank" rel="noopener noreferrer nofollow">Documentation</a>.
 
 **Step 2:** Use a custom data retention script in the OpenTelemetry Pixie plugin to send the data to the SigNoz.
 
-You can refer to this [GitHub repository](https://github.com/isItObservable/pixie/tree/master/pixie%20plugin) for the different custom scripts for the different use cases.
+You can refer to this <a href="https://github.com/isItObservable/pixie/tree/master/pixie%20plugin" target="_blank" rel="noopener noreferrer nofollow">GitHub repository</a> for the different custom scripts for the different use cases.
 
 Use the appropriate export URL in the script. The export url will receive all the traces captured by Pixie.
 
@@ -959,7 +959,7 @@ Please refer to our [SigNoz Tutorials](https://signoz.io/docs/instrumentation/) 
 
 ### Sample Python Application 
 
-We will use a [sample flask app](https://github.com/SigNoz/sample-flask-app).
+We will use a <a href="https://github.com/SigNoz/sample-flask-app" target="_blank" rel="noopener noreferrer nofollow">sample flask app</a>.
 One may need to add packages (in `requirements.txt`) for enabling instrumentation.
 
 ```txt

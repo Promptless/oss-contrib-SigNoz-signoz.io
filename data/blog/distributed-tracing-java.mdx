@@ -31,7 +31,7 @@ A trace allows application owners to see how their entire system processed a req
 
 ## SigNoz and OpenTelemetry
 
-[OpenTelemetry](https://opentelemetry.io/) is a vendor-agnostic set of tools, APIs, and SDKs used to instrument applications to create and manage telemetry data(logs, metrics, and traces). It aims to make telemetry data(logs, metrics, and traces) a built-in feature of cloud-native software applications. It is a project under [CNCF](https://www.cncf.io/) with huge community backing.
+<a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry</a> is a vendor-agnostic set of tools, APIs, and SDKs used to instrument applications to create and manage telemetry data(logs, metrics, and traces). It aims to make telemetry data(logs, metrics, and traces) a built-in feature of cloud-native software applications. It is a project under <a href="https://www.cncf.io/" target="_blank" rel="noopener noreferrer nofollow">CNCF</a> with huge community backing.
 
 OpenTelemetry provides the instrumentation layer to generate and export your telemetry data to a backend. Then, you need to choose a backend tool that will provide the data storage and visualization for your telemetry data. That’s where SigNoz comes into the picture.
 
@@ -76,7 +76,7 @@ Here’s the architecture of the sample Java application along with OpenTelemetr
 
 SigNoz can be installed on macOS or Linux computers in just three steps by using a simple install script.
 
-The install script automatically installs Docker Engine on Linux. However, on macOS, you must manually install [Docker Engine](https://docs.docker.com/engine/install/) before running the install script.
+The install script automatically installs Docker Engine on Linux. However, on macOS, you must manually install <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer nofollow">Docker Engine</a> before running the install script.
 
 ```jsx
 git clone -b main https://github.com/SigNoz/signoz.git
@@ -88,7 +88,7 @@ You can visit our documentation for instructions on how to install SigNoz using 
 
 [![Deployment Docs](/img/blog/common/deploy_docker_documentation.webp)](https://signoz.io/docs/install/)
 
-When you are done installing SigNoz, you can access the UI at [http://localhost:3301](http://localhost:3301/application)
+When you are done installing SigNoz, you can access the UI at <a href="http://localhost:3301/application" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3301</a>
 
 <figure data-zoomable align='center'>
     <img className="box-shadowed-image"
@@ -102,7 +102,7 @@ When you are done installing SigNoz, you can access the UI at [http://localhost
 
 ### Installing MySql
 
-Download MySQL community version from [here](https://dev.mysql.com/downloads/mysql/) based on your operating system.
+Download MySQL community version from <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener noreferrer nofollow">here</a> based on your operating system.
 
 Once installation is complete, run the below commands to create a database for our sample java app.
 
@@ -133,7 +133,7 @@ Verify maven using below command `mvn -version`
 Below are the steps to run the sample Java application with OpenTelemetry:
 
 1. **Clone the sample Spring Boot app**<br></br>
-   We will be using a sample java app at this [GitHub repo](https://github.com/SigNoz/distributed-tracing-java-sample).
+   We will be using a sample java app at this <a href="https://github.com/SigNoz/distributed-tracing-java-sample" target="_blank" rel="noopener noreferrer nofollow">GitHub repo</a>.
 
    ```jsx
    git clone https://github.com/SigNoz/distributed-tracing-java-sample.git
@@ -149,7 +149,7 @@ Below are the steps to run the sample Java application with OpenTelemetry:
    docker run -d --name discovery-service -p 8761:8761 discovery-service:1.0.1
    ```
 
-   You can go to [http://localhost:8761/](http://localhost:8761/) and make sure your discover service registry with Eureka server is up and running.
+   You can go to <a href="http://localhost:8761/" target="_blank" rel="noopener noreferrer nofollow">http://localhost:8761/</a> and make sure your discover service registry with Eureka server is up and running.
 
 <figure data-zoomable align='center'>
     <img className="box-shadowed-image"
@@ -162,9 +162,9 @@ Below are the steps to run the sample Java application with OpenTelemetry:
 
 
 3. **Setting up [Opentelemetry agent](https://signoz.io/comparisons/opentelemetry-collector-vs-agent/)**<br></br>
-   For instrumenting Java applications, OpenTelemetry has a very handy Java JAR agent that can be attached to any Java 8+ application. The JAR agent can detect a number of [popular libraries and frameworks](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/supported-libraries.md) and instrument it right out of the box. You don't need to add any code for that.
+   For instrumenting Java applications, OpenTelemetry has a very handy Java JAR agent that can be attached to any Java 8+ application. The JAR agent can detect a number of <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/supported-libraries.md" target="_blank" rel="noopener noreferrer nofollow">popular libraries and frameworks</a> and instrument it right out of the box. You don't need to add any code for that.
 
-   Download the [latest version](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) of the Java JAR agent, and copy jar agent file in your application code. We have placed the agent under the folder named `agents`.
+   Download the <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar" target="_blank" rel="noopener noreferrer nofollow">latest version</a> of the Java JAR agent, and copy jar agent file in your application code. We have placed the agent under the folder named `agents`.
 
 <figure data-zoomable align='center'>
     <img className="box-shadowed-image"
@@ -182,7 +182,7 @@ Below are the steps to run the sample Java application with OpenTelemetry:
 
    If you have installed SigNoz on your local machine, then your endpoint is `127.0.0.1:4317`**.**
 
-   Create a [start.sh](https://github.com/ganny26/distributed-tracing-java-sample/blob/main/user-service/scripts/start.sh) script with below environment variables and move it to scripts folder. Notice that we have updated the OTLP endpoint under `-Dotel.exporter.otlp.traces.endpoint=http://localhost:4317`.
+   Create a <a href="https://github.com/ganny26/distributed-tracing-java-sample/blob/main/user-service/scripts/start.sh" target="_blank" rel="noopener noreferrer nofollow">start.sh</a> script with below environment variables and move it to scripts folder. Notice that we have updated the OTLP endpoint under `-Dotel.exporter.otlp.traces.endpoint=http://localhost:4317`.
 
    ```java
    JAVA_OPTS="${JAVA_OPTS} \
@@ -408,7 +408,7 @@ You will be able to see the Flamegraph of the selected span which shows how the 
 </figure>
 
 
-SigNoz also provides a detailed view of common [semantic conventions](https://github.com/open-telemetry/semantic-conventions) like HTTP, network, and other attributes. The end-to-end tracing of user requests can help you to identify latency issues quickly.
+SigNoz also provides a detailed view of common <a href="https://github.com/open-telemetry/semantic-conventions" target="_blank" rel="noopener noreferrer nofollow">semantic conventions</a> like HTTP, network, and other attributes. The end-to-end tracing of user requests can help you to identify latency issues quickly.
 
 ## Conclusion
 

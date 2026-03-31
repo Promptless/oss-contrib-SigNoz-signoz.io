@@ -22,20 +22,20 @@ One of our key objectives is to leverage [distributed tracing](https://signoz.io
 
 ## Background
 
-In the modern distributed architecture, [Infrastructure monitoring](https://signoz.io/guides/infrastructure-monitoring/) has become crucial, there are many components which contribute to system stability. In this blog post, we will see how end-to-end observability of Messaging queues can be achieved using [OpenTelemetry](https://opentelemetry.io/) and the problems it can solve to ensure the stability and scalability of Distributed Asynchronous Architectures.
+In the modern distributed architecture, [Infrastructure monitoring](https://signoz.io/guides/infrastructure-monitoring/) has become crucial, there are many components which contribute to system stability. In this blog post, we will see how end-to-end observability of Messaging queues can be achieved using <a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry</a> and the problems it can solve to ensure the stability and scalability of Distributed Asynchronous Architectures.
 
 ![request_flow.png](/img/blog/2024/05/kafka-monitoring/request_flow.png)
 
 **Fig. 1:** Request flow through Kafka
 
-Today there are solutions which can help with visualising out of the box [JMX metrics](https://docs.confluent.io/platform/current/kafka/monitoring.html) from a messaging queue like Kafka, but it’s still hard to see what’s happening in a single trace and how kafka components are affecting every request. We will see what can be done to improve the reliability and performance by using client side instrumentation of async systems using OpenTelemetry.
+Today there are solutions which can help with visualising out of the box <a href="https://docs.confluent.io/platform/current/kafka/monitoring.html" target="_blank" rel="noopener noreferrer nofollow">JMX metrics</a> from a messaging queue like Kafka, but it’s still hard to see what’s happening in a single trace and how kafka components are affecting every request. We will see what can be done to improve the reliability and performance by using client side instrumentation of async systems using OpenTelemetry.
 
 To better understand the problem let’s take a look at a single request that’s flowing through a Messaging queue, we will take an example of Kafka throughout the blog, and the same logic is applicable to all the other messaging queues like RabbitMQ, Amazon SQS etc.
 
 [![Schedule-Call](/img/blog/2024/05/kafka-monitoring/CTA-Kafka.png)](https://calendly.com/pranay-signoz/kafka-monitoring-signoz)
 
 
-[Messaging semconv](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/messaging/kafka.md) is standardising on the semantics that are being used by OpenTelemetry for all the messaging queues to make an interoperable layer of observability on top of any messaging queue.
+<a href="https://github.com/open-telemetry/semantic-conventions/blob/main/docs/messaging/kafka.md" target="_blank" rel="noopener noreferrer nofollow">Messaging semconv</a> is standardising on the semantics that are being used by OpenTelemetry for all the messaging queues to make an interoperable layer of observability on top of any messaging queue.
 
 In Fig. 1 We have multiple producers publishing to different topics of kafka, 2 consumer groups, Topic1 have 2 partitions with replication factor as 2, and Topic2 has 1 partition with replication factor as 2.
 
@@ -49,10 +49,10 @@ Some challenges that can be solved include:
 4. Insights into maintaining, scaling and capacity planning of brokers of Kafka
 
 
-For this, we assume that the Kakfa producers and consumers use OpenTelemetry client libraries for [context propagation](https://signoz.io/blog/opentelemetry-context-propagation/). If you’re new to OpenTelemetry or want to follow along with an example, you can follow the [github guide](https://github.com/SigNoz/kafka-opentelemetry-instrumentation) which will help you configure the above kafka setup along with producer and consumer applications in Java, which are automatically instrumented with [Opentelemetry Java Agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation). You’d be able to see metrics and traces in the [SigNoz](https://signoz.io/docs/introduction/) UI.
+For this, we assume that the Kakfa producers and consumers use OpenTelemetry client libraries for [context propagation](https://signoz.io/blog/opentelemetry-context-propagation/). If you’re new to OpenTelemetry or want to follow along with an example, you can follow the <a href="https://github.com/SigNoz/kafka-opentelemetry-instrumentation" target="_blank" rel="noopener noreferrer nofollow">github guide</a> which will help you configure the above kafka setup along with producer and consumer applications in Java, which are automatically instrumented with <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation" target="_blank" rel="noopener noreferrer nofollow">Opentelemetry Java Agent</a>. You’d be able to see metrics and traces in the [SigNoz](https://signoz.io/docs/introduction/) UI.
 
 
- **Fig 2** below describes the setup from the [guide](https://github.com/SigNoz/kafka-opentelemetry-instrumentation). We use JMX receiver, [Kafkametrics receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/kafkametricsreceiver/README.md) from OpenTelemetry and also traces data sent in OTLP format. 
+ **Fig 2** below describes the setup from the <a href="https://github.com/SigNoz/kafka-opentelemetry-instrumentation" target="_blank" rel="noopener noreferrer nofollow">guide</a>. We use JMX receiver, <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/kafkametricsreceiver/README.md" target="_blank" rel="noopener noreferrer nofollow">Kafkametrics receiver</a> from OpenTelemetry and also traces data sent in OTLP format. 
 
 
 ![kafka-otel-signoz](/img/blog/2024/05/kafka-monitoring/kafka-otel-signoz.png)
@@ -71,7 +71,7 @@ As you can see, both `kafka-producer`  and `kafka-consumer` are shown in the tra
 
 If we look at the attributes collected from Producer and Consumer spans, we can identify some attributes that can help us correlate with metrics for a given time period.
 
-You can follow along in [this](https://github.com/SigNoz/kafka-opentelemetry-instrumentation/tree/master/client-spans) GitHub repo to implement the above example.
+You can follow along in <a href="https://github.com/SigNoz/kafka-opentelemetry-instrumentation/tree/master/client-spans" target="_blank" rel="noopener noreferrer nofollow">this</a> GitHub repo to implement the above example.
 
 ```jsx
 // Some important attributes from producer span
@@ -101,7 +101,7 @@ Attributes:
 
 **Fig. 4:**  Key attributes available in Producer and Consumer spans instrumented with OpenTelemetry
 
-You check out our detailed video tutorial here on how to set up complete client-side monitoring of Kafka [here](https://www.youtube.com/watch?v=ov1pyCBwlJs) 
+You check out our detailed video tutorial here on how to set up complete client-side monitoring of Kafka <a href="https://www.youtube.com/watch?v=ov1pyCBwlJs" target="_blank" rel="noopener noreferrer nofollow">here</a> 
 
 ## Common debugging scenarios in Kafka
 
@@ -147,7 +147,7 @@ Compared to metrics, this doesn’t aggregate  over all messages going to differ
 
 ### Scenario 2 : Kafka consumer lag is high and you want to understand why
 
-**Approach**: Possible [reasons](https://docs.confluent.io/platform/current/monitor/monitor-consumer-lag.html#causes-of-consumer-lag) for an increase in consumer lag are:
+**Approach**: Possible <a href="https://docs.confluent.io/platform/current/monitor/monitor-consumer-lag.html#causes-of-consumer-lag" target="_blank" rel="noopener noreferrer nofollow">reasons</a> for an increase in consumer lag are:
 
 - Slow consumers: Slow consumers that take a long time to process messages can cause consumer lag.
 - Message size: Large message sizes can cause consumer lag, especially if the consumer is not configured to handle large messages.
@@ -243,6 +243,6 @@ Write to us at <a href="mailto:support@signoz.io">support@signoz.io</a> or book 
 Read more about Monitoring Kafka Clients with OpenTelemetry:<br></br>
 
 [Complete Guide to tracing Kafka clients with OpenTelemetry in Go](https://signoz.io/blog/opentelemetry-kafka/)<br></br>
-[Hands on follow along Java example with Kafka and OTeL Client side instrumentation](https://github.com/SigNoz/kafka-opentelemetry-instrumentation)
+<a href="https://github.com/SigNoz/kafka-opentelemetry-instrumentation" target="_blank" rel="noopener noreferrer nofollow">Hands on follow along Java example with Kafka and OTeL Client side instrumentation</a>
 
 [ [Video] Detailed tutorial on setting up tracing for Kafka clients with OpenTelemetry](https://www.youtube.com/watch?v=ov1pyCBwlJs)<br></br>

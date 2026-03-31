@@ -93,7 +93,7 @@ And luckily, at the same time, ClickHouse announced a stable version of the JSON
 
 ## Using ClickHouse’s native JSON data type
 
-With the introduction of a native [JSON data type](https://clickhouse.com/blog/a-new-powerful-json-data-type-for-clickhouse) in ClickHouse, we identified an opportunity to migrate from our string data type column to JSON. Adopting this also meant offloading all associated operations to ClickHouse, allowing us to leverage ClickHouse's highly optimised, built-in functions for JSON traversal and data extraction.
+With the introduction of a native <a href="https://clickhouse.com/blog/a-new-powerful-json-data-type-for-clickhouse" target="_blank" rel="noopener noreferrer nofollow">JSON data type</a> in ClickHouse, we identified an opportunity to migrate from our string data type column to JSON. Adopting this also meant offloading all associated operations to ClickHouse, allowing us to leverage ClickHouse's highly optimised, built-in functions for JSON traversal and data extraction.
 
 But there was a limitation. Clickhouse’s native JSON type is built to handle dynamic paths of JSON keys. In order to do so, it needs them to be predictable. But log data from our customers is hardly predictable. It may contain any number of unique paths.
 
@@ -115,7 +115,7 @@ The setting `max_dynamic_path` ,  limits the number of distinct JSON *paths* it 
 
 But for our customer logs, we can not have this limit.
 
-Sometimes the incoming data can have really high cardinality [sigh], which could lead to an [explosive avalanche](https://clickhouse.com/blog/a-new-powerful-json-data-type-for-clickhouse#challenge-3-prevention-of-avalanche-of-column-data-files-on-disk) of paths exhausting the upper limit. When the threshold is surpassed, if another distinct key appears, that key’s values [and any other new keys] will be stored in a shared data structure.
+Sometimes the incoming data can have really high cardinality [sigh], which could lead to an <a href="https://clickhouse.com/blog/a-new-powerful-json-data-type-for-clickhouse#challenge-3-prevention-of-avalanche-of-column-data-files-on-disk" target="_blank" rel="noopener noreferrer nofollow">explosive avalanche</a> of paths exhausting the upper limit. When the threshold is surpassed, if another distinct key appears, that key’s values [and any other new keys] will be stored in a shared data structure.
 
 The next question that naturally arises is, what is a *reasonable* value for this setting to get optimal performance? Let’s dive deeper.
 
@@ -131,12 +131,12 @@ But what if we set `max_dynamic_path = 0`  and create columns for dynamic paths 
 
 By setting `max_dynamic_path = 0`, we stopped the creation of sub-columns for any JSON path.  This meant that all the JSON data ingested is stored directly in the *shared data structure*, not as sub-columns.
 
-This becomes our baseline. Now let’s talk about performance. The effect of the change on querying is better than what existed [storing logs as a string]. With the introduction of multiple [JSON serialisation formats](https://clickhouse.com/blog/json-data-type-gets-even-better#new-serializations-for-shared-data-in-v258) in ClickHouse, we faced yet another critical architectural decision —which format would deliver the best for our heavy workloads, especially for all the frequent `GROUP BY` queries? Let’s examine that in greater detail.
+This becomes our baseline. Now let’s talk about performance. The effect of the change on querying is better than what existed [storing logs as a string]. With the introduction of multiple <a href="https://clickhouse.com/blog/json-data-type-gets-even-better#new-serializations-for-shared-data-in-v258" target="_blank" rel="noopener noreferrer nofollow">JSON serialisation formats</a> in ClickHouse, we faced yet another critical architectural decision —which format would deliver the best for our heavy workloads, especially for all the frequent `GROUP BY` queries? Let’s examine that in greater detail.
 
 ### #1. Storing Data in Advanced Serialisation Format
 
 ClickHouse provides several serialisation formats for storing JSON data, including the Map type, bucketed maps, and the *advanced JSON format*.
-You can read more about these [formats here](https://clickhouse.com/blog/json-data-type-gets-even-better#new-serializations-for-shared-data-in-v258).
+You can read more about these <a href="https://clickhouse.com/blog/json-data-type-gets-even-better#new-serializations-for-shared-data-in-v258" target="_blank" rel="noopener noreferrer nofollow">formats here</a>.
 
 We performed benchmarks on both `map` and `advanced` shared data structure and found there were some big wins for `advanced` shared data structure. 
 
@@ -144,7 +144,7 @@ We performed benchmarks on both `map` and `advanced` shared data structure and f
 
 There were some big wins from opting for this format, which included better performance for aggregation and filtering of data; hence, operations like `GROUP BY` or `WHERE` clauses on specific JSON fields could be executed with high efficiency. 
 
-You can read more about advanced shared data structure [here](https://clickhouse.com/blog/json-data-type-gets-even-better#advanced-shared-data).
+You can read more about advanced shared data structure <a href="https://clickhouse.com/blog/json-data-type-gets-even-better#advanced-shared-data" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 his became **Tier 1** of our architecture.
 

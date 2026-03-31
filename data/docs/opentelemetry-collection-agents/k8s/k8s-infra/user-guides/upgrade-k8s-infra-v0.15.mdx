@@ -32,7 +32,7 @@ Before setting up OpenTelemetry monitoring for your Kubernetes cluster, ensure y
 
 Two types of configuration fields have been removed:
 
-**Telemetry Metrics Address**: The `service::telemetry::metrics::address` field is no longer supported. [OpenTelemetry Collector v0.123.0 deprecated this field](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.123.0), and it's now completely ignored. The collector manages telemetry metrics exposure internally, so you should remove any references to:
+**Telemetry Metrics Address**: The `service::telemetry::metrics::address` field is no longer supported. <a href="https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.123.0" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Collector v0.123.0 deprecated this field</a>, and it's now completely ignored. The collector manages telemetry metrics exposure internally, so you should remove any references to:
 
 - `otelAgent.service::telemetry::metrics::address`
 - `otelDeployment.service::telemetry::metrics::address`
@@ -137,9 +137,9 @@ kubectl logs -n <NAMESPACE> -l app.kubernetes.io/component=otel-deployment --tai
 
 <Admonition type="info">
 
-The OpenTelemetry Collector exposes its own internal metrics (such as dropped spans and queue size) for Prometheus to scrape by default at [http://127.0.0.1:8888/metrics](http://127.0.0.1:8888/metrics). If you want to access these metrics outside the pod, configure the telemetry reader to bind to `0.0.0.0:8888` instead of the default.
+The OpenTelemetry Collector exposes its own internal metrics (such as dropped spans and queue size) for Prometheus to scrape by default at <a href="http://127.0.0.1:8888/metrics" target="_blank" rel="noopener noreferrer nofollow">http://127.0.0.1:8888/metrics</a>. If you want to access these metrics outside the pod, configure the telemetry reader to bind to `0.0.0.0:8888` instead of the default.
 
-For more details, see the [OpenTelemetry Collector Internal Telemetry documentation](https://opentelemetry.io/docs/concepts/collector/internal-telemetry/).
+For more details, see the <a href="https://opentelemetry.io/docs/concepts/collector/internal-telemetry/" target="_blank" rel="noopener noreferrer nofollow">OpenTelemetry Collector Internal Telemetry documentation</a>.
 
 </Admonition>
 

@@ -188,7 +188,7 @@ Prometheus is a metrics-first system. It does one thing with depth:
 - **Logs**: Not supported. You need a companion system like Loki, Elasticsearch, or a centralized logging platform
 - **Traces**: Not supported. You need Jaeger, Zipkin, Tempo, or another tracing backend
 
-This single-signal focus is both a strength and a limitation. Prometheus excels at metric collection and analysis. PromQL lets you slice, aggregate, and compare time series in ways that [CloudWatch's metric math](https://docs.aws.amazon.com/efs/latest/ug/monitoring-metric-math.html) cannot match. But during an incident, you will inevitably need to context-switch to other tools for logs and traces.
+This single-signal focus is both a strength and a limitation. Prometheus excels at metric collection and analysis. PromQL lets you slice, aggregate, and compare time series in ways that <a href="https://docs.aws.amazon.com/efs/latest/ug/monitoring-metric-math.html" target="_blank" rel="noopener noreferrer nofollow">CloudWatch's metric math</a> cannot match. But during an incident, you will inevitably need to context-switch to other tools for logs and traces.
 
 The broader Prometheus ecosystem fills these gaps through integrations. Grafana for visualization, Loki for logs, Tempo for traces, and Alertmanager for alert routing. The tradeoff is that you assemble and operate each of these components yourself.
 
@@ -247,7 +247,7 @@ CloudWatch pricing is usage-based across multiple dimensions and differs across 
 
 The most common cost surprises come from log ingestion and custom metrics. Custom metric cardinality is multiplicative, so adding a single high-cardinality tag like `customer_id` with 100 unique values can turn 90 metric combinations into 9,000, each billed separately. Log retention defaults to "never expire," meaning storage costs accumulate silently unless you set an explicit policy.
 
-A user on [r/devops](https://www.reddit.com/r/devops/comments/1r2so5d/) shared that serverless log ingestion in CloudWatch accounted for 50% of their total monthly bill:
+A user on <a href="https://www.reddit.com/r/devops/comments/1r2so5d/" target="_blank" rel="noopener noreferrer nofollow">r/devops</a> shared that serverless log ingestion in CloudWatch accounted for 50% of their total monthly bill:
 
 <Figure
   src="/img/comparisons/2026/02/reddit-cloudwatch-log-ingestion-cost.webp"

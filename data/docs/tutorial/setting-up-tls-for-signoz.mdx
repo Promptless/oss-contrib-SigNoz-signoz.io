@@ -36,7 +36,7 @@ helm install cert-manager jetstack/cert-manager \
   --create-namespace
 ```
 
-You can find more details [here](https://cert-manager.io/docs/installation/)
+You can find more details <a href="https://cert-manager.io/docs/installation/" target="_blank" rel="noopener noreferrer nofollow">here</a>
 
 ### Install Nginx Ingress Controller
 
@@ -50,7 +50,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
   --create-namespace
 ```
 
-You can find more details [here](https://kubernetes.github.io/ingress-nginx/deploy/)
+You can find more details <a href="https://kubernetes.github.io/ingress-nginx/deploy/" target="_blank" rel="noopener noreferrer nofollow">here</a>
 
 ### Create Cluster Issuer
 
@@ -72,7 +72,7 @@ spec:
         ingress:
           ingressClassName: nginx
 ```
-You can find more details about cluster issuers [here](https://cert-manager.io/docs/configuration/)
+You can find more details about cluster issuers <a href="https://cert-manager.io/docs/configuration/" target="_blank" rel="noopener noreferrer nofollow">here</a>
 
 2. Apply the `ClusterIssuer` to your cluster:
 

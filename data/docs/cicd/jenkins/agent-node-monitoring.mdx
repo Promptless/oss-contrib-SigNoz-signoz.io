@@ -7,7 +7,7 @@ description: Instrument Jenkins with OpenTelemetry and send metrics to SigNoz
 ---
 
 ## Overview
-[Jenkins](https://www.jenkins.io/) is an automation server that enables developers to build, test, and deploy their applications through continuous integration and continuous delivery (CI/CD) pipelines. This document will help you monitor your Jenkins build agents' metrics using SigNoz.
+<a href="https://www.jenkins.io/" target="_blank" rel="noopener noreferrer nofollow">Jenkins</a> is an automation server that enables developers to build, test, and deploy their applications through continuous integration and continuous delivery (CI/CD) pipelines. This document will help you monitor your Jenkins build agents' metrics using SigNoz.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ description: Instrument Jenkins with OpenTelemetry and send metrics to SigNoz
 ## Setup
 
 ### Step 1: Install OTel agent metrics plugin
-* For installing the plugin, please refer to [this documentation](https://plugins.jenkins.io/opentelemetry-agent-metrics/#plugin-content-web-ui-install)
+* For installing the plugin, please refer to <a href="https://plugins.jenkins.io/opentelemetry-agent-metrics/#plugin-content-web-ui-install" target="_blank" rel="noopener noreferrer nofollow">this documentation</a>
 
 ### Step 2: Agent node configuration
 
@@ -33,7 +33,7 @@ The binaries(depending on the Agent OS amd64/arm64) can be installed on the agen
 * downloaded from a URL on the agents. For this the global plugin option **Artifact download base URL** must be configured(refer the image below)
 * uploaded from the Jenkins master. For this the executables must be manually stored under the JENKINS_HOME directory in the **opentelemetry-agent-metrics** subdirectory(subdirectory to be created under **JENKINS_HOME** of Jenkins Master)
 
-More information about these executables and their setup can be found in this [document](https://plugins.jenkins.io/opentelemetry-agent-metrics/#plugin-content-setup-the-executable-source).
+More information about these executables and their setup can be found in this <a href="https://plugins.jenkins.io/opentelemetry-agent-metrics/#plugin-content-setup-the-executable-source" target="_blank" rel="noopener noreferrer nofollow">document</a>.
 
 #### (Optional)Configure OTel agent metrics plugin
 This configuration is required only when using Artifact download base URL to fetch the binaries

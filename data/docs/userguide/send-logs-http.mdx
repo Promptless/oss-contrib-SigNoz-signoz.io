@@ -13,7 +13,7 @@ custom wrappers, directly transmit logs, or integrate existing loggers, making i
 
 ## Payload Structure
 
-The payload is an array of logs in JSON format. It follows a structure similar to [OTEL Logs Data Model](https://opentelemetry.io/docs/specs/otel/logs/data-model/).
+The payload is an array of logs in JSON format. It follows a structure similar to <a href="https://opentelemetry.io/docs/specs/otel/logs/data-model/" target="_blank" rel="noopener noreferrer nofollow">OTEL Logs Data Model</a>.
 
 Below is how the payload would look like:
 ```json
@@ -39,14 +39,14 @@ Here's a brief description of each field in the log record:
 | `timestamp`    | Time when the event occurred           |
 | `trace_id`     | Request trace id                       |
 | `span_id`      | Request span id                        |
-| `trace_flags`  | [W3C](https://www.w3.org/TR/trace-context/#trace-flags) trace flag |
+| `trace_flags`  | <a href="https://www.w3.org/TR/trace-context/#trace-flags" target="_blank" rel="noopener noreferrer nofollow">W3C</a> trace flag |
 | `severity_text`| The severity text (also known as log level) |
 | `severity_number`| Numerical value of the severity      |
 | `attributes`   | Additional information about the event |
 | `resources`    | Describes the source of the log        |
 | `body`         | The body of the log record             |
 
-To know more details about the different fields in a log record, you can check [this documentation](https://opentelemetry.io/docs/specs/otel/logs/data-model/#log-and-event-record-definition).
+To know more details about the different fields in a log record, you can check <a href="https://opentelemetry.io/docs/specs/otel/logs/data-model/#log-and-event-record-definition" target="_blank" rel="noopener noreferrer nofollow">this documentation</a>.
 
 <Admonition type="info">
 

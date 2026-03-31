@@ -157,7 +157,7 @@ CloudWatch alarms evaluate metric conditions and trigger actions:
 
 Alarm actions integrate directly with AWS services like SNS, Auto Scaling, EC2 actions, and Lambda. This makes CloudWatch alarms a natural extension of AWS operational workflows.
 
-At scale, alarm hygiene becomes a real problem. Teams that create alarms reactively, without regular cleanup, accumulate stale or orphaned alarms that add noise and cost. Community discussions on [r/aws](https://www.reddit.com/r/aws/comments/t2ar29/why_am_i_being_charged_for_cloudwatch/) frequently mention surprise alarm costs and difficulty tracking which alarms are still useful.
+At scale, alarm hygiene becomes a real problem. Teams that create alarms reactively, without regular cleanup, accumulate stale or orphaned alarms that add noise and cost. Community discussions on <a href="https://www.reddit.com/r/aws/comments/t2ar29/why_am_i_being_charged_for_cloudwatch/" target="_blank" rel="noopener noreferrer nofollow">r/aws</a> frequently mention surprise alarm costs and difficulty tracking which alarms are still useful.
 
 ## OpenTelemetry and Portability
 
@@ -212,7 +212,7 @@ CloudWatch pricing is multi-dimensional. Here are the major axes, based on US Ea
   caption="CloudWatch costs spread across multiple usage dimensions. Tracking each axis separately helps avoid surprise bills."
 />
 
-Common cost surprises include log groups without retention policies that accumulate storage indefinitely, high-cardinality custom metrics that multiply metric counts, and heavy Logs Insights queries during incidents that scan large volumes. Community discussions on [r/aws](https://www.reddit.com/r/aws/comments/t2ar29/why_am_i_being_charged_for_cloudwatch/) highlight billing confusion as a recurring theme.
+Common cost surprises include log groups without retention policies that accumulate storage indefinitely, high-cardinality custom metrics that multiply metric counts, and heavy Logs Insights queries during incidents that scan large volumes. Community discussions on <a href="https://www.reddit.com/r/aws/comments/t2ar29/why_am_i_being_charged_for_cloudwatch/" target="_blank" rel="noopener noreferrer nofollow">r/aws</a> highlight billing confusion as a recurring theme.
 
 Governance practices that help include enforcing retention policies on every log group, controlling metric cardinality through naming conventions and dimension limits, auditing alarms regularly, and monitoring CloudWatch spend as its own line item in AWS Cost Explorer. For a full walkthrough of every CloudWatch pricing axis and cost-reduction strategies, see the [complete CloudWatch pricing guide](https://signoz.io/guides/cloudwatch-pricing/).
 
