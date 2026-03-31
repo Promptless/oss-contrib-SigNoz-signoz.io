@@ -6,7 +6,7 @@ import { coreContent } from 'pliny/utils/contentlayer'
 import { allAuthors } from 'contentlayer/generated'
 import type { Authors } from 'contentlayer/generated'
 import OpenTelemetryLayout from '@/layouts/OpenTelemetryLayout'
-import OpenTelemetryHubLayout from '@/layouts/OpenTelemetryHubLayout'
+import OpenTelemetryHubContent from '@/layouts/OpenTelemetryHubLayout'
 import ComparisonsLayout from '@/layouts/ComparisonsLayout'
 import { getHubContextForRoute } from '@/utils/opentelemetryHub'
 import { Metadata } from 'next'
@@ -129,20 +129,15 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <OpenTelemetryHubLayout
+        <OpenTelemetryHubContent
           content={mainContent}
           authorDetails={authorDetails}
           authors={authorList}
           toc={post.toc}
-          navItems={hubContext.items}
-          currentHubPath={hubContext.pathKey}
-          pathMeta={hubContext.firstRouteByPath}
-          defaultLanguage={hubContext.defaultLanguage}
-          availableLanguages={hubContext.languages}
-          currentRoute={currentRoute}
+          showSidebar={hubContext.pathKey !== 'quick-start' && hubContext.items.length > 0}
         >
           {compiledContent}
-        </OpenTelemetryHubLayout>
+        </OpenTelemetryHubContent>
       </>
     )
   }

@@ -8,12 +8,12 @@ import PostSimple from '@/layouts/PostSimple'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
 import OpenTelemetryLayout from '@/layouts/OpenTelemetryLayout'
-import OpenTelemetryHubLayout from '@/layouts/OpenTelemetryHubLayout'
+import OpenTelemetryHubContent from '@/layouts/OpenTelemetryHubLayout'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 import React from 'react'
-import PageFeedback from '../../../components/PageFeedback/PageFeedback'
+import PageFeedback from '@/components/PageFeedback/PageFeedback'
 import { getHubContextForRoute } from '@/utils/opentelemetryHub'
 import { fetchMDXContentByPath, MDXContent } from '@/utils/strapi'
 import { generateStructuredData } from '@/utils/structuredData'
@@ -240,6 +240,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const hubContext = await getHubContextForRoute(currentRoute)
 
   if (hubContext) {
+    const showSidebar = hubContext.pathKey !== 'quick-start' && hubContext.items.length > 0
     return (
       <>
         {jsonLd && (
@@ -248,22 +249,17 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
         )}
-        <OpenTelemetryHubLayout
+        <OpenTelemetryHubContent
           content={mainContent}
           authorDetails={authorDetails}
           authors={content.authors?.map((author) => author?.key) || []}
           toc={toc}
-          navItems={hubContext.items}
-          currentHubPath={hubContext.pathKey}
-          pathMeta={hubContext.firstRouteByPath}
-          defaultLanguage={hubContext.defaultLanguage}
-          availableLanguages={hubContext.languages}
-          currentRoute={currentRoute}
+          showSidebar={showSidebar}
         >
           <div className="prose max-w-none dark:prose-invert prose-headings:scroll-mt-16">
             {compiledContent}
           </div>
-        </OpenTelemetryHubLayout>
+        </OpenTelemetryHubContent>
       </>
     )
   }
