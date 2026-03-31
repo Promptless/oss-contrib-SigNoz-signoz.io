@@ -1,6 +1,8 @@
 'use client'
 
-import { AlertTriangle, ChevronDown, CircleAlert, Info, Lightbulb, Megaphone } from 'lucide-react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
+import { BsFillExclamationCircleFill as Info } from 'react-icons/bs'
+
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from 'app/lib/utils'
 import { useState } from 'react'
@@ -11,8 +13,8 @@ type AdmonitionTheme = {
   root: string
   title: string
   bodyMuted: string
-  icon: React.ReactNode
-  iconBox: string
+  icon: (size: 'sm' | 'lg') => React.ReactNode
+  // iconBox: string
 }
 
 const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
@@ -26,8 +28,13 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     ].join(' '),
     title: 'text-signoz_robin-100',
     bodyMuted: 'text-signoz_robin-300 [&_p]:mb-3 [&_p:last-child]:mb-0',
-    icon: <Info className="h-[1em] w-[1em]" aria-hidden />,
-    iconBox: 'border-signoz_robin-500/25 bg-signoz_robin-500/[0.15] text-signoz_robin-300',
+    icon: (size) => (
+      <Info
+        className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-signoz_robin-100')}
+        aria-hidden
+      />
+    ),
+    // iconBox: 'bg-signoz_robin-500/[0.15] text-signoz_robin-300',
   },
   tip: {
     root: [
@@ -39,8 +46,13 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     ].join(' '),
     title: 'text-signoz_forest-100',
     bodyMuted: 'text-signoz_forest-300 [&_p]:mb-3 [&_p:last-child]:mb-0',
-    icon: <Lightbulb className="h-[1em] w-[1em]" aria-hidden />,
-    iconBox: 'border-signoz_forest-500/25 bg-signoz_forest-500/[0.15] text-signoz_forest-300',
+    icon: (size) => (
+      <Info
+        className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-signoz_forest-100')}
+        aria-hidden
+      />
+    ),
+    // iconBox: 'bg-signoz_forest-500/[0.15] text-signoz_forest-300',
   },
   warning: {
     root: [
@@ -52,8 +64,13 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     ].join(' '),
     title: 'text-signoz_amber-100',
     bodyMuted: 'text-signoz_amber-300 [&_p]:mb-3 [&_p:last-child]:mb-0',
-    icon: <AlertTriangle className="h-[1em] w-[1em]" aria-hidden />,
-    iconBox: 'border-signoz_amber-500/25 bg-signoz_amber-500/[0.15] text-signoz_amber-300',
+    icon: (size) => (
+      <Info
+        className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-signoz_amber-100')}
+        aria-hidden
+      />
+    ),
+    // iconBox: 'bg-signoz_amber-500/[0.15] text-signoz_amber-300',
   },
   danger: {
     root: [
@@ -65,8 +82,13 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     ].join(' '),
     title: 'text-signoz_cherry-100',
     bodyMuted: 'text-signoz_cherry-300 [&_p]:mb-3 [&_p:last-child]:mb-0',
-    icon: <CircleAlert className="h-[1em] w-[1em]" aria-hidden />,
-    iconBox: 'border-signoz_cherry-500/25 bg-signoz_cherry-500/[0.15] text-signoz_cherry-300',
+    icon: (size) => (
+      <Info
+        className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-signoz_cherry-100')}
+        aria-hidden
+      />
+    ),
+    // iconBox: 'bg-signoz_cherry-500/[0.15] text-signoz_cherry-300',
   },
   info: {
     root: [
@@ -78,8 +100,13 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     ].join(' '),
     title: 'text-signoz_robin-100',
     bodyMuted: 'text-signoz_robin-300 [&_p]:mb-3 [&_p:last-child]:mb-0',
-    icon: <Info className="h-[1em] w-[1em]" aria-hidden />,
-    iconBox: 'border-signoz_robin-500/25 bg-signoz_robin-500/[0.15] text-signoz_robin-300',
+    icon: (size) => (
+      <Info
+        className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-signoz_robin-100')}
+        aria-hidden
+      />
+    ),
+    // iconBox: 'bg-signoz_robin-500/[0.15] text-signoz_robin-300',
   },
   important: {
     root: [
@@ -91,8 +118,10 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     ].join(' '),
     title: 'text-violet-200',
     bodyMuted: 'text-violet-300 [&_p]:mb-3 [&_p:last-child]:mb-0',
-    icon: <Megaphone className="h-[1em] w-[1em]" aria-hidden />,
-    iconBox: 'border-violet-500/25 bg-violet-500/[0.15] text-violet-300',
+    icon: (size) => (
+      <Info className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-violet-200')} aria-hidden />
+    ),
+    // iconBox: 'bg-violet-500/[0.15] text-violet-300',
   },
   default: {
     root: [
@@ -104,8 +133,10 @@ const ADMONITION_THEMES: Record<AdmonitionKind, AdmonitionTheme> = {
     ].join(' '),
     title: 'text-zinc-200',
     bodyMuted: 'text-zinc-300 [&_p]:mb-3 [&_p:last-child]:mb-0',
-    icon: <Info className="h-[1em] w-[1em]" aria-hidden />,
-    iconBox: 'border-zinc-500/25 bg-zinc-500/[0.15] text-zinc-300',
+    icon: (size) => (
+      <Info className={cn(size === 'lg' ? 'h-4 w-4' : 'h-3 w-3', 'text-zinc-200')} aria-hidden />
+    ),
+    // iconBox: 'bg-zinc-500/[0.15] text-zinc-300',
   },
 }
 
@@ -168,7 +199,7 @@ export const admonitionHeaderVariants = cva('flex items-center justify-between g
 })
 
 export const admonitionIconCircleVariants = cva(
-  'flex shrink-0 items-center justify-center rounded-full border font-medium leading-none',
+  'flex shrink-0 items-center justify-center font-medium leading-none',
   {
     variants: {
       size: {
@@ -239,8 +270,8 @@ const Admonition = ({ type, title, variant, defaultCollapsed, children }: Admoni
 
   const iconAndTitle = (
     <div className="flex min-w-0 flex-1 items-center gap-2.5">
-      <span className={cn(admonitionIconCircleVariants({ size }), theme.iconBox)} aria-hidden>
-        {theme.icon}
+      <span className={cn(admonitionIconCircleVariants({ size }))} aria-hidden>
+        {theme.icon(size)}
       </span>
       <span className={cn(admonitionTitleVariants({ size }), theme.title)}>{displayTitle}</span>
     </div>
