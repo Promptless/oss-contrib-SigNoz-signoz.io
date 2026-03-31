@@ -1434,17 +1434,10 @@ module.exports = () => {
         use: ['@svgr/webpack'],
       })
 
-      // this is to avoid caching for webpack
+      // Disable webpack cache to reduce memory usage during build
       // reference https://nextjs.org/docs/app/building-your-application/optimizing/memory-usage#disable-webpack-cache
       if (config.cache && !options.dev) {
-        config.cache = Object.freeze({
-          type: 'memory',
-        })
-      }
-
-      // Ensure source maps are generated in production (server & client)
-      if (!options.dev) {
-        config.devtool = 'source-map'
+        config.cache = false
       }
 
       return config

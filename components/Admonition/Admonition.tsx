@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { BsFillExclamationCircleFill as Info } from 'react-icons/bs'
 
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -168,7 +168,7 @@ export const admonitionRootVariants = cva(
   {
     variants: {
       size: {
-        sm: 'p-4',
+        sm: 'p-3',
         lg: 'p-4',
       },
     },
