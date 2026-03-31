@@ -2894,12 +2894,35 @@ const docsSideNav = [
       {
         type: 'doc',
         route: '/docs/ai/signoz-mcp-server',
-        label: 'MCP Server',
+        label: 'SigNoz MCP Server',
       },
       {
         type: 'doc',
         route: '/docs/ai/agent-skills',
         label: 'Agent Skills',
+      },
+      {
+        type: 'category',
+        isExpanded: false,
+        route: '/docs/ai/use-cases',
+        label: 'MCP Use Cases',
+        items: [
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/natural-language-log-exploration',
+            label: 'Log Exploration',
+          },
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/latency-spike-explainer',
+            label: 'Latency Spike Explainer',
+          },
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/reconstruct-bug-from-trace-id',
+            label: 'Report from Trace ID',
+          },
+        ],
       },
     ],
   },
