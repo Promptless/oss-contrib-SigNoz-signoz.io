@@ -126,7 +126,10 @@ export const WhyOpenTelemetry = () => {
                 </ul>
               </div>
               <div className="card-background mb-6 aspect-[449/352] sm:h-[352px]">
-                <img src="/img/graphics/homepage/feature-graphic-otel.webp" alt="" />
+                <img
+                  src="/img/graphics/homepage/feature-graphic-otel.webp"
+                  alt="Illustration showing SigNoz built on top of OpenTelemetry"
+                />
               </div>
             </div>
             <TrackingLink

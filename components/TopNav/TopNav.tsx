@@ -481,7 +481,7 @@ export default function TopNav() {
                                     <Image
                                       className="shrink-0"
                                       src={'/img/index_features/brainfish.svg'}
-                                      alt={''}
+                                      alt="Brainfish"
                                       width={20}
                                       height={20}
                                     />
