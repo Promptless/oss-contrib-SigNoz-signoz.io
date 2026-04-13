@@ -6,6 +6,12 @@ import ComparisonsListing from './comparisons/Comparisons'
 import Guides from './guides/Guides'
 import OpenTelemetry from './opentelemetry/OpenTelemetry'
 import Button from '@/components/ui/Button'
+import type {
+  ResourceCenterBlog,
+  ResourceCenterComparison,
+  ResourceCenterGuide,
+  ResourceCenterOpenTelemetryArticle,
+} from './content'
 
 const tabs = [
   {
@@ -13,33 +19,55 @@ const tabs = [
     label: 'Blog',
     target: '#blog',
     controls: 'blog',
-    component: Blogs,
   },
   {
     id: 'comparisons-tab',
     label: 'Comparisons',
     target: '#comparisons',
     controls: 'comparisons',
-    component: ComparisonsListing,
   },
   {
     id: 'guides-tab',
     label: 'Guides',
     target: '#guides',
     controls: 'guides',
-    component: Guides,
   },
   {
     id: 'openTelemetry-tab',
     label: 'OpenTelemetry',
     target: '#openTelemetry',
     controls: 'openTelemetry',
-    component: OpenTelemetry,
   },
 ]
 
-export default function ResourceCenterClient() {
+export default function ResourceCenterClient({
+  blogPosts,
+  guidePosts,
+  openTelemetryArticles = [],
+  comparisonPosts = [],
+}: {
+  blogPosts: ResourceCenterBlog[]
+  guidePosts: ResourceCenterGuide[]
+  openTelemetryArticles?: ResourceCenterOpenTelemetryArticle[]
+  comparisonPosts?: ResourceCenterComparison[]
+}) {
   const [activeTab, setActiveTab] = useState('blog-tab')
+
+  let content = <Blogs posts={blogPosts} />
+
+  if (activeTab === 'comparisons-tab') {
+    content = <ComparisonsListing posts={comparisonPosts} />
+  } else if (activeTab === 'guides-tab') {
+    content = <Guides posts={guidePosts} />
+  } else if (activeTab === 'openTelemetry-tab') {
+    content = (
+      <OpenTelemetry
+        articles={openTelemetryArticles}
+        blogPosts={blogPosts}
+        guidePosts={guidePosts}
+      />
+    )
+  }
 
   return (
     <div className="container mx-auto py-4">
@@ -71,9 +99,7 @@ export default function ResourceCenterClient() {
         </ul>
       </div>
 
-      <div className="tab-content pt-6">
-        {tabs.map((tab) => activeTab === tab.id && <tab.component key={tab.id} />)}
-      </div>
+      <div className="tab-content pt-6">{content}</div>
     </div>
   )
 }

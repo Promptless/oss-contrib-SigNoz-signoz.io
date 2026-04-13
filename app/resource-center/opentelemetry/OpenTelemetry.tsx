@@ -2,17 +2,18 @@
 
 import hubConfig from '@/constants/opentelemetry_hub.json'
 import { LEARN_CHAPTER_ORDER } from '@/constants/opentelemetryHub'
-import { allBlogs, allGuides, type Blog, type Guide } from 'contentlayer/generated'
-import { coreContent, type CoreContent } from 'pliny/utils/contentlayer'
-import type { MDXContent } from '@/utils/strapi'
 import BlogPostCard from '../Shared/BlogPostCard'
 import SearchInput from '../Shared/Search'
 import React from 'react'
 import { filterData } from 'app/utils/common'
 import { Frown } from 'lucide-react'
-import { type Comparison } from 'types/transformedContent'
+import type {
+  ResourceCenterBlog,
+  ResourceCenterGuide,
+  ResourceCenterOpenTelemetryArticle,
+} from '../content'
 
-type HubDoc = CoreContent<Blog | Comparison | Guide | MDXContent>
+type HubDoc = ResourceCenterBlog | ResourceCenterGuide | ResourceCenterOpenTelemetryArticle
 
 type HubChapterGroup = {
   key: string
@@ -66,32 +67,6 @@ function formatLanguageLabel(label: string) {
   return label
 }
 
-function transformStrapiArticle(article: any): HubDoc {
-  let path = article.path || ''
-  if (path.startsWith('/')) {
-    path = path.slice(1)
-  }
-  if (!path.startsWith('opentelemetry/')) {
-    path = `opentelemetry/${path}`
-  }
-
-  return {
-    ...article,
-    path,
-    date: article.publishedAt,
-    readingTime: { text: article.readingTime?.text || '5 min read' },
-    authors:
-      article.authors?.map((author: any) => ({
-        ...author,
-        name: author.name,
-        image_url: author.image_url || author.avatar,
-      })) || [],
-    title: article.title,
-    description: article.description,
-    summary: article.summary || article.description,
-  }
-}
-
 interface OpenTelemetryPageHeaderProps {
   onSearch: (e) => void
 }
@@ -115,10 +90,16 @@ const OpenTelemetryPageHeader: React.FC<OpenTelemetryPageHeaderProps> = ({ onSea
 }
 
 interface OpenTelemetryProps {
-  articles?: MDXContent[]
+  articles?: ResourceCenterOpenTelemetryArticle[]
+  blogPosts: ResourceCenterBlog[]
+  guidePosts: ResourceCenterGuide[]
 }
 
-export default function OpenTelemetry({ articles = [] }: OpenTelemetryProps) {
+export default function OpenTelemetry({
+  articles = [],
+  blogPosts,
+  guidePosts,
+}: OpenTelemetryProps) {
   const [searchValue, setSearchValue] = React.useState('')
   const [activeLanguageKey, setActiveLanguageKey] = React.useState('ALL')
   const trimmedSearch = searchValue.trim()
@@ -131,17 +112,11 @@ export default function OpenTelemetry({ articles = [] }: OpenTelemetryProps) {
       const normalizedDocMap = new Map<string, HubDoc>()
 
       // Merge collections
-      const allDocs: (Blog | Comparison | Guide | HubDoc)[] = [...allBlogs, ...allGuides]
-
-      // Add Strapi opentelemetry articles
-      articles.forEach((article) => {
-        allDocs.push(transformStrapiArticle(article))
-      })
+      const allDocs: HubDoc[] = [...blogPosts, ...guidePosts, ...articles]
 
       allDocs.forEach((doc) => {
-        const content = ('path' in doc ? doc : coreContent(doc)) as HubDoc
-        const normalizedPath = normalizeRoute(`/${content.path}`)
-        normalizedDocMap.set(normalizedPath, content)
+        const normalizedPath = normalizeRoute(`/${doc.path}`)
+        normalizedDocMap.set(normalizedPath, doc)
       })
 
       function setDocLanguage(doc: HubDoc | null, language?: string) {
@@ -221,9 +196,8 @@ export default function OpenTelemetry({ articles = [] }: OpenTelemetryProps) {
       quickStartDocs.forEach((doc) => docRegistry.set(doc.path, doc))
 
       articles.forEach((article) => {
-        const transformed = transformStrapiArticle(article)
-        if (!docRegistry.has(transformed.path)) {
-          docRegistry.set(transformed.path, transformed)
+        if (!docRegistry.has(article.path)) {
+          docRegistry.set(article.path, article)
         }
       })
 
@@ -246,7 +220,7 @@ export default function OpenTelemetry({ articles = [] }: OpenTelemetryProps) {
         AVAILABLE_LANGUAGES: languages,
         getDocLanguage: (doc: HubDoc) => docLanguageMap.get(doc.path),
       }
-    }, [articles])
+    }, [articles, blogPosts, guidePosts])
 
   const handleSearch = (e) => {
     setSearchValue(e.target.value)
