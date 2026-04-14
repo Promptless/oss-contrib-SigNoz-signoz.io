@@ -407,28 +407,37 @@ export const Doc = defineDocumentType(() => ({
       resolve: (doc) => ({
         '@context': 'https://schema.org',
         '@type': 'TechArticle',
-        mainEntityOfPage: {
-          '@type': 'WebPage',
-          '@id': `https://signoz.io/docs/${doc.slug}`,
-        },
+        headline: doc.title,
+        description: doc.description,
+        image: `${siteMetadata.siteUrl}${doc.image || (doc.images ? doc.images[0] : siteMetadata.socialBanner)}`,
         author: {
           '@type': 'Organization',
-          name: 'SigNoz',
+          name: siteMetadata.title,
         },
         publisher: {
           '@type': 'Organization',
-          name: 'SigNoz',
+          name: siteMetadata.title,
           logo: {
             '@type': 'ImageObject',
-            url: 'https://signoz.io/img/SigNozLogo-orange.svg',
+            url: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
           },
+          sameAs: [
+            siteMetadata.linkedin,
+            siteMetadata.x,
+            siteMetadata.github,
+            siteMetadata.youtube,
+            siteMetadata.hackernews,
+          ],
         },
-        headline: doc.title,
-        datePublished: doc.date || 'Thu Jun 06 2025', // Setting it Jun 06, 2025 as date metadat doesn't exist for docs, TODO: add date to all exisiting doc files
-        dateModified: doc.lastmod || doc.date || 'Thu Jun 06 2025',
-        description: doc.description,
-        image: `${siteMetadata.siteUrl}${doc.image || (doc.images ? doc.images[0] : siteMetadata.socialBanner)}`,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+        },
         url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+        inLanguage: siteMetadata.language,
+        wordCount: doc.body.raw.split(/\s+/g).filter(Boolean).length,
+        datePublished: doc.date || '2025-06-06', // Setting it Jun 06, 2025 as date metadata doesn't exist for docs, TODO: add date to all existing doc files
+        dateModified: doc.lastmod || doc.date || '2025-06-06',
       }),
     },
   },
