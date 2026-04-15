@@ -3,11 +3,15 @@
 import React, { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useLogEvent } from '@/hooks/useLogEvent'
+import {
+  createSubmissionRelayId,
+  sendSubmissionRelayInBackground,
+} from '@/utils/submissionRelayClient'
+import { flattenSubmissionValues } from '@/utils/hubspotTracking'
 import { Check, CheckCircle, Loader2 } from 'lucide-react'
+import { contactUsData } from '../data'
 
-const PORTAL_ID = '22308423'
-const FORM_ID = 'cf4128d5-51f1-46aa-ae4a-552bcff20f8c'
-const SUBMIT_URL = `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`
+const { FORM_ID, FORM_NAME, SUBMIT_URL } = contactUsData
 
 const HOSTING_OPTIONS = [
   { label: 'Enterprise Cloud', value: 'Enterprise Cloud' },
@@ -89,6 +93,45 @@ export default function ContactFormCustom() {
         const data = await res.json().catch(() => ({}))
         throw new Error(data?.message || 'Submission failed')
       }
+
+      const submissionValues: Record<string, string> = {
+        email,
+        teams_deployment_option: hosting,
+        ...(scale ? { current_scale: scale } : {}),
+        ...(tools.length ? { existing_tools: tools.join(';') } : {}),
+        ...(description ? { description } : {}),
+      }
+
+      logEvent({
+        eventName: 'HubSpot Form Submitted',
+        eventType: 'track',
+        attributes: {
+          pageLocation: pathname,
+          formName: FORM_NAME,
+          hubspot_form_id: FORM_ID,
+          hubspot_form_name: FORM_NAME,
+          hubspot_event_name: '',
+          hubspot_conversion_id: '',
+          hubspot_redirect_url: '',
+          hubspot_message_origin: '',
+          hubspot_page_path: pathname,
+          hubspot_page_url: window.location.href,
+          ...flattenSubmissionValues(submissionValues),
+        },
+      })
+
+      sendSubmissionRelayInBackground({
+        email,
+        signupId: createSubmissionRelayId('hubspot'),
+        source: 'hubspot-form',
+        createdAt: new Date().toISOString(),
+        formName: FORM_NAME,
+        pageLocation: pathname,
+        pageUrl: window.location.href,
+        formId: FORM_ID,
+        conversionId: '',
+        details: submissionValues,
+      })
 
       logEvent({
         eventName: 'Website Click',
