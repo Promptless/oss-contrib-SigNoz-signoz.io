@@ -3005,6 +3005,11 @@ const docsSideNav = [
             route: '/docs/ai/use-cases/post-deployment-monitoring',
             label: 'Post Deployment Monitoring',
           },
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/oncall-handoff-brief',
+            label: 'On-Call Handoff Brief',
+          },
         ],
       },
     ],
