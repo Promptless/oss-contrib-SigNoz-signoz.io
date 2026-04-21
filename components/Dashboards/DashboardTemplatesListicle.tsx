@@ -94,6 +94,9 @@ const ICON_MAP: Record<string, React.ReactNode> = {
       className="h-7 w-7"
     />
   ),
+  '/docs/dashboards/dashboard-templates/baseten-dashboard': (
+    <img src="/svgs/icons/LLMMonitoring/baseten-logo.webp" alt="Baseten Icon" className="h-7 w-7" />
+  ),
   '/docs/dashboards/dashboard-templates/cicd': <Settings className="h-7 w-7 text-green-600" />,
   '/docs/dashboards/dashboard-templates/claude-code-dashboard/': (
     <SiClaude className="h-7 w-7 text-orange-500" />
@@ -236,6 +239,13 @@ const ICON_MAP: Record<string, React.ReactNode> = {
     <img
       src="/svgs/icons/LLMMonitoring/openclaw-logo.svg"
       alt="OpenClaw Icon"
+      className="h-7 w-7"
+    />
+  ),
+  '/docs/dashboards/dashboard-templates/opencode-dashboard': (
+    <img
+      src="/svgs/icons/LLMMonitoring/opencode-logo.webp"
+      alt="OpenCode Icon"
       className="h-7 w-7"
     />
   ),

@@ -1,34 +1,21 @@
-import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import Guides from '@/components/ResourceCenter/Guides'
+import ListingPageLayout from '@/components/ResourceCenter/ListingPageLayout'
 import { allGuides } from 'contentlayer/generated'
+import { buildListingMetadata, buildStaticPaginationParams } from '../../../metadata'
+import { getResourceCenterGuides } from '../../../content'
 
-const POSTS_PER_PAGE = 5
-
-export const generateStaticParams = async () => {
-  const totalPages = Math.ceil(allGuides.length / POSTS_PER_PAGE)
-  const paths = Array.from({ length: totalPages }, (_, i) => ({ page: (i + 1).toString() }))
-
-  return paths
+export async function generateMetadata({ params }: { params: { page: string } }) {
+  return buildListingMetadata('Guides', params.page)
 }
 
-export default function Page({ params }: { params: { page: string } }) {
-  const posts = allCoreContent(sortPosts(allGuides))
-  const pageNumber = parseInt(params.page as string)
-  const initialDisplayPosts = posts.slice(
-    POSTS_PER_PAGE * (pageNumber - 1),
-    POSTS_PER_PAGE * pageNumber
-  )
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
-  }
+export const generateStaticParams = async () => buildStaticPaginationParams(allGuides.length)
 
+const guidePosts = getResourceCenterGuides()
+
+export default function Page({ params }: { params: { page: string } }) {
   return (
-    <ListLayout
-      posts={posts}
-      initialDisplayPosts={initialDisplayPosts}
-      pagination={pagination}
-      title="All Posts"
-    />
+    <ListingPageLayout>
+      <Guides posts={guidePosts} pageNumber={parseInt(params.page)} />
+    </ListingPageLayout>
   )
 }

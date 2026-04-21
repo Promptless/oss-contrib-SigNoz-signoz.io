@@ -15,6 +15,11 @@ const docsSideNav = [
         route: '/docs/what-is-signoz',
       },
       {
+        type: 'doc',
+        label: 'What Is OpenTelemetry?',
+        route: '/docs/overview/what-is-opentelemetry-and-why-it-matters',
+      },
+      {
         label: 'SigNoz Features',
         type: 'category',
         isExpanded: false,
@@ -269,117 +274,117 @@ const docsSideNav = [
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.113',
+            route: '/docs/operate/migration/upgrade-0-113',
             label: 'Upgrade to v0.113',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.94',
+            route: '/docs/operate/migration/upgrade-0-94',
             label: 'Upgrade to v0.94',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.92',
+            route: '/docs/operate/migration/upgrade-0-92',
             label: 'Upgrade to v0.92',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.88',
+            route: '/docs/operate/migration/upgrade-0-88',
             label: 'Upgrade to v0.88',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.86',
+            route: '/docs/operate/migration/upgrade-0-86',
             label: 'Upgrade to v0.86',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.76',
+            route: '/docs/operate/migration/upgrade-0-76',
             label: 'Upgrade to v0.76',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.70',
+            route: '/docs/operate/migration/upgrade-0-70',
             label: 'Upgrade to v0.70',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.64',
+            route: '/docs/operate/migration/upgrade-0-64',
             label: 'Upgrade to v0.64',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.55',
+            route: '/docs/operate/migration/upgrade-0-55',
             label: 'Upgrade to v0.55',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.51',
+            route: '/docs/operate/migration/upgrade-0-51',
             label: 'Upgrade to v0.51',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.49',
+            route: '/docs/operate/migration/upgrade-0-49',
             label: 'Upgrade to v0.49',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.45',
+            route: '/docs/operate/migration/upgrade-0-45',
             label: 'Upgrade to v0.45',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.38',
+            route: '/docs/operate/migration/upgrade-0-38',
             label: 'Upgrade to v0.38',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.37',
+            route: '/docs/operate/migration/upgrade-0-37',
             label: 'Upgrade to v0.37',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.36',
+            route: '/docs/operate/migration/upgrade-0-36',
             label: 'Upgrade to v0.36',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.27',
+            route: '/docs/operate/migration/upgrade-0-27',
             label: 'Upgrade to v0.27',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.23',
+            route: '/docs/operate/migration/upgrade-0-23',
             label: 'Upgrade to v0.23',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.19',
+            route: '/docs/operate/migration/upgrade-0-19',
             label: 'Upgrade to v0.19',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.12',
+            route: '/docs/operate/migration/upgrade-0-12',
             label: 'Upgrade to v0.12',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.10',
+            route: '/docs/operate/migration/upgrade-0-10',
             label: 'Upgrade to v0.10',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.9',
+            route: '/docs/operate/migration/upgrade-0-9',
             label: 'Upgrade to v0.9',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.8.1',
+            route: '/docs/operate/migration/upgrade-0-8-1',
             label: 'Upgrade to v0.8.1',
           },
           {
             type: 'doc',
-            route: '/docs/operate/migration/upgrade-0.8.0',
+            route: '/docs/operate/migration/upgrade-0-8-0',
             label: 'Upgrade to v0.8.0',
           },
         ],
@@ -665,7 +670,7 @@ const docsSideNav = [
                   {
                     type: 'doc',
                     route:
-                      '/docs/opentelemetry-collection-agents/k8s/k8s-infra/user-guides/upgrade-k8s-infra-v0.15',
+                      '/docs/opentelemetry-collection-agents/k8s/k8s-infra/user-guides/upgrade-k8s-infra-v0-15',
                     label: 'Upgrade k8s-infra to v0.15.0',
                   },
                   {
@@ -1159,6 +1164,11 @@ const docsSideNav = [
             route: '/docs/integrations/opentelemetry-hasura',
             label: 'Hasura',
           },
+          {
+            type: 'doc',
+            route: '/docs/integrations/opentelemetry-dbos',
+            label: 'DBOS',
+          },
           // {
           //   type: 'category',
           //   isExpanded: false,
@@ -1490,6 +1500,11 @@ const docsSideNav = [
             type: 'doc',
             route: '/docs/integrations/opentelemetry-hasura',
             label: 'Hasura',
+          },
+          {
+            type: 'doc',
+            route: '/docs/integrations/opentelemetry-dbos',
+            label: 'DBOS',
           },
           {
             type: 'doc',
@@ -2091,6 +2106,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/baseten-dashboard',
+            label: 'Baseten',
+          },
+          {
+            type: 'doc',
             route: '/docs/dashboards/dashboard-templates/cicd',
             label: 'CI/CD',
           },
@@ -2342,6 +2362,11 @@ const docsSideNav = [
             type: 'doc',
             route: '/docs/dashboards/dashboard-templates/openclaw-dashboard',
             label: 'OpenClaw',
+          },
+          {
+            type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/opencode-dashboard',
+            label: 'OpenCode',
           },
           {
             type: 'doc',
@@ -2762,6 +2787,11 @@ const docsSideNav = [
         type: 'doc',
       },
       {
+        route: '/docs/baseten-monitoring',
+        label: 'Baseten',
+        type: 'doc',
+      },
+      {
         route: '/docs/claude-code-monitoring',
         label: 'Claude Code',
         type: 'doc',
@@ -2877,6 +2907,11 @@ const docsSideNav = [
         type: 'doc',
       },
       {
+        route: '/docs/opencode-observability',
+        label: 'OpenCode',
+        type: 'doc',
+      },
+      {
         route: '/docs/openlit',
         label: 'OpenLIT',
         type: 'doc',
@@ -2959,6 +2994,31 @@ const docsSideNav = [
             type: 'doc',
             route: '/docs/ai/use-cases/reconstruct-bug-from-trace-id',
             label: 'Report from Trace ID',
+          },
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/error-rate-spike-explainer',
+            label: 'Error Rate Spike Explainer',
+          },
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/alert-correlation-analysis',
+            label: 'Alert Correlation Analysis',
+          },
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/post-deployment-monitoring',
+            label: 'Post Deployment Monitoring',
+          },
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/oncall-handoff-brief',
+            label: 'On-Call Handoff Brief',
+          },
+          {
+            type: 'doc',
+            route: '/docs/ai/use-cases/alert-fatigue-audit',
+            label: 'Alert Fatigue Audit',
           },
         ],
       },
@@ -3376,6 +3436,11 @@ const docsSideNav = [
         type: 'doc',
         route: '/docs/integrations/opentelemetry-hasura',
         label: 'Hasura',
+      },
+      {
+        type: 'doc',
+        route: '/docs/integrations/opentelemetry-dbos',
+        label: 'DBOS',
       },
       {
         type: 'doc',

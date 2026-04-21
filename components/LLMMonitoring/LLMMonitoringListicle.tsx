@@ -32,6 +32,9 @@ const ICON_MAP: Record<string, React.ReactNode> = {
       className="h-7 w-7"
     />
   ),
+  '/docs/baseten-monitoring': (
+    <img src="/svgs/icons/LLMMonitoring/baseten-logo.webp" alt="Baseten Icon" className="h-7 w-7" />
+  ),
   '/docs/claude-code-monitoring': <SiClaude className="h-7 w-7 text-orange-500" />,
   '/docs/claude-agent-monitoring': <SiClaude className="h-7 w-7" style={{ color: '#b55c04' }} />,
   '/docs/codex-monitoring': <SiOpenai className="h-7 w-7 text-white" />,
@@ -104,6 +107,13 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   '/docs/openai-monitoring': <SiOpenai className="h-7 w-7 text-green-400" />,
   '/docs/openclaw-monitoring': (
     <img src="/img/docs/llm/openclaw/openclaw-logo.svg" alt="OpenClaw Icon" className="h-7 w-7" />
+  ),
+  '/docs/opencode-observability': (
+    <img
+      src="/svgs/icons/LLMMonitoring/opencode-logo.webp"
+      alt="OpenCode Icon"
+      className="h-7 w-7"
+    />
   ),
   '/docs/openlit': (
     <img src="/svgs/icons/LLMMonitoring/openlit-logo.webp" alt="OpenLIT Icon" className="h-7 w-7" />

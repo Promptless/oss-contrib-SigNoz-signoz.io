@@ -57,6 +57,11 @@ export const DASHBOARD_TEMPLATES_ITEMS: ComponentItem[] = [
     clickName: 'Azure OpenAI API Dashboard Template',
   },
   {
+    name: 'Baseten',
+    href: '/docs/dashboards/dashboard-templates/baseten-dashboard',
+    clickName: 'Baseten Dashboard Template',
+  },
+  {
     name: 'CI/CD',
     href: '/docs/dashboards/dashboard-templates/cicd',
     clickName: 'CI/CD Dashboard Template',
@@ -290,6 +295,11 @@ export const DASHBOARD_TEMPLATES_ITEMS: ComponentItem[] = [
     name: 'OpenClaw',
     href: '/docs/dashboards/dashboard-templates/openclaw-dashboard',
     clickName: 'OpenClaw Dashboard Template',
+  },
+  {
+    name: 'OpenCode',
+    href: '/docs/dashboards/dashboard-templates/opencode-dashboard',
+    clickName: 'OpenCode Dashboard Template',
   },
   {
     name: 'OpenRouter',

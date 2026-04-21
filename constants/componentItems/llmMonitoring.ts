@@ -19,6 +19,11 @@ export const LLM_MONITORING_ITEMS: ComponentItem[] = [
     clickName: 'Azure OpenAI API Monitoring',
   },
   {
+    name: 'Baseten',
+    href: '/docs/baseten-monitoring',
+    clickName: 'Baseten Monitoring',
+  },
+  {
     name: 'Claude Code',
     href: '/docs/claude-code-monitoring',
     clickName: 'Claude Code Monitoring',
@@ -77,6 +82,7 @@ export const LLM_MONITORING_ITEMS: ComponentItem[] = [
   { name: 'Ollama', href: '/docs/ollama-monitoring', clickName: 'Ollama Monitoring' },
   { name: 'OpenAI', href: '/docs/openai-monitoring', clickName: 'OpenAI Monitoring' },
   { name: 'OpenClaw', href: '/docs/openclaw-monitoring', clickName: 'OpenClaw Monitoring' },
+  { name: 'OpenCode', href: '/docs/opencode-observability', clickName: 'OpenCode Monitoring' },
   { name: 'OpenLIT', href: '/docs/openlit', clickName: 'OpenLIT' },
   {
     name: 'OpenRouter',
