@@ -2053,6 +2053,11 @@ const docsSideNav = [
           },
           {
             type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/apache-druid-dashboard',
+            label: 'Apache Druid',
+          },
+          {
+            type: 'doc',
             route: '/docs/dashboards/dashboard-templates/apache-web-server',
             label: 'Apache Web Server',
           },
@@ -3461,6 +3466,11 @@ const docsSideNav = [
         type: 'doc',
         route: '/docs/integrations/supabase',
         label: 'Supabase',
+      },
+      {
+        type: 'doc',
+        route: '/docs/integrations/opentelemetry-apache-druid',
+        label: 'Apache Druid',
       },
       {
         type: 'doc',
