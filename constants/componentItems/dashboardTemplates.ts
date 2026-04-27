@@ -17,6 +17,11 @@ export const DASHBOARD_TEMPLATES_ITEMS: ComponentItem[] = [
     clickName: 'Anthropic API Dashboard Template',
   },
   {
+    name: 'Apache Druid',
+    href: '/docs/dashboards/dashboard-templates/apache-druid-dashboard',
+    clickName: 'Apache Druid Dashboard Template',
+  },
+  {
     name: 'Apache Web Server',
     href: '/docs/dashboards/dashboard-templates/apache-web-server',
     clickName: 'Apache Web Server Dashboard Template',
