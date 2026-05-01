@@ -1179,6 +1179,11 @@ const docsSideNav = [
             route: '/docs/integrations/opentelemetry-dbos',
             label: 'DBOS',
           },
+          {
+            type: 'doc',
+            route: '/docs/integrations/opentelemetry-kong-gateway',
+            label: 'Kong Gateway',
+          },
           // {
           //   type: 'category',
           //   isExpanded: false,
@@ -1515,6 +1520,11 @@ const docsSideNav = [
             type: 'doc',
             route: '/docs/integrations/opentelemetry-dbos',
             label: 'DBOS',
+          },
+          {
+            type: 'doc',
+            route: '/docs/integrations/opentelemetry-kong-gateway',
+            label: 'Kong Gateway',
           },
           {
             type: 'doc',
@@ -1860,6 +1870,11 @@ const docsSideNav = [
                 type: 'doc',
                 route: '/docs/integrations/opentelemetry-hasura',
                 label: 'Hasura',
+              },
+              {
+                type: 'doc',
+                route: '/docs/integrations/opentelemetry-kong-gateway',
+                label: 'Kong Gateway',
               },
             ],
           },
@@ -2314,6 +2329,11 @@ const docsSideNav = [
             type: 'doc',
             route: '/docs/dashboards/dashboard-templates/key-operations',
             label: 'Key Operations',
+          },
+          {
+            type: 'doc',
+            route: '/docs/dashboards/dashboard-templates/kong-gateway',
+            label: 'Kong Gateway',
           },
           {
             label: 'LiteLLM',
@@ -3496,6 +3516,11 @@ const docsSideNav = [
         type: 'doc',
         route: '/docs/integrations/opentelemetry-dbos',
         label: 'DBOS',
+      },
+      {
+        type: 'doc',
+        route: '/docs/integrations/opentelemetry-kong-gateway',
+        label: 'Kong Gateway',
       },
       {
         type: 'doc',
